@@ -1,0 +1,72 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-02-23 16:26:01
+ * @LastEditTime: 2022-04-30 17:58:00
+ * @LastEditors: lishuangling
+ * @Description: 
+ * @FilePath: \vue_basic\18_非单文件组件\1.基本使用.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- vue中使用组件的三大步骤： -->
+
+    <div id="root">
+        <school></school>
+        <hr>
+        <student></student>
+    </div>
+</body>
+<script>
+    Vue.config.productionTip=false
+    // 第一步：创建组件
+    const school=Vue.extend({
+        // 模板字符串的形式写模板内容才可以换行,必须只有一个根标签
+        template:`
+        <div>
+            <h2>学校名称:{{schoolName}}</h2>
+            <h2>学校地址:{{address}}</h2>
+        </div>
+        `,
+        data(){
+            return{
+                schoolName:'尚硅谷',
+                address:'北京'
+            }
+        }
+    })
+
+    const student=Vue.extend({
+        template:`
+        <div>
+            <h2>学生姓名:{{name}}</h2>
+            <h2>学生年龄:{{age}}</h2>
+        </div>`,
+        data(){
+            return{
+                name:'张三',
+                age:18
+            }
+        }
+    })
+    
+    // 创建vue实例
+    const vm=new Vue({
+        el:'#root',
+        // 第二步：注册组件(局部注册)
+        components:{
+            // school:school键值对名字一样可以简写school
+            // 第一个是你取的组件名称，第二个为你创建的组件中转变量的名称
+            school,
+            student
+        }
+    })
+</script>
+</html>

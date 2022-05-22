@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #333;
+        }
+
+        .one-img {
+            overflow: hidden;
+            width: 200px;
+            height: 100px;
+            /* background-color: #f00; */
+            animation: move 5s linear infinite;
+        }
+
+        .one-img img {
+            /* margin-left: -34px; */
+            animation: anim 1s steps(8) infinite;
+        }
+
+        /* 向右移动 */
+        @keyframes move {
+            0% {
+
+            }
+
+            100% {
+                transform: translateX(1400px);
+            }
+        }
+
+        /* 小熊运动 */
+        @keyframes anim {
+            0%{
+                transform: translateX(0px);
+            }
+            /* 20% {
+                transform: translateX(-210px);
+            }
+            30% {
+                transform: translateX(-400px);
+            }
+            40% {
+                transform: translateX(-600px);
+            }
+            50% {
+                transform: translateX(-800px);
+            }
+            60% {
+                transform: translateX(-1000px);
+            }
+            70% {
+                transform: translateX(-1200px);
+            }
+            80% {
+                transform: translateX(-1400px);
+            } */
+            100% {
+                transform: translateX(-1600px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="one-img">
+        <img src="./media/bear.png" alt="xxx">
+    </div>
+    
+</body>
+</html>

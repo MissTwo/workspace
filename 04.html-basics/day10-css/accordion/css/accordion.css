@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+img{
+    width: 270px;
+    height: 153px;
+}
+.accordion{
+    margin: 10px auto;
+    border: 1px solid black;
+    width: 486px;
+    height: 153px;
+}
+.accordion li{
+    float: left;
+    height: 153px;
+}
+.accordion li:nth-of-type(2n){
+  background: url('../img/1.webp') center/270px 153px;
+}
+.accordion li:nth-of-type(2n-1){
+    background: url('../img/3.webp') center/270px 153px;
+  }
+.accordion input{
+    width: 54px;
+    height: 153px;
+    opacity: 0;
+}
+.accordion input:checked{
+    width: 270px;
+}
+/* outline聚焦才有的属性*/
+
+.change{
+width: 300px;
+height: 200px;
+background-color: paleturquoise;
+margin: 10px auto;
+padding: 40px;
+}
+.cbg{
+    margin: 0 auto;
+    width: 130px;
+    height: 90px;
+    background-image: url('../img/1.jpg');
+}
+
+.change:focus-within .cbg{
+    background-image: url('../img/2.jpg');
+}
+

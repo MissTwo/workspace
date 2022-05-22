@@ -1,0 +1,46 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.box{
+  width: 600px;
+  height: 600px;
+  background-color: pink;
+  margin: 100px auto 0;
+}
+
+.smallbox{
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+  margin-left: 0;
+  transform:rotate(0deg);
+
+  /* transform: scale(2);x y同步放大 */
+  /* transform: scaleX(-1); -1左右反转 */
+  /* transform: scaleY(-1); -1上下反转 */
+
+  /* transform: skew(45deg); 默认skewX() */
+  /* transform: skewX(45deg); */
+  /* transform: skew(45deg,20deg); */
+
+  /* transition-property: margin; */
+
+  /* 复合多例型写法 以逗号分割 */
+  transition: 
+    margin 1s linear,
+    transform 1s 1s linear;
+}
+
+.box:hover .smallbox{
+  margin-left: 200px;
+  transform:rotate(45deg);
+}
+
+/* 
+形变形变  有形状才有变化  transform对行内元素不生效 
+*/
+span{
+  transform: rotate(45deg);
+}

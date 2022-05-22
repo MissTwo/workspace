@@ -1,0 +1,36 @@
+#bbb{
+    width: 1000px;
+    height: 800px;
+    background-color: aquamarine;
+}
+span{
+    font-size: 1.3em;
+    /* 幼圆  */
+    font-family: '\5E7C\5706';
+    /* 隶书 */
+    /* font-family: '\96B6\4E66'; */
+    /* 细明体 */
+    /* font-family: '\7EC6\660E\4F53'; */
+}
+.b{
+    /* 100-900,bold是700 */
+    font-weight: bold;
+    text-decoration: underline;
+}
+.i{
+    /* 首行缩进两个字符 */
+    text-indent: 2em;
+    font-style: italic;
+    /* 贯穿线 */
+    text-decoration: line-through;
+}
+.ff{
+    /* font-style font-weight font-size font-family最后两个不可以省略 */
+    font: italic bold 50px '\5E7C\5706';
+    text-align: left;
+    text-indent: 2em;
+    /* 上划线 */
+    text-decoration: overline;
+    color: blueviolet;
+    
+}

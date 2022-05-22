@@ -1,0 +1,136 @@
+
+<!-- 声明文档类型 超文本标记语言 -->
+<!DOCTYPE html>
+<!-- 根标签  -->
+<html lang="en">
+
+<head>
+    <!-- 编码字符集 -->
+    <meta charset="UTF-8">
+    <title>ChooseCard</title>
+    <!-- <link rel="stylesheet" href="../day_1/css/card.css"> -->
+    <style>
+        /*  *通配符选择器，默认选择页面中所有样式  */
+        * {
+            /* 外边距 */
+            margin: 0;
+            /* 内边距 */
+            padding: 0;
+            /* 隐藏li默认样式 */
+            list-style: none;
+        }
+
+        #tab {
+            width: 300px;
+            height: 250px;
+            /*margin的取值：   
+                1.一个值：距离浏览器四边距离 
+                2.两个值：上下与左右(左右取auto会自适应) 
+                3.三个值：上 左右 下 
+                4.四个值：上右下做(从上顺时针方向)
+                注意：取值为auto时会自适应 */
+            margin: 20px auto;
+            /* 颜色的取值：1.英文颜色 2.十六进制 3.rgb(0-255) 3.rgba(0-1) a代表透明度 */
+            /* background-color: rgba(100, 100, 100, 0.5); */
+
+            /* 子类可以继承属性 */
+            color: white;
+        }
+
+        #menu {
+            width: 300px;
+            height: 50px;
+            background-color: #666;
+        }
+
+        #menu li {
+            width: 100px;
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        #content p {
+            width: 300px;
+            height: 200px;
+            background-color: #777;
+            /* 文字居中 */
+            text-align: center;
+            /*行高 当行高设置与元素高度一致时，内容会自动垂直居中 */
+            line-height: 200px;
+            /* 改变元素状态：1.block块级元素 2.inline行级元素 3.inline-block行内块级元素 4.none隐藏 */
+            display: none;
+        }
+        /* 累加权重 */
+        #menu .active {
+            background-color: #777;
+        }
+
+        #content .on {
+            display: block;
+        }
+    </style>
+    
+    <script src="../day_1/js/card.js"></script>
+    <!-- <script>
+        // querySelectorAll获取选择器下所有子元素
+
+        // 事件四要素：1.事件源 2.事件类型  3.事件函数 4.事件对象
+        
+        // this指针 在js里this的指向至少7种，这里的this指向当前事件源
+        // 箭头函数中的this指向定义函数所在的作用域
+        window.onload=function(){
+            let list=document.querySelectorAll('#menu li')
+            let content=document.querySelectorAll('#content p')
+            for (let i = 0; i < list.length; i++) {
+                list[i].addEventListener('mouseover', () => {
+                    for (let j = 0; j < list.length; j++) {
+                        list[j].className=''
+                        content[j].className=''
+                
+                    }
+                    list[i].className='active'
+                    content[i].className='on'
+                })
+                
+            }
+
+        }
+    </script> -->
+</head>
+
+<body>
+    <!-- 盒子标签 块级元素 容纳块级元素、行内元素、行内块级元素 -->
+    <div id="tab">
+        <!-- 无序列表 必须配合li使用 制作导航栏、轮播等组合样式 -->
+        <ul id="menu">
+            <li class="active">菜单1</li>
+            <li>菜单2</li>
+            <li>菜单3</li>
+        </ul>
+        <div id="content">
+            <p class="on">内容1</p>
+            <p>内容2</p>
+            <p>内容3</p>
+        </div>
+    </div>
+</body>
+<!-- <script>
+    let list=document.querySelectorAll('#menu li')
+    let content=document.querySelectorAll('#content p')
+    for (let i = 0; i < list.length; i++) {
+        list[i].addEventListener('mouseover',() => {
+            for (let j = 0; j < list.length; j++) {
+                list[j].className=''
+                content[j].className=''
+                
+            }
+            list[i].className='active'
+            content[i].className='on'
+        }) 
+    } -->
+    
+</script>
+
+</html>

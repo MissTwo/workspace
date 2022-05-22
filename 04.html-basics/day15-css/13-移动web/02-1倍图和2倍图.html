@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .imgs img:last-child {
+            width: 50px;
+        }
+
+        .imgsBgc div {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #f00;
+
+        }
+
+        .imgsBgc div:first-child {
+            background-image: url(./images/apple50.jpg);
+        }
+
+        .imgsBgc div:last-child {
+            background-image: url(./images/apple100.jpg);
+            background-size: 50px 50px;
+        }
+        .box{
+            width: 300px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 在PC端，1px=1个物理像素，但是在移动端就不尽相同。
+        物理像素点指的是屏幕显示的最小颗粒，是物理真实存在的。这是厂商在出厂时就设置好了,比如苹果6\7\8 是 750* 1334。我们开发时候的1px，PC端页面是1个px 等于1个物理像素，但是移动端就不尽相同，一个px的能显示的物理像素点的个数，称为物理像素比或屏幕像素比。
+
+        PC端 和 早前的手机屏幕 / 普通手机屏幕: 1CSS像素 = 1 物理像素的
+        Retina(视网膜屏幕)是一种显示技术，可以将把更多的物理像素点压缩至一块屏幕里，从而达到更高的分辨率，并提高屏幕显示的细腻程度。
+        如在iphone中，1个CSS像素点实际上有4个位图像素点，1个分成4个，显然不够分啊，只能颜色近似选取，于是，图片感觉就是模糊的。
+        1个px能够显示的物理像素点的个数称为物理像素比。
+        有的1px需要2个物理像素填充，这样图片看起来更加清晰。就是说在PC端的图片放在移动端时被放大了1倍。这时候就要做2倍图，先准备一个100*100的，在手动缩小成50*50，然后在移动端显示的时候会变成原来的100*100，这个时候就不会失真了
+
+        高度其实没有关系
+        手机每屏的高度不一样，只是屏幕要展示的高度不同罢了。
+        手机屏幕的高度影响不大，每个元素该是几倍就是几倍好了。
+ -->
+
+
+    <!-- 
+        1.移动端浏览器兼容问题
+        移动端浏览器基本以 webkit 内核为主，因此我们就考虑webkit兼容性问题。
+        我们可以放心使用 H5 标签和 CSS3 样式。
+        同时我们浏览器的私有前缀我们只需要考虑添加 webkit 即可
+        如：box-sizing: content-box;
+           -webkit-box-sizing: border-box;
+
+        2.移动端公共样式
+        移动端 CSS 初始化推荐使用 normalize.css/
+        Normalize.css：保护了有价值的默认值
+        Normalize.css：修复了浏览器的bug
+        Normalize.css：是模块化的
+        Normalize.css：拥有详细的文档
+        官网地址： http://necolas.github.io/normalize.css/
+  -->
+    <div class="imgs">
+        <img src="./images/apple50.jpg" alt="xxx">
+        <img src="./images/apple100.jpg" alt="xxx">
+    </div>
+
+    <div class="imgsBgc">
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="box"></div>
+</body>
+
+</html>

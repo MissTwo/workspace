@@ -1,0 +1,124 @@
+/*
+ * @Description: 
+ * @Autor:lishuangling 
+ * @Date: $
+ */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+.carousel{
+    position: relative;
+}
+.bg {
+    position: relative;
+    /* 模糊 */
+    /* filter: blur(2px); */
+    width: 1519px;
+    height: 730px;
+    margin: 6px auto;
+    background: url('../img/5.webp') center/1519px 730px;
+    animation: move1 8s 2s infinite;
+
+}
+@keyframes move1 {
+    from {
+        background-image: url('../img/2.webp');
+
+    }
+    to{
+        background-image: url('../img/5.webp');
+    }
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden;
+    width: 739px;
+    height: 365px;
+    box-shadow: 0 0 10px 10px rgba(225,225,225,0.5);
+    border: 60px solid rgba(225,225,225,0.5);
+    
+}
+.content ul {
+    height: 245px;
+    width: 2097px;
+    animation: move2  8s  linear infinite;
+    /* animation: move2 10s ease-in-out  infinite  ; */
+}
+/* @keyframes move2 {
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translate(-1398px);
+    }
+} */
+@keyframes move2 {
+    0%,20%{
+        transform: translate(0);
+    }
+    40%,60%{
+        transform: translate(-699px);
+    }
+    80%,100%{
+        transform: translate(-1398px);
+    }
+}
+.content li{
+    float: left;
+    margin-right: 60px;
+}
+.content  li img{
+    height: 245px;
+    width: 639px;
+}
+.choose{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: 140px;
+    margin-left: -25px;
+}
+.choose li{
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    border-radius: 50%;
+    background-color: white;
+    
+}
+.choose li:nth-child(1){
+    animation: move3 8s infinite  forwards;
+}
+.choose li:nth-child(2){
+    animation: move4 8s infinite  forwards;
+}
+@keyframes move3 {
+    0%,20%{
+        background-color: black;
+    }
+    40%,60%{
+        background-color: #fff;
+    }
+    80%,100%{
+        background-color: black;
+    }
+}
+@keyframes move4 {
+    0%,20%{
+        background-color: white;
+    }
+    40%,60%{
+        background-color: black;
+    }
+    80%,100%{
+        background-color: white;
+    }
+}

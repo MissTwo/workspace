@@ -1,0 +1,368 @@
+/*
+ * @Description:
+ * @Autor:lishuangling
+ * @Date: 2022-04-18 09:50:14
+ * @LastEditors:
+ * @LastEditTime: 2022-04-18 09:50:14
+ */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+/*导航栏部分*/
+#top {
+    background-color: rgba(49, 49, 49, 0.9);
+    width: 100%;
+    height: 88px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    /*文字垂直居中*/
+    text-align: center;
+    line-height: 88px;
+}
+
+#header {
+    height: 88px;
+    width: 1400px;
+    margin: 0 auto;
+    /*开启弹性盒子*/
+    display: flex;
+    /*选择居中*/
+    justify-content: center;
+}
+
+#header .point {
+    width: 65px;
+    height: 88px;
+    position: relative;
+}
+
+#header .point img {
+    display: inline-block;
+    width: 11px;
+    position: absolute;
+    top: 37px;
+    left: 5px;
+}
+
+#header .point span {
+    color: white;
+    font-size: 13px;
+}
+
+#header .log {
+    width: 260px;
+    height: 88px;
+}
+
+#header .log a {
+    display: block;
+    padding: 8px;
+}
+
+#header .log img {
+    width: 220px;
+    height: 29px;
+}
+
+/*导航菜单*/
+#header .nav {
+    margin: 0 12px;
+    width: 650px;
+    height: 88px;
+}
+
+#header .nav li {
+    float: left;
+    width: 95px;
+    height: 88px;
+}
+
+#header .nav li a {
+    color: white;
+}
+
+#header .nav p {
+    background-color: rgb(49, 49, 49);
+    height: 44px;
+    width: 100px;
+    text-align: center;
+    line-height: 44px;
+    display: none;
+}
+
+#header .nav p a {
+    color: white;
+    font-size: 14px;
+}
+
+#header .search {
+    width: 50px;
+    height: 88px;
+    position: relative;
+}
+
+#header .search img {
+    display: block;
+    position: absolute;
+    top: 36px;
+    right: 0;
+    width: 22px;
+    height: 22px;
+}
+
+#header .user {
+    width: 170px;
+    height: 88px;
+    position: relative;
+}
+
+#header .user img {
+    display: block;
+    width: 15px;
+    height: 23px;
+    position: absolute;
+    top: 35px;
+    left: 50px;
+}
+
+#header .user a {
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 69px;
+    color: #636363;
+    font-size: 13px;
+}
+
+/*轮播图*/
+#carousel {
+    margin-top: 88px;
+    width: 1519px;
+    height: 475px;
+    overflow: hidden;
+    position: relative;
+}
+
+#carousel ul {
+    width: 10633px;
+    height: 475px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: move 30s infinite linear;
+    /*display: flex;*/
+}
+
+@keyframes move {
+    0%, 10% {
+        left: 0
+    }
+    15%, 25% {
+        left: -1519px;
+    }
+    30%, 40% {
+        left: -3038px;
+    }
+    45%, 55% {
+        left: -4557px;
+    }
+    60%, 70% {
+        left: -6076px;
+    }
+    75%, 85% {
+        left: -7595px;
+    }
+    90%, 100% {
+        left: -9114px;
+    }
+}
+
+#carousel ul li {
+    float: left;
+}
+
+#carousel ul li a img {
+    width: 1519px;
+    height: 475px;
+}
+/*#carousel .select {*/
+/*    width: 800px;*/
+/*    height: 50px;*/
+/*    background-color: #8BC34A;*/
+/*    float: bottom;*/
+/*    position: absolute;*/
+/*    bottom: 20px;*/
+/*    left: 40px;*/
+
+/*}*/
+/*#carousel .select li{*/
+/*    float: left;*/
+
+/*}*/
+/*#carousel .select div {*/
+/*    width: 10px;*/
+/*    height: 10px;*/
+/*    border-radius: 50%;*/
+/*    background-color: #007BF9;*/
+/*    !*background-color: rgba(255, 255, 255, 0.5);*!*/
+/*}*/
+
+/*整车选购*/
+.title {
+    width: 1100px;
+    height: 100px;
+    margin: 75px auto;
+    display: flex;
+    justify-items: center;
+}
+.title .tbg {
+    margin: 30px ;
+    background: #a0000e;
+    height: 6px;
+    width: 420px;
+}
+.title .word {
+    width: 180px;
+    height: 70px;
+}
+.title .word span{
+    display: block;
+    width: 180px;
+    height: 70px;
+    font-size: 45px;
+}
+.nav2 {
+    width: 1000px;
+    height: 60px;
+    margin: 0 auto;
+    display: flex;
+}
+.nav2 li {
+    margin: 0 10px;
+    text-align: center;
+    font-size: 27px;
+    width: 113px;
+    height: 47px;
+    line-height: 47px;
+    border-radius: 15px 15px;
+    color: #636363;
+    cursor: pointer;
+
+}
+.nav2 .on{
+    background-color: #a0000e;
+    color: white;
+}
+/*按钮图片*/
+.btn{
+    margin: 30px auto;
+    width: 1100px;
+    height: 25px;
+    position: relative;
+}
+.btn div{
+    float: left;
+    margin: 0 10px;
+    width: 600px;
+}
+.btn .right {
+    width: 65px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+/*王朝车型*/
+#car-box {
+    width: 1064px;
+    height: 320px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+#car-box #car-wrapper {
+    width: 2128px;
+    height: 340px;
+    position: absolute;
+    top: 0;
+    left: -532px;
+    /*background-color: coral;*/
+}
+#car-box #car-wrapper li {
+    /*background-color: palegreen;*/
+    margin: 10px;
+    width: 246px;
+    height: 317px;
+    float: left;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+
+}
+#car-box #car-wrapper li img {
+    width: 178px;
+    height: 178px;
+    margin: 0 auto;
+}
+#car-box #car-wrapper .name{
+    margin-top: -35px;
+    font-size: 20px;
+    font-family: "Microsoft YaHei UI";
+}
+
+#car-box #car-wrapper .name :after {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 4px;
+    margin: 10px auto;
+    background-color: #e40014;
+}
+
+#car-box #car-wrapper p {
+    color: #8B8B8B;
+    font-size: 12px;
+    font-family: "Microsoft YaHei UI";
+}
+/*#car-wrapper .car-on  :before {*/
+/*    content: '';*/
+/*    display: block;*/
+/*    border: 4px solid #e40014;*/
+/*    background-color: deeppink;*/
+/*    width: 200px;*/
+/*    height: 200px;*/
+/*}*/
+#car-wrapper .car-on img{
+    transition: transform  0.5s linear;
+}
+#car-wrapper .car-on img{
+    transform: scale(1.5);
+}
+#car-wrapper .car-on .name{
+    color: #e40014;
+}
+.btn-car {
+    width: 113px;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+    border-radius: 10px;
+    border: 2px solid #e40014;
+    background-color: white;
+}
+.btn-car a{
+    color: #e40014;
+}
+
+/*.btn-car :hover{*/
+/*    background-color: #e40014;*/
+/*}*/
+.btn-car :hover a{
+    color: white;
+}
+

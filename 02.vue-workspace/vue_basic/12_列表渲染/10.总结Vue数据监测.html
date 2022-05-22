@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>总结Vue数据监测</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!-- vue监视数据的原理：
+        1.vue会监视data中所有层次的数据
+        2.如何监视对象中的数据：通过实现监视,且要在new Vue时就传入要监测的数据
+            (1)对象中后追加的属性，Vue默认不做响应式处理
+            (2)如需要给后添加的属性做响应式处理，请使用一下api
+                Vue.set(target,propertyName/index,value)或
+                vm.$set(target,propertyName/index,value)
+        3.如何监视数组中的数据：
+            通过包裹数组元素更新的方法实现，本质就是做两件事
+            (1)调用原生的方法对数组进行更新
+            (2)重新解析模板，进而更新页面
+        4.在修改Vue中数组的某个元素一定要用如下方法：
+            (1)Vue.set()或vm.$set()
+            (2)使用这些api:
+                push() 向数组的末尾添加一个或者多个元素,并返回新的长度
+                pop() 删除并返回数组的最后一个元素   
+                shift() 删除并返回数组的第一个元素   
+                unshift() 向数组的开头添加一个或多个元素,并返回新的长度    
+                splice() 删除元素,并向数组添加新元素
+                sort() 对数组的元素进行排序
+                reverse() 颠倒数组中元素的顺序 -->
+
+    <div id="root">
+        <h1>学生信息</h1>
+        <button @click="student.age++">年龄+1岁</button><br>
+        <button @click="addSex">添加性别属性，默认值为:男</button><br>
+        <button @click="student.sex='女'">修改性别</button><br>
+        <button @click="addFriends">在列表首添加一个朋友</button><br>
+        <button @click="updataFriendName">修改第一个朋友的名字为：张三</button><br>
+        <button @click="addHobby">添加一个爱好</button><br>
+        <button @click="modifyHobby">修改第一个爱好为：开车</button><br>
+        <button @click="filterHobby">过滤掉爱好中的抽烟</button><br>
+        <h3>姓名：{{student.name}}</h3>
+        <h3>年龄：{{student.age}}</h3>
+        <h3 v-show="student.sex">性别：{{student.sex}}</h3>
+        <h3>爱好:</h3>
+        <ul>
+            <li v-for="(h,index) in student.hobby" :key="index">{{h}}</li>
+        </ul>
+        <h3>朋友们：</h3>
+        <ul>
+            <li v-for="(f,index) in student.friends" :key="index">
+                {{f.name}}-{{f.age}}
+            </li>
+        </ul>
+
+    </div>
+</body>
+<script>
+    Vue.config.productionTip = false
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            student: {
+                name: 'tom',
+                age: 25,
+                hobby: ['抽烟', '喝酒', '烫头'],
+                friends: [
+                    { name: 'jerry', age: 35 },
+                    { name: 'tom', age: 36 }
+                ]
+            }
+
+        },
+        methods: {
+            // 添加属性的两种方法
+            addSex() {
+                // 第一种
+                // Vue.set(this.student,'sex','男')
+
+                // 第二种
+                this.$set(this.student, 'sex', '男')
+            },
+            addFriends() {
+                this.student.friends.unshift({ name: 'jack', age: 18 })
+            },
+            updataFriendName() {
+                this.student.friends[0].name = '张三'
+            },
+            addHobby() {
+                this.student.hobby.push('学习')
+            },
+            modifyHobby() {
+                // 0代表操作第一个，1代表从第0个开始删1个删完再插入1个
+                this.student.hobby.splice(0, 1, '开车')
+
+                // Vue.set(this.student.hobby,'0','开车')
+
+                // this.$set(this.student.hobby,'0','开车')
+            },
+            filterHobby() {
+
+                this.student.hobby = this.student.hobby.filter((h) => {
+                    return h != '抽烟'
+                })
+            }
+        },
+
+
+    })  
+</script>
+
+</html>

@@ -1,0 +1,162 @@
+body{
+    background-color: #F5F5F5;
+}
+.list{
+    margin-top: 175px;
+    margin-bottom: 80px;
+}
+.list_top{
+    padding: 18px 0;
+}
+.list_top a{
+    font-size: 12px;
+    color: #333;
+}
+.list_top span{
+    font-size: 12px;
+    color: #999;
+}
+/* 严选全球 */
+.list_content{
+    padding: 5px 40px 0;
+    background-color: #fff;
+}
+/* 菜单 */
+.list_menu ul{
+    padding-top: 20px;
+    height: 35px;
+    width: 1011px;
+    border-bottom: 1px dashed #dedede;
+    
+}
+.list_menu li{
+    float: left;
+    font-size: 14px;
+    color: #999;
+    margin-right: 27px;
+}
+.list_menu a{
+    color: #333;
+}
+.list_menu li:nth-child(2) a{
+    color: #b4a078;
+}
+.list_menu ul:nth-child(2) li:nth-child(1){
+    margin-right: 0;
+}
+.list_menu a:hover{
+    color: #b4a078;
+}
+
+/* 新品速递 */
+.category{
+    text-align: center;
+    margin-top: 30px;
+}
+.category_title{
+    height: 76px;
+    margin-bottom: 10px;
+}
+.category_title h2{
+    color: #333;
+    font-weight: 700;
+}
+.category_title p{
+    color: #999;
+    font-size: 14px;
+    margin-top: 20px;
+}
+/* 商品信息 */
+.category_goods{
+    padding-top: 25px;
+    /* height: 902px; */
+    /* height: 877px; */
+}
+.category_goods li{
+    float: left;
+    width: 245px;
+    height: 381px;
+    /* width: 351px; */
+    margin: 0 10px 50px 0;
+}
+.category_goods li:nth-child(4n){
+    margin-right: 0 ;
+}
+.category_goods li:hover{
+    box-shadow: 1px 1px 8px rgb(0 0 0 / 20%);
+    background-color: #f4f0ea;
+}
+/* 修改商品图片 */
+.category_bg{
+    width: 245px;
+    height: 245px;
+    background: #f4f4f4 url('../img/10375.webp') center/245px
+}
+.category_goods li:hover .category_bg{
+    background: #f4f4f4 url('../img/10377.webp') center/245px
+}
+.category_goods a p{
+    font-size: 13px;
+    color: #333;
+    font-weight: bold;
+    width: 166px;
+    margin: 25px auto 5px;
+}
+.category_price{
+    margin: 0 auto ;
+    padding-bottom: 5px;
+    color: #d4282d;
+    font-size: 13px;
+    width: 110px;
+    border-bottom: 1px solid #e8e8e8;
+
+}
+.category_describe{
+    padding: 0 10px;
+    width: 225px;
+    font-size: 14px;
+    color: #999;
+    margin-top: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/* 明星乳胶 */
+.latex .category_bg{
+    background: #f4f4f4 url('../img/10363.webp') center/245px
+}
+.latex .category_goods li:hover .category_bg{
+    background: #f4f4f4 url('../img/10362.webp') center/245px
+}
+/* 床品家纺 */
+.textiles .category_bg{
+    background: #f4f4f4 url('../img/10373.webp') center/245px
+}
+.textiles .category_goods li:hover .category_bg{
+    background: #f4f4f4 url('../img/10360.webp') center/245px
+}
+/* 滋补保健 */
+.nourishing .category_bg{
+    background: #f4f4f4 url('../img/10311.webp') center/245px
+}
+.nourishing .category_goods li:hover .category_bg{
+    background: #f4f4f4 url('../img/10313.webp') center/245px
+}
+/* 个护电器 */
+.appliance .category_bg{
+    background: #f4f4f4 url('../img/10360.webp') center/245px
+}
+.appliance .category_goods li:hover .category_bg{
+    background: #f4f4f4 url('../img/10347.webp') center/245px
+}
+/* 大牌补贴 */
+.brand .category_bg{
+    background: #f4f4f4 url('../img/10356.webp') center/245px
+}
+.brand .category_goods li:hover .category_bg{
+    background: #f4f4f4 url('../img/10354.webp') center/245px
+}
+.textiles .category_title span{
+    vertical-align: middle;
+    color: #999;
+}

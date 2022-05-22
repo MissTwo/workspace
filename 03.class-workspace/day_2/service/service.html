@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            /* 文本装饰为无(文字下划线隐藏) */
+            text-decoration: none;
+            
+        }
+        #ser{
+            width: 50px;
+            height: 200px;
+            /* 固定定位：将一个元素永远固定在页面中的某一个位置
+            position的参数有1.top上 2.left左 3.right右 4.bottom下 */
+            position: fixed;
+            top: 400px;
+            right: 0;
+            
+        }
+        #ser a{
+            /* 改变元素的状态  */
+            display: block;
+            width: 50px;
+            height: 50px;
+            /* 背景图片 url(图片路径) */
+            background-image: url(img/bg.png);
+            color: white;
+            /* 相对定位是相对于当前的文档流 */
+            position: relative;
+
+        }
+        #ser .qq{
+            /* 背景图定位值代表x y轴 */
+            background-position: 0 0;
+        }
+        #ser .phone{
+            background-position: 0 -50px;
+        }
+        #ser .wechat{
+            background-position: 0 -100px;
+        }
+        #ser .top{
+            background-position: 0 -150px;
+        }
+        #ser a span{
+            /* 行级元素转换为块级元素 */
+            display: block;
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            /* 绝对定位相对与父级的元素，指定的父级元素需要使用相对定位才可以找到否则直接定位到body */
+            /* 子绝父相 */
+            position: absolute;
+            /* left: -100px; */
+            right: 50px;
+            background-color:#007BF9 ;
+            display: none;
+
+            
+        }
+        /* 伪类选择器hover：鼠标移动产生效果;链接的不同状态：link未访问的链接  visited已访问的链接 hover鼠标划过链接 active已选中的链接*/
+        /* #ser a:hover{
+            background-position-x: -50px;
+
+        } */
+        /* #ser a:hover span{
+            display: block;
+        } */
+    </style>
+    
+</head>
+<body>
+    <div id="ser">
+        <!-- a超链接 href间接路径 行内元素：只能容纳其他行内元素或文本 -->
+        <!-- span盒子标签 行内元素：设置宽高无效 -->
+        <a href="#" class="qq"><span>联系QQ</span></a>
+        <a href="#" class="phone"><span>联系电话</span></a>
+        <a href="#" class="wechat"><span>联系微信</span></a>
+        <a href="#" class="top"></a>
+    </div>
+</body>
+<!-- 原生js的写法 -->
+<!-- <script>
+    let ser=document.querySelectorAll('#ser a')
+    for (let i = 0; i < ser.length; i++) {
+        ser[i].addEventListener('mouseover',function(){
+            this.style.backgroundPositionX='-50px'
+            this.querySelector('span').style.display='block'
+        }) 
+    }
+    for (let i = 0; i < ser.length; i++) {
+        ser[i].addEventListener('mouseout',function(){
+            this.style.backgroundPositionX=''
+            this.querySelector('span').style.display=''
+        })
+        
+    }
+</script> -->
+
+<!-- jquery的写法 -->
+
+<script src="js/jquery.js"></script>
+<script>
+    $('#ser a').mouseover(function(){
+        // 设置css属性css("propertyname","value"),设置多个css属性css({"propertyname":"value","propertyname":"value"})
+        $(this).css('background-position-x','50px')
+        
+        // css()函数参数在使用驼峰命名时候,注意：值为像素时，可以不带单位
+        // $(this).css({backgroundPositionX:50})
+
+        // 使用 hide() 和 show() 方法来隐藏和显示 HTML 元素
+        $(this).find('span').show()
+    }).mouseout(function () {
+        $(this).css('background-position-x','')
+        $(this).find('span').hide() 
+    })
+</script>
+
+
+</html>

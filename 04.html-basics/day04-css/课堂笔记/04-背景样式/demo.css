@@ -1,0 +1,64 @@
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+body{
+  height: 2000px;
+}
+.box{
+  /* overflow: scroll;强制开启滚动条 */
+  /* overflow: auto; */
+  font-size: 30px;
+  font-weight: 600;
+  color: red;
+  width: 400px;
+  height: 400px;
+  margin: 100px auto 0;
+  
+  /* background-color: green; */
+  /* 引入背景图片  写相对路径 背景图片层级高于背景颜色 会覆盖背景颜色*/
+  background-image: url("./small.jpg");
+  /* 背景重复  默认是往x和y轴无限重复 一般需要设置为不重复 */
+  background-repeat: no-repeat;
+  /* 背景尺寸 background-size 
+  contain背景平铺到只要有一个遍碰到元素边界 就停止拉伸  不对图片进行裁切 
+  cover 背景平铺满整个 铺满后就停止拉伸  会对图片进行裁切
+  都不会缩放图片比例
+  写像素值时 第一个值代表宽度  第二个值代表高度 会使图片变形
+  */
+  background-size: contain;
+  background-size: cover;
+  /* background-size: 100px 200px; */
+  /* background-position 背景位置 设置为像素值时 第一个值时x轴平移距离  正值往右 负值往左
+  第二个值是y轴平移距离  正值往下 负值往上
+   */
+  background-position: 100px 100px;
+  background-position: center;
+  /* background-position: right bottom; */
+  /* 
+  背景附着 background-attachment:
+  fixed 背景图依附于视口而存在
+  scroll 默认值
+  local 背景跟着内容一起滚动
+  */
+  /* background-attachment: fixed; */
+  /* background-attachment: scroll; */
+  /* background-attachment: local; */
+  /* padding: 50px; */
+  border: 2px solid #333;
+  /* background-origin背景原点  规定背景从哪里开始展示 默认padding-box */
+  background-origin: padding-box;
+  /* background-origin:content-box;
+  background-origin: border-box; */
+  /* background-clip:背景裁切  会连背景颜色一起裁切 针对整个背景的*/
+  background-clip: padding-box;
+  /* 复合型样式 */
+  background: -color -url() -repeat -position/-size -origin -clip -attachment;
+  /* background: url("./small.jpg") no-repeat center/cover; */
+  /* 背景图片可以写多张  用复合型写法  中间逗号分割  写在前面的层级更高 会覆盖后写的 */
+  background:
+   url("./small.jpg") no-repeat right bottom/100px 100px,
+   url("./QQ截图20220504154541.jpg") no-repeat left top/100px 100px;
+  background-color: pink;
+}

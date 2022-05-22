@@ -1,0 +1,140 @@
+.bigbox{
+    width: 500px;
+    height: 500px;
+    /* background-color: black; */
+}
+.box1{
+    width: 100px;
+    height: 200px;
+    background-color: tomato;
+}
+.box2{
+    width: 100px;
+    height: 100px;
+}
+.box3{
+    width: 100px;
+    height: 100px;
+}
+.smallbox{
+    width: 50px;
+    height: 50px;
+}
+ul{
+    width: 200px;
+    height: 700px;
+    background-color: darkgray;
+}
+li{
+    height: 100px;
+    width: 200px;
+    background-color: yellow;
+}
+/* 父子选择器 只能父亲选择直系儿子 */
+.bigbox>.box1{
+    background-color: blueviolet;
+}
+/* 后代选择器只要是后代都可以选择 */
+.bigbox .box1{
+    background-color: aquamarine;
+}
+/* 兄弟选择器 +只能选中自己相邻的一个弟弟 */
+.box1+.box2{
+    background-color: pink;
+}
+/* 并列向下跨兄弟 选择所有的名字叫.box2弟弟 */
+.box1~.box3{
+    background-color: rgb(111, 213, 114);
+}
+/*注意： css中无法通过弟弟选中哥哥 也没有办法通过后代(包括直系子集)去选中祖先元素 */
+
+/* 并集选择器 同时选择多个元素 选择器之间以逗号隔开 */
+.box1,.box2{
+    background-color: aqua;
+}
+/* 交集选择器 多个选择器并用 是一种且的关系，如果有标签选择器，那么标签选择器必须写道前面 */
+div.box1{
+    background-color: azure;
+}
+
+/* 伪类选择器：first-child选择器满足：前面选择器条件的第一个元素 */
+ul>li:first-child{
+    background-color: cornflowerblue;
+}
+ul>li:last-child{
+    background-color: chartreuse;
+}
+/* :nth-of-type()里面写整数代表选中满足条件的第n个
+也可以带入字母n作为计算规则如：奇数2n-1,偶数2n
+限定在li标签里面选择计数 */
+ul li:nth-of-type(2n-1){
+    background-color: turquoise;
+}
+/* li:nth-child()代表选中ul下的li标签，需要是li有需要是第几个元素才生效
+在所有的满足选择器条件的子元素中进行计数
+*/
+ul li:nth-child(2){
+    background-color: violet;
+}
+/* 倒数第二个 */
+ul>li:nth-last-of-type(2){
+    background-color: teal;
+}
+
+/* 块级元素中会存在父子上外边距重叠问题(针对第一个儿子) */
+.hhh{
+    /* padding: 20px; */
+    background-color: pink;
+    width: 300px;
+    height: 300px;
+}
+h2{
+    background-color: yellowgreen;
+    height: 100px;
+    margin:10px;
+    line-height: 100px;
+}
+.hhh>p:nth-child(2){
+    color: #777;
+    opacity: 0.5;
+}
+.bbb{
+    color: orange;
+}
+.aaa{
+    border: 5px solid #777;
+    margin-bottom: 50px;
+    width: 500px;
+    height: 500px;
+
+    /* background-attachment背景依附，
+    1.fixed背景图依附于视口而存在
+    2.scroll默认值
+    3.local背景跟着内容一起滚动 */
+
+    /* background-origin背景原点 规定背景从哪里开始展示
+    默认是padding-box ,值有content-box,border-box*/
+
+    /* background-clip背景裁切，会连背景颜色一起被裁切 针对整个背景的 */
+    
+/* 复合型样式background:color url() repeat position/size origin clip attachment */
+
+    /* 背景图片可以写多张 用复合写法用逗号隔开，先写的会覆盖后面的 */
+    background: 
+    url(./2.jpg) no-repeat right top,
+    url(./2.jpg) no-repeat left bottom;
+    background-color: chartreuse;
+
+/*  block块级元素，默认独占一行 高度可以由内容撑开（定宽不定高） 
+    inline行级元素，设置宽高无效
+    inline-block 行内块状元素，可以设置宽高，不会独占一行
+    注意：
+    解析空格的处理：
+    1.消除html机构代码的空格
+    2.将父级元素字体大小设置为0，然后再后代元素之间需要用到再重新设置
+    行内块元素设置对齐方式,默认在垂直方向是基准线对齐vertical-align
+*/
+    display: block;
+    
+}
+

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  
+    <!-- 移动端基础
+      浏览器现状
+      PC端常见浏览器：360浏览器、谷歌浏览器、火狐浏览器、QQ浏览器、百度浏览器、搜狗浏览器、IE浏览器。
+
+      移动端常见浏览器：UC浏览器，QQ浏览器，欧朋浏览器，百度手机浏览器，360安全浏览器，谷歌浏览器，搜狗手机浏览器，猎豹浏览器，以及其他杂牌浏览器。
+
+      国内的UC和QQ，百度等手机浏览器都是根据Webkit修改过来的内核，国内尚无自主研发的内核，就像国内的手机操作系统都是基于Android修改开发的一样。
+
+    **总结：兼容移动端主流浏览器，处理Webkit内核浏览器即可。 -->
+  
+
+   
+    <!-- 手机屏幕的现状
+      移动端设备屏幕尺寸非常多，碎片化严重。
+      Android设备有多种分辨率：480x800, 480x854, 540x960, 720x1280，1080x1920等，还有2K，4k屏。
+      近年来iPhone的碎片化也加剧了，其设备的主要分辨率有：640x960, 640x1136, 750x1334, 1242x2208等。
+    **作为开发者无需关注这些分辨率，因为我们常用的尺寸单位是 px 。 -->
+   
+
+
+    
+<!-- 
+  视口（viewport）就是浏览器显示页面内容的屏幕区域。 视口可以分为布局视口、视觉视口和理想视口
+
+    布局视口 layout viewport
+      一般移动设备的浏览器都默认设置了一个布局视口，用于解决早期的PC端页面在手机上显示的问题。
+      iOS, Android基本都将这个视口分辨率设置为 980px，所以PC上的网页大多都能在手机上呈现，只不过元素看上去很小，一般默认可以通过手动缩放网页。
+
+    视觉视口 visual viewport
+      字面意思，它是用户正在看到的网站的区域。注意：是网站的区域。
+      我们可以通过缩放去操作视觉视口，但不会影响布局视口，布局视口仍保持原来的宽度。
+
+    理想视口 ideal viewport
+      为了使网站在移动端有最理想的浏览和阅读宽度而设定
+      理想视口，对设备来讲，是最理想的视口尺寸
+      需要手动添写meta视口标签通知浏览器操作
+      meta视口标签的主要目的：布局视口的宽度应该与理想视口的宽度一致，简单理解就是设备有多宽，我们布局的视口就多宽
+
+  **总结：我们开发最终会用理想视口，而理想视口就是将布局视口的宽度修改为视觉视口 -->
+    
+
+<head>
+  <meta charset="UTF-8">
+  <!-- 
+        content 告知 IE 浏览器 如果有 edge 就是用 edge 的内核解析
+     -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+    <!-- 
+        viewport： 视口 (标准设置)
+        width=device-width: 视口宽度等于 设备宽度 980px
+        initial-scale=1.0： 初始化缩放比例 1倍
+        user-scalable=no: 禁止用户手势 缩放
+        maximum-scale=1.0: 限制最大缩放比例 1.0(maximum-scale:允许用户缩放到的最大比例,默认值是0.5,范围从0到10.0)
+        minimum-scale=1.0: 限制最小缩放比例 1.0 (minimum-scale:允许用户缩放到的最小比例,默认值是0.5,范围从0到10.0,超出才生效)
+        
+      最标准的viewport设置
+        视口宽度和设备保持一致
+        视口的默认缩放比例1.0
+        不允许用户自行缩放
+        最大允许的缩放比例1.0
+        最小允许的缩放比例1.0  
+     -->
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: pink;
+    }
+
+    table {
+      border-collapse: collapse;
+      /* width: 800px;
+      height: 400px; */
+      width: 100%;
+      /* max-width: 100%; */
+      margin: 50px auto 0;
+    }
+
+    th,
+    td {
+      border: 1px solid #333;
+    }
+
+    td {
+      text-align: left;
+      padding-left: 7px;
+    }
+    img{
+      max-width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./img/常见屏幕尺寸.jpg" alt=""><br>
+  <img src="./img/布局视口.jpg" alt=""><br>
+  <img src="./img/视觉视口.jpg" alt=""><br>
+  
+
+  <div></div>
+
+
+  <table>
+    <thead>
+      <tr>
+        <th align="center">属性名</th>
+        <th align="center">备注</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td align="center">width</td>
+        <td align="center">设置layout viewport 的宽度&#xff0c;为一个正整数&#xff0c;使用字符串”width-device”表示设备宽度</td>
+      </tr>
+      <tr>
+        <td align="center">initial-scale</td>
+        <td align="center">设置页面的初始缩放值&#xff0c;为一个数字&#xff0c;可以带小数</td>
+      </tr>
+      <tr>
+        <td align="center">minimum-scale</td>
+        <td align="center">允许用户的最小缩放值&#xff0c;为一个数字&#xff0c;可以带小数</td>
+      </tr>
+      <tr>
+        <td align="center">maximum-scale</td>
+        <td align="center">允许用户的最大缩放值&#xff0c;为一个数字&#xff0c;可以带小数</td>
+      </tr>
+      <tr>
+        <td align="center">height</td>
+        <td align="center">设置layout viewport 的高度&#xff0c;这个属性对我们并不重要&#xff0c;很少使用</td>
+      </tr>
+      <tr>
+        <td align="center">user-scalable</td>
+        <td align="center">是否允许用户进行缩放&#xff0c;值为”no”或”yes”, no 代表不允许&#xff0c;yes代表允许</td>
+      </tr>
+      <tr>
+        <td align="center">target-densitydpi</td>
+        <td align="center">值可以为一个数值或 high-dpi 、 medium-dpi、 low-dpi、 device-dpi 这几个字符串中的一个</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><br /> <br /> 最后一个属性为安卓特有&#xff0c;并且安卓已经决定要废弃target-densitydpi 这个属性了&#xff0c;所以这个属性我们要避免进行使用 。</p>
+  
+</body>
+
+</html>

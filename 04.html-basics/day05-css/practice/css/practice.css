@@ -1,0 +1,13 @@
+.content{
+    margin: 10px auto;
+    width: 180px;
+    height: 380px;
+    border: 10px solid ;
+    border-color: aqua red blue yellow;
+    padding: 50px;
+    text-align: center;
+}
+.content img{
+    width: 200px;
+    height: 300px;
+}

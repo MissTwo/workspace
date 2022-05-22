@@ -1,0 +1,93 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-05-06 09:25:48
+ * @LastEditTime: 2022-05-06 14:10:52
+ * @LastEditors: lishuangling
+ * @Description: 
+ * @FilePath: \day06-css\position\position.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position</title>
+    <link rel="stylesheet" href="css/tool.css">
+    <link rel="stylesheet" href="css/position.css">
+</head>
+<body>
+<!--     
+    笔记：
+    一、网页布局流(机制有几种)
+        1.普通流：块状元素至上而下，行内或者行内块自左向右
+        2.浮动：会使得元素层级提高，浮动起来
+            flaot(值:left/right)
+            浮动的清除
+            clear:left/right/both
+        清除浮动对父元素造成高度塌陷影响的方案
+        1.给父元素定高
+        2."隔墙法"，给结束标签之前新增一个元素，给它设置 clear:both
+        3.给父元素开启BFC模式
+        父元素设置overflow：hidden/auto/scroll
+        hidden给元素开启一个独立的布局方式
+
+        4."隔墙法"升级版
+        给父元素设置一个伪元素(后置伪元素).box::after{content:'';display:'';clear: both}
+
+            
+        3.定位：
+-->
+
+    <!-- 浮动基础 -->
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+    <br><hr>
+    <!-- 浮动的排版 -->
+    <div class="content">
+        <div class="left">
+            <img src="img/111.webp" alt="">
+        </div>
+        <div class="right">
+            <ul>
+                <li>
+                    <img src="img/222.webp" alt="">
+                    <p>xxxxx</p>
+                </li>
+                <li>
+                    <img src="img/333.webp" alt="">
+                    <p>xxxxx</p>
+                </li>
+                <li>
+                    <img src="img/444.webp" alt="">
+                    <p>xxxxx</p>
+                </li>
+                <li>
+                    <img src="img/555.webp" alt="">
+                    <p>xxxxx</p>
+                </li>
+                <li>
+                    <img src="img/222.webp" alt="">
+                    <p>xxxxx</p>
+                </li>
+                <li>
+                    <img src="img/333.webp" alt="">
+                    <p>xxxxx</p>
+                </li>
+                <li>
+                    <img src="img/444.webp" alt="">
+                    <p>xxxxx</p>
+                </li>
+                <li>
+                    <img src="img/555.webp" alt="">
+                    <p>xxxxx</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>

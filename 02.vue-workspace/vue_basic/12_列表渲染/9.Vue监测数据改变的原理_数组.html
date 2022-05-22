@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue监测数据改变的原理</title>  
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h3>姓名：{{student.name}}</h3>
+        <h3>年龄：{{student.age}}</h3>
+        <h3>爱好:</h3>
+        <ul>
+            <li v-for="(h,index) in student.hobby" :key="index">{{h}}</li>
+        </ul>
+        <button @click="modifyHobby">修改第三个个爱好为：开车</button>
+    </div>
+</body>
+<script>
+    Vue.config.productionTip=false
+    const vm=new Vue({
+        el:'#root',
+        data:{
+            student:{
+                name:'tom',
+                age:25,
+                hobby:['抽烟','喝酒','烫头'],
+                
+            }
+            
+        },
+        methods: {
+            modifyHobby(){
+                // Vue.set(this.student.hobby,'2','开车')
+                this.student.hobby.splice(2,1,'开车')
+            }
+        },
+        
+        
+    })  
+</script>
+</html>

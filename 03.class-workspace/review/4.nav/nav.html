@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nav</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+        a{
+            color: white;
+        }
+        #menu{
+            height: 50px;
+            width: 500px;
+            margin: 20px auto;
+            background-color: #666;
+        }
+        #menu li{
+            height: 50px;
+            width: 100px;
+            text-align: center;
+            line-height: 50px;
+            float: left; 
+        }
+        #menu .active{
+            display: none;
+        }
+        #menu .active li{
+            background-color: #777;
+    
+        }
+        #menu li:hover{
+            background-color: #777;
+        }
+
+    </style>
+</head>
+<body>
+    <ul id="menu">
+        <li>
+            <a href="#"><span>首页</span></a>
+            <ul class="active">
+                <li><a href="#"><span>菜单1</span></a></li>
+                <li><a href="#"><span>菜单1</span></a></li>
+                <li><a href="#"><span>菜单1</span></a></li>
+            </ul>
+        </li>
+        <li><a href="#"><span>产品详情</span></a></li>
+        <li>
+            <a href="#"><span>产品型号</span></a>
+            <ul class="active">
+                <li><a href="#"><span>内容1</span></a></li>
+                <li><a href="#"><span>内容1</span></a></li>
+                <li><a href="#"><span>内容1</span></a></li>
+                <li><a href="#"><span>内容1</span></a></li>
+                <li><a href="#"><span>内容1</span></a></li>
+            </ul>
+        </li>
+        <li><a href="#"><span>关于我们</span></a></li>
+        <li>
+            <a href="#"><span>联系我们</span></a>
+            <ul class="active">
+                <li><a href="#"><span>内容1</span></a></li>
+                <li><a href="#"><span>内容1</span></a></li>
+                <li><a href="#"><span>内容1</span></a></li>
+                <li><a href="#"><span>内容1</span></a></li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+<script src="js/jquery.js"></script>
+<script>
+    $('#menu li').mouseover(function () {
+        $(this).find('ul').stop().slideDown()
+    }).mouseout(function () {
+        $(this).find('ul').stop().slideUp()
+    })
+</script>
+</html>

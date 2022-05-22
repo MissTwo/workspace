@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            width: 300px;
+            height: 300px;
+            margin: 120px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            /* animation: all 5s infinite linear; */
+        }
+        .father p{
+            width: 300px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-size: 50px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.5;
+        }
+        .before{
+            background-color: antiquewhite;
+            transform: translateZ(150px);
+        }
+        .after{
+            background-color: aquamarine;
+            transform: translateZ(-150px);
+        }
+        .left{
+            background-color: burlywood;
+            transform: rotateY(60deg) ;
+        }
+        .right{
+            background-color: crimson;
+            /* transform: rotateY(-90deg) translateZ(150px); */
+        }
+        .top{
+            background-color: violet;
+            /* transform: rotateX(90deg) translateZ(150px); */
+        }
+        .bottom{
+            background-color: springgreen;
+            /* transform: rotateX(-90deg) translateZ(150px); */
+        }
+
+        /* @keyframes all {
+            from{
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+            to{
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        } */
+    </style>
+</head>
+<body>
+    <div class="father">
+        <p class="before">1</p>
+        <p class="after">2</p>
+        <p class="left">3</p>
+        <p class="right">4</p>
+        <p class="top">5</p>
+        <p class="bottom">6</p>
+    </div>
+</body>
+</html>

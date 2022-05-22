@@ -1,0 +1,79 @@
+/*
+ * @Description: 
+ * @Autor:lishuangling 
+ * @Date: $
+ */
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+}
+header {
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    background-color: rgb(243, 240, 240);
+}
+img{
+    height: 50px;
+}
+ul {
+    display: flex;
+    line-height: 50px;
+    text-align: center;
+}
+li{
+    margin-left: 20px;
+}
+a{
+    color:black;
+}
+section {
+    font-size: 0;
+    margin-left: 200px;
+    line-height: 50px;
+    text-align: right;
+}
+.iconfont {
+    font-size: 16px;
+}
+.two{
+    margin-left: 10px;
+
+}
+.two span{
+        display: inline-block;
+        margin-left: 15px;
+}
+input {
+    background-color: wheat;
+    display: inline-block;
+    height: 45px;
+    width: 0px;
+    border: none;
+    transition: 1s;
+    vertical-align: top;
+}
+input:focus{
+    outline: none;
+}
+.one{
+    width: 230px;
+}
+.icon-sousuo{
+    display: inline-block;
+    width: 30px;
+    height: 45px;
+    text-align: center;
+    transition: 1s;
+    vertical-align: top;
+
+}
+.one:hover .icon-sousuo{
+    transform: translateX(-230px);
+    background-color: wheat;
+}
+.one:hover input{
+    width: 200px;
+}

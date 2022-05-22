@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #999;
+    list-style: none;
+
+}
+.one {
+    width: 100vw;
+    height: 100vh;
+}
+ul li{
+    margin-top: 50px;
+    background-color: black;
+    padding: 70px 20px 20px;
+    float: left;
+    margin-left: 20px;
+    position: relative;
+    transition: 1s;
+}
+ul li:nth-child(2){
+    transition-delay: 1s;
+}
+ul li:nth-child(3){
+    transition-delay: 2s;
+}
+
+ul li:nth-child(4){
+    transition-delay: 3s;
+}
+ul li:nth-child(5){
+    transition-delay: 4s;
+}
+ul li img{
+    width: 220px;
+    height: 305px;
+}
+ul:hover li{
+    margin-top: 10px;
+}
+
+

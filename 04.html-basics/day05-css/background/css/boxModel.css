@@ -1,0 +1,185 @@
+*{
+    margin: 10px auto;
+    background-color: #666;
+
+}
+/* 
+边框设置
+  复合型
+  border:宽度 样式 颜色;（使用最频繁）
+  复合单例型：
+  border-width: 20px;
+  border-style: dotted;
+  border-color: aqua;
+  border-left: 30px solid #333;（单边框时使用较多）
+  单例型（几乎不用）：
+  border-left-width: 20px;
+  border-left-style: solid;
+  border-left-color: aqua;
+  颜色关键词表示法中 transparent表示透明色
+   */
+.box{
+    width: 0px;
+    height: 0px;
+    /* transparent透明色 */
+    border-left: 100px solid transparent;
+    border-top: 100px solid rgba(255,255,255,0) ;
+    border-right: 100px solid transparent ;
+    border-bottom: 100px solid green ;
+}
+.rtriangle{
+    width: 0px;
+    height: 0px;
+    /* transparent透明色 */
+    border: 100px solid blueviolet;
+    border-top-color: rgba(255,255,255,0) ;
+    border-right-color: transparent ;
+}
+.parallelogram{
+    font-size: 0;
+}
+.parallelogram div{
+    display: inline-block;
+    width: 0px;
+    height: 0px;
+}
+.part1{
+    border: 100px solid yellow;
+    border-left-color:transparent ;
+    border-bottom-color:transparent ;
+
+}
+.part2{
+    border: 100px solid yellow;
+    border-right-color:transparent ;
+    border-top-color:transparent ;
+}
+.box2{
+    background-color: aqua;
+    width: 300px;
+    height: 300px;
+    padding-top: 15px;
+    border-bottom: 20px solid gold;
+    /* 怪异盒模型 */
+    box-sizing: border-box;
+    
+}
+/* 
+伪元素：(双标签)
+1.(::before)给谁开启伪元素，他就是谁的子级，
+开启前置伪元素会在该标签之后生成一个元素
+2.(::after)他就是谁的子级，开启后置伪元素会在
+该标签结束之前生成一个元素
+注意：必须要指明content 与 display的值 
+优缺点：
+1.html结构与简化
+2.
+*/
+
+.box2::before{
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+}
+.box2 :nth-child(n){
+    width: 20px;
+    height: 20px;
+    background-color: violet;
+}
+.box2::after{
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+}
+.box1{
+    background-color: yellowgreen;
+    width: 200px;
+    height: 100px;
+    border-radius: 50px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 100px;
+
+}
+.semicircle{
+    background-color: turquoise;
+    width: 200px;
+    height: 100px;
+    border-radius: 200px 200px 0 0;
+}
+.semicircle2{
+    background-color: rgb(224, 64, 160);
+    width: 100px;
+    height: 200px;
+    border-radius: 200px 0 0 200px;
+}
+/* 
+背景渐变原理就是一张背景图片
+1.线性渐变
+linear-gradient(to right top,颜色 终点,颜色 终点)
+渐变重点可以用像素或百分比，默认从上至下，可以通过to指定方向，用逗号隔开
+2.径向渐变
+圆形
+radial-gradient(circle 半径 at left top,颜色 终点,颜色 终点)
+渐变最好使用确定的像素,可以通过circle at指定圆心的位置
+椭圆
+radial-gradient(ellipse 横轴半径 纵轴半径 同上)
+*/
+
+/* 线性渐变 */
+.gradient{
+    border: 5px solid gold;
+    width: 200px;
+    height: 220px;
+    background: linear-gradient(to right top,red 0%, red 10%,black 10%, black 20%,green 20%,green 30%,transparent 30%);
+}
+/* 径向渐变 */
+.gradient2{
+    border: 2px solid rosybrown;
+    width: 200px;
+    height: 200px;
+    background: 
+    radial-gradient(circle at left top,red 0px, red 40px,black 40px, black 60px,green 60px,green 80px,transparent 80px),
+    radial-gradient(circle 10px at right bottom,red 0px, red 40px,black 40px, black 60px,green 60px,green 80px,transparent 80px)
+
+}
+/* 彩虹 */
+.rainbow{
+    width: 600px;
+    height: 250px;
+    background: 
+    radial-gradient(circle at bottom,transparent 40px,blue 40px, blue 80px,green 80px, green 120px,yellow 120px,yellow 160px,orange 160px,orange 200px,red 200px,red 240px,transparent 240px);
+}
+/* 柱状图 */
+.ellipse{
+    border-radius: 100px 100px 0 0/50px 50px 0 0;
+    width: 200px;
+    height: 500px;
+    background: 
+    radial-gradient(ellipse 100px 50px at 100px 50px,rgb(59, 124, 244) 0,rgb(59, 124, 244) 100px ,transparent 100px),
+    linear-gradient(to bottom,cornflowerblue 0,transparent 100%);
+}
+/* 八卦 */
+.EDiagrams{
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: 
+    /* 设置五个背景图片的变换后实现
+    radial-gradient( circle at  100px,white 25px,transparent 25px),
+    radial-gradient( circle at  300px,black 25px,transparent 25px),
+    radial-gradient( circle at  100px,black 100px,transparent 100px),
+    radial-gradient( circle at  300px,white 100px,transparent 100px),
+    linear-gradient(black 50%,white 50%);
+     */
+    
+     /* 设置3个背景图片的变换后实现 */
+    radial-gradient( circle at  100px,white 25px,black 25px,black 100px,transparent 100px),
+    radial-gradient( circle at  300px,black 25px,white 25px,white 100px,transparent 100px),
+    linear-gradient(black 50%,white 50%);
+}

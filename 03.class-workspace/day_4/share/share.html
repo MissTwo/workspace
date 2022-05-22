@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>share</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        #share {
+            position: fixed;
+            top: 400px;
+            left: -175px;
+            color: white;
+            /* 改变鼠标光标的样式 */
+            cursor: pointer;
+        }
+        #content {
+            /* display: inline-block; */
+            background-color: #777;
+            width: 175px;
+            height: 200px;
+        }
+        #tag {
+            /* float: right;
+            margin: 55px auto; */
+            width: 25px;
+            height: 90px;
+            /* 行高：如果文字内容是竖着的几个文字会平均分配行高 */
+            line-height: 30px;
+            text-align: center;
+            background-color: #666;            
+            /* 绝对定位:会参照设置了相对定位或固定定位的父元素进行定位,如果父元素没有定位就会参在到body身上 */
+            position: absolute;
+            left: 175px;
+            top: 55px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="share">
+        <p id="content">内容 </p>
+        <p id="tag"> 分享到 </p>
+    </div>
+</body>
+<script src="js/jquery.js"></script>
+<script>
+    // animate({styles},speed,easing,callback)将CSS样式将元素从一个状态改变为另一个状态,speed动画速度，easing延迟，callback回调函数
+    $('#share').mouseenter(function () {
+        $(this).stop().animate({left:0},500) 
+    }).mouseleave(function () {
+        $(this).stop().animate({left:-175},500)  
+    })
+</script>
+
+</html>

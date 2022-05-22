@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绑定样式 </title>
+    <style>
+        .basic{
+            border: 4px solid rgb(4, 188, 212);
+            width: 400px;
+            height: 200px;
+            margin: 10px;
+           
+        }
+        .happy{
+            border: 4px solid red;
+            background-color: rgb(207, 230, 82);
+            background: linear-gradient(30deg,yellow,pink,orange,yellow);
+        }
+        .sad{
+            border: 4px dashed blue;
+            background-color: gray;
+        }
+        .normal{
+            background-color: aqua;
+            
+        }
+        .atguigu1{
+            background-color: chartreuse;
+            border-radius: 4px;
+        }
+        .atguigu2{
+            font-size: 40px;
+        }
+        .atguigu3{
+            border-radius: 40px;
+        }
+    </style>
+    <script src="../js/vue.js"></script>
+    
+</head>
+<body>
+    <!-- 
+    绑定样式：
+        1.class样式绑定：
+            写法  :class='xxx' 其中xxx可以是字符串、对象、数组
+            (1)字符串写法适用于:类名不确定，要动态获取
+            (2)对象写法适用于:要绑定多个样式，个数不确定，名字不确定
+            (3)数组写法适用于:要绑定多个样式，个数确定，名字确定，但不确定用不用
+        2.style样式绑定：
+            (1) :style="{fontSize:xxx}"其中xxx是动态值
+            (2) :style="[a,b]"其中a,b为样式对象
+     -->
+    <div id="root">
+        <!-- 绑定class样式--字符串写法，适用于：样式的类名不确定，需要动态指定 -->
+        <div class="basic" :class="mood" @click="changeMood">
+            <h2>你好{{name}}</h2>
+        </div>
+        <hr>
+        <!-- 绑定class样式--数组写法,适用于：要绑定的样式名字不确定、数量也不确定 -->
+        <div class="basic" :class="classArr">
+            <h2>你好{{name}}</h2>
+        </div>
+        <hr>
+        <!-- 绑定class样式--数组写法,适用于：要绑定的样式名字确定、数量也确定,但要动态决定用不用 -->
+        <div class="basic" :class="classObj">
+            <h2>你好{{name}}</h2>
+        </div>
+        <hr>
+        <!-- 绑定style样式--对象写法2 -->
+        <div class="basic" :style="styleObj">
+            <h2>{{name}}</h2>
+        </div>
+        <hr>
+        <!-- 绑定style样式-对象写法1 -->
+        <div class="basic" :style="{fontSize:fSize+'px'}">
+            <h2>{{name}}</h2>
+        </div>
+        <hr>
+        <!-- 绑定style样式--数组写法(不常用了) -->
+        <div class="basic" :style="styleArr">
+            <h2>{{name}}</h2>
+        </div>
+        <hr>
+       
+
+    </div>
+</body>
+<script>
+    Vue.config.productionTip=false
+    const vm=new Vue({
+        el:'#root',
+        data(){
+            return{
+                name:'尚硅谷',
+                mood:'normal',
+                classArr:['atguigu1','atguigu2','atguigu3'],
+                classObj:{
+                    atguigu1:false,
+                    atguigu3:false
+                },
+                styleObj:{
+                    fontSize:'30px',
+                    backgroundColor: 'pink', 
+                },
+                fSize:40,
+                styleArr:[
+                    {
+                        fontSize:'10px',
+                        
+                    },
+                    {
+                        border: '4px dashed blue',
+                        backgroundColor: 'orange',
+                    }
+                ]
+            }
+        },
+        methods: {
+            changeMood(){
+                const arr=['happy','sad','normal']
+                // 随机生成一个0到1之间的数取不到1,再扩大到0到3,并且向下取整
+                const i=Math.floor(Math.random()*3)
+                this.mood=arr[i]
+                console.log('样式为',i)
+            }
+        },
+    })
+</script>
+</html>

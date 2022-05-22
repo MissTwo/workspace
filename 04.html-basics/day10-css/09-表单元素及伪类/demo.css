@@ -1,0 +1,161 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  height: 2000px;
+}
+.box{
+  width: 600px;
+  height: 800px;
+  border: 2px solid #333;
+  border: none;
+  margin: 50px auto;
+  background-color: rgb(211, 237, 211);
+  overflow: hidden;
+  /* unset不设置  相当于取消这条属性 */
+  overflow: unset;
+  /* inherit */
+  overflow: inherit;
+
+  position: absolute;
+  position: static;
+  /* 取消定位 */
+  position: unset;
+
+  list-style: none;
+}
+/* .box1{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  overflow: inherit;
+} */
+form{
+  width: 600px;
+  height: 800px;
+  border: 2px solid #333;
+  border: none;
+  margin: 50px auto;
+  background-color: rgb(211, 237, 211);
+}
+textarea{
+  /* 禁止用户拉伸 */
+  resize: none;
+}
+#test_input{
+  width: 200px;
+  height: 50px;
+  background-color: aqua;
+}
+/* 
+:focus聚焦伪类 使用同:hover
+表单元素聚焦时的状态 失去交点时样式消失
+只能操控自己  自己的后代  自己的弟弟 弟弟的后代（css选择器能写的）
+ */
+#test_input:focus{
+  background-color: red;
+}
+/* :checked选择状态的伪类 */
+#female:checked{
+  width: 50px;
+  height: 50px;
+}
+
+/* :checked与:focus用于单选复选框的区别 */
+#banana:checked{
+  width: 50px;
+  height: 50px;
+}
+/* #banana:focus{
+  width: 50px;
+  height: 50px;
+} */
+
+.bigbox{
+  width: 200px;
+  height: 200px;
+  /* margin: 0 auto; */
+  position: relative;
+}
+.box1{
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+}
+#input_c{
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   opacity: 0;
+}
+#input_c:checked+.box1{
+  background-color: aqua;
+}
+
+.bigbox2{
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+  margin: 0 auto;
+  position: relative;
+  padding-top: 30px;
+}
+.box3{
+  width: 100px;
+  height: 100px;
+  background-color: green;
+}
+#input_c2{
+  margin-left: 20px;
+  border: none;
+  outline: 10px solid red;
+}
+/* 
+outline 默认状态没有表单元素聚焦时才有这个属性
+用法与border一模一样 表单元素的外部装饰线条
+不占用文档流空间 只是一个渲染
+我们也可以强行直接设置给元素默认状态
+ */
+#input_c2:focus{
+  border: none;
+  outline: none;
+  outline: 10px solid red;
+  /* background-color: red; */
+}
+/* 
+
+:focus-within 当一个元素的后代元素获得焦点时 的状态
+css中唯一一个能够通过子级控制祖先元素的伪类
+
+一般用在一个盒子里面包裹一个表单元素来制作一些效果
+
+ */
+/* .bigbox2:focus-within {
+  background-color: red;
+ 
+}
+
+.bigbox2:focus-within .box3{
+  background-color: yellow;
+} */
+
+.img1{
+  position: absolute;
+  top: -86px;
+  left: 35px;
+}
+.img2{
+  position: absolute;
+  top: -86px;
+  left: 35px;
+  display: none;
+}
+.bigbox2:focus-within .img2{
+  display: block;
+}
+.bigbox2:focus-within .img1{
+  display: none;
+}

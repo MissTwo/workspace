@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cube</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #cube {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: move 5s infinite linear;
+        }
+
+        #cube div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        #cube div p {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            font-size: 50px;
+        }
+
+        #cube .front {
+            background-color: rgba(255, 0, 0, 0.5);
+            transform: translateZ(100px);
+        }
+
+        #cube .top {
+            background-color: rgba(255, 153, 0, 0.5);
+            transform: translateY(100px) rotateX(-90deg);
+        }
+
+        #cube .bottom {
+            background-color: rgba(255, 255, 0, 0.5);
+            transform: translateY(-100px) rotateX(90deg);
+        }
+
+        #cube .right {
+            background-color: rgba(0, 255, 0, 0.5);
+            transform: translateX(100px) rotateY(90deg);
+        }
+
+        #cube .left {
+            background-color: rgba(0, 0, 255, 0.5);
+            transform: translateX(-100px) rotateY(-90deg);
+        }
+
+        #cube .back {
+            background-color: rgba(191, 0, 255, 0.5);
+            transform: translateZ(-100px);
+        }
+
+        @keyframes move {
+            from {
+                transform: rotateY(0) rotateX(0) ;
+            }
+            to {
+                transform:rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div id="cube">
+    <div class="front"><p>1</p></div>
+    <div class="top"><p>2</p></div>
+    <div class="bottom"><p>3</p></div>
+    <div class="right"><p>4</p></div>
+    <div class="left"><p>5</p></div>
+    <div class="back"><p>6</p></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型</title>
+    <script>
+
+        /* js的数据类型：
+             1.String 字符串
+             2.Number 数值
+             3.Boolean 布尔值
+             4.Null 空置
+             5.Undefined 未定义
+             6.Object 对象
+
+           注意：其中String、Boolean、Null、Undefined属于基本数据类型
+           Object 对象是引用数据类型
+             */
+
+        /*String字符串变量需要用引号引起来，注意：
+             1.使用双引号和单引号都可以但是不能混用
+             2.引号不能嵌套，双引号不能放双引号，单引号不能放单引号
+             3.在字符串中我们使用\作为转移字符，表示一些特殊符号
+             如：\"表示"  \'表示' \n表示换行  \t表示制表符  \\ 表示\
+          */
+        var str = "hello";
+        var str2="我说:\"今天天气真好啊！\""
+        console.log(str,str2);
+
+        /*
+        * Number数值包括所有的整数和浮点数
+        * js中用
+        *         Number.MAX_VALUE  表示最大值
+        *         Infinity  表示正无穷
+        *         -Infinity  表示负无穷
+        *         NaN  是一个特殊的数字，表示 Not a number
+        *
+        * 注意：整数运算基本可以保证，浮点数的运算可能得到一个比精确的结果
+        *       千万不要使用js进行精确度要求比较高的运算*/
+
+        var a="123";
+        var b=123;
+        var c=Number.MAX_VALUE;
+
+        /*使用运算符typof来检验一个变量的类型
+       * 语法：typof 变量名
+       * */
+        console.log(typeof a);
+        console.log(typeof b);
+
+        /*Boolean布尔值只要两个值true和false*/
+        var d=true;
+
+        /*Null(空值)类型值只有一个就是null，专门表示一个空对象，用typof检查一个null时会返回一个object*/
+        var e=null;
+
+        /*Undefined (未定义)类型值只有一个，就是Undefined。如声明变量未赋值，它的值就是就是Undefined */
+        var f=undefined;
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

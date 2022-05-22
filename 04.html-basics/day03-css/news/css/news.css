@@ -1,0 +1,24 @@
+div{
+    width: 600px;
+    height: 500px;
+    margin: 0 auto;
+}
+.content{
+    text-indent: 2em;
+}
+h2,h5{
+    text-align: center;
+}
+h5{
+    color: darkgrey;
+}
+.xx{
+    color: cornflowerblue;
+}
+.hh{
+    color: red;
+}
+.ss{
+    color: blue;
+    text-decoration: underline;
+}

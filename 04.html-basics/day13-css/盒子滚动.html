@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bigbox {
+            width: 600px;
+            height: 600px;
+            border: 1px solid #000;
+            margin: 0 auto;
+        }
+
+        .box {
+            width: 120px;
+            height: 120px;
+            background-color: yellow;
+            animation:
+                yi 4s steps(4),
+                yi2 4s steps(4) 4s,
+                yi3 4s steps(4) 8s,
+                yi4 4s steps(4) 12s;
+        }
+
+        .box>div {
+            background-color: #f4f;
+            height: 100%;
+            width: 100%;
+            background: #f4f;
+            transform-origin: top right;
+            animation:
+                zhuan 1s linear 4,
+                zhuan 1s linear 4s 4,
+                zhuan 1s linear 8s 4,
+                zhuan 1s linear 12s 4;
+        }
+
+        @keyframes zhuan {
+            0% {
+                transform: rotate(0);
+            }
+
+            100% {
+                transform: rotate(-90deg);
+            }
+        }
+
+        @keyframes yi {
+            0% {
+                transform: translatex(0);
+            }
+
+            100% {
+                transform: translatex(480px);
+
+            }
+        }
+
+        @keyframes yi2 {
+            0% {
+                transform: translatex(480px) rotate(90deg) translatex(0);
+            }
+
+            100% {
+                transform: translatex(480px) rotate(90deg) translatex(480px);
+            }
+        }
+
+        @keyframes yi3 {
+            0% {
+                transform: translatex(480px) translatey(480px) rotate(180deg) translatex(0);
+            }
+
+            100% {
+                transform: translatex(480px) translatey(480px) rotate(180deg) translatex(480px);
+            }
+        }
+
+        @keyframes yi4 {
+            0% {
+                transform: translatey(480px) rotate(-90deg) translatex(0);
+            }
+
+            100% {
+                transform: translatey(480px) rotate(-90deg) translatex(480px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bigbox">
+
+        <div class="box">
+            <div>1</div>
+
+        </div>
+
+    </div>

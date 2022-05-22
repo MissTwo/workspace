@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NotFound</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #nf {
+            background-image: url(img/404bg.jpg);
+            width: 100%;
+        }
+
+        /* 相对与body进行的定位 */
+        #bt {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #content div {
+            width: 450px;
+            /* height: 200px; */
+            margin: 20px auto;
+            /* background-color: blue; */
+        }
+
+        #content .str {
+            height: 100px;
+        }
+
+        #content .btn {
+            width: 120px;
+        }
+    </style>
+</head>
+
+<body id="nf">
+    <div id="content">
+        <div><img src="img/404.png" alt="" style="text-align: center;"></div>
+        <div class="str"><img src="img/404text.png" alt=""></div>
+        <div class="btn"><a href="#"><img src="img/404button.png" alt=""></a></div>
+    </div>
+    <img id="bt" src="img/404bottom.png" alt="">
+
+
+</body>
+
+</html>

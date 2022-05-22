@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+ul{
+    height: 35px;
+    width: 250px;
+    margin: 50px auto;
+}
+li{
+    float: left;
+    width: 30px;
+    height: 30px;
+    background-color: aquamarine;
+    margin-right: 20px;
+}
+ul li:nth-child(2){
+    background-color: aquamarine;
+    height: 35px;
+    
+}
+ul li:nth-child(3){
+    background-color: aquamarine;
+    height: 40px;
+    
+}
+ul li:nth-child(4){
+    background-color: aquamarine;
+    height: 45px;
+    
+}
+ul li:nth-child(5){
+    background-color: aquamarine;
+    height: 50px;
+    
+}
+.box1{
+    background-color: tomato;
+    width: 100px;
+    height: 100px;
+    animation:
+     move1 1s linear  1 ,
+     move2 2s 1s linear 1 forwards;
+}
+@keyframes move1 {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(200px);
+    }
+}
+@keyframes  move2{
+    from{
+        transform: translate(200px,0);
+    }
+    to{
+        transform: translate(200px,200px);
+    }
+}
+.fox{
+    background-color: yellow;
+    height: 156px;
+    width: 156px;
+    overflow: hidden;
+    /* position: relative; */
+}
+img{
+    width: 7020px;
+    height: 156px;
+    animation: move 2s steps(45)  infinite  reverse ;
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+}
+
+
+
+@keyframes move {
+    from{
+        /* left: 0; */
+        transform: translateX(0);
+    }
+    to{
+        /* left: -7020px; */
+        transform: translateX(-7020px);
+    }
+    
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 移动端特殊样式 */
+    *{
+      /* 
+      在移动端切换的时候，会有一个高亮背景过渡。（就是先变成绿色的一下，然后再变成灰色）
+      点击按钮，进行切换， 点击高亮我们需要清除清除  设置为transparent 完成透明 
+      */
+      -webkit-tap-highlight-color: transparent;
+
+
+
+      /*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+      /* -webkit-appearance: none; */
+      /* 
+      **说明:  
+       -webkit-appearance 是⼀个 不规范的属性（unsupported WebKit property），它没有出现在 CSS 规范草案中。此属性⾮标准且渲染效果在不同浏览器下不同，有些属性值甚⾄不⽀持，请慎⽤。
+
+      **前缀说明
+      webkit是⼀种浏览器私有前缀,是浏览器对新css实现的⼀个提前⽀持-webkit-前缀是指webkit内核的浏览器,与之相同的还有⼀个浏览器私有前缀-moz-,-moz-是指Firefox内核的浏览器
+
+      **浏览器私有属性说明      
+      为什么要有私有前缀呢？因为制定HTML和CSS标准的组织W3C动作是很慢的。通常，有w3c组织成员提出⼀个新属性，⽐如说圆⾓border-
+      radius，⼤家都觉得好，但是w3c不会为这个属性制定标准，⽽是要⾛很复杂的程序，经过很多审查。⽽浏览器商不愿意等那么久，他们觉得⼀
+      个属性已经够成熟了，就会在浏览器中加⼊⽀持。但是避免⽇后w3c公布标准时有所变更，就会加⼊⼀个私有前缀，⽐如-webkit-border-
+      radius，通过这种⽅式来提前⽀持新属性，等到⽇后w3c公布了标准，border-radius的标准写法确⽴之后，再让新版的浏览器⽀持border-
+      radius这种写法。
+       */
+ 
+    }
+    /*禁用长按页面时的弹出菜单,ios的浏览器网页中，如果出现了img或者a标签，长按就会出现苹果的系统菜单。*/
+    img,
+    a { 
+      -webkit-touch-callout: none; 
+    }
+  </style>
+</head>
+<body>
+  
+
+  <!-- 移动端主流方案 -->
+  <!-- 
+    1.单独制作移动端页面（主流）
+    通常情况下，网址域名前面加 m(mobile) 可以打开移动端。通过判断设备，如果是移动设备打开，则跳到移动端页面。
+    也就是说，PC端和移动端为两套网站，pc端是pc断的样式，移动端在写一套，专门针对移动端适配的一套网站
+    如：京东pc端
+
+    2.响应式页面兼容移动端 
+    如：绿联
+   -->
+   <a href="#">我是链接</a>
+
+
+
+
+   
+</body>
+</html>

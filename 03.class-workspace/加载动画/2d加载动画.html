@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            height: 100%;
+            width: 100%;
+        }
+        .outer{
+            display: flex;
+            justify-content: center;
+            width: 100px;
+            height: 100px;
+            position: relative;
+        }
+        .inner{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: orange;
+            transform-origin: 50% 50px;
+            animation: scroll 3s infinite ease-in-out;
+        }
+        .inner:nth-child(2){
+            width: 18px;
+            height: 18px;
+            animation-delay: .2s;
+        }
+        .inner:nth-child(3){
+            width: 16px;
+            height: 16px;
+            animation-delay: .4s;
+        }
+        .inner:nth-child(4){
+            width: 14px;
+            height: 14px;
+            animation-delay: .6s;
+        }
+        @keyframes scroll{
+            to{transform:rotate(1turn);}
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+        <div class="inner"></div>
+    </div>
+    <br>
+    <p>加载中……</p>
+</body>
+</html>

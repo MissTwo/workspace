@@ -1,0 +1,31 @@
+属性名：
+
+	transition
+
+	简写属性
+
+属性名：
+
+	transition-property 属性名称
+	
+	transition-duration 过渡时间
+
+	transition-timing-function 执行类型
+
+	值：
+	
+		linear 线型
+
+		ease 平滑
+
+		ease-in 由慢到快
+
+		ease-out 由快到慢
+
+		ease-in-out 由慢到快再到慢
+
+		cubic-bezier(贝塞尔曲线)
+
+		https://cubic-bezier.com/
+
+	transition-delay 延迟执行时间

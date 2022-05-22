@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>share_pro</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        #share{
+            position: fixed;
+            top: 400px;
+            left: -150px;
+            cursor: pointer;
+           
+        }
+        .main ul{
+            position: relative;
+        }
+        .main li{
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #777;
+        }
+        .main li a{
+           
+            position: relative;
+        }
+        .main li a div{
+            width: 30px;
+            height: 50px;
+            line-height: 50px;
+            display: inline-block;
+            
+        }
+        .main li a img{
+            width: 25px;
+            height: 25px;
+            margin: 12px 5px;
+        }
+        .main a span{
+           
+            display: block;
+            margin: 0 10px;
+            width: 100px;
+            position: absolute;
+            top: -32px;
+            left: 30px;
+            text-align: left;
+            color: white;
+        }
+        .tag{
+            width: 25px;
+            height: 90px;
+            line-height: 30px;
+            background-color: #666;
+            text-align: center;
+            color: white;
+            position: absolute;
+            top: 55px;
+            left: 150px;
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    <div id="share">
+        <ul class="main">
+            <li>
+                <a href="https://im.qq.com" title="QQ" target="_blank">
+                    <div><img src="img/QQ.png" alt=""></div>
+                    <span>QQ分享</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://weixin.qq.com/" title="WeChat" target="_blank">
+                    <div><img src="img/wechat.png" alt=""></div>
+                    <span>微信联系人</span>
+                </a>
+            </li>
+            <li><a href="https://weibo.com/u/2250019933" title="" target="_blank">
+                <div><img src="img/moments.png" alt=""></div>
+                <span>微博朋友圈</span></a>
+            </li>
+            <li>
+                <a href="https://weibo.com/" title="" target="_blank">
+                    <div><img src="img/microblog.png" alt=""></div>
+                    <span>新浪微博</span>
+                </a>
+            </li>
+        </ul>
+        <p class="tag">分享到</p>
+    </div>
+</body>
+<script>
+    $('#share').mouseenter(function(){
+        $(this).stop().animate({left:0},500)
+    }).mouseleave(function () {
+        $(this).stop().animate({left:-150},500)
+        
+    })
+</script>
+</html>

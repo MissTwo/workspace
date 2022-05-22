@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>share</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            list-style: none;
+        }
+        img{
+            width: 25px;
+            height: 25px;
+        }
+        #share{
+            background-color: #777;
+            position: fixed;
+            top: 400px;
+            left: 0;
+        }
+        #content{
+            width: 125px;
+            height: 200px;
+        }
+        #content li{
+            
+            position: relative;
+            
+        }
+        #content li a{
+            display: block;
+            color: white;
+        }
+        #content a div{
+            display: inline-block;
+            width: 50px;
+            height: 30px;
+            
+            background-color:red;
+        
+        }
+        #content span{
+            display: block;
+            width:90px ;
+            height: 50px;
+            text-align: left;
+            line-height: 50px;
+            position: absolute;
+            top: 0;
+            left: 35px;
+           
+        }
+        .tag{
+            color: white;
+            background-color: #666;
+            width: 25px;
+            height: 90px;
+            line-height: 30px;
+            text-align: center;
+            position: absolute;
+            top:55px;
+            left: 125px;
+        }
+    </style>
+</head>
+<body>
+    <div id="share">
+        <ul id="content">
+            <li>
+                <a href="" target="_blank" title="">
+                    <div><img src="img/QQ.png" alt=""></div>
+                    <span>QQ</span>
+                </a>
+            </li>
+            <li>
+                <a href="" target="_blank" title="">
+                    <div><img src="img/wechat.png" alt=""></div>
+                    <span>微信联系人</span>
+                </a>
+                </li>
+            <li>
+                <a href="" target="_blank" title="">
+                    <div><img src="img/moments.png" alt=""></div>
+                    <span>微信朋友圈</span>
+                </a>
+                </li>
+            <li>
+                <a href="" target="_blank" title="">
+                    <div><img src="img/microblog.png" alt=""></div>
+                    <span>新浪微博</span>
+                </a>
+            </li>
+        </ul>
+        <p class="tag">分享到</p>
+    </div>
+</body>
+</html>

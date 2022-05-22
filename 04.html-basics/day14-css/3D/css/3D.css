@@ -1,0 +1,442 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+    color: wheat;
+}
+body{
+    background-color: #666;
+}
+h2{
+    margin-top: 50px;
+}
+.box{
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    position: relative;
+    transform-style: preserve-3d;
+    /* animation: move 5s linear  infinite; */
+    /* 视距 */
+    /* perspective: 1000px; */
+}
+.box:hover{
+    /* animation: move 5s linear  infinite; */
+}
+@keyframes move {
+    from{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    to{
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
+.box div{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    font-size: 25px;
+    line-height: 200px;
+}
+/* 前 */
+.box div:nth-child(1){
+    transition: 2s;
+    /* transform: translateZ(100px); */
+    background-color:rgb(232, 75, 75)
+    
+}
+.box:hover div:nth-child(1){
+    transform: translateZ(100px);
+}
+/* 后 */
+.box div:nth-child(2){
+    /* transform: translateZ(-100px); */
+    background-color:rgb(229, 242, 51)
+}
+.box:hover div:nth-child(2){
+    transition: 2s;
+    transform: translateZ(-100px);
+}
+/* 左 */
+.box div:nth-child(3){
+    /* transform: rotateY(-90deg) translateZ(100px); */
+    background-color:rgb(104, 232, 75)
+}
+.box:hover div:nth-child(3){
+    transition: 2s;
+    transform: rotateY(-90deg) translateZ(100px);
+}
+/* 右 */
+.box div:nth-child(4){
+    /* transform: rotateY(90deg) translateZ(100px); */
+    background-color:rgb(75, 190, 232);
+    transition: 2s;
+}
+.box:hover div:nth-child(4){
+    transform: rotateY(90deg) translateZ(100px);
+}
+/* 上 */
+.box div:nth-child(5){
+    /* transform: rotateX(90deg) translateZ(100px); */
+    background-color:rgb(91, 75, 232);
+    transition: 2s;
+
+
+}
+.box:hover div:nth-child(5){
+    transform: rotateX(90deg) translateZ(100px);
+}
+/* 下 */
+.box div:nth-child(6){
+    /* transform: rotateX(-90deg) translateZ(100px); */
+    background-color:rgb(234, 120, 181);
+    transition: 2s;
+
+}
+.box:hover div:nth-child(6){
+    transform: rotateX(-90deg) translateZ(100px);
+}
+/* 爱心 */
+.love{
+    margin: 10px auto;
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    position: relative;
+}
+.love_left{
+    width: 212px;
+    height: 100px;
+    background-color: blue;
+    border-radius: 50px 0 0  50px;
+    transform-origin: 0 100%;
+    transform: rotate(45deg);
+}
+.love_right{
+    width: 212px;
+    height: 100px;
+    background-color: red;
+    border-radius: 0 50px 50px 0 ;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: right bottom;
+    transform: rotate(-45deg);
+
+}
+/* 刮刮乐 */
+.happy{
+    height: 100px;
+    width: 650px;
+    margin: 20px auto;
+}
+.happy li{
+    width: 100px;
+    height: 50px;
+    margin-right: 10px;
+    list-style: none;
+    float: left;
+    position: relative;
+    
+    /* transform: rotateX(80deg); */
+    /* transition: 1s; */
+
+}
+.happy li:hover{
+    transform-style: preserve-3d;
+    /* animation: move1 0.5s linear  1  forwards; */
+    /* transform: rotateX(90deg); */
+}
+@keyframes move1 {
+    from{
+        transform: rotateX(0deg);
+    }
+    to{
+        transform: rotateX(90deg) ;
+    }
+    
+}
+.happy div{
+    line-height: 50px;
+    width: 100px;
+    height: 50px;
+}
+/* 前面 */
+.happy li div:nth-child(1){
+    background-color: violet;
+    transform: translateZ(25px);
+}
+/* 下面 */
+.happy li div:nth-child(2){
+    background-color: yellowgreen;
+    position: absolute;
+    top: 0;
+    transform:  rotateX(-90deg)translateZ(25px);
+    
+}
+
+/* 照片墙 */
+.photo{
+    margin: 100px auto;
+    width: 220px;
+    height: 305px;
+    perspective: 800px;
+}
+.picture{
+    width: 220px;
+    height: 305px;
+    position: relative;
+    transform-style: preserve-3d;
+    /* animation: move2 4s linear infinite; */
+}
+@keyframes move2 {
+    from{
+        transform: rotateX(-15deg)rotateY(0deg);
+    }
+    to{
+        transform: rotateX(-15deg)rotateY(360deg);
+    }
+    
+}
+.picture:hover{
+    animation-play-state: paused;
+}
+.picture img{
+    display: block;
+    width: 220px;
+    height: 305px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+
+.picture img:nth-child(2){
+    transform: rotateY(60deg) translateZ(300px);
+}
+.picture img:nth-child(3) {
+    transform: rotateY(120deg)translateZ(300px);
+}
+.picture img:nth-child(4) {
+    transform: rotateY(180deg)translateZ(300px);
+}
+.picture img:nth-child(5) {
+    transform: rotateY(-60deg)translateZ(300px);
+}
+.picture img:nth-child(6) {
+    transform: rotateY(-120deg)translateZ(300px);
+}
+.picture img:nth-child(7) {
+    transform: rotateY(-10deg)translateZ(300px);
+} 
+
+/* 公转 */
+.circle1{
+    margin: 50px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top: 3px solid white;
+    position: relative;
+    /* animation: move3 3s linear infinite reverse ; */
+}
+.circle2{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top: 3px solid white;
+    position: absolute;
+    top:0;
+    left:-7px;
+    /* animation: move3 1s linear infinite reverse ; */
+}
+.ball1{
+    margin: 25px auto;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 5px rgb(234, 235, 226);
+    background-color: rgb(235, 242, 130);
+}
+.ball2{
+    margin: 5px auto;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: rgb(105, 243, 105);
+}
+
+.ball3{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(231, 51, 150);
+    position: absolute;
+    top: -3px;
+    left: 0;
+}
+@keyframes move3 {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+/* 电灯泡 */
+.lamp{
+    width: 100px;
+    height: 400px;
+    margin: 10px auto;
+    transform-origin: 50% 0;
+    /* transform: rotate(60deg); */
+    animation: 
+    /* 方法二 */
+    /* move5 3s linear infinite; */
+    move4 3s linear  infinite alternate;
+}
+@keyframes move4 {
+    from{
+        transform: rotate(60deg);
+    }
+    to{
+        transform: rotate(-60deg);
+    } 
+}
+/* @keyframes move5 {
+    0%{
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(-60deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }  
+    75%{
+        transform: rotate(60deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    } 
+    
+} */
+.lamp:hover .bulb{
+    background-color: yellow;
+    box-shadow: 0 0 10px 5px rgb(234, 235, 226);
+    /* background-color: rgb(235, 242, 130); */
+
+}
+.lamp:hover{
+    animation-play-state: paused;
+}
+.wire{
+    margin: 0 auto;
+    width: 3px;
+    height: 300px;
+    background-color: black;
+    position: relative;
+}
+.tirangle{
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom: 25px solid black;
+    position: absolute;
+    bottom: 0;
+    left: -8.5px;
+}
+.bulb{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 5px rgba(228, 228, 205, 0.3) ;
+    background-color: rgba(252, 252, 248, 0.3);
+    position: absolute;
+    bottom: -100px;
+    left: -50px;
+}
+.small_bulb{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(252, 244, 244,.6);
+    position: absolute;
+    top: 0;
+    left: 25px;
+}
+/* 电池 */
+.battery{
+    margin: 10px auto;
+    width: 200px;
+    height: 400px;
+    background: linear-gradient(to top,red 20%,orange 20%,orange 30%,green 30%,green 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.battery::before{
+    display: block;
+    content: '';
+    width: 380px;
+    height: 380px;
+    background-color: #fff;
+    border-radius: 130px 107px 128px 119px;
+    position: absolute;
+    top: -60px;
+    left: -100px;
+    animation: move5 5s linear  infinite  ;
+
+}
+.battery::after{
+    display: block;
+    content: '';
+    width: 380px;
+    height: 380px;
+    background-color: #fff;
+    border-radius: 101px 110px 100px 112px;
+    position: absolute;
+    top: -60px; 
+    left: -100px;
+    animation: move6 5s linear  infinite  ;
+
+
+}
+@keyframes move5 {
+    from{
+        transform: rotate(0deg) translateY(0);
+        top: -60px; 
+
+    }
+    to{
+        transform: rotate(360deg) ;
+        top: -450px;
+
+    }
+    
+}
+@keyframes move6 {
+    from{
+        transform: rotate(30deg);
+        top: -60px; 
+    }
+    to{
+        transform: rotate(360deg);
+        top: -450px;
+    }
+    
+}
+
+
+
+

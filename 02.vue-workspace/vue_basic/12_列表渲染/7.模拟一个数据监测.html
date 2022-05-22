@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模拟一个数据监测</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <script>
+        let data = {
+            name: '尚硅谷',
+            address: '北京'
+        }
+        //    创建一个监视的实例对象，用于监视data中属性的变化
+        const obs = new Observer(data)
+        console.log(obs)
+
+        //    准备一个vm实例对象
+        let vm = {}
+        vm._data = data = obs
+
+        function Observer(obj) {
+            //    汇成对象中所有的属性形成一个数组
+
+            // Object.keys() 方法会返回一个由一个给定对象的自身可枚举属性组成的数组，
+            // 数组中属性名的排列顺序和正常循环遍历该对象时返回的顺序一致 
+            const keys = Object.keys(obj)
+            // 遍历
+            keys.forEach((k) => {
+                Object.definePropert(this, k, {
+                    get() {
+                        return obj[k]
+                    },
+                    set(val) {
+                        obj[k] = val
+                        console.log('${k}被改了，我要解析模板，生成虚拟dom')
+                    }
+                })
+            })
+
+        }
+    </script>
+</body>
+
+</html>

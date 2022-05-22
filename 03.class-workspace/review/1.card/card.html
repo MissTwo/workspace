@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>card</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    #menu {
+        background-color: #666;
+        width: 300px;
+        height: 50px;
+        margin: 20px auto 0;
+        color: white;
+    }
+    #menu li {
+        float: left;
+        text-align: center;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+    }
+    #menu .active{
+        background-color: #777777;
+    }
+    #content p{
+        width: 300px;
+        height: 200px;
+        background-color: #777;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 200px;
+        display: none;
+        color: white;
+    }
+    #content .on{
+        display: block;
+    }
+</style>
+<body>
+<ul id="menu">
+    <li class="active">菜单1</li>
+    <li>菜单2</li>
+    <li>菜单3</li>
+</ul>
+<div id="content">
+    <p class="on">内容1</p>
+    <p>内容2</p>
+    <p>内容3</p>
+</div>
+</body>
+<script>
+    let list = document.querySelectorAll('#menu li');
+    let content = document.querySelectorAll('#content p');
+    for (let i = 0; i < list.length; i++) {
+        list[i].addEventListener('mouseover',function () {
+            for (let j = 0; j < list.length; j++) {
+                list[j].className=''
+                content[j].className=''
+            }
+            list[i].className='active'
+            content[i].className='on'
+        })
+
+    }
+</script>
+</html>

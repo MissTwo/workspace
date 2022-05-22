@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>标识符</title>
+    <script>
+
+        /*标识符：在js中所有的可以由我们自由命名的都可以称为表示符
+          例如：变量名、函数名、属性名
+        命名标识符的规则：
+          1.可以含有字母、数字、_、$
+          2.不能以数字开头
+          3.不能是es中的关键字或保留字
+          4.采用驼峰命名法-首字母小写，每个单词开头大写(aaaBbbb)
+
+          备注：js底层保存标识符实际采用的unicode编码，所以理论上所有utf-8中含有的内容都可以作为标识符
+          */
+        var _wj34$ = 1;
+        console.log(_wj34$);
+
+        // 不推荐
+        var 锄禾日当午 = 973;
+        console.log(锄禾日当午)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

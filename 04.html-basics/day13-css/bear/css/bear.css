@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+.bear{
+    width: 200px;
+    height: 100px;
+    /* background-color: aquamarine; */
+    /* background-color: #fff; */
+    margin: 10px;
+    animation: move1 2s steps(8)  infinite ;
+    overflow: hidden;
+}
+
+img{
+    animation: move2 2s steps(8)  infinite reverse;
+    
+}
+@keyframes move1 {
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translate(1600px);
+    }
+    
+}
+@keyframes move2 {
+    from{
+        transform: translate(0);
+    }
+    to{
+        transform: translate(-1600px);
+    }
+    
+}

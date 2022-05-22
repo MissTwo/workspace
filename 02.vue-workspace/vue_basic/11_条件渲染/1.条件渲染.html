@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>条件渲染</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!-- 
+    条件渲染：
+        1.v-if
+            写法:
+                (1)v-if="表达式"
+                (2)v-else-if="表达式"
+                (3)v-else="表达式"
+            适用于:切换频率较低的场景
+            特点:不展示DOM元素直接被删除
+            注意:v-if可以和v-else-if、v-else一起使用，但要求结构不能被打断
+        2.v-show
+            写法:v-show="表达式"
+            适用于:切换频率较高的场景
+            特点:不展示DOM元素未被删除，仅仅是使用样式隐藏掉了
+        3.备注:使用v-if时，元素可能无法获取到，而使用v-show时一定可以获取到元素
+    -->
+    <div id="root">
+        <h2>当前n的值为:{{n}}</h2>
+        <button @click="n++">点我n+1</button>
+        <!-- 使用v-show做条件渲染 -->
+        <!--         
+        <h2 v-show="1===1">你好{{name}}</h2>
+        <h2 v-show="fale">你好{{name}}</h2>
+         -->
+
+        <!-- 使用v-if做条件渲染 -->
+        <!--         
+        <h2 v-if="1===1">你if好{{name}}</h2>
+        <h2 v-if="fale">你好{{name}}</h2>
+         -->
+        
+        <!-- 使用v-else-if、v-else做条件渲染 -->
+        <!--                 
+        <h2 v-if="n===1">Angula</h2>
+        <h2 v-else-if="n===2">React</h2>
+        <h2 v-else-if="n===3">Vue</h2>
+        <h2 v-else="n===4">n不满足</h2>
+         -->
+        
+        <!-- v-if与tempalte的配合使用，tempalate只能与v-if一起使用，且不会影响结构 -->
+        <template v-if="1===1">
+            <h2>你好</h2>
+            <h2>尚硅谷</h2>
+            <h2>北京</h2>
+        </template>
+    </div>
+</body>
+<script>
+    Vue.config.productionTip=false
+    const vm=new Vue({
+        el:'#root',
+        data(){
+            return{
+                name:'尚硅谷',
+                n:0
+            }
+        }
+    })
+</script>
+</html>

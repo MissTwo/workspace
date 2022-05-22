@@ -1,0 +1,56 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-05-16 09:11:17
+ * @LastEditTime: 2022-05-16 09:41:01
+ * @LastEditors: lishuangling
+ * @Description: 
+ * @FilePath: \undefinedd:\Mermer\04.html-basics\day11-css\text.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            /* em相当于自己字体大小单位，默认1em=1px */
+            text-indent: 2em;
+            /* 大小写转换 */
+            text-transform: uppercase;
+            /* 首字母大写 */
+            text-transform: capitalize;
+            
+            word-spacing: 20px;
+            letter-spacing: 10px;
+            /* 单行文本以点点显示 */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+        }
+        p{
+            /* 多行文本以点点隐藏 */
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        本文探讨了如何利用真实的视听材料如原版电影配合教材,精心设计课堂活动,合理地,科学地引导学生进行自主学习,如何在实践教学过程中,精学语汇,巧学语法,注意学生运用能
+        本word文探讨了如何利用真实的视听材料如原版电影配合教材,精心设计课堂活动,合理地,科学地引导学生进行自主学习,如何在实践教学过程中,精学语汇,巧学语法,注意学生运用能
+    </div>
+    <p>word本文探讨了如何利用真实的视听材料如原版电影配合教材,精心设计课堂活动,合理地,科学地引导学生进行自主学习,如何在实践教学过程中,精学语汇,巧学语法,注意学生运用能
+        本文探讨了如何利用真实的视听材料如原版电影配合教材,精心设计课堂活动,合理地,科学地引导学生进行自主学习,如何在实践教学过程中,精学语汇,巧学语法,注意学生运用能
+        本word文探讨了如何利用真实的视听材料如原版电影配合教材,精心设计课堂活动,合理地,科学地引导学生进行自主学习,如何在实践教学过程中,精学语汇,巧学语法,注意学生运用能
+    </p>
+</body>
+</html>

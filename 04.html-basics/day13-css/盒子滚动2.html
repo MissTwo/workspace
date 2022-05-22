@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 580px;
+            height: 580px;
+            margin: 100px auto;
+            border: 1px solid blue;
+        }
+        .box>div{
+            background-color: violet;
+            width: 100px;
+            height: 100px;
+            margin-top: 480px;
+            animation: 
+            move2 8s ease-in-out forwards,
+            move3 4s 4s ease-in-out forwards;
+        }
+        .box>div>div {
+            background-color: turquoise;
+            width: 100px;
+            height: 100px;
+            animation:
+            move1 1s ease-in-out 8 ,
+            move4 1s 4s ease-in-out 4;
+        }
+
+        .box>div>div>div {
+            background-color: springgreen;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            animation:
+            move 1s ease-in-out 8;
+            
+        }
+
+        @keyframes move {
+            0% {
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(90deg);
+            }
+        }
+        @keyframes move4 {
+            0% {
+                transform: translate(0);
+            }
+            50% {
+                transform: translate(-20px,0);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+
+        @keyframes move1 {
+            0% {
+                transform: translate(0);
+            }
+            50% {
+                transform: translate(0, -20px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+        @keyframes move2 {
+            0% {
+                transform: translate(0);
+            }
+            12.5% {
+                transform: translate(120px,0);
+            }
+            25% {
+                transform: translate(240px,0);
+            }
+            37.5% {
+                transform: translate(360px,0);
+            }
+            50% {
+                transform: translate(480px,0);
+            }
+            
+        }
+        @keyframes move3 {
+            0% {
+                transform: translate(480px,0);
+            }
+            25% {
+                transform: translate(480px,-120px);
+            }
+            50% {
+                transform: translate(480px,-240px);
+            }
+            75% {
+                transform: translate(480px,-360px);
+            }
+            100% {
+                transform: translate(480px,-480px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div>
+            <div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #999;
+}
+.aaa{
+    margin: 10px auto;
+    width: 500px;
+    height: 550px;
+   
+}
+.aaa table{
+    text-align: center;
+    border: 1px solid white;
+    width: 500px;
+    background-color: aquamarine;
+    /* 边框去除重叠部分,边框塌陷 */
+    border-collapse: collapse;
+}
+
+.aaa td{
+    padding: 5px;
+    border: 1px solid white;
+    width: 100px;
+    height: 40px;
+    text-align: left;
+}
+.aaa th{
+    padding: 5px;
+
+    border: 1px solid white;
+    width: 100px;
+    height: 40px;
+}
+.aaa table tr:nth-child(2n){
+    background-color: aqua;
+}
+.aaa table tr:nth-child(9){
+    background-color: aqua;
+}
+.aaa table tr:nth-child(1){
+    background-color: rgb(107, 121, 245);
+}
+/* 盒子阴影 */
+.box-shadow{
+    width: 200px;
+    height: 200px;
+    background-color: blueviolet;
+    margin: 10px auto;
+    /* 
+    盒子阴影属性
+    box-shadow:x轴方向 y轴方向 模糊度 阴影大小;
+    注意 ：阴影方向默认向外但是不能写outset,如果要设置向内的时候写insert
+    */
+    box-shadow: 10px 20px 10px 10px red;
+}
+/* 过渡效果
+transition如果加在hover上，鼠标进入时有效果，鼠标移出时没有效果
+如果需要鼠标移入立刻变，移出渐变就需要在hover中加极短时间的过渡效果
+写到改变元素样式内，在hover改变加背景效果是进出都在过渡变化
+
+*/
+.box-trans{
+    margin: 50px auto;
+    width: 200px;
+    height: 200px;
+    background-color: brown;
+    transition: 2s;
+}
+.box-trans:hover{
+    transition: 0s;
+    background-color: aqua;
+}
+/* position定位 */
+
+.box-display{
+    margin: 10px auto;
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+.box-display div{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+}
+.box1{
+    background-color: red;
+    position: absolute;
+    left: 0;
+}
+.box2{
+    background-color: yellow;
+    position: absolute;
+    top: 0;
+}
+.box3{
+    background-color: blue;
+    position: absolute;
+    top: 0;
+}
+
+.box-display:hover .box1{
+    transition: 3s;
+    
+    left: 100px;
+}
+.box-display:hover .box2{
+    transition: 3s;
+    
+    top: 100px;
+}
+/* 盒子居中 */
+.big{
+    margin: 10px auto;
+    border: 2px solid yellow;
+    width: 300px;
+    height: 300px;
+    background-color: green;
+
+    /* 居中方法2：利用定位 */
+    position: relative;
+
+    /* 居中方法3：弹性盒子 */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    
+}
+.small{
+    width: 77px;
+    height: 77px;
+    background-color: red;
+    /* 居中方法1:计算利用margin */
+    /* margin: 100px auto; */
+
+    /* 居中方法2：利用定位 */
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -38.5px;
+    margin-top: -38.5px; */
+
+    /* position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto; */
+
+    /* 居中方法3：利用弹性盒子，在父级中设置 */
+
+    
+    
+
+}
+
+    
+
+
+
+
+

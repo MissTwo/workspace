@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .content{
+            width: 1050px;
+            height: 500px;
+            border: 1px solid black;
+            margin: 50px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .carousel{
+            width: 6300px;
+            height: 500px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: move 20s infinite linear;
+        }
+        .carousel li{
+            float: left;
+        }
+        .carousel li img{
+            width: 1050px;
+            height: 500px;
+        }
+        @keyframes move {
+            0%,15%{left: 0;}
+            20%,35%{left: -1050px;}
+            40%,55%{left: -2100px;}
+            60%,75%{left: -3150px;}
+            80%,95%{left: -4200px;}
+            100%{left: -5250px;}
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <ul class="carousel">
+            <li><img src="img/hp.jpg" alt=""></li>
+            <li><img src="img/qz.jpg" alt=""></li>
+            <li><img src="img/rz.jpg" alt=""></li>
+            <li><img src="img/ym.jpg" alt=""></li>
+            <li><img src="img/zy.jpg" alt=""></li>
+            <li><img src="img/hp.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

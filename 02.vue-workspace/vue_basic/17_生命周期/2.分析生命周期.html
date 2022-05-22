@@ -1,0 +1,92 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-04-28 17:39:48
+ * @LastEditTime: 2022-04-28 19:33:07
+ * @LastEditors: lishuangling
+ * @Description: 分析生命周期
+ * @FilePath: \vue_basic\17_生命周期\2.分析生命周期.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分析生命周期</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root" :n="n">
+        <h1>当前的n值是：{{n}}</h1>
+        <button @click="add">点我n+1</button>
+        <button @click="bye">点我销毁vm</button>
+    </div>
+</body>
+<script>
+    Vue.config.productionTip=false
+    const vm=new Vue({
+        el:'#root',
+        // template:
+        data:{
+            n:1
+        },
+        methods: {
+            add(){ 
+                console.log('add')
+                this.n++
+            },
+            bye(){
+                console.log('bye')
+                this.$destroy()
+            }
+        },
+        watch:{
+            n(){
+                console.log('n变了')
+            }
+        },
+        // 初始化：生命周期、事件但数据代理还未开始(无法通过vm访问到data中的数据、methods中方法)
+        beforeCreate() {
+            console.log('beforeCreate')
+            // console.log(this)
+            // 打断点
+            // debugger;
+        },
+        // 初始化：数据监测、数据代理(可以通过vm访问到data中的数据、methods中配置的方法)
+        created() {
+            console.log('created')
+            // console.log(this)
+            // debugger
+        },
+        // 1.页面呈现的是未经Vue编译的DOM结构 2.所有对DOM的操作都不奏效会被覆盖
+        beforeMount() {
+            console.log('beforeMount')
+        },
+        // 1.页面呈现经过Vue编译的DOM 2.对DOM的操作均有效，(尽可能避免)。
+        // 至此初始化结束，一般进行：开启定时器、发送网络请求、订阅消息、绑定自定义事件、等初始化操作
+        mounted() {
+            console.log('mounted')
+        },
+        // 数据是新的，但页面是旧的(页面尚未和数据保持同步)
+        beforeUpdate() {
+            console.log('beforeUpdata')
+        },
+        // 数据是新的，页面也是新的(页面和数据保持同步)
+        updated() {
+            console.log('updated')
+        },
+        // vm中的所有data、methods、指令等都可以用，马上要执行销毁过程
+        // 一般此阶段：关闭定时器、取消订阅消息、解绑自定义事件等收尾操作
+        beforeDestroy() {
+            console.log('beforeDestroy')
+        },
+        // 不用这个
+        // destroyed() {  
+        // },
+
+    })
+    // vm.$mount('#root')
+
+</script>
+
+</html>

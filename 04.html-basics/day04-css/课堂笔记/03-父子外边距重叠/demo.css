@@ -1,0 +1,29 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.box{
+  width: 400px;
+  height: 400px;
+  margin: 100px auto 0;
+  background-color: pink;
+  display:block;
+  /* padding: 20px; */
+  /* border: 1px solid #333; */
+  overflow:hidden;
+}
+.smallbox{
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  margin-top: 20px;
+}
+/* 块级元素中会存在父子上外边距重叠问题（仅针对第一个儿子）
+需要处理  
+方案1: 给父元素设置padding-top
+方案2；给父元素上border
+方案3；给父元素开启overflow:hidden;(BFC)
+    溢出隐藏 将超出元素的部分全部截取掉不展示
+ */

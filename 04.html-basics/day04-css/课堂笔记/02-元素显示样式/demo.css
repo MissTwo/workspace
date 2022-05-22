@@ -1,0 +1,85 @@
+/* 元素会有默认样式  根据浏览器的不同会不同的表现 */
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.box{
+  width: 400px;
+  height: 400px;
+  margin: 100px auto 0;
+  background-color: pink;
+  /* 将元素这只成块级元素 使元素展示 */
+  display:block;
+  /* 隐藏元素 将元素整个抹掉 不占空间 使用这个属性来隐藏元素时  会引起文档流重排（从而导致重绘） 其他元素会占据他的空间 */
+  /* display: none; */
+
+}
+.box2{
+  width: 400px;
+  height: 400px;
+  margin: 100px auto 0;
+  background-color: green;
+}
+/* !important尽量不要使用 */
+/* .smallbox{
+  background-color: red !important;
+} */
+
+/* :hover鼠标经过样式
+鼠标移出时这些样式失效 元素回到原来状态
+ 鼠标经过.box时 .box的适应样式 */
+/* .box:hover{
+  background-color: red;
+} */
+/* 鼠标经过.box时 .smallbox的样式变化 如果想控制别的元素  hover后面必须接选择器 */
+/* .box:hover>.smallbox{
+  background-color: red;
+} */
+/* .box:hover+.box2{
+  background-color: red;
+} */
+/* .box:hover{
+  display: none;
+} */
+
+
+.boxa{
+  font-size: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  color: black;
+}
+/* a:visited{
+  color: yellow;
+}
+a:active{
+  color: green;
+} */
+
+/* 专门针对a标签的 */
+.boxa:link{
+  color: red;
+}
+.boxa:visited {
+  color: green;
+}
+.boxa:hover{
+  color: blue;
+}
+.boxa:active {
+  color: brown;
+}
+
+/* 在权重金字塔不同层级的元素选择器不具备+1的比较条件 */
+div.smallbox.smallbox2{
+  background-color: aqua;
+}
+.smallbox{
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+#smallbox{
+  background-color: red;
+}

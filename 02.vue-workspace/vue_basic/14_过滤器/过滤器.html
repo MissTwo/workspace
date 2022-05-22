@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过滤器 </title>
+    <script src="../js/vue.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.0/dayjs.min.js"></script>
+</head>
+
+<body>
+    <!--     
+    过滤器：
+        定于：对要显示的数据进行特定的格式化后再显示(适用于一些简单逻辑的处理)
+        语法：
+            1.注册过滤器：Vue.filter(name,callback())或new Vue{filters:{}}
+            2.使用过滤器：{{xxx | 过滤器名字}} 或 v-bind:属性="xxx | 过滤器名字"
+        备注：
+            1.过滤器也可以接收额外参数、多个过滤器可以串联
+            2.并没有改变原本的数据，只是产生新的对应数据 -->
+
+    <div id="root">
+        <h2>显示格式化后的时间</h2>
+        <h3>现在的时间是：{{time}}</h3>
+        <!-- 计算属性 -->
+        <h3>计算属性:{{fmTime}}</h3>
+        <!-- menthods实现 -->
+        <!-- 是方法就要加小括号进行方法的调用 -->
+        <h3>menthods实现:{{getFmTime()}}</h3>
+        <!-- 过滤器实现 -->
+        <h3>过滤器实现:{{time | timeFomater}}</h3>
+        <!-- 过滤器实现(传参) -->
+        <h3>过滤器实现(传参):{{time | timeFomater('YYYY-MM-DD')}}</h3>
+        <!-- 多个过滤器串联 -->
+        <h3>多个过滤器串联:{{time | timeFomater | mySlice}}</h3>
+        <!-- 单向绑定使用过滤器 -->
+        <h3 :value="msg | mySlice">尚硅谷</h3>
+
+    </div>
+    <div id="root2">
+        <h2>{{msg | mySlice}}</h2>
+    </div>
+</body>
+<script>
+    Vue.config.productionTip = false
+    // 全局过滤器
+    Vue.filter('mySlice', function (val) {
+        return val.slice(0, 4)
+    })
+    const vm2 = new Vue({
+        el: '#root2',
+        data: {
+            msg: 'hello,shangguigu'
+        }
+    })
+    const vm = new Vue({
+        el: '#root',
+        data() {
+            return {
+                // 时间戳
+                time: 1647876513045,
+                msg: '你好，尚硅谷'
+            }
+        },
+        // 计算属性
+        computed: {
+            fmTime() {
+                return dayjs(this.time).format('YYYY_MM_DD HH:mm:ss')
+            }
+        },
+        methods: {
+            getFmTime() {
+                return dayjs(this.time).format('YYYY年MM月DD日 HH:mm:ss')
+            }
+        },
+        // 局部过滤器
+        filters: {
+            // es6形参默认值，如果str有值就用传入的值，如果没有就用一下的默认值
+            timeFomater(val, str = 'YYYY_MM_DD HH:mm:ss') {
+                return dayjs(val).format(str)
+            }
+        }
+    })
+</script>
+
+</html>

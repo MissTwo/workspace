@@ -1,0 +1,52 @@
+/* a{
+    color: red;
+}
+.nav a{
+    color: orange;
+} */
+.site-1,
+.site-r{
+    font-size: 20px;
+    font-family:'微软雅黑',
+}
+.box{
+    width: 200px;
+    height: 200px;
+    background-color: aqua;
+}
+.smbox{
+    width: 100px;
+    height: 100px;
+    background-color: yellowgreen;
+}
+.box2{
+    width: 200px;
+    height: 200px;
+    background-color: violet;
+}
+/* :hove鼠标经过样式
+鼠标移出时这些样式失效，元素回到原来状态 */
+
+.box:hover{
+    display: none;
+}
+a{
+    font-size: 40px;
+    font-weight: bold;
+}
+/* 未点击 */
+a:link{
+    color: chartreuse;
+}
+/* 已点击 */
+a:visited{
+    color: violet;
+}
+/* 鼠标经过 */
+a:hover{
+    color: sienna;
+}
+/* 点击未抬起 */
+a:active{
+    color: red;
+}

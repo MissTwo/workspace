@@ -1,0 +1,163 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-05-11 09:09:08
+ * @LastEditTime: 2022-05-11 19:34:02
+ * @LastEditors: lishuangling
+ * @Description: 
+ * @FilePath: \day10-css\form\form.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="css/form.css">
+</head>
+<body>
+    <!-- 
+    一、form块级标签,拥有属性
+        1.action表单提交地址
+        2.method提交方法
+                get:没有post安全，携带的参数会展示在url里面携带的数据有限
+                post：相对安全些，拥有一个请求体，可以携带大量数据
+        3.target 使用同a标签相同 _self _blank _new 
+    二、input:表单控件指定类型是行内块
+        1.type指定类型
+        2.value指定值
+        3.placeholder提示输入内容
+        4.name
+        5.readonly只读属性不能操作
+        6.disabled禁止使用
+        7.required此项必填
+        8.autofocus自动聚焦 默认获取焦点
+    注意：
+        1.name和value用于收集用户输入的信息并用"名值对/键值对"储存提交到指定地址
+        2.input元素/标签可以脱离表单form元素单独使用
+
+    三、元素展示与隐藏方法
+        1. display:none; display:block/inline-block/inline;
+           整个元素消失 不占文档流空间  事件不生效 因为元素都没了没法触发  不支持过渡效果
+           不能通过子元素单独设置display:block;来实现展示
+
+        2. height:0; overflow:hidden;
+          整个元素消失 不占文档流空间  事件不生效 因为高度没了没法触发 支持过渡
+          不能通过子元素单独设置高度来实现展示 因为超出的全部隐藏了
+
+        3. opacity:0; opacity:1;
+           只是元素的一个透明状态 任然占据原来的空间 事件可以生效  支持过渡
+           父元素设置了数值为0 不能通过单独设置子元素为1来展示  因为子元素实际的透明度值= 祖先透明度 * 后代透明度  0乘以任何数都等于0
+
+        4. 定位 
+
+        5.visibility: hidden; 隐藏元素
+          仍然占据文档流空间  只是状态被设置成了隐藏 与opacity:0;很像
+          但是不能触发事件，会阻断事件（包括js事件 身上的事件不生效）
+          可以通过子元素单独设置visibility: visible; 来实现子元素的展示 
+          过渡会是一个延迟效果 而且鼠标移出时没有过渡
+          可以使用visibility: hidden;配合opacity来实现平滑过渡且解除事件
+    四、精灵图/雪碧图 产生的目的
+        没有精灵图时 一张图片需要向服务器请求一次资源 
+        当我们有大量的图标需要请求多次 增加服务器的负载 不利于用户体验
+        一张图片整合了许多小图标  只需要加载的时候请求一次就可以了
+           
+    五、图片底部默认会出现一条白边 类似解析空格 图片与inline-block非常相似
+            给图片设置为：
+            display:block;
+            vertical-align:top;
+    六、鼠标样式 仅仅是样式调整 
+            cursor: pointer;
+            cursor: move;
+            cursor: text;
+            cursor: not-allowed;
+    七、unset不设置  相当于取消这条属性
+            overflow: unset;
+            inherit
+            overflow: inherit;
+    八、:focus聚焦伪类 使用同:hover
+            表单元素聚焦时的状态 失去交点时样式消失
+            只能操控自己  自己的后代  自己的弟弟 弟弟的后代（css选择器能写的）
+    九、:checked选择状态的伪类
+    注意 :checked与:focus用于单选复选框的区别
+    十、outline 默认状态没有表单元素聚焦时才有这个属性
+            用法与border一模一样 表单元素的外部装饰线条
+            不占用文档流空间 只是一个渲染
+            我们也可以强行直接设置给元素默认状态
+    十一、:focus-within 当一个元素的后代元素获得焦点时 的状态
+            css中唯一一个能够通过子级控制祖先元素的伪类
+            一般用在一个盒子里面包裹一个表单元素来制作一些效果
+    -->
+    <form action="" method="get" target="">
+        <!-- label双标签  通过for 与对应的input表单元素的id名链接起来 优化点击选中效果 
+        label可以放在任何位置 但是不建议离对应的input太远 -->
+        <label for="user">type="text"</label>
+        <input type="text" placeholder="请输入用户名" id="user"><br>
+        type="password"<input type="password"><br>
+        type="email"<input type="email"><br>
+        <!-- 最大最小 -->
+        type="number"<input type="number" max="50" min="0"><br>
+        <!-- step步长 -->
+        type="range"<input type="range" value="0" step="10"><br>
+        type="color"<input type="color"><br>
+        type="search"<input type="search"><br>
+        <!-- 单选 -->
+        <!-- 通过name属性来设置相同的值，来进行互相排斥的单选效果 -->
+        type="radio"<input type="radio" name="sex" checked>男<input type="radio" name="sex"> 女<br>
+        <!-- checked默认选中 -->
+        <!-- 多选 -->
+        <!-- 在实际使用当中几乎所有的input标签都会给上id名 便于label标签对齐进行点击区域的扩展 -->
+        type="checkbox"<input type="checkbox" name="" checked><input type="checkbox" name="sex"> <br>
+        type="file"<input type="file"><br>
+        type="time"<input type="time"><br>
+        type="data"<input type="data"><br>
+        type="datetime"<input type="datetime" name="" id=""><br>
+        type="datetime-local"<input type="datetime-local" name="" id=""><br>
+        type="month"<input type="month"><br>
+        type="reset"<input type="reset" value="重置按钮"><br>
+        type="button"<input type="button" value="按钮"><br>
+        type="submit"<input type="submit" value="提交按钮"><br>
+        <!-- 双标签文本域 maxlength运行用户输入的最大字符数量-->
+        <!-- cols="10"展示10列  
+        rows="10"展示10行  
+        maxlength="30"允许用户输入的最多字符数量
+        css设置 resize: none; 禁止用户拉伸 -->
+        <textarea name="" id="" cols="30" rows="10" maxlength="10"></textarea>
+        <!-- button按钮标签本身没有任何功能性 需要js实现跳转但是在form里面就有提交效果-->
+        <button>提交</button>
+        <br><br>
+
+
+    </form>
+    <div class="box">
+        <input type="checkbox" id="bg">
+        <div class="box1"></div>
+    </div>
+    <div class="big-light">
+        <div class="light">
+            <input type="radio"  name="signal" class="traffic light1">
+            <div class=" light-bg"></div>
+            <input type="radio" name="signal" class="traffic light2">
+            <div class=" light-bg"></div>
+            <input type="radio" name="signal" class="traffic light3">
+            <div class=" light-bg"></div>
+        </div>
+    </div>
+     <!-- 下拉选择框
+        selected 默认选项
+        optgroup分组标签
+       -->
+       <select name="" id="">
+        <optgroup label="第一组">
+          <option value="">林则徐</option>
+          <option value="">林黛玉</option>
+          <option value="">林彪</option>
+        </optgroup>
+        <option value="" selected>林则徐</option>
+        <option value="">林黛玉</option>
+        <option value="">林彪</option>
+      </select>
+    
+    
+</body>
+</html>

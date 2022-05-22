@@ -1,0 +1,68 @@
+*{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+body{
+  height: 2000px;
+}
+/* display: block;
+块级元素 默认独占一行就算设置了宽度，它也会占据整行的空间 高度由内容撑开（定宽不定高） 可以支持margin padding
+块级元素里面可以放任何标签 p标签里面不能再放任何块级标签 
+
+display: inline;
+行内元素  默认不独占一行就算设置了宽度 自作而右排列
+设置上下margin和padding不影响布局 不支持宽高设置
+高度由文本与行高共同撑开 
+行内元素中不能放任何块级元素 但是a标签例外 里面可以放除了a标签的任何标签
+
+display: inline-block; 
+将元素设置为行内块元素 可以设置宽高 上下margin padding生效 不会独占一行 这个结合了块级元素与行内元素的特点 可以实现块级元素水平排列 不支持左右auto
+行内元素之间默认在垂直方向是基线对齐(英文字母的小写x的底线)
+可以通过vertical-align:属性去做垂直方向的对齐（是给inline-block元素设置 而不是给他们的父元素设置）
+
+给父级块级或者行内块元素设置text-align: center;可以实现行内块元素的水平居中
+
+
+
+但是行内块之间会产生解析空格 需要处理
+1.消除html结构代码之间的空格
+2.将父级元素字体大小设置为0   然后后代元素之间需要用到的再去重新设置
+*/
+.box{
+  width: 600px;
+  display: block;
+  height: 600px;
+  margin: 50px auto 0;
+  background-color: pink;
+  font-size: 0;
+  text-align: center;
+}
+.smallbox{
+  vertical-align: middle;
+  font-size: 20px;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+}
+span{
+  vertical-align: middle;
+  font-size: 20px;
+  font-weight: 600;
+  width: 200px;
+  display: inline;
+  /* margin: 10px 10px; */
+  /* width: 300px;
+  height: 100px; */
+  /* padding: 10px 10px; */
+  /* line-height: 155px; */
+  display: inline-block;
+
+  /* 块级或者行内块元素设置height与line-height设置相同的值可以实现单行文本在元素内垂直居中*/
+  height: 100px;
+  line-height: 100px;
+  background-color: greenyellow;
+}
+
+

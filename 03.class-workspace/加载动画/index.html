@@ -1,0 +1,236 @@
+<!--
+ * @作者: jiaji
+ * @Date: 2022-04-12
+ * @FilePath: \leading\index.html
+ * @Description: 
+ * 有多努力，就有多幸运
+ * Copyright (c) 2022 by jiaji, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        /* 第一个 */
+        .father{
+            width: 84px;
+            margin: 50px auto;
+        }
+        .father span{
+            /* 转变成行内块元素 */
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: orange;
+            /* 动画属性，名称leading，动画时长1.8s，无限次数，速度一致 */
+            animation: leading 1.8s infinite linear;
+        }
+        .father p{
+            text-align: center;
+        }
+        .father :nth-child(2){
+            /* 动画延迟0.3s */
+            animation-delay: 0.3s;
+        }
+        .father :nth-child(3){
+            animation-delay: 0.6s;
+        }
+        .father :nth-child(4){
+            animation-delay: 0.9s;
+        }
+        .father :nth-child(5){
+            animation-delay: 1.2s;
+        }
+        .father :nth-child(6){
+            animation-delay: 1.5s;
+        }
+        @keyframes leading{
+            0%{height:20px;}
+            25%{height: 30px;background-color: red;}
+            50%{height: 30px;background-color: red;}
+            100%{height: 20px;background-color: orange;}
+        }
+
+        /* 弟二个 */
+        .demo{
+            width: 100px;
+            height: 50px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .demo span{
+            display: block;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+            position: absolute;
+        }
+        .demo :nth-child(1){
+            animation: or 2s infinite linear alternate;
+        }
+        .demo :nth-child(2){
+            background-color: red;
+            right: 0;
+            animation: re 2s infinite linear alternate;
+        }
+        .demo p{
+            text-align: center;
+        }
+        @keyframes or{
+            0%{left: 0;transform: rotate(60deg);}
+            25%{left: 20px; transform: rotate(120deg);}
+            50%{left: 40px;transform: rotate(180deg);}
+            75%{left: 60px;transform: rotate(240deg);}
+            100%{left: 80px;transform: rotate(300deg);background-color: red;}
+
+        }
+        @keyframes re{
+            0%{right: 0;transform: rotate(-60deg);}
+            25%{right: 20px;transform: rotate(-120deg);}
+            50%{right: 40px;transform: rotate(-180deg);}
+            75%{right: 60px;transform: rotate(-240deg);}
+            100%{right: 80px;transform: rotate(-300deg);background-color: orange;}
+
+        }
+
+
+        /* 第三个 */
+        .scale{
+            width: 220px;
+            margin: 50px auto;
+            
+        }
+        .scale span{
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: orange;
+            margin: 0 10px;
+        }
+        /* 圆1 */
+        .scale :nth-child(1){
+            animation: scale_1 1s infinite linear alternate;
+        }
+        @keyframes scale_1{
+            from {transform: scale(1,1);}
+            to {transform: scale(2,2);}
+        }
+        /* 圆2 */
+        .scale :nth-child(2){
+            animation: scale_2 1s infinite linear alternate;
+            animation-delay: 0.2s;
+        }
+        @keyframes scale_2{
+            from {transform: scale(1,1);}
+            to {transform: scale(2,2);}
+        }
+        /* 圆3 */
+        .scale :nth-child(3){
+            animation: scale_3 1s infinite linear alternate;
+            animation-delay: 0.4s;
+        }
+        @keyframes scale_3{
+            from {transform: scale(1,1);}
+            to {transform: scale(2,2);}
+        }
+        /* 圆4 */
+        .scale :nth-child(4){
+            animation: scale_4 1s infinite linear alternate;
+            animation-delay: 0.6s;
+        }
+        @keyframes scale_4{
+            from {transform: scale(1,1);}
+            to {transform: scale(2,2);}
+        }
+        /* 圆5 */
+        .scale :nth-child(5){
+            animation: scale_5 1s infinite linear alternate;
+            animation-delay: 0.8s;
+        }
+        @keyframes scale_5{
+            from {transform: scale(1,1);}
+            to {transform: scale(2,2);}
+        }
+        .scale p{
+            text-align: center;
+        }
+
+        /* 第四个 */
+        .clock{
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .clock span{
+            display: block;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: orange;
+            position: absolute;
+        }
+        .ww{
+            width: 150px;
+            height: 280px;
+            margin: 0 auto;
+            padding-top: 20px;
+            animation: clock 60s infinite linear;
+        }
+        .ww img{
+            position: absolute;
+            transform: rotate(-90deg);
+            width: 150px;
+            height: 120px
+        }
+        @keyframes clock{
+            from {transform:rotate(0deg) }
+            to {transform: rotate(360deg)}
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <br>
+        <p>加载中……</p>
+    </div>
+
+    <div class="demo">
+        <span></span>
+        <span></span>
+        <br>
+        <br>
+        <p>加载中……</p>
+    </div>
+    
+    <div class="scale">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <br>
+        <br>
+        <p>加载中……</p>
+    </div>
+
+    <div class="clock">
+        <span></span>
+        <div class="ww"><img src="img/1.png" alt="加载图片失败！"></div>
+    </div>
+</body>
+</html>

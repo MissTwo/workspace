@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.box{
+    width: 800px;
+    height: 800px;
+    background-color: aquamarine;
+    margin: 10px auto;
+}
+.box::before{
+    content:'' ;
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-color: yellowgreen;
+}
+.box::after{
+    content:'' ;
+    display: block;
+    width: 200px;
+    height: 200px;
+    background-color: blueviolet;
+}
+.box1{
+    width: 400px;
+    height: 200px;
+    background-color: pink;
+
+}
+/* 首字母 */
+.box1::first-letter{
+    font-size: 28px;
+    color: cornflowerblue;
+}
+/* 首行文字 */
+.box1::first-line{
+    color: teal;
+    font-size: 18px;
+}
+/* 选中后文字变化 */
+.box1::selection{
+    color: rgb(186, 28, 39);
+    /* font-size: 18px; */
+
+}

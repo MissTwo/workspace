@@ -1,0 +1,104 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-05-07 14:57:30
+ * @LastEditTime: 2022-05-18 09:45:32
+ * @LastEditors: lishuangling
+ * @Description: 
+ * @FilePath: \nav\nav.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/nav.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            text-decoration: none;
+        }
+        body{
+            height: 3000px;
+        }
+        .nav1{
+            width: 100%;
+            /* position: absolute; */
+            /* z-index只在开启有效定位属性值 */
+            /* z-index: 1;   */
+
+        }
+        .nav1 li{
+            line-height: 50px;
+            height: 50px;
+            background-color: aquamarine;
+        }
+        .nav2{
+            /* height: 50px; */
+            height: 0;
+            text-align: center;
+
+
+            /* height: 0; */
+            width: 100%;
+            background-color: aqua;
+            overflow: hidden;
+            /* position: absolute;  
+            top: 0; */
+        }
+        .nav2 li{
+            /* text-align: center; */
+
+            background-color: aqua;
+            line-height: 50px;
+            width: 100px;
+            /* float: left; */
+            height: 0;
+        }
+        .header{
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+        .header:hover .nav2{
+            height: 50px;
+            transition: 2s;
+            /* top:50px */
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="header">
+        
+        <ul class="nav1">
+            <li><a href="#">一级菜单</a></li>
+        </ul>
+        <ul class="nav2">
+            <li><a href="#">二级菜单</a></li>
+            <li><a href="#">二级菜单</a></li>
+            <li><a href="#">二级菜单</a></li>
+        </ul>
+       
+    </div> -->
+
+    <ul>
+        <li class="mask">
+            <div>
+            <img src="./img/blk.jpg" alt="">
+            </div>
+        </li>
+        <li class="mask">
+            <div>
+            <img src="./img/qb.jpg" alt="">
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

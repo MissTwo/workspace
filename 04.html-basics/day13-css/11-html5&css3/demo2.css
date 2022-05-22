@@ -1,0 +1,135 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.box{
+  width: 600px;
+  height: 600px;
+  background-color: pink;
+  margin: 100px auto 0;
+  /* animation: move1 1s linear; */
+}
+/* 给岁月以文明 而不是给文明以岁月  ---三体 */
+/* 
+主动式动画：
+  不需要主动触发  可以自动运行
+  动画的要素：
+    时间  状态（起点，终点） 名称（用于指定关键帧）
+    css处理动画 只需给定第一帧（起点） 最后一帧（终点） 中间的环节过程由计算机辅助生成
+ */
+.smallbox{
+  width: 200px;
+  height: 200px;
+  background-color: aqua;
+  animation: move1 1s linear;
+          /* 名字  时间       速率           延迟     次数           方向  结束的状态 */
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+
+
+  /* 给元素指定动画名称animation-name */
+  animation-name: move1;
+
+  /* 动画持续时间animation-duration */
+  /* animation-duration: 1s; */
+  /* 动画延迟执行的时间 */
+  /* animation-delay: 1s; */
+  /* 动画的速率 linear代表匀速
+  steps(n)分步闪现展示这一段动画 n个图片有n-1段动画
+   */
+  animation-timing-function: steps(3);
+  /* 
+
+  动画运动次数animation-iteration-count:n;
+  n代表次数 默认1次 动画重复的次数
+  infinite无限重复运动
+   */
+  /* animation-iteration-count: infinite; */
+  animation-iteration-count: 1;
+
+  /* 
+  动画结束后的状态描述 animation-fill-mode
+  默认backwards运动完之后回到初始状态
+  forwards停留在动画的最后一帧
+  infinite无限运动会无视该属性
+  注：只是描述动画结束后的停留状态 并不能改变动画的起点和终点
+  */
+
+  /* animation-fill-mode: forwards; */
+  /* 
+  动画的方向animation-direction 
+  normal 默认 0--100%
+  reverse    100%--0%
+  alternate  0---100%--0% 需要运动次数大于等于2次以上才有效果  每一段都会消耗一个完整的动画时间
+  alternate-reverse  100%--0%--100%
+  注：只是描述动画的运动方向 并不能改变动画的起点和终点
+    */
+  /* animation-direction: alternate-reverse; */
+
+  /* 
+  动画运动状态animation-play-state
+  running默认值
+  paused使动画停止/暂停 而且可以让动画停在关键帧上
+  */
+  animation-play-state: running;
+
+  /* 复合型写法 只有名称 持续时间不能省略 其他都可以省略不写 */
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+
+  /* 多例型样式  逗号分隔 */
+  
+  /* animation:
+  name1 duration timing-function delay iteration-count direction fill-mode,
+
+  name2 duration timing-function delay iteration-count direction fill-mode; */
+  
+}
+.box:hover .smallbox{
+  animation-play-state: paused;
+}
+/* 
+给拥有move1名称的动画指定动画的关键帧
+    语法：
+    1.@keyframes move1 {
+        from{} to{}
+      }
+    2.@keyframes move1 {
+        0%{} 20%{} ... 100%{}
+      }  
+ */
+@keyframes move1 {
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(400px);
+  }
+}
+/*  */
+/* @keyframes move1 {
+  0%{
+    transform: translate(0,0);
+  }
+  50%{
+    transform: translate(400px,0);
+  }
+  100%{
+    transform: translate(400px,400px);
+  }
+} */
+/* @keyframes name1 {
+  0%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(400px);
+  }
+}
+@keyframes name2 {
+  0%{
+    transform: translateX(400px,0);
+  }
+  100%{
+    transform: translateX(400px,400px);
+  }
+} */

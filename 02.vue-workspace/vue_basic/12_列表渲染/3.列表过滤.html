@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表过滤</title>  
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>列表过滤</h2>
+        <input type="text" placeholder="请输入姓名" v-model="keyWord">
+        <ul>
+            <li v-for="(p,index) in filPersons" :key="p.id">
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    Vue.config.productionTip=false
+    // 监视属性实现过滤
+    // const vm=new Vue({
+    //     el:'#root',
+    //     data:{
+    //         keyWord:'',
+    //         persons:[
+    //         {id:'001',name:'马冬梅',age:30,sex:'女'},
+    //         {id:'002',name:'周冬雨',age:27,sex:'女'},
+    //         {id:'003',name:'周杰伦',age:54,sex:'男'},
+    //         {id:'004',name:'温兆伦',age:35,sex:'男'}],
+    //         filPersons:[]
+    //     },
+    //     watch:{
+    //         keyWord:{
+    //             // 初始化时让调用一下
+    //             immediate:true,
+    //             handler(val){
+    //                 // filter过滤
+    //                 this.filPersons=this.persons.filter((p)=>{
+    //                     // indexOf字符串中是否包含的判断函数，空和第一位都是0，不包含为-1
+    //                     return p.name.indexOf(val)!==-1
+    //                 })   
+    //             }
+    //         }
+    //     }
+    // })
+
+    // 计算属性属性列表过滤
+    const vm=new Vue({
+        el:'#root',
+        data:{
+            keyWord:'',
+            persons:[
+            {id:'001',name:'马冬梅',age:30,sex:'女'},
+            {id:'002',name:'周冬雨',age:27,sex:'女'},
+            {id:'003',name:'周杰伦',age:54,sex:'男'},
+            {id:'004',name:'温兆伦',age:35,sex:'男'}],
+           
+        },
+        computed:{
+            filPersons(){
+                // 计算属性规定的返回值
+                return this.persons.filter((p)=>{
+                    // filter规定的返回过滤条件
+                    return p.name.indexOf(this.keyWord)!==-1
+                })
+            }
+        }
+    })  
+</script>
+</html>

@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    background-color: #F5F5F5;
+    width: 100%;
+}
+
+#main {
+    margin: 0 80px;
+}
+/* 导航栏样式 */
+
+#nav {
+
+    height: 70px;
+    width: 1350px;
+    background-color: #8BC34A;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+#nav li {
+    background-color: #8BC34A;
+    width: 140px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+}
+
+#nav li a {
+    width: 140px;
+    height: 70px;
+    display: block;
+}
+
+#nav li a span {
+    display: block;
+    background-color: #8BC34A;
+    color: #686665;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+#nav .active span {
+    background-color: #F5F5F5;
+}
+
+#nav a:hover strong {
+    background-color: #F5F5F5;
+}
+
+#content .box {
+    display: none;
+}
+
+#content .on {
+    display: block;
+}
+
+/* 轮播图样式 */
+#carousel {
+    width: 1350px;
+    height: 550px;
+    position: relative;
+    overflow: hidden;
+}
+
+#carousel .pic {
+    display: flex;
+    width: 6750px;
+    height: 550px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: move 10s infinite linear;
+}
+
+@keyframes move {
+    0%, 20% {
+        left: 0;
+    }
+    25%, 45% {
+        left: -1350px;
+    }
+    50%, 70% {
+        left: -2700px;
+    }
+    75%, 95% {
+        left: -4050px;
+    }
+    100%{
+        left: -5400px;}
+
+}
+img {
+    width: 1350px;
+    height: 550px;
+}
+
+#carousel .word {
+    width: 400px;
+    height: 100px;
+    position: absolute;
+    top: 350px;
+    left: 930px;
+    color: white;
+    text-align: left;
+}
+
+#carousel .word h1 {
+
+    font-size: 55px;
+    margin: 10px 0;
+}
+
+#carousel .word span {
+    font-size: 32px;
+}
+
+/* 招牌菜板块样式 */
+#speciality {
+    background-color: #8BC34A;
+    width: 1350px;
+}
+
+#speciality h1 {
+    text-align: center;
+    font-size: 35px;
+    padding: 15px 0;
+
+}
+
+#speciality .wod {
+    text-align: center;
+}
+
+#speciality #card {
+    margin: 0 85px;
+    display: flex;
+
+}
+
+#speciality #card li {
+    margin: 50px 10px;
+    position: relative;
+
+}
+
+#speciality #card li img {
+    width: 380px;
+    height: 284px;
+}
+
+#speciality #card li div {
+    width: 380px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    position: absolute;
+    top: 220px;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#speciality #card li p {
+    width: 340px;
+    background-color: white;
+    padding: 20px;
+}
+
+/* 我们提供样式 */
+#supply {
+    background-color: #F0F0F0;
+    width: 1350px;
+}
+
+#supply h1 {
+    text-align: center;
+    font-size: 35px;
+    padding: 20px 0;
+}
+
+#supply .wod2 {
+    text-align: center;
+}
+
+#supply #food {
+    height: 690px;
+    width: 1350px;
+    margin: 0px 85px;
+}
+
+#supply #food li {
+    float: left;
+    margin: 10px 10px;
+    position: relative;
+
+}
+
+#supply #food li img {
+    width: 380px;
+    height: 300px;
+}
+
+#supply #food li .fbg {
+    color: white;
+    width: 380px;
+    height: 300px;
+    line-height: 300px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+#supply #food li:hover .fbg {
+    display: none;
+}
+/*buttond的样式*/
+#bot {
+    background-color: black;
+    height: 330px;
+    width: 1350px;
+}
+
+#bot #end {
+    width: 1350px;
+    display: flex;
+    justify-content: center;
+}
+
+#bot #end li {
+    width: 270px;
+    margin: 40px 80px;
+}
+
+#bot #end li h2 {
+    color: rgb(213, 211, 211);
+    margin: 5px;
+}
+
+#bot #end li p {
+    margin: 5px;
+    color: rgba(213, 211, 211, 0.5);
+}
+
+#bot #end li p a {
+    color: rgba(213, 211, 211, 0.5);
+}
+
+#bot .copyright {
+    text-align: center;
+    /* background-color: #8BC34A; */
+    color: rgba(213, 211, 211, 0.5);
+    height: 80px;
+    line-height: 80px;
+    border-top: 1px solid rgba(213, 211, 211, 0.5);
+}

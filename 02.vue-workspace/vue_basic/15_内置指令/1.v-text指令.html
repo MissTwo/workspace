@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-text指令</title>
+    <script src="../js/vue.js"></script>
+</head>
+
+<body>
+    <!--     
+    我们学过的指令：
+        v-bind:value   (:xxx)    单向绑定解析表达式
+        v-model:value  (v-model) 双向数据绑定
+        v-for                    遍历数组/对象/字符串
+        v-if/v-else-if/v-else    条件渲染(动态控制节点是否存在)
+        v-show                   条件渲染(动态控制节点是否展示)
+        v-on(@事件)               绑定事件监听
+
+        v-text指令：
+            1.作用：向其所在的节点中渲染文本内容
+            2.与插值语法的区别：v-text会替换掉节点的内容，{{xxx}}则不会
+    -->
+    
+
+    <div id="root">
+        <h2>你好{{name}}</h2>
+        <!-- 拿到name的值替换掉div里面的所有内容 -->
+        <div v-text="name"></div>
+    </div>
+</body>
+<script>
+    Vue.config.productionTip = false
+    const vm = new Vue({
+        el: '#root',
+        data() {
+            return {
+                name: '尚硅谷'
+            }
+        }
+    })
+</script>
+
+</html>

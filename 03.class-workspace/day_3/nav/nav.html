@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nav</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #nav {
+            width: 500px;
+            height: 50px;
+            background-color: #666;
+            margin: 20px auto;
+        }
+
+        #header li {
+            width: 100px;
+            height: 50px;
+            float: left;
+            /* 子可以继承父的属性 */
+            line-height: 50px;
+            text-align: center;
+        }
+
+        #header li a {
+            display: block;
+            /* 超链接的颜色必须给到a便签身上才会有效 */
+            color: white;
+            /* 文字下划线样式的设置，需要找到要修改的文字对于的位置 */
+            text-decoration: none;
+        }
+
+        #header li p {
+            background-color: #777;
+            display: none;
+        }
+
+        #header li a:hover{
+            background-color: #777;
+        }
+    </style>
+
+
+</head>
+<body>
+    <div id="nav">
+        <ul id="header">
+            <li>
+                <a href="#">首页</a>
+                <p><a href="#">菜单1</a></p>
+                <p><a href="#">菜单2</a></p>
+                <p><a href="#">菜单3</a></p>
+            </li>
+            <li><a href="#">产品详情</a></li>
+            <li>
+                <a href="#">产品型号</a>
+                <p><a href="#">菜单1</a></p>
+                <p><a href="#">菜单2</a></p>
+                <p><a href="#">菜单3</a></p>
+                <p><a href="#">菜单4</a></p>
+            </li>
+            <li><a href="#">关于我们</a></li>
+            <li>
+                <a href="#">联系我们</a>
+                <p><a href="#">菜单1</a></p>
+                <p><a href="#">菜单2</a></p>
+                <p><a href="#">菜单3</a></p>
+                <p><a href="#">菜单4</a></p>
+                <p><a href="#">菜单5</a></p>
+            </li>
+        </ul>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        // 事件四要素：1.事件源 2.事件类型 3.事件函数 4.事件对象
+        // 目前接触到的事件类型：onclick事件单机事件 onmouseover鼠标移入事件 onmouseout鼠标移出事件
+        // jQuery省略了所有事件类型前的on
+        $('#header li').mouseover(function () {
+            // this指针 在事件函数里面，this的指向是当前事件源
+            // find()函数向下筛选子元素找到我们需要的
+            // jq封装好的三大动画效果之一：1. sliderDowm()向下划出 2.sliderUp()向上划入
+            // 注意：动画效果中的参数都为实参，1000ms=1s
+            // stop()函数停止当前所有动画效果
+            $(this).find('p').stop().slideDown()
+        }).mouseout(function () {
+            $(this).find('p').stop().slideUp()
+        })
+        // js的三大输出方式：1.console.log(xxx) 控制台输出 2.alert(xxx) 弹出框输出
+
+    </script>
+
+</body>
+
+
+</html>

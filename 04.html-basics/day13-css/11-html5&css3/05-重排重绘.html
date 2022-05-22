@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <!-- 
+    回流/重排 与 重绘
+
+    页面元素是相对的 一个元素的位置移动，可能会引起其他元素的位置改变，这个过程叫做reflow（回流/重排） 
+
+    一些属性变化不影响位置变化，只影响元素外貌风格的变化，叫repaint（重绘）
+
+    重排必定导致重绘  重绘不一定导致重排
+
+
+    定位是一个危险的样式 会引起重排 可能会破坏页面大部分元素的位置，性能消耗大  
+
+    变化属性 transform 只是重绘不会引起重排 而且能调用gpu加速 减轻cpu的负担  在面对大量元素位置变化的时候  推荐使用transform:trasnlate();平移替代定位
+
+
+
+   -->
+
+
+</body>
+</html>

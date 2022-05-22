@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #999;
+}
+.EDiagrams{
+    position: relative;
+    margin: 50px auto;
+    width: 200px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: #fff;
+    border-right:200px solid black;
+    /* transition: 3s; */
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: move 2s linear   infinite  reverse ;
+    /* animation-direction: reverse; */
+    /* background: 
+    radial-gradient( circle at  100px,white 25px,black 25px,black 100px,transparent 100px),
+    radial-gradient( circle at  300px,black 25px,white 25px,white 100px,transparent 100px),
+    linear-gradient(black 50%,white 50%); */
+}
+@keyframes move {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+    
+}
+.EDiagrams::before{
+    position: absolute;
+    right: -100px;
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    border:70px solid black;
+    /* transition: 1s; */
+
+}
+.EDiagrams::after{
+    position: absolute;
+    right: -100px;
+    bottom: 0;
+    content: '';
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: black;
+    border:70px solid #fff;
+    /* transition: 1s; */
+    
+
+}
+/* body:hover .EDiagrams{
+    background-color: black;
+    border-right:200px solid #fff;
+    transform: rotate(45deg)  translate(400px,0) ;
+}
+.EDiagrams:hover::after{
+    background-color: #fff;
+    border:70px solid black;
+}
+.EDiagrams:hover::before{
+    background-color: black;
+    border:70px solid #fff;
+} */

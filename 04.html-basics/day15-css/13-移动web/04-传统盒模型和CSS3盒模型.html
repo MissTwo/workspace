@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        
+        .box {
+            margin: 100px auto;
+            width: 600px;
+            height: 500px;
+        }
+
+        /* 传统 盒模型 */
+        .box div:first-child {
+            font-size: 30px;
+            color: #fff;
+            padding: 50px;
+            width: 200px;
+            height: 200px;
+            background-color: #f00;
+            border: 10px solid #0f0;
+            /* 默认标准流盒模型 */
+            box-sizing: content-box;
+            /* -webkit-box-sizing: border-box; */
+        }
+        /* 
+        box-sizing: content-box;
+        传统盒模型 大小由 边框+内边距+内容
+    
+        box-sizing: border-box;
+        盒子的实际大小不变 
+        */
+        .box div:last-child {
+            font-size: 30px;
+            color: #fff;
+            /* margin-top: 20px; */
+            padding: 20px;
+            width: 200px;
+            height: 200px;
+            background-color: #00f;
+            
+            /* 开启怪异盒模型  padding  border向内压缩 设置的盒子宽高就是固定的宽高不变 */
+            box-sizing: border-box;
+            border: 10px solid skyblue;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="box">
+        <div>这是传统盒模型</div>
+        <div>这是 border-box</div>
+    </div>
+    
+</body>
+</html>

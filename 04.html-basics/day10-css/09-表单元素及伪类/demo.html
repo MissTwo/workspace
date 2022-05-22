@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./demo.css">
+</head>
+
+<body> 
+
+  <h1 style="text-align: center;">表单</h1>
+
+  <!-- <div class="box">
+    <div class="box1"></div>
+  </div> -->
+
+
+
+    <!-- form块级标签 -->
+    <!-- 
+      action 表单提交地址  
+      method 提交方法请求方式  本质上没有区别
+             get(没有post安全，携带的参数会展示在url里 携带的数据量有限)  
+             post（相对安全一些，拥有一个请求体，可携带数据量大）
+      target 使用同a标签 _self _blank _new
+     -->
+    <form action="" method="get" target="">
+      <!-- input标签相当于行内块元素 
+        单标签 通过type="xxx"指定表单的类型-->
+      <!-- type="text"最普通的表单输入框 
+      placeholder="请输入内容"提示信息
+      name:1234  password:1234 
+      name和value用于收集用户输入的信息并用"名值对/键值对"储存提交到指定地址
+      readonly 只读属性 不能操作
+      disabled 禁止使用
+      required 此项必填
+      autofocus 自动聚焦 默认获取焦点
+      input元素/标签可以脱离表单form元素单独使用
+      -->
+      <span>type="text"</span>
+      <!-- <input id="test_input" type="text" placeholder="请输入内容" name="zhanghao" value="1234" readonly disabled> -->
+      
+      <input id="test_input" type="text" placeholder="请输入内容" name="zhanghao" value="1234">
+      <br>
+
+      <span>type="password"</span>
+      <input type="password" name="password" value="1234" required autofocus placeholder="222">
+      <br>
+
+      <span>type="email"</span>
+      <input type="email" name="" id="">
+      <br>
+
+      <!--  max="50" min="0" 最大/最小允许输入值 -->
+      <span>type="number"</span>
+      <input type="number" max="50" min="0" step="10" name="" id="">
+      <br>
+
+      <!-- step="10"步长  -->
+      <span>type="range"</span>
+      <input type="range" name="" step="10" value="0" id="">
+      <br>
+
+      <span>type="color"</span>
+      <input type="color" name="" id="">
+      <br>
+
+      <span>type="search"</span>
+      <input type="search" name="" id="">
+      <br>
+
+      <!-- 单选
+        checked 默认选中
+        通过name属性设置相同的值来进行相互排斥的一个单选效果
+       -->
+      <span>type="radio"</span>
+
+      <!-- 
+        label双标签  通过for 与对应的input表单元素的id名链接起来 优化点击选中效果 
+        label可以放在任何位置 但是不建议离对应的input太远
+      -->
+      <label for="man">男</label>
+      <input id="man" type="radio" name="sex" checked>  
+
+      <label for="female">
+        女<input id="female" type="radio" name="sex" >
+      </label>  
+      <br>
+
+      <!-- 多选 
+        在实际使用当中几乎所有的input标签都会给上id名 便于label标签对齐进行点击区域的扩展
+      -->
+      <span>type="checkbox"</span>
+      香蕉<input id="banana" type="checkbox" name="fruits" id="" >
+      苹果<input type="checkbox" name="fruits" id="" checked>
+      梨子<input type="checkbox" name="fruits" id="">
+      <br>
+
+      <span>type="file"</span>
+      <input type="file" name="" id="">
+      <br>
+
+      <span>type="time"</span>
+      <input type="time" name="" id="">
+      <br>
+
+      <span>type="date"</span>
+      <input type="date" name="" id="">
+      <br>
+
+      <span>type="datetime"</span>
+      <input type="datetime" name="" id="">
+      <br>
+
+      <span>type="datetime-local"</span>
+      <input type="datetime-local" name="" id="">
+      <br>
+
+      <span>type="month"</span>
+      <input type="month" name="" id="">
+      <br>
+
+      <span>type="reset"</span>
+      <input type="reset" value="重置按钮">
+      <br>
+
+      <span>textarea 双标签</span>
+      <!-- 
+        cols="10"展示10列  
+        rows="10"展示10行  
+        maxlength="30"允许用户输入的最多字符数量
+        css设置 resize: none; 禁止用户拉伸 
+      -->
+      <textarea name="" id="" cols="10" rows="10" maxlength="30"></textarea>
+      <br>
+      <!-- 需要结合js使用 -->
+      <span>type="button"</span>
+      <input type="button" value="按钮">
+      <br>
+      <!-- 提交按钮 -->
+      <span>type="submit"</span>
+      <input class="icon" type="submit" value="提交按钮">
+      <input class="icon" type="submit" value="字体编码">
+      <br>
+
+      <!-- button按钮标签 本身没有任何功能性 也是需要js来实现一些跳转 但是放在form表单里面  默认就有type="submit"提交的功能 -->
+      <button>
+        提交按钮
+        <img src="./smallimg.jpg" alt="">
+      </button>
+
+      <!-- 下拉选择框
+        selected 默认选项
+        optgroup分组标签
+       -->
+      <select name="" id="">
+        <optgroup label="第一组">
+          <option value="">林则徐</option>
+          <option value="">林黛玉</option>
+          <option value="">林彪</option>
+        </optgroup>
+        <option value="" selected>林则徐</option>
+        <option value="">林黛玉</option>
+        <option value="">林彪</option>
+      </select>
+
+    </form>
+
+
+    
+    <div class="bigbox">
+      <input id="input_c" type="checkbox"> 
+      <div class="box1"></div>
+    </div>
+
+
+    <div class="bigbox2">
+      <img class="img1" src="./ad7fa76844a2df5c03151ead0ce65ea6.svg" alt="">
+      <img class="img2" src="./500c1180a96859e5c54a5359f024a397.svg" alt="">
+      <input id="input_c2" type="text"> 
+      <br>
+      <span style="padding-left: 20px;">文本文本</span>
+    </div>
+    
+
+    
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-04-30 09:16:24
+ * @LastEditTime: 2022-04-30 16:02:17
+ * @LastEditors: lishuangling
+ * @Description: 
+ * @FilePath: \day03-css\insert.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基础样式</title>
+    <link rel="stylesheet" href="css/insert.css">
+    <style>
+        .aaa{
+            background-color: aqua;
+            width: 400px;
+            height: 200px;
+        }
+        .hhh{
+            color: rgb(142, 132, 132);
+        }
+    </style>
+</head>
+<body>
+    <!-- 行内式样式 -->
+    <div style="color: red;">青春不常在，抓紧谈恋爱！！！</div>
+    <!-- 内嵌式样式 -->
+    <div  class="aaa hhh">
+        hull
+    </div>
+    <!-- 外链式样式 -->
+    <div id="bbb" class=" ccc hhh">
+        <input type="data" name="body">
+    
+        <p><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;醉里挑灯看剑，梦回吹角连营。八百里分麾下炙，五十弦翻塞外声，沙场秋点兵。马作的卢飞快，弓如霹雳弦惊。了却君王天下事，赢得生前身后名。可怜白发生！</span></p>
+    <!-- 字体加粗 -->
+        <p class="b"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;醉里挑灯看剑，梦回吹角连营。八百里分麾下炙，五十弦翻塞外声，沙场秋点兵。马作的卢飞快，弓如霹雳弦惊。了却君王天下事，赢得生前身后名。可怜白发生！</span></p>
+    <!-- 字体倾斜 -->
+        <p class="i"><span>醉里挑灯看剑，梦回吹角连营。八百里分麾下炙，五十弦翻塞外声，沙场秋点兵。马作的卢飞快，弓如霹雳弦惊。了却君王天下事，赢得生前身后名。可怜白发生！</span></p>
+    <!-- 综合设置样式 -->
+        <p class="ff"><span>醉里挑灯看剑，梦回吹角连营。八百里分麾下炙，五十弦翻塞外声，沙场秋点兵。马作的卢飞快，弓如霹雳弦惊。了却君王天下事，赢得生前身后名。可怜白发生！</span></p>
+ 
+    </div>
+    <!-- 快捷生成3个类名一次增1的div用div.box$*3 -->
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>强制类型转换</title>
+    <script>
+        /*强制类型转换：将一个数据类型转换为其他数据类型如：String Number Boolean
+
+        * 1.将其他数据类型转换为String:
+        *    方法一：调用被转换数据类型的方法：toString(),该方法不会影响到原变量，会将转换的结果返回
+        * 注意：null、undifined这两个值没有toString()方法，如果调用会报错
+        *    方法二：调用String()方法，并将转换的变量作为参数
+        * 注意：对于Number、Boolean实际就是调用的toString()方法，但对于Null、Undifined就不会调用toString()方法
+        * null转换为"null",undifined转换为"undifined"
+        *
+        * */
+        var a = 111;
+        a = a.toString();
+
+        var b = 222;
+        b = String(b);
+
+        /*
+        * 2.将其他数据类型转换为Number:
+        *     方法一：调用Number()方法，并将转换的变量作为参数
+        * 注意：字符串-->数字 (1)如果是纯数字的字符串，则直接转换成为数字
+        *                     (2)如果字符串中有非数字的内容，则转换为NaN
+        *                     (3)如果字符串是空串或者全是空格的字符串，则会转会为0
+        *      Boolean-->数字 true转为 1 ，false转为 0
+        *         Null-->数字 转为 0
+        *     方法二：专门用来对付字符串
+        *             parseInt()可以将一个字符串有效的整数内容取出来转换成为Number
+        *             parseFloat()可以将一个字符串中有效的浮点数内容取出来转为Number
+        */
+
+        var c = "  ";
+        c = Number(c);
+
+        var d = null;
+        d = Number(d);
+
+        /*parseInt()可以将一个字符串有效的整数内容取出来转换成为Number*/
+        var e = "123px";
+        e = parseInt(e);
+
+        /*parseFloat()可以将一个字符串中有效的浮点数内容取出来转为Number*/
+        var f = "1345.434px";
+        f = parseFloat(f);
+
+        /*如果对于非string使用parseInt()或parseFloat()，会将其转为String再操作*/
+        var g = true;
+        g = parseInt(g);
+
+        /*
+        * 3.将其他数据类型转换为Boolean:使用Boolean()函数
+        * 注意：
+        *       数字-->布尔，除了0和NaN,其余都是true
+        *     字符串-->布尔，除了空串，其余都是true
+        *      null和undifined都是false
+        *       object也就转换为true
+        *
+        * */
+        var h = 135;
+        h = 0; //false
+        h = Infinity; //true
+        h = NaN; //false
+        h = Boolean(h);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

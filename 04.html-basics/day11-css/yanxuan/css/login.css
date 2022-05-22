@@ -1,0 +1,131 @@
+body{
+    background-color: #333333;
+}
+.login_box{
+    width: 384px;
+    height: 460px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding-top: 30px;
+}
+.login_select{
+    width: 310px;
+    margin: 20px auto;
+    
+}
+.login_select li{
+    float: left;
+    text-align: center;
+    width: 150px;
+    height: 25px;
+
+}
+.login_select li:nth-last-child(1){
+    border-left: 1px solid #ccc;
+
+}
+.login_select a{
+    font-size: 18px;
+    color: #333333;
+}
+.login_select a:hover{
+    color:#CC9756 ;
+}
+.login_word{
+    margin-left: 244px;
+    margin-bottom: 20px;
+}
+.login_word a{
+   font-size: 12px;
+   color: #666;
+}
+.login_word a:hover{
+    color: #CC9756;
+}
+.login_phone{
+    width: 300px;
+    height: 38px;
+    border: 1px solid #e8e8e8;
+    margin: 20px auto;
+}
+.login_phone .icon-tel{
+    font-size: 20px;
+    color: #ccc;
+    vertical-align: middle;
+}
+.login_phone input{
+    border: none;
+    border-left: 1px solid #e8e8e8;
+    height: 38px;
+    width: 260px;
+}
+.login_phone input:focus{
+    outline: 0px;
+}
+.login_cb{
+    width: 300px;
+    height: 38px;
+    border: 1px solid #e8e8e8;
+    margin: 20px auto;
+}
+.login_cb input:nth-child(1){
+    width: 205px;
+    height: 37px;
+    border: none;
+}
+.login_cb input:nth-child(1):focus{
+    outline: 0px;
+}
+.login_cb input:nth-child(2){
+    width: 95px;
+    height: 38px;
+    border: none;
+    cursor: pointer;
+}
+button{
+    margin-top: 30px;
+    margin-left: 42px;
+    width: 300px;
+    height: 48px;
+    background-color: #CC9756;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+.login_agree{
+    margin: 15px auto;
+    width: 300px;
+    color: #999;
+    font-size: 12px;
+}
+.login_agree a{
+    color: #333333;
+}
+.login_agree input{
+    width: 20px;
+}
+.login_footer{
+    height: 60px;
+    background-color: #F5F3EF;
+    margin-top: 50px;
+    padding-left: 20px;
+    line-height: 60px;
+}
+.login_footer a{
+    display: inline-block;
+    color: #999;
+    margin-left: 16px;
+}
+.login_footer a:nth-last-child(1){
+    margin-left: 120px;
+    color: #999;
+    font-size: 12px;
+}
+.login_footer span{
+    font-size: 25px;
+}
+.login_footer a:hover{
+    color: #CC9756;
+}
+

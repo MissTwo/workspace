@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 给对象添加属性或说是定于属性，在vue的底层常用如：数据劫持、数据代理、计算属性 -->
+    <title>回顾object.defineProperty方法</title>
+   
+</head>
+<body>
+   <script>
+
+       // 通过number控制person对象中的年龄
+       let number=18
+        //创建一个对象
+       let person={
+            name:'张三',
+            sex:'男',
+       }
+    //    要给他添加一个年龄的属性age=18使用object.defineProperty()方法不可枚举(遍历),
+    //    里面包含三个参数分别是:对象、添加的属性名称、配置项
+        // Object.defineProperty(person,'age',{
+        //     value:18,
+        //     // 控制属性是否可以枚举，默认属性为false
+        //     enumerable:true,
+        //     // 控制属性是否可以修改，默认值是false
+        //     writable:true,
+        //     // 控制属性是否可以被删除，默认值是false
+        //     configurable:true,
+        // })
+        Object.defineProperty(person,'age',{
+            // 当有人读取person的age属性时，get函数(getter)就被被调用，且返回值是age的值
+            get(){// get:function demo(){}可以简写为get(){}
+                console.log('有人读取了age属性')
+                return number
+            },
+            // 当有人修改person的age属性时，set函数(setter)就被被调用，且会收到具体的修改值
+            set(value){
+                console.log('有人修改了age属性,且值为:value')
+                number=value
+
+            }
+        })
+        
+        // Object.keys()方法,需要传入一个为对象的参数,方法可以把传入参数的所有属性的属性名提取出来
+
+        // console.log(Object.keys(person))
+        console.log(person)
+
+    
+   </script>
+    
+</body>
+</html>

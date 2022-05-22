@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #666;
+}
+/* 五个盒子实现太极图 */
+.box{
+    margin: 50px auto;
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(black 50%,white 50%,white 100%);
+    position: relative;
+}
+.box1{
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+}
+.box2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+}
+.box3{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -150px;
+}
+.box4{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: 50px;
+}
+
+
+/* 六个盒子实现太极图 */
+.fbox{
+    margin: 50px auto;
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    /* background: linear-gradient(black 50%,white 50%,white 100%); */
+    position: relative;
+    background-color: white;
+}
+.fbox1{
+    position: absolute;
+    top: 50%;
+    margin-top: -100px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: black;
+}
+.fbox2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+}
+.fbox3{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -150px;
+}
+.fbox4{
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: 50px;
+}
+.fbox5{
+    width: 400px;
+    height: 200px;
+    border-radius: 200px 200px 0 0;
+    background-color: black;
+}
+

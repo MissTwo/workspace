@@ -1,0 +1,198 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-05-04 09:28:02
+ * @LastEditTime: 2022-05-05 19:59:19
+ * @LastEditors: lishuangling
+ * @Description: 
+ * @FilePath: \day04-css\selector\selector.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 元数据标签，用于移动端pc端适配，搜索引擎的seo优化 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/selector.css">
+    <style>
+        .content{
+            display: flex;
+        }
+        .one{
+            margin: 30px;
+            width: 800px;
+            height: 500px;
+        }
+        .one h2{
+            border-left: 3px solid black;
+            padding: 10px;
+        }
+        .picture{
+            margin: 30px;
+        }
+        .picture img{
+            width: 450px;
+            height: 500px;
+        }
+
+    </style>
+</head>
+<body>
+<!-- 
+    笔记：
+    一、选择器：
+        1.父子选择器,只能父亲选择直系儿子
+            .bigbox>.box{}
+        2.后代选择器,只要是后代就能选中
+            .bigbox .smallbox{}
+        3.兄弟选择器,只能选中自己相邻的一个弟弟
+            .box+.box3{}
+        4.并列向下跨兄弟(如：选择所有的名字叫.box2弟弟)
+            .box1~.box3{}
+    注意：css中无法通过弟弟选中哥哥 也没有办法通过后代(包括直系子集)去选中祖先元素 
+        5.并集选择器：同时选择多个元素,或者关系
+            .box1,.box2{}
+        6.交集选择器:多个选择器并用 ,是一种且的关系 
+            div.box{} 
+    注意：如果有标签选择器 那么标签选择器必须写在前面
+        7.伪类选择器：
+            (1):first-child选择满足--前面选择器条件的第一个元素
+            (2):last-child选择满足--前面选择器条件的最后一个元素
+            (3):nth-of-type()
+                n代表选中满足条件的元素中的第n个  
+                代入字母n作为计算规则来选中特定的元素(如偶数个写2n  奇数个是2n-1 但是n必须在前面)   
+            (4):nth-child() 
+    注意区别(3)(4):
+            其中(3)限定在类型去选择;(4)在所有满足选择器条件的子元素里去计数
+    二、a标签的伪类    
+            link未点击前、visited点击后、hover鼠标悬浮、active点击时
+    注意：
+        1.需要全部作用与a标签时必须按照整个顺序来书写 
+        2.hover鼠标移出时这些样式失效 元素回到原来状态
+    三、display:none隐藏元素 
+        1.将元素整个抹掉,不占空间  
+        2.会引起文档流重排（从而导致重绘）其他元素会占据他的空间
+    四、选择器权重
+        1.!important最高尽量不要使用
+        2.大部分情况用id而不是class
+    五、块级元素中会存在父子上外边距重叠问题（仅针对第一个儿子） 
+        方案1: 给父元素设置padding-top
+        方案2；给父元素上border
+        方案3；给父元素开启overflow:hidden;(BFC)
+        溢出隐藏 将超出元素的部分全部截取掉不展示
+    六、overflow属性规定当内容溢出元素框时所触发的事件
+        1.scroll:强制开启滚动条
+        2.auto:自适应
+        3.hidden：隐藏
+    七、背景
+        1. background-color 背景颜色的设置
+        2.background-image：url('/xx/xx.jpg') 背景图片的设置
+            注意：
+                (1)引入背景图片,写相对路径 
+                (2)背景图片层级高于背景颜色 会覆盖背景颜色
+        3.background-repeat 背景重复,默认是往x和y轴无限重复,一般需要设置为不重复
+        4.background-size 背景尺寸 
+            取值：
+                (1)contain背景平铺到只要有一个遍碰到元素边界,就停止拉伸 ,
+                不对图片进行裁切 ，不会缩放图片比例
+                (2)cover 背景平铺满整个，铺满后就停止拉伸 ，会对图片进行裁切，不会缩放图片比例
+                (3)写像素值时 第一个值代表宽度  第二个值代表高度 会使图片变形
+        5.background-position 背景位置 设置为像素值时 
+            取值：
+                第一个值时x轴平移距离  正值往右 负值往左
+                第二个值是y轴平移距离  正值往下 负值往上
+        6.background-attachment 背景附着 
+            取值：
+                (1)fixed 背景图依附于视口而存在
+                (2)scroll 默认值
+                (3)local 背景跟着内容一起滚动
+        7.background-origin 背景原点：规定背景从哪里开始展示 默认padding-box
+            取值：
+                (1)padding-box
+                (2)content-box
+                (3)border-box
+        8.background-clip 背景裁切,会连背景颜色一起裁切,针对整个背景的
+            取值：
+                (1)padding-box
+                (2)content-box
+                (3)border-box
+    八、复合型样式
+        background: -color -url() -repeat -position/-size -origin -clip -attachment;
+        background: url("./small.jpg") no-repeat center/cover; 
+        背景图片可以写多张  用复合型写法  中间逗号分割  写在前面的层级更高 会覆盖后写的 
+    放两个背景图：
+         background:
+            url("./small.jpg") no-repeat right bottom/100px 100px,
+            url("./QQ截图20220504154541.jpg") no-repeat left top/100px 100px;
+   
+
+        
+
+-->
+
+    <div class="content">
+        <div class="one">
+            <!-- h1标签整个页面上只能有一个，
+                否则不利于seo优化，
+                浏览器会把网页当成垃圾页面不利于收录 
+            -->
+            <h1>公司简介</h1>
+            <p>近两个月，一名被称为“基辅幽灵”的飞行员事迹在全球社交平台和媒体中广为流传，
+                其非凡的英勇壮举吸引了乌克兰和世界的关注，成为了“乌克兰国家英雄”的象征，
+                从T恤衫到NFT商品，随处都充斥着“基辅幽灵”飞行员的身影。
+            </p>
+            <p>近日，英国《泰晤士报》等一众西方媒体纷纷揭露，称“基辅幽灵”的真实身份，
+                是已阵亡的乌军少校斯特潘·塔拉巴尔卡（Stepan Tarabalka）。不过上周末，
+                乌克兰官方突然回应，塔拉巴尔卡并不是“基辅幽灵”。事实上，“基辅幽灵”从来就不存在，
+                只是一个创造出来的“超级英雄”，代表的是乌空军飞行员的“集体形象”。
+            </p>
+        </div>
+        <!-- 
+        ./当前路径寻找文件
+        ../返回(跳出上一层目录寻找)
+        ../../返回上一层的上一层目录
+        -->
+         
+        <div class="picture"><img src="img/1.jpg" alt=""></div>
+    </div>
+    <div>
+        <!-- 新开页面，但是只要整个页面存在，就只开一个页面进行刷新 -->
+        <a href="http://www.baidu.com" target="_new">去百度</a>
+     </div>
+    <div class="bigbox">
+        <div class="box1">
+            <div class="smallbox"></div>
+        </div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <hr>
+    <div class="hhh">
+        <h2>称为“基辅幽灵”</h2>
+        <p>斯特潘/斯特潘</p>
+        <p>乌军少校斯特潘·塔拉巴尔卡（Stepan Tarabalka）。不过上周末，
+            乌克兰官方突然回应</p>
+        <a class="bbb" href="#" >斯特潘></a>
+    </div>
+    <div class="aaa">
+        乌克兰官方突然回应
+<!-- inline元素之间存在一个解析空格，不同浏览器给出的渲染间距不同
+一般是3px 我们在html文本中持续输入空格或者换行都只会解析成一个空格 -->
+        <span>其非凡的英勇</span>
+        <span>其非凡的英勇</span>
+
+    </div>
+    
+</body>
+</html>

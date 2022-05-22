@@ -1,0 +1,122 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.bigbox{
+  width: 800px;
+  height: 800px;
+  background-color: pink;
+  margin: 100px auto 0;
+}
+.box{
+  width:200px;
+  height: 200px;
+  background-color: aqua;
+}
+.smallbox{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.box3{
+  width:200px;
+  height: 200px;
+  background-color: rgb(193, 50, 145);
+}
+.box2{
+  width:200px;
+  height: 200px;
+  background-color: green;
+}
+/* 父子选择器 只能父亲选择直系儿子 */
+/* .bigbox>.box{
+  background-color: yellow;
+} */
+/* .bigbox .box{
+  background-color: yellow;
+} */
+/* 后代选择器  只要是后代就能选中 */
+/* .bigbox .smallbox{
+  background-color:blue;
+} */
+
+/* 兄弟选择器 +只能选中自己相邻的一个弟弟 */
+/* .box+.box3{
+  background-color:blue;
+} */
+/* 选择所有的名字叫.box2弟弟 */
+/* .box~.box2{
+  background-color:rgb(193, 50, 145);
+} */
+/* css中 无法通过弟弟去选中哥哥  也没法通过后代（包括直系子级）去选中祖先元素 */
+
+
+/* 并集选择器 同时选择多个元素 选择器之间以逗号，隔开  或者关系
+ 交集选择器 多个选择器并用  是一种且的关系 不仅要是div元素 而且有box的类名的元素 如果有标签选择器 那么标签选择器必须写在前面
+  */
+
+/* .box3,
+.box{
+  background-color: red;
+} */
+
+/* div.box{
+  background-color: aqua;
+}
+.box{
+  background-color: red;
+} */
+
+/* body{
+  height: 2000px;
+} */
+/* ul{
+  border: 1px solid #333;
+  width: 300px;
+  margin: 50px auto;
+}
+li{
+  width: 300px;
+  height: 100px;
+  border: 1px solid #333;
+  background-color: aqua;
+  margin-bottom: 10px;
+} */
+/* 伪类选择器
+:first-child选择满足:前面选择器条件的第一个元素
+:last-child选择满足:前面选择器条件的最后一个元素
+
+*/
+/* ul li:first-child{
+  background-color: red;
+}
+ul li:last-child{
+  margin: 0;
+  background-color: red;
+} */
+
+/* ul>li:nth-of-type() 里面可以写整数n 代表选中满足条件的元素中的第n个  还可以代入字母n作为计算规则来选中特定的元素
+如偶数个写2n  奇数个是2n-1 但是n必须在前面
+nth-of-type() 限定在li标签里面去选择 去计数 
+*/
+/* ul>li:nth-of-type(2){
+  background-color: green;
+}
+ul>li:nth-of-type(3){
+  background-color: blue;
+}
+ul>li:nth-of-type(2n){
+  background-color: red;
+}
+ul>li:nth-of-type(2n-1){
+  background-color: blue;
+} */
+
+/* ul>li:nth-child(3) 
+代表选中ul下面的li标签中 在所有满足选择器条件的子元素里去计数  需要是第三个子元素而且是li 如果第三个元素不是li那么不生效
+*/
+/* :nth-last-of-type(2)顺序倒数 */
+/* ul>li:nth-last-of-type(2){
+  background-color: yellow;
+} */
