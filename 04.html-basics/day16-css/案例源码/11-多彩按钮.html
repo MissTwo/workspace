@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+			background-color: #000;
+		}
+		a{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			/*定位实现的垂直水平居中*/
+			width: 200px;
+			height: 60px;
+			/*定位强制转换为块级元素后设置宽高.*/
+			text-align: center;
+			/*文字水平居中*/
+			line-height: 60px;
+			/*文字垂直居中*/
+			color: #fff;
+			/*文字颜色*/
+			font-size: 24px;
+			/*文字大小*/
+			text-transform: uppercase;
+			/*a标签里面的文字全部变成大写*/
+			text-decoration: none;
+			/*清除下划线*/
+			font-family: sans-serif;
+			/*字体样式*/
+			background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+			/*设置渐变方向90deg从左往右,四个渐变颜色.*/
+			background-size: 400% 100%;
+			/*让这个渐变色图片变大*/
+			border-radius: 40px;
+			/*设置圆角样式*/
+			z-index: 1;
+			/*设置定位层级为1,比后面伪元素的层级-1高盖住他*/
+		}
+		a:hover{
+			animation: roll 8s linear infinite;
+			/*定义了动画名称roll 动画持续时间8s 动画运动速率linear匀速 动画的次数infinite无限*/
+		}
+		@keyframes roll {
+			0%{
+				background-position: 0%;
+			}
+			100%{
+				background-position: 400%;
+			}
+		}
+		/*定义动画的关键帧
+		  初始帧背景位置background-position为0%;
+		  结束帧背景位置background-position为100%;
+		  */
+		a::before{
+			/*a:before就是在a标签内部创建了一个伪元素(行内元素)*/
+			content: "";
+			position: absolute;
+			top: -5px;
+			left: -5px;
+			right: -5px;
+			bottom: -5px;
+			/*此时在a标签内部再次创建了一个盒子
+			  这个伪元素盒子的宽度是a标签200px+top5px+bottom5px = 210px;
+			  这个伪元素盒子的高度是是a标签60px+top5px+bottom5px = 70x;
+			  所以这个盒子比上面a盒子大了一圈*/
+			z-index: -1;
+			/*让这个盒子在a盒子的下方*/
+			/*设置伪元素盒子的渐变*/
+			background-size: 400% 100%;	
+			/*设置伪元素盒子的大小*/
+			border-radius: 40px;
+			/*设置伪元素盒子的圆角大小*/
+			opacity: 0;
+			/*设置伪元素盒子为透明*/
+			transition: .6s;
+			/*设置伪元素盒子的过渡时间*/
+		}
+	a:hover::before{
+		/*当我们移动到这个a标签的伪元素上时*/
+		filter: blur(40px);
+		/*添加模糊度40px,表示取40px的平均值*/
+		opacity: 1;
+		/*变为完全不透明*/
+		background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4);
+		/*添加渐变颜色*/
+	}
+
+	</style>
+</head>
+<body>
+	<a href="#">Button</a>
+</body>
+</html>

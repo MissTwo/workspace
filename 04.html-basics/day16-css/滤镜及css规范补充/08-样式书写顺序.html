@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 
+    样式还有书写顺序？样式这么简单的东西，不是随便写写就行的么。很多初学甚至有一定工作经验的人都会发出这种疑问。而样式的书写顺序到底对页面有没有影响呢？答案是肯定的。如何写出好的css样式也是一个优秀的开发者必须要知道的！而且应该养成习惯，融入到开发中！好的习惯不是一点养成的
+
+    作用
+    减少浏览器reflow(重排），提升浏览器渲染dom树的性能，增强代码清晰度，可维护性   
+
+
+    1.解析html构建dom树，解析css构建css树：将html解析成树形的数据结构，将css解析成树形的数据结构
+    2.构建render树：DOM树和CSS树合并之后形成的render树。
+    3.布局render树：有了render树，浏览器已经知道那些网页中有哪些节点，各个节点的css定义和以及它们的从属关系，从 而计算出每个节点在屏幕中的位置。
+    4.绘制render树：按照计算出来的规则，通过显卡把内容画在屏幕上。
+    */
+
+    /* 样式的书写顺序是如何影响网页的？比如如下代码： */
+    span {
+      width: 200px;
+      height: 200px;
+      background: red;
+      display: block;
+    }
+    /* 例1.当浏览器解析到`display`的时候，突然发现元素是块级元素，而之前是按照行内元素渲染的！这个时候不得不回头重新渲染，在按照块级元素解析span标签。正确的做法是`display`写在样式`最前面`，一开始就以块级元素渲染span标签。 */
+
+    .box {
+      width: 50%;
+      height: 200px;
+      background: blue;   
+      position: absolute;
+    }
+    /* 例2.这个例子 解析到`position`的时候，突然发现该元素是绝对定位元素需要脱离文档流，而之前却是按照普通元素进行解析的，所以不得不重新渲染，而绝对定位是根据已经定位的父元素定位的，如果父元素的大小不一样，就会出现.box大小会重新改变的结果，使页面闪动。定位又是脱离文档流的，浮起来之后可能会影响其他元素排列布局。
+    `一遍能过的非要渲染两遍 是很浪费性能的,大量的重绘页面会导致页面一闪一闪的，影响用户体验~` */
+
+    .box{ 
+      width:200px;
+      height:200px;
+      background:blue;  
+      display:none;
+    }
+    /* 例3.这个例子已经把元素渲染了一遍,结果到最后发现不需要然后又需要去删除前面那些样式. */
+
+    /* 
+    推荐顺序：
+    1.定位属性 
+     .list{
+        display
+        position
+        float    
+        left  
+        top  
+        right  
+        bottom   
+        overflow  
+        clear   
+        z-index
+      	content
+    	list-style
+     	visibility
+   } 
+
+   2.自身属性
+   .list{
+        width
+        height
+      	padding  
+   		  border
+        margin   
+        background
+   }
+
+   3.文字样式
+   .list{
+        font-family   
+        font-size   
+        font-style   
+        font-weight   
+        font-varient   
+        color   
+   }
+
+   4.文本属性
+   .list{
+        text-align   
+        vertical-align   
+        text-wrap   
+        text-transform   
+        text-indent    
+        text-decoration   
+        letter-spacing    
+        word-spacing    
+        white-space 
+        text-overflow
+   }
+
+   5.css3中新增属性
+    .list{  
+         box-shadow
+         cursor 
+         border-radius  
+         background:linear-gradient
+         transform……
+   }
+
+   如：
+   .cl {  
+    display: ;  
+    visibility: ;  
+    float: ;  
+    clear: ;  
+
+    position: ;  
+    top: ;  
+    right: ;  
+    bottom: ;  
+    left: ;  
+    z-index: ;  
+
+    width: ;  
+    min-width: ;  
+    max-width: ;  
+    height: ;  
+    min-height: ;  
+    max-height: ;  
+    overflow: ;  
+
+    margin: ;  
+    margin-top: ;  
+    margin-right: ;  
+    margin-bottom: ;  
+    margin-left: ;  
+
+    padding: ;  
+    padding-top: ;  
+    padding-right: ;  
+    padding-bottom: ;  
+    padding-left: ;  
+
+    border-width: ;  
+    border-top-width: ;  
+    border-right-width: ;  
+    border-bottom-width: ;  
+    border-left-width: ;  
+
+    border-style: ;  
+    border-top-style: ;  
+    border-right-style: ;  
+    border-bottom-style: ;  
+    border-left-style: ;  
+
+    border-color: ;  
+    border-top-color: ;  
+    border-right-color: ;  
+    border-bottom-color: ;  
+    border-left-color: ;  
+
+    outline: ;  
+
+    list-style: ;  
+
+    table-layout: ;  
+    caption-side: ;  
+    border-collapse: ;  
+    border-spacing: ;  
+    empty-cells: ;  
+
+    font: ;  
+    font-family: ;  
+    font-size: ;  
+    line-height: ;  
+    font-weight: ;  
+    text-align: ;  
+    text-indent: ;  
+    text-transform: ;  
+    text-decoration: ;  
+    letter-spacing: ;  
+    word-spacing: ;  
+    white-space: ;  
+    vertical-align: ;  
+    color: ;  
+
+    background: ;  
+    background-color: ;  
+    background-image: ;  
+    background-repeat: ;  
+    background-position: ;  
+
+    opacity: ;  
+
+    cursor: ;  
+
+    content: ; 
+  }
+
+    */
+
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+
+
+
+</body>
+
+</html>

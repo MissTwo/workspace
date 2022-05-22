@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>css自动轮播</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+    }
+    .bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100vw;
+      height: 100vh;
+      background: url("./images/001.jpg") no-repeat center/cover;
+      animation: change 6s infinite;
+      filter: blur(3px);
+    }
+    .box {
+      width: 800px;
+      margin: 200px auto 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 0 20px 0 rgba(24, 39, 52, 0.7);
+      user-select: none;
+    }
+    ul {
+      width: 2400px;
+      animation: moveq 6s infinite;
+    }
+    ul::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    li {
+      float: left;
+    }
+    img {
+      display: block;
+      width: 800px;
+      height: 500px;
+      border: 80px solid transparent;
+    }
+    /* 轮播图切换动画 */
+    @keyframes moveq {
+      0% {
+        transform: translateX(0);
+      }
+
+      33.33% {
+        transform: translateX(0px);
+      }
+
+      50% {
+        transform: translateX(-800px);
+      }
+
+      83.33% {
+        transform: translateX(-800px);
+      }
+
+      100% {
+        transform: translateX(-1600px);
+      }
+    }
+    /* 背景切换动画 */
+    @keyframes change {
+      0% {
+        background: url("./images/001.jpg") no-repeat center/cover;
+      }
+
+      33.33% {
+        background: url("./images/001.jpg") no-repeat center/cover;
+      }
+
+      50% {
+        background: url("./images/002.jpg") no-repeat center/cover;
+      }
+
+      83.33% {
+        background: url("./images/002.jpg") no-repeat center/cover;
+      }
+
+      100% {
+        background: url("./images/001.jpg") no-repeat center/cover;
+      }
+    }
+    /* 小圆点 */
+    .dottedbox {
+      position: absolute;
+      bottom: 30px;
+      left: 0;
+      height: 20px;
+      width: 100%;
+      background:
+        radial-gradient(circle at 375px center, #000 8px, transparent 8px) no-repeat 0 0,
+        radial-gradient(circle at 425px center, #eee 8px, transparent 8px) no-repeat 0 0;
+        
+      animation: dottedm 6s infinite;
+    }
+    /* 小圆点切换动画 */
+    @keyframes dottedm {
+      0% {
+        background:
+          radial-gradient(circle at 375px center, #000 8px, transparent 8px) no-repeat 0 0,
+          radial-gradient(circle at 425px center, #eee 8px, transparent 8px) no-repeat 0 0;
+      }
+      33.33% {
+        background:
+          radial-gradient(circle at 375px center, #000 8px, transparent 8px) no-repeat 0 0,
+          radial-gradient(circle at 425px center, #eee 8px, transparent 8px) no-repeat 0 0;
+      }
+      50% {
+        background: 
+        radial-gradient(circle at 375px center,#eee 8px,transparent 8px) no-repeat 0 0,
+        radial-gradient(circle at 425px center,#000 8px,transparent 8px) no-repeat 0 0;
+      }
+      83.33% {
+       background: 
+        radial-gradient(circle at 375px center,#eee 8px,transparent 8px) no-repeat 0 0,
+        radial-gradient(circle at 425px center,#000 8px,transparent 8px) no-repeat 0 0;
+      }
+      100% {
+        background:
+          radial-gradient(circle at 375px center, #000 8px, transparent 8px) no-repeat 0 0,
+          radial-gradient(circle at 425px center, #eee 8px, transparent 8px) no-repeat 0 0;
+      }
+    }
+    /* 鼠标经过停止轮播 */
+    /* body:hover .bg,
+    body:hover .dottedbox,
+    body:hover ul{
+      animation-play-state: paused;
+    } */
+  </style>
+</head>
+<body>
+  <div style="overflow: hidden; height: 100vh;">
+    <div class="box" style="position: relative;">
+      <ul>
+        <li style="position: relative;">
+          <img src="./images/001.jpg" alt="">
+          <!-- <div style="position: absolute;top:0; left:0;font-weight: 700; font-size:50px;color:#fff">1</div> -->
+        </li>
+        <li style="position: relative;">
+          <img src="./images/002.jpg" alt="">
+          <!-- <div style="position: absolute;top:0; left:0;font-weight: 700; font-size:50px;color:#fff">2</div> -->
+        </li>
+        <li style="position: relative;">
+          <img src="./images/001.jpg" alt="">
+          <!-- <div style="position: absolute;top:0; left:0;font-weight: 700; font-size:50px;color:#fff">3</div> -->
+        </li>
+      </ul>
+      <div class="dottedbox"></div>
+    </div>
+  </div>
+  <div class="bg"></div>
+</body>
+</html>

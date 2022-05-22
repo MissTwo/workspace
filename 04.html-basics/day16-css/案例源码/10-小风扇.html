@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .one {
+      width: 200px;
+      height: 200px;
+      margin: 100px auto 0;
+      border-radius: 50%;
+      background:
+        linear-gradient(transparent 50%, black 50%, black 51%, transparent 51%, transparent 100%),
+        linear-gradient(to right, transparent 50%, black 50%, black 51%, transparent 51%, transparent 100%),
+        linear-gradient(to top right, transparent 50%, black 50%, black 51%, transparent 51%, transparent 100%),
+        linear-gradient(to top left, transparent 50%, black 50%, black 51%, transparent 51%, transparent 100%),
+        radial-gradient(black 15%, transparent 15%, transparent 35px, black 35px, black 37px, transparent 37px,
+          transparent 57px, black 57px, black 59px, transparent 59px, transparent 79px, black 79px, black 81px,
+          transparent 81px, transparent 97px, black 97px, black 100px, transparent 100px);
+      box-shadow: 0 0 20px black;
+      cursor: pointer;
+    }
+
+    .two {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background:
+        radial-gradient(10px 95px, black 98%, transparent 100%),
+        radial-gradient(95px 10px, black 98%, transparent 100%);
+      opacity: .7;
+    }
+
+    @keyframes rotate {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .three {
+      width: 0;
+      height: 250px;
+      padding: 0;
+      margin: -2px auto 0;
+      border: 10px solid black;
+    }
+
+    .four {
+      width: 200px;
+      height: 100px;
+      background-color: black;
+      margin: -50px auto 0;
+      border-radius: 50%;
+      box-shadow: 0 0 20px black;
+    }
+
+    input {
+      display: none;
+    }
+
+    input:first-child:checked~.two {
+      animation: rotate .8s linear infinite;
+    }
+
+    input:nth-child(2):checked~.two {
+      animation: rotate .5s linear infinite;
+    }
+
+    input:nth-child(3):checked~.two {
+      animation: rotate .2s linear infinite;
+    }
+
+    input:nth-child(4):checked~.two {
+      animation-play-state: paused;
+    }
+
+    .box {
+      position: relative;
+      width: 40px;
+      height: 95px;
+      margin-top: 20px;
+      margin-left: 80px;
+      padding: 5px;
+      box-sizing: border-box;
+      background-color: black;
+    }
+
+    label {
+      display: block;
+      width: 30px;
+      height: 15px;
+      font-size: 10px;
+      margin-top: 5px;
+      background-color: chartreuse;
+      cursor: pointer;
+    }
+
+    input:first-child:checked~.box>label:first-child,
+    input:nth-child(2):checked~.box>label:nth-child(2),
+    input:nth-child(3):checked~.box>label:nth-child(3),
+    input:nth-child(4):active~.box>label:nth-child(4) {
+      background-color: crimson;
+    }
+
+    .two:hover {
+      animation-play-state: paused !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="one">
+    <input type="radio" name="0n-off" id="first">
+    <input type="radio" name="0n-off" id="secent">
+    <input type="radio" name="0n-off" id="third">
+    <input type="radio" name="0n-off" id="four">
+    <div class="two"></div>
+    <div class="box">
+      <label for="first">一档</label>
+      <label for="secent">二档</label>
+      <label for="third">三档</label>
+      <label for="four">停止</label>
+    </div>
+  </div>
+  <div class="three">
+
+  </div>
+  <div class="four"></div>
+</body>
+
+</html>

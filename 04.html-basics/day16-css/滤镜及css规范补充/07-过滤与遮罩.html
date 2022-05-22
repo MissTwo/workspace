@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+    }
+
+
+
+    .wrap {
+      position: relative;
+      width: 600px;
+      margin: 100px auto 0;
+      /* 
+      遮罩
+      遮住一部分,只露出一部分表现效果
+      css3的属性,不重要,兼容性也不好,IE浏览器不支持,webkit内核的浏览器(包括chrome、safari、IOS、android)需要添加-webkit-前缀。要特别注意的是，firefox浏览器也支持-webkit-mask属性
+      各种游览器对我们写出来的效果不一样.各种标准更新迭代也很快,对新标准的支持程度也不一.所以我你们要写出兼容性前缀要它更好的识别.
+      */
+      /* -webkit-mask-image:linear-gradient(red,transparent); */
+      /* -webkit-mask-image:radial-gradient(red 50%,transparent 50%); */
+    }
+
+    .wrap img {
+      width: 100%;
+      /* 
+      对比度 filter:contrast(百分比); 默认是100%/1  负值无效
+      所谓对比度，简单理解的话就是一个区域里面每个颜色都会变得格外显眼，黑的更黑，白的更白
+
+      模糊 filter：blur（模糊半径）像素  默认0 负值无效
+      给图像设置高斯模糊。模糊半径的值设定高斯函数的标准差，或者是屏幕上以多少像素融在一起， 所以值越大越模糊；
+
+      灰色色阶 filter：grayscale(百分比)默认是0% 最大100% 负值无效
+      该属性的作用较为简单，就是将一个颜色复杂的区域改造成一个只有黑白二色的区域。圆括号里面的值定义转换的比例。值为100%则完全转为灰度图像，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0；
+
+      褐色色阶 filter：sepia(百分比)默认是0% 
+      该属性的作用同上，都是将某个区域的颜色进行简化，该属性会将一个颜色丰富的区域变成一种老黑白照片效果，让图片有一种轻微泛黄的样子
+
+      饱和度filter：saturate(100%)；默认100%  可以超过100% 负值无效  转换图像饱和度。圆括号里面的值定义转换的比例。值为0%则是完全不饱和，值为100%则图像无变化。其他值，则是效果的线性乘子。超过100%的值是允许的，则有更高的饱和度。 若值未设置，值默认是1。随着饱和度的增加，颜色就会更“清楚”。饱和度越小，颜色就会越“淡”；
+
+      亮度 filter: brightness(1.5);
+      当倍数值大于1的时候元素会变亮，小于1的时候元素会变暗
+      该属性的作用为调整元素当前的亮度，一般来说可以适用于鼠标悬浮到某元素时的提醒作用
+      */
+      filter: blur(0px) contrast(1) grayscale(0%) sepia(0%) saturate(0%); 
+    }
+    .wrap:hover {
+      /* filter: brightness(1.5); */
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+
+  <div class="wrap">
+    <img src="./images/dog.jpg" alt="">
+  </div>
+</body>
+
+</html>
