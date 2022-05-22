@@ -83,6 +83,8 @@
 
 }
 .switch {
+    position: absolute;
+    z-index: 2;
     background-color: orange;
     width: 60px;
     height:125px;
@@ -95,13 +97,53 @@
     text-align: center;
 
 }
-/*.trigger input{*/
-/*    display: block;*/
-/*    width: 50px;*/
-/*    height: 50px;*/
+.trigger input{
+    width: 0;
+    height: 0;
 
-/*}*/
+}
 .trigger span{
     display: block;
     float: left;
+}
+.blade {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 200px;
+    height: 200px;
+}
+.blade-one {
+    width: 200px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.8);
+    transform: translateY(89px);
+}
+.blade-two {
+    width: 200px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.8);
+    transform: translateY(63px) rotate(90deg);
+}
+#one:focus~.blade {
+    animation: move 1s linear infinite forwards;
+}
+#two:focus~.blade {
+    animation: move 0.6s linear infinite forwards;
+}
+#three:focus~.blade {
+    animation: move 0.4s linear infinite ;
+}
+#stop:focus~.blade {
+    animation-play-state: paused;
+}
+@keyframes move {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
