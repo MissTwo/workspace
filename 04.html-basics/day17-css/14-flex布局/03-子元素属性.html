@@ -1,0 +1,103 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-05-23 15:30:20
+ * @LastEditTime: 2022-05-23 15:34:15
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .box {
+            display: flex;
+            /* flex-wrap: wrap; */
+            flex-direction: row;  
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            margin: 100px auto 0;
+            height: 400px;
+            border: 5px solid #f00;
+            /* flex-direction: row-reverse;     */
+        }
+
+        .box div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        /* 
+        子元素控制自己的属性（只能用在弹性元素中）
+        1.order:0;调整子元素自己的排列位置  默认是0 越小顺序越靠前 越大越靠后
+
+        2.flex-grow: 0;默认值为0  负数无效  可以设置为小数
+        弹性子元素的膨胀因子，代表该元素参与瓜分剩余空间的系数（份数）  设置了数值之后这个值会覆盖元素的宽度设置
+        如果所有子元素的膨胀系数相加>=1份,那么会瓜分所有剩余空间  如果<1份按百分比去瓜分剩余空间
+
+        所有子元素的膨胀系数相加<1份的情况下
+        该元素自己分的的空间 = 自己的系数 * 总多余空间
+
+        所有子元素的膨胀系数相加>=1份的情况下
+        该元素自己分的的空间 =（自己的系数/总系数）* 总多余空间
+
+        3.flex-shrink: 1; 弹性元素缩小因子 默认1 不换行的情况下当空间不够时 默认弹性元素会被压缩 
+         可以设置为0保证它不被压缩
+         该元素自己被压缩的空间 =（自己的系数/总系数）* 总缺失部分
+        
+        4.flex:initial; flex是flex-grow,flex-shrink,flex-basis的缩写/简写 
+         默认 initial ： 0  1  auto
+              none(钢铁直男)： 0 0 auto (也可以写成flex:0;)
+              inhert： 继承
+              auto：   1   1  auto (也可以写成flex:1;)
+
+        5.flex-basis:auto; 在分配多余空间前，子元素占据主轴的空间，浏览器根据这个属性来计算弹性盒子是否有剩余空间
+        可以使用百分比及其他单位（px em  rem）来定义宽度 负值无效
+
+
+        6.align-self: auto; 默认auto
+        子元素控制自己在侧轴上的排列方式 可以覆盖父元素align-items的设置
+        flex-start   flex-end  center
+        
+        7.flex-flow:row wrap是flex-direction与flex-wrap的简写
+         */
+        .box div:nth-child(2) {
+            background-color: skyblue;
+            order: 0;
+            /* flex-shrink: 0.5; */
+            /* flex-grow: 0.2; */
+            flex:initial;
+            /* flex-basis:200px; */
+            align-self: auto;
+        }
+        .box div:nth-child(3) {
+            background-color: yellowgreen;
+            /* flex-grow: 0.3; */
+        }
+        .box div:nth-child(4) {
+            background-color: palevioletred;
+            /* flex-grow: 0.1; */
+        }
+        .box div:nth-child(5) {
+            background-color: yellow;
+            /* flex-grow: 0.4; */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    
+</body>
+</html>

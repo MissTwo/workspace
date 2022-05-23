@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        flex 弹性布局  专为布局而生
+         */
+        .box {
+            /*
+             1. 将 父元素设置为弹性盒子（给父元素设置 控制子元素排版的布局 内部的直系子级元素成为弹性元素 ）
+              称父元素为弹性容器，子元素时弹性元素，一个元素既可以是弹性元素，同时也可以是弹性容器
+
+              默认display: flex; 对外展示为block（块级）特性，对内子元素拥有弹性元素特性
+              display:inline-flex; 对外展示为inline-block（行内块）特性，对内子元素拥有弹性元素特性
+              子元素: 水平排列  不独占整行  可以设置宽高 margin  padding生效
+
+              子元素不固定高度（由内容撑开时，默认会占父级高度的100%）
+              */
+            display: flex;
+            /* display:inline-flex; */
+        /* 
+            2. 设置 子盒子的排列方向（设置 主轴方向）
+            默认： row  主轴水平向右、侧轴垂直向下
+                row-reverse: 主轴水平向左、侧轴垂直向下
+                column: 主轴垂直向下、侧轴水平向右
+                column-reverse： 主轴垂直向上，侧轴水平向右
+        */
+            /* flex-direction: row-reverse;   
+            flex-direction: column-reverse;    */
+            /* 3.flex-wrap: nowrap;默认子元素不换行展示  在主轴上被压缩 */
+            flex-wrap: wrap;
+            flex-direction: row;  
+
+            /* 
+            4.子元素主轴上排列属性
+            justify-content: flex-start;默认
+            center 居中展示 
+            flex-end在主轴末尾位置展示
+
+            分散式布局（）
+            space-around  相当与所有元素都拥有相同的左右margin 
+            space-between 两侧元素靠主轴两边排列 中间的元素平分空间
+            space-evenly  两侧以及元素之间的间距完全相等
+             */
+            justify-content: flex-start;
+            justify-content: space-between;
+
+            /* 
+            5. 单行子元素在侧轴上的布局属性 
+            align-items: stretch; 默认（如果子元素没有设置高度 将拉伸到父元素高度100%）
+            flex-start  center  flex-end
+            多行子元素分散式布局方案（align-content一般肯定是配合flex-wrap: wrap;这条属性来使用 适应与子元素换行展示后拥有多行的时候的布局）
+            align-content: flex-start/center/flex-end(将子元素挤在一起来排列)  space-between/space-evenly/space-around（将子元素分散在侧轴排列）;
+            */
+            /* align-items: center; */
+            /* align-content: space-between; */
+            width: 70%;
+            height: 400px;
+            margin: 100px auto;
+            border: 5px solid #f00;
+        }
+
+        /* 
+        子元素在父元素内垂直水平居中的方案：
+        父元素设置
+        display: flex;
+        justify-content: center;
+        align-items: center;
+         */
+
+        .box div {
+            width: 100px;
+            /* height: 100px; */
+            background-color: pink;
+            /* 禁止用户选中 */
+            user-select: none;
+        }
+
+        .box div:nth-child(2) {
+            background-color: skyblue;
+        }
+        .box div:nth-child(3) {
+            background-color: yellowgreen;
+        }
+        .box div:nth-child(4) {
+            background-color: palevioletred;
+        }
+        .box div:nth-child(5) {
+            background-color: yellow;
+        }
+        p {
+            /* 1. 将 父元素 设置为 弹性盒子 */
+            display: flex;
+            /* 2. 设置 子元素的排列方向 */
+            flex-direction: column;
+            width: 80%;
+            height: 200px;
+            background-color: pink;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+
+    <!-- <a href="">我是行内a标签</a> -->
+    <!-- <p>
+        <span>这是第一段</span><span>这是第二段</span><span>这是第三段</span>
+    </p> -->
+    
+</body>
+</html>

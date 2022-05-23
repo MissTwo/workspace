@@ -1,0 +1,79 @@
+{
+  "id": "3422143",
+  "name": "绿联",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "77156",
+      "name": "微信",
+      "font_class": "weixin",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "577340",
+      "name": "购物车-fill",
+      "font_class": "gouwuchefill",
+      "unicode": "e73c",
+      "unicode_decimal": 59196
+    },
+    {
+      "icon_id": "629357",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "5353505",
+      "name": "导航地址",
+      "font_class": "daohangdizhi",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "7594157",
+      "name": "24gf-playCircle",
+      "font_class": "24gf-playCircle",
+      "unicode": "ea82",
+      "unicode_decimal": 60034
+    },
+    {
+      "icon_id": "11372759",
+      "name": "电话",
+      "font_class": "dianhua",
+      "unicode": "e8c3",
+      "unicode_decimal": 59587
+    },
+    {
+      "icon_id": "11758265",
+      "name": "电话簿",
+      "font_class": "dianhuabu",
+      "unicode": "e761",
+      "unicode_decimal": 59233
+    },
+    {
+      "icon_id": "18169681",
+      "name": "打印机,打印,传真,复印机",
+      "font_class": "fax-full",
+      "unicode": "e932",
+      "unicode_decimal": 59698
+    },
+    {
+      "icon_id": "26237607",
+      "name": "邮件、查看邮件、发送邮件、收邮件-06",
+      "font_class": "a-youjianchakanyoujianfasongyoujianshouyoujian-06",
+      "unicode": "e918",
+      "unicode_decimal": 59672
+    },
+    {
+      "icon_id": "1360",
+      "name": "新浪微博",
+      "font_class": "xinlangweibo",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
