@@ -44,15 +44,78 @@
     padding: 22px 15px;
     line-height: 22px;
 }
-.hamburger-bar li{
+.hamburger-bar::before,.hamburger-bar::after{
+    display: block;
+    content: '';
     width: 17px;
-    height: 1.7px;
+    height: 2px;
     margin: 2px;
     background-color: #333;
 }
-.hamburger-bar li:nth-child(2){
+.hamburger-bar>li{
     height: 2px;
+    width: 17px;
+    margin: 2px;
+    background-color: #333;
+
 }
+.menu-down {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    max-height: 340px;
+    background-color: #fff;
+    padding: 0 13px;
+    border-top: 1px solid rgb(238, 238, 238);
+
+}
+.menu-down button {
+    display: block;
+    margin: 20px auto;
+    width: 114px;
+    height: 36px;
+    padding: 4px 10px;
+    color: #333333;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid rgb(238, 238, 238);
+
+}
+.small-triangle::after{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.286rem;
+    content: '';
+    vertical-align: middle;
+    border-top: 0.286rem solid;
+    border-right: 0.286rem solid transparent;
+    border-left: 0.286rem solid transparent;
+    margin-right: 0;
+    margin-left: 0.3em;
+}
+.menu-down a {
+    display: block;
+    line-height: 28px;
+    padding: 5px 15px;
+    font-size: 14px;
+    color: #333333;
+}
+.menu-down li:first-child a{
+    color:rgb(0, 121, 52) ;
+}
+.hamburger-bar input:checked+.menu-down{
+    display: block;
+}
+.hamburger-bar input {
+    position: absolute;
+    top:20px;
+    width: 17px;
+    opacity: 0;
+}
+
 .carousel{
     position: relative;
     height: 275px;
@@ -60,7 +123,6 @@
     margin-top: 60px;
 }
 .carousel img{
-    /* height: 275px; */
     width: 100%;
 }
 .carousel ul{
@@ -252,11 +314,24 @@ form p{
     padding: 10px 20px;
     border-bottom: 1px solid rgb(113, 113, 113);
 }
+form p:nth-child(5) {
+    border-bottom: none;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0;
+}
+
+form p:nth-child(5) img {
+    width: 80px;
+    height: 20px;
+    vertical-align: bottom;
+
+}
 form input,textarea{
-    width: 100% !important;
+    width: 100% ;
     background: none;
     border: 0px;
-    color: rgb(242, 242, 242)
+    color: white;
 }
 form button{
     width: 100%;
@@ -265,17 +340,69 @@ form button{
     border: none;
     transition: all 0.3s ease 0s;
     background: rgb(0, 121, 52);
-    padding: 0px 35px;
+    padding: 0px 35px  ;
     color: #fff;
     margin-bottom: 30px;
+
 }
 .footer{
+    border-top: 1px solid rgb(113, 113, 113);
     padding: 15px;
     background-color: black;
     font-size: 14px;
     color: #999;
+    text-align: center;
 }
-.footer li{
-    float: left;
-    
+.footer ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.footer-link li:first-child{
+    list-style: none;
+}
+.footer-link li{
+    list-style: disc;
+    width: 90px;
+}
+.footer-link a{
+    color: #999;
+}
+.footer p a{
+    color: #999;
+}
+.lang {
+    line-height: 30px;
+    margin: 5px 0;
+}
+.lang li{
+    width: 20%;
+}
+.lang  a{
+    color: #333;
+}
+.top {
+    display: block;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #333333;
+    opacity: 50;
+    box-shadow: 2px 0 8px rgb(0 0 0 / 25%);
+    text-align: center;
+    line-height: 40px;
+}
+
+.triangle {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom: 15px solid white;
+
 }
