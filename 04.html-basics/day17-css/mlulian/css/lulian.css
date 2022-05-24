@@ -239,7 +239,7 @@ video{
     top: 0;
     left: 0;
     height: 40px;
-    width: 105.6px;
+    width: 106px;
     font-size: 14px;
     padding: 9px 19px;
     line-height: 22px;
@@ -330,7 +330,7 @@ form p:nth-child(5) img {
 form input,textarea{
     width: 100% ;
     background: none;
-    border: 0px;
+    border: none;
     color: white;
 }
 form button{
@@ -340,7 +340,7 @@ form button{
     border: none;
     transition: all 0.3s ease 0s;
     background: rgb(0, 121, 52);
-    padding: 0px 35px  ;
+    padding: 0 35px  ;
     color: #fff;
     margin-bottom: 30px;
 
@@ -393,7 +393,7 @@ form button{
     border-radius: 3px;
     background-color: #333333;
     opacity: 50;
-    box-shadow: 2px 0 8px rgb(0 0 0 / 25%);
+    box-shadow: 2px 0 8px rgba(0, 0 ,0 ,0.25);
     text-align: center;
     line-height: 40px;
 }
