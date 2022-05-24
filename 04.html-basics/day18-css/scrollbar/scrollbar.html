@@ -1,0 +1,101 @@
+<!--
+    @Description:
+    @Author: lishuangling
+    @Date: 2022/5/24 17:24
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>scrollbar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 80%;
+            height: 200px;
+            margin: 20px auto;
+            background-color: violet;
+            overflow-x: scroll;
+            overflow-y: scroll;
+            
+        }
+        section {
+            margin: 20px auto;
+            display: flex;
+            justify-content: space-around;
+            width: 80%;
+            overflow-x: scroll;
+            background-color: yellowgreen;
+        }
+        div::-webkit-scrollbar{
+            width: 20px;
+            height: 20px;
+            background-color: steelblue;
+        }
+        div::-webkit-scrollbar-track{
+            border-radius: 10px;
+            background-color: powderblue;
+        }
+        div::-webkit-scrollbar-thumb{
+            background-color: wheat;
+        }
+        figure{
+            width: 60px;
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+        section::-webkit-scrollbar{
+            height: 10px;
+            width: 5px;
+            background-color: aquamarine;
+        }
+        section::-webkit-scrollbar-track{
+            background-color: darkgoldenrod;
+        }
+        section::-webkit-scrollbar-thumb{
+        
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        overflow-y:设置当对象的内容超过其指定高度时如何管理内容；overflow-x:设置当对象的内容超过其指定宽度时如何管理内容
+        参数:visible：扩大面积以显示所有内容auto：仅当内容超出限定值时添加滚动条
+        hidden：总是隐藏滚动条scroll：总是显示滚动条2、height:设置滚动条的高度（修改其后数值即可）。
+        3、滚动条颜色参数设置：scrollbar-3d-light-color设置或检索滚动条亮边框颜色
+        scrollbar-highlight-color设置或检索滚动条3D界面的亮边（ThreedHighlight）颜色
+        scrollbar-face-color设置或检索滚动条3D表面（ThreedFace）的颜色
+        scrollbar-arrow-color设置或检索滚动条方向箭头的颜色
+        scrollbar-shadow-color设置或检索滚动条3D界面的暗边（ThreedShadow）颜色
+        scrollbar-dark-shadow-color设置或检索滚动条暗边框（ThreedDarkShadow）颜色
+        scrollbar-base-color设置或检索滚动条基准颜色
+        其次我们来看css设置滚动条样式。在html页面中我们可以这样定义整个页面的滚动条。
+        *{scrollbar-3dlight-color:#D4D0C8;scrollbar-highlight-color:#fff;
+        scrollbar-face-color:#E4E4E4;scrollbar-arrow-color:#666;scrollbar-shadow-color:#808080;
+        scrollbar-darkshadow-color:#D7DCE0;scrollbar-base-color:#D7DCE0;
+        scrollbar-track-color:#;}最后我们来看一看css设置滚动条后如何隐藏（横向、竖向）
+        很多人都说使用overflow-y:hiddencss可以隐藏滚动条，但是只能针对div元素，并不能隐藏浏览器，而一些资料by>里加入scroll="no"，可隐藏滚动条oby>里加入style="overflow-x:hidden"，可隐藏水平滚动条；加入style="overflow-y:hidden"，可隐藏垂直滚动条。
+        1、完全隐藏：在里加入scroll="no"，可隐藏滚动条;2、在不需要时隐藏：指当浏览器窗口宽度或高度大于页面的宽或高时，不显示滚动条;反之，则显示;
+        3、样式表方法：加入style="overflow-x:hidden"，可隐藏水平滚动条;加入style="overflow-y:hidden"，可隐藏垂直滚动条。
+        最终隐藏方法：在页面添加
+    </div>
+    <section>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+        <figure>放图片</figure>
+    </section>
+</body>
+</html>
