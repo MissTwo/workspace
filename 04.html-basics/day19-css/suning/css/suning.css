@@ -173,8 +173,8 @@ nav{
 }
 .kill-price{
     color: #f50;
-    font-size: 0.56rm;
-    line-height: 0.56rm;
+    font-size: 0.56rem;
+    line-height: 0.56rem;
 }
 .kill-price span{
     font-size: .44rem;
@@ -368,9 +368,116 @@ nav{
     margin-left: 0.24rem;
     padding: 0 0.24rem;
 }
+.like-goods{
+    width: 93%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.like-goods li{
+    width: 49%;
+    margin-top: 0.3rem;
+    border-radius: 0.24rem;
+    background-color: #fff;
+    text-align: center;
 
+}
+.like-goods figure>img{
+    width: 100%;
+    border-radius: 0.24rem 0.24rem 0 0;
+}
+.like-goods figcaption {
+    text-align: left;
+    margin: 0.36rem 0.5rem 0.25rem;
+    width: 6.36rem;
+    height: 1.34rem;
+    font-size: .52rem;
+    line-height: .68rem;
+    font-weight: bold;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+}
+.goods-tag>img{
+    display: block;
+    height: 0.48rem;
+    margin-bottom: 0.04rem;
+    margin-left: 0.5rem;
+}
+.goods-price{
+    text-align: left;
+    font-size: .72rem;
+    line-height: .72rem;
+    color: #FF4422;
+    font-weight: bold;
+    margin:0.2rem  0.5rem;
 
+}
+.goods-price span:nth-child(1){
+    font-size: .48rem;
+}
+.goods-price span:nth-child(2){
+    color: #999999;
+    margin-left: 0.26rem;
+    font-weight: normal;
+    font-size: .4rem;
+}
+.footer-img{
+    margin-bottom: 2rem;
+}
+.home{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+    /*height: 2rem;*/
+    padding: 0.2rem 0;
+    z-index: 199;
+    border-top: 1px solid #EEE;
+    transition: all .2s linear;
 
+}
+.home img{
+    height: 0.96rem;
+}
+.home figcaption{
+    font-size: 0.4rem;
+    line-height: .64rem;
+    color: #666;
+}
+#top {
+    position: fixed;
+    bottom: 3.7rem;
+    right: 0.3rem;
+    border-radius: 1.6rem;
+    width: 2rem;
+    height: 2rem;
+    background: url('../img/10086.png');
+    background-size: 2rem 2rem;
+}
+.kill-title b{
+    font-size: .4rem;
+    color: #333;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.05rem;
+    width: 0.68rem;
+    height: 0.56rem;
+    line-height: .56rem;
+    text-align: center;
+    background: #FFCC00;
+    border-radius: 0.18rem;
+    font-weight: bold;
+}
 
 
 
