@@ -1,0 +1,229 @@
+/*
+css预处理器 通过less可以编写更少的代码 支持更强大的样式   语法大致跟css一样  shift+alt+a快捷生成多行注释
+
+浏览器无法直接执行less 需要引入编译后的css文件
+*/
+
+//我也是注释 不会被编译进css
+
+/* 
+1.变量  可以储存任意的一个值
+  语法：@变量名:xxx;
+2.变量引用
+  height: $width;
+3.变量的作用域 
+  使用变量的地方会优先在自己的作用域内寻找是否定义了该变量，没有的话就会一层一层往上找 直到找到全局作用域
+  不会往平级作用域里面去寻找
+4.储存选择器名及其他字符和使用
+  @select:box3;
+  使用的时候.@{select}
+  */
+ @baseWidth:500px;
+ @baseColor:#ff6700;
+ @select:box3;
+ @imgUrl:images;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+.box{
+  width: @baseWidth;
+  height: $width;
+  background-color: @baseColor;
+  margin: 100px auto 0;
+}
+
+.box2{
+  @baseWidth:200px;
+  @haha:200px;
+  width: @baseWidth;
+  height: $width;
+  background-color: skyblue;
+}
+.@{select}{
+  width: 100px;
+  background-image: url("../@{imgUrl}/01.jpg");
+}
+
+/* 
+嵌套：
+ 1.可以往元素样式集合内部直接书写其他元素的样式集合 代表一个嵌套关系(父亲里面放子级  还可以放孙子级等其他后代)
+ 2.默认是以空格（后代选择器）来编译
+  如果要修改如（>,+,~）直接在选择器前面添加符号即可
+
+ 3.在样式集合内部 以&表示自己 
+   如 &:hover  &:hover::after
+ */
+.box{
+  width: @baseWidth;
+  height: $width;
+  background-color: @baseColor;
+  margin: 100px auto 0;
+  .smallbox{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    .box4{
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  }
+  .box4{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+  >.smallbox{
+    height: 100px;
+  }
+  +.box2{
+    height: 100px;
+  }
+  ~.box2{
+    height: 100px;
+  }
+  &:hover{
+    background-color: pink;
+    >.box2{
+      background-color: red;
+    }
+  }
+  &::after{
+    content: '';
+  }
+  &:hover::after{
+    color: red;
+  }
+}
+
+/* 
+对响应式的语法优化
+*/
+.box{
+  width: @baseWidth;
+  height: $width;
+  background-color: @baseColor;
+  @media screen and (max-width:767px) {
+    width:100px;
+    background-color: red;
+    @media (max-width:480px){
+      background-color: green;
+    }
+  }
+
+}
+
+// @media screen and (max-width:767px) {
+//   .box{
+//     width:100px;
+//   }
+//   .box2{
+//     width:100px;
+//   }
+// }
+
+/* 
+混合 mixin
+1.将一系列的规则集引入另一个规则集
+混合在less中有明确的定义 使用点 . 来定义
+使用时括号可写可不写
+
+2.带参数的情况
+  .triangle2(@w1,@h1){
+    width: @w1;
+    height: @h1;
+  }
+
+3.形参的参数的默认值
+.triangle3(@w3,@h3:300px){
+  width: @w3;
+  height: @h3;
+}
+指定传参
+.box3{
+  .triangle3(@h3:500px,@w3:233px);
+}
+
+*/
+@w:100px;
+@h:100px;
+
+.triangle{
+  width: 0;
+  border: 50px solid transparent;
+}
+
+.box3{
+  .triangle;
+  border-top-color: black;
+}
+.box4{
+  .triangle();
+  border-bottom-color: #000;
+}
+
+.triangle2(@w1,@h1){
+  width: @w1;
+  height: @h1;
+}
+
+.box3{
+  .triangle2(@w,100px);
+  border-top-color: black;
+}
+
+.triangle3(@w3:100px,@h3:300px){
+  width: @w3;
+  height: @h3;
+}
+
+.box3{
+  .triangle3(@h3:500px,@w3:233px);
+}
+
+/* 
+拓展 extend 
+会将自己通过并集选择器的形式加入到需要拓展的规则集中去
+*/
+.test{
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+}
+.box4:extend(.test){
+  color: red;
+}
+
+
+/* 
+运算 (需要使用括号括起来)
+大概calc差不多
+支持不同单位之间的运算  + - 法都写单位而且单位要相同 
+ *  / 乘除法只写前面的一个单位
+*/
+
+/* 
+资源地图
+打开Easy LESS
+复制
+
+"less.compile": {
+  "compress": true, // true => remove surplus whitespace
+  "sourceMap": true, // true => generate source maps (.css.map files)
+  "out": false // false => DON'T output .css files (overridable per-file, see below)
+}
+
+设置中打开
+settings.json
+都设置为true
+*/
+.box3{
+  width: (100px - 5px);
+  height: (200px/2);
+  border-width: (50px * 4); 
+}
+
+
+

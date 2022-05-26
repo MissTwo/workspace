@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper</title>
+  <link rel="stylesheet" href="./swiper-7.4.1/swiper/swiper-bundle.min.css">
+  <script src="./swiper-7.4.1/swiper/swiper-bundle.min.js"></script>
+  <style>
+    img {
+      /* 可以限制元素的最大宽度 优先级高于width */
+      /* max-width: 80%; */
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper {
+      height: 100vh;
+    }
+
+    .swiper-pagination-bullet {
+      width: 50px;
+      height: 50px;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- https://www.swiper.com.cn/api/start/new.html -->
+
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="./imgs/QQ截图20220522180009.jpg" alt="">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="./imgs/yuru_neko5_l.jpg" alt="">
+      </div>
+
+      <div class="swiper-slide">
+        <img src="./imgs/QQ截图20220522180009.jpg" alt="">
+      </div>
+
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <!--左箭头。如果放置在swiper外面，需要自定义样式。-->
+    <div class="swiper-button-next"></div>
+    <!--右箭头。如果放置在swiper外面，需要自定义样式。-->
+    <div class="swiper-pagination"></div>
+    <!--分页器。如果放置在swiper外面，需要自定义样式。-->
+
+    <div class="swiper-scrollbar"></div>
+  </div>
+
+
+
+  <script>
+    
+    var mySwiper = new Swiper('.swiper', {
+      initialSlide: 0,
+      // 切换图片的时间 单位ms
+      speed: 1000,
+      // autoplay: true, //等同于以下设置
+      autoplay: {
+        // 自动切换延迟时间，图片停留时间
+        delay: 3000
+        // stopOnLastSlide: false,
+        // disableOnInteraction: true,
+      },
+      // 做垂直轮播图时  需要固定外层盒子的高度
+      // direction: 'vertical',
+      grabCursor: true,
+      // 是否开启无限循环轮播
+      // loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        // type: 'fraction',
+        // type : 'progressbar',
+        // type : 'custom',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // 开启滚动条  不要与loop循环轮播一起使用
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      },
+
+    })
+    //如果你初始化时没有定义Swiper实例，后面也可以通过Swiper的HTML元素来获取该实例
+    // new Swiper('.swiper')
+    // var mySwiper = document.querySelector('.swiper').swiper
+    // mySwiper.slideNext();
+  </script>
+
+</body>
+
+</html>
