@@ -1,26 +1,139 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
+    box-sizing: border-box;
 }
-body{
+
+body {
     width: 100vw;
-    background: 
-    url('../img/bg/bg-left.png') no-repeat top left/20%,
-    url('../img/bg/bg-right.png') no-repeat top right/15%;
+    background:
+        url('../img/bg/bg-left.png') no-repeat top left/20%,
+        url('../img/bg/bg-right.png') no-repeat top right/15%;
     background-color: #F2F2F2;
 }
-.container{
-    background-color: aqua;
+
+.container {
+    margin-top: 10px;
 }
-.container{
-    width: 75%;
-    margin: 0 auto;
+
+.top {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.top-left {
+    width: 65%;
+    background-color: aqua;
+    >span,
+    img {
+        vertical-align: middle;
+        font-size: 22px;
+    }
+}
+
+.top-right {
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 1px #999;
+    ul {
+        width: 50%;
+        height: 50%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        li {
+            height: 3px;
+            border-radius: 3px;
+            background-color: black;
+        }
+        >li:nth-of-type(1) {
+            width: 100%;
+        }
+        >li:nth-of-type(2) {
+            width: 80%;
+        }
+        >li:nth-of-type(3) {
+            width: 60%;
+        }
+    }
+
 }
 
+main {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
 
+.avatar {
+    width: 23%;
+    background-color: white;
+    box-shadow:0 0 15px 1px #999;
 
+    figure {
+        background-color: #BFE2E6;
+        padding: 20px 0;
+        text-align: center;
 
+        img {
+            width: 65%;
+            border-radius: 15px 35px;
+        }
+
+        figcaption {
+            font-weight: bold;
+            margin: 10px auto;
+        }
+
+        >p:nth-child(3) {
+            font-size: 14px;
+            margin: 10px auto;
+            white-space: nowrap;
+        }
+
+        >p:nth-child(4) {
+            white-space: nowrap;
+        }
+    }
+
+    .download {
+        width: 65%;
+        min-width: 110px;
+        margin: 25px auto;
+        padding: 5px ;
+        border: none;
+        border-radius: 15px;
+        background-color: #BFE2E6;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+
+    }
+
+}
+
+.resume {
+    width: 71%;
+    background-color: white;
+    padding: 10px 20px;
+    >p{
+        text-indent: 2em;
+    }
+}
+
+.tools {
+    width: 5%;
+    background-color: cornflowerblue;
+}

@@ -3,6 +3,7 @@
   padding: 0;
   text-decoration: none;
   list-style: none;
+  box-sizing: border-box;
 }
 body {
   width: 100vw;
@@ -10,11 +11,109 @@ body {
   background-color: #F2F2F2;
 }
 .container {
+  margin-top: 10px;
+}
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.top-left {
+  width: 65%;
   background-color: aqua;
 }
-.container {
-  width: 75%;
-  margin: 0 auto;
+.top-left > span,
+.top-left img {
+  vertical-align: middle;
+  font-size: 22px;
+}
+.top-right {
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 1px #999;
+}
+.top-right ul {
+  width: 50%;
+  height: 50%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.top-right ul li {
+  height: 3px;
+  border-radius: 3px;
+  background-color: black;
+}
+.top-right ul > li:nth-of-type(1) {
+  width: 100%;
+}
+.top-right ul > li:nth-of-type(2) {
+  width: 80%;
+}
+.top-right ul > li:nth-of-type(3) {
+  width: 60%;
+}
+main {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.avatar {
+  width: 23%;
+  background-color: white;
+  box-shadow: 0 0 15px 1px #999;
+}
+.avatar figure {
+  background-color: #BFE2E6;
+  padding: 20px 0;
+  text-align: center;
+}
+.avatar figure img {
+  width: 65%;
+  border-radius: 15px 35px;
+}
+.avatar figure figcaption {
+  font-weight: bold;
+  margin: 10px auto;
+}
+.avatar figure > p:nth-child(3) {
+  font-size: 14px;
+  margin: 10px auto;
+  white-space: nowrap;
+}
+.avatar figure > p:nth-child(4) {
+  white-space: nowrap;
+}
+.avatar .download {
+  width: 65%;
+  min-width: 110px;
+  margin: 25px auto;
+  padding: 5px ;
+  border: none;
+  border-radius: 15px;
+  background-color: #BFE2E6;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+}
+.resume {
+  width: 71%;
+  background-color: white;
+  padding: 10px 20px;
+}
+.resume > p {
+  text-indent: 2em;
+}
+.tools {
+  width: 5%;
+  background-color: cornflowerblue;
 }
