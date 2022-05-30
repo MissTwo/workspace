@@ -124,6 +124,7 @@ main {
                 visibility: visible;
                 transform: translate(230%) rotate(360deg);
                 transition: 1s;
+
             }
         }
 
@@ -648,6 +649,10 @@ main {
 }
 
 @media screen and (max-width:766px) {
+    body {
+        min-width: 375px;
+    }
+
     .top {
         width: 100%;
         background-color: #fff;
@@ -685,18 +690,23 @@ main {
 
     .avatar {
         width: 100%;
-        // min-width: 235px;
-        // height: 800px;
         background-color: white;
         box-shadow: none;
         margin-right: 0;
+
         figure {
             img {
                 &:hover+.crown {
                     visibility: hidden;
                 }
             }
-    
+
+            >p:nth-child(5) {
+                white-space: nowrap;
+                letter-spacing: 0.5em;
+            }
+
+        }
     }
 
     .resume {
@@ -716,7 +726,6 @@ main {
                 display: inline-block;
                 transform: rotateZ(180deg)
             }
-
         }
 
         .work-event {
@@ -725,5 +734,4 @@ main {
 
     }
 
-    }
 }
