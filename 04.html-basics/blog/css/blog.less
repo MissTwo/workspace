@@ -103,14 +103,31 @@ main {
     margin-right: 10px;
 
     figure {
+        position: relative;
         background-color: #BFE2E6;
         padding: 20px 0 10px;
         text-align: center;
 
+        .crown {
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+        }
+
         img {
             width: 152px;
             border-radius: 15px 35px;
+
+            &:hover+.crown {
+                visibility: visible;
+                transform: translate(230%) rotate(360deg);
+                transition: 1s;
+            }
         }
+
+
 
         figcaption {
             font-weight: bold;
@@ -673,6 +690,13 @@ main {
         background-color: white;
         box-shadow: none;
         margin-right: 0;
+        figure {
+            img {
+                &:hover+.crown {
+                    visibility: hidden;
+                }
+            }
+    
     }
 
     .resume {
@@ -701,4 +725,5 @@ main {
 
     }
 
+    }
 }

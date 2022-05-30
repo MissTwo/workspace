@@ -83,13 +83,26 @@ main {
   margin-right: 10px;
 }
 .avatar figure {
+  position: relative;
   background-color: #BFE2E6;
   padding: 20px 0 10px;
   text-align: center;
 }
+.avatar figure .crown {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+}
 .avatar figure img {
   width: 152px;
   border-radius: 15px 35px;
+}
+.avatar figure img:hover + .crown {
+  visibility: visible;
+  transform: translate(230%) rotate(360deg);
+  transition: 1s;
 }
 .avatar figure figcaption {
   font-weight: bold;
@@ -537,23 +550,26 @@ main {
     box-shadow: none;
     margin-right: 0;
   }
-  .resume {
+  .avatar figure img:hover + .crown {
+    visibility: hidden;
+  }
+  .avatar .resume {
     width: 100%;
   }
-  .work-items {
+  .avatar .work-items {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
     border-left: 2px solid #f2f2f2;
   }
-  .work-items .work-time {
+  .avatar .work-items .work-time {
     transform: rotateZ(180deg);
   }
-  .work-items .work-time span {
+  .avatar .work-items .work-time span {
     display: inline-block;
     transform: rotateZ(180deg);
   }
-  .work-items .work-event {
+  .avatar .work-items .work-event {
     border: none;
   }
 }
