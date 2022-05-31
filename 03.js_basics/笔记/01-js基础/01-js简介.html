@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <!-- 1.行内书写方式 双引号里面不能再包双引号 可以单引号双引号错开包裹使用 -->
+
+  <div class="box" onclick='alert("张三!")'>
+    snkjhdia
+  </div>
+
+
+
+
+  <!-- 2.内联方式书写 -->
+  <script>
+    /* ### javascript的组成
+      核心（ECMAScript）：提供核心语言功能，规定语法规范。
+      文档对象模型（DOM）：提供访问和操作网页元素的方法和接口，由html页面中的标签组成
+      浏览器对象模型（BOM）：提供与浏览器交互的方法与接口，即浏览器中前进、后退、刷新等功能
+    */
+
+    /*  console 控制台输出
+    - console.log  普通输出
+    - console.info   前面出现蓝色标记（ 在 chrome 上与 console.log 无区别）
+    - console.warn  输出背景为黄色，警告信息
+    - console.error  输出背景为红色，错误信息
+    - console.dir  可以显示一个对象所有的属性和方法。 
+      console.log()可以取代alert()或document.write()，在网页脚本中使用console.log()时，会在浏览器控制台打印出信息。 
+      
+    */
+
+    // console.log("老曾！","----log----");//使用最广泛 最多
+    // console.info("老曾！","----info----");
+    // // debugger;
+    // console.warn("老曾！","----warn----");
+    // console.error("老曾！","----error----");
+    // console.dir(window);
+
+    // 注释：  单行//   多行 /* */  快捷键alt+shift+a
+
+    let aaa;
+    // 严格区分大小写
+    // 弹窗
+    //很少在一个发布的项目中使用弹窗 
+    //调试阶段会经常用到  遇到调试代码较多 建议使用console
+    // alert("这是弹出的内容");
+    // ALERT("错误写法，严格区分大小写");
+
+    // 输入弹窗  不会使用  了解一下  值可以用变量保存起来  接收用户输入的信息
+    // aaa=prompt("请输入内容");
+    // console.log(aaa);
+
+    // 确认弹窗  值可以用变量保存起来  接收用户选择 返回true或false
+    aaa = confirm("是否确认");
+    console.log(aaa);
+
+    // js注意事项
+    // - 严格区分大小写 ( x=1;X=1; x和X不是同一个变量)
+    // - 语法字符使用英文字符，半角字符  
+    // - 缩进对齐  ---     一层语义一层缩进
+    // - 分号结尾 （可以不加，看个人或团队开发习惯而定）
+
+    
+  </script>
+
+
+  <!-- 3.外部引入 -->
+  <!-- <script src=""></script> -->
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    // javascript的标识符
+    /*
+    1.什么是标识符
+     变量、函数、属性的名字，或者函数的参数。
+
+    2、标识符的命名规则: 
+    (1)、由字母、数字、下划线( _ )或美元符号( $ )组成
+    (2)、不能以数字开头
+    (3)、不能使用关键字、保留字等作为标识符
+
+    关键字: js已经赋予了特殊功能的单词
+    break、else、new、var、 case、 finally 、 return、 void 、 catch 、for 、switch 、 while 、 continue、 function 、this 、 with 、default 、 if 、 throw 、 delete 、 in 、 try 、do 、 instranceof、 typeof
+
+
+    保留字: js预订可能未来要使用的字
+    abstract 、 enum 、int 、 short 、 boolean 、export 、interface、 static、 byte 、extends 、 long 、 super 、 char 、 final 、native 、synchronized 、 class 、float 、 package 、throws 、 const 、goto 、private 、transient 、 debugger 、 implements 、protected 、 volatile 、 double 、import 、public
+
+
+    注:
+    关键字,保留字不用刻意的去记忆, 在未来学习的过程中会接触到一大部分关键字保留字
+    */
+
+
+    /* 
+    什么是变量
+    ECMAScript的变量是松散类型
+    松散类型:可以用来保存任何类型的数据
+    换句话说,每个变量仅仅是一个用于保存值的占位符而已
+
+    变量命名规范
+    1.只允许使用 数字、字母、下划线、$ (不能使用数字开头)
+    2.严格区分大小写
+    3.不要重复定义/声明
+    4.**关键词/保留词**  不能用来做变量名 
+    5.语义化驼峰命名 backgroundColor
+    6.见名知意
+    */
+    // let x = 234;
+    // // let x = 333;//重新定义/声明
+    // console.log("---1---",x);
+    // x = "laozeng"; //重新赋值
+    // console.log("---2---",x);
+    // x = true; //重新赋值
+    // console.log("---3---",x);
+    // JavaScript 是一种动态类型语言，也就是说，变量的类型没有限制，变量可以随时更改类型
+
+
+    /* 
+    赋值的方法：
+    1.定义时赋值
+    赋值运算符  变量的赋值用等号，等号就是赋值符号，在JS中等号没有其他的含义，等号就表示赋值。
+    let x = 234;
+    */
+
+    /* 
+    2.先定义后赋值
+    */
+    // console.log(x);// 没有/没定义x变量 不打印 直接报错   
+    // let x;//已定义x变量，但是未赋值
+    // console.log(x);//undefined未定义
+    // x=234; //给x赋值为234
+    // console.log(x);//234
+
+
+    /* 
+    3.同时定义多个变量,用逗号隔开
+    */
+  //  let x=1,
+  //      y=2;
+  //  console.log(x,y,"hello word");
+
+  //  let a,b,c,d;
+  //  a=1;
+  //  b=2;
+  //  console.log(a,b);
+
+  /* 
+  注意：
+  如果变量赋值的时候，忘了写 let 命令，这条语句也是有效的
+   我们不推荐这样使用 保持先用关键词定义后使用的习惯(省略了关键词的变量是全局变量，建议总是使用let来定义变量)
+  */
+  // x=1;
+  // console.log(x);
+
+  // 如果一个变量没有声明就直接使用，JavaScript 会报错，告诉你变量未定义。
+  // console.log(x);// x is not defined!
+
+
+  // 注意： 等于号"="左边是一个变量，不能为表达式
+    // let x = 10-2;
+    // let y = 4;
+    // let x-y = ; //xx
+    // console.log(z);
+
+  //js语句 ：
+  // JavaScript 程序的执行单位为行，一行一行地执行，一般情况，一行就是一个语句。
+  // 语句是为了完成某种任务而进行的操作。
+
+  // 语句和表达式的区别
+  // 语句主要为了进行某种操作，一般情况下不需要返回值
+  // 表达式则是为了得到返回值，一定会返回一个值。 JavaScript 语言中预期为值的地方，都可以使用表达式。
+  // 比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。
+  // 
+
+  /* 
+  区分变量还是直接量
+   变量的时候，不能加引号。如果变量加上引号，就变成字符串的直接量了。
+  */
+ let a=111;
+ console.log("a",a);
+
+
+
+  </script>
+</body>
+</html>

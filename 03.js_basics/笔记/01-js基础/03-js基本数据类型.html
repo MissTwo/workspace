@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="box"></div>
+  <script>
+    /*
+    基本数据类型：
+    number    数字 
+    string    字符串
+    boolean   布尔值
+    null      空指针
+    undefined 未定义
+
+    引用数据类型
+    object    对象（狭义obj对象，array数组，function函数）
+
+    es6新增
+    symbol    唯一值
+    bigint    大整数
+    */
+
+
+    /* 
+    1.string:
+    字符串是由0或是多个字符组成的字符序列,即字符串;
+    字符串是一个术语，说白了就是我们人说的话。
+    字符串可以用双引号("")或是单引号('')或模板字符串/反引号(``)包裹起来,
+    三除外观上没有任何的不同,可随意使用  
+    */
+    //  let a = "老曾";
+    //  let b = '林黛玉';
+    //  let c = `还有谁`;
+    //  let d = '222';//数字包上了引号 就成了字符串
+    //  let e = 靓仔;//不加引号错误  js会把他当做一个变量
+    //  console.log(e);// xx is not defined!
+
+    // let f = 'haha"; //各种符号之间不能混用 
+    // 正常情况 引号内部可以有不同种的引号，比如双引号里面可以有单引号
+    // console.log("如果云层是天空的 '一封信' ");
+    // console.log('如果云层是天空的 "一封信" ');
+    // console.log("如果云层是天空的 \"一封信\" ");// 反斜杠 转义符
+
+    /* 
+      2.boolean : 布尔值(往往用于if的控制流程当中)
+       有且只有两个值 true  flase 
+       如果js预期某个位置应该是布尔值，会将在该位置现有的值自动转换为布尔值
+      */
+    // let b = true;
+    // let f = false;
+    // console.log(b,f);
+
+    // 以下6个值被转换为false  其他视为true
+    // undefined  null  false  0  NaN  ""或''或``(空字符串)注意区分带空格的字符串
+    // if (4-4) {
+    //   console.log("if流程语句");
+    // }
+
+
+    /* 
+    3. number : 数字类型
+
+    JavaScript中，数字的整数字面量可以有三种进制：
+    10进制： 普通的数字就是十进制
+
+    8进制：如果以0、0o、0O开头数字字面量是八进制，八进制只包括数字0~7
+
+    16进制：如果以0x,0X开头数字字面量是十六进制。十六进制整数可以包含(0-9)和字母 a-f 或 A-F
+    */
+    //  console.log(017); //15  // 7*8的零次方 + 1*8的一次方 
+    //  console.log(0o17); //15
+    //  console.log(0O17); //15
+    // console.log(080); //以0开头的8进制如果有超过数字8的情况 会按照十进制解析 但以0o和0O开头的不会转进制
+    // console.log(0x1a);
+
+    // 浮点数
+    // JavaScript 内部，所有数字都是以64位浮点数形式储存
+    // 小数或指数
+    // 计算机世界中，小数称为“浮点数”
+    // 指数就是:允许使用e来表示乘以10的几次幂
+    // console.log(3.1415926);
+    // console.log(.1415926);
+    // console.log(5e5);  // 5*10^5
+
+    //注意点： 只有十进制有小数的字面量，八进制、十六进制没有小数的字面量。所以小数没有进制之分
+    //由于浮点数不是精确的值，所以涉及小数的比较和运算要特别小心
+    // console.log((0.1+0.2) == 0.3);
+
+    /* 
+    Infinity 无穷/无限 两个场景  一个是正无穷大或一个是负无穷大
+    另一个是数字除以0的时候
+     */
+    // console.log(-1/0);
+    // console.log(Infinity == -Infinity);//false
+
+
+    /* 
+    NaN 表示非数字 console.log(0/0);//无法计算 NaN
+    */
+    // console.log("老曾" - 1);//无法计算 NaN
+    // console.log(0/0);
+    // isNaN() 检测某值是否为NaN
+    // console.log(isNaN(1)); //false
+    // console.log(isNaN(NaN)); //true
+
+    //isNaN只对数值有效，如果传入其他值，会被先转成数值
+    // console.log(isNaN("laozengdsb"));//会将字符串laozengdsb先转化为NaN  --> true
+    // console.log( isNaN({}) ); //true
+    // console.log( isNaN([]) ); //flase
+    // console.log( isNaN(["laozengdsb"]) ); //true
+
+    /* 
+    isFinite() 用于检查数值是否为正常数值
+    */
+    //  console.log(isFinite(Infinity)); //false
+    //  console.log(isFinite(-Infinity));//false
+    //  console.log(isFinite(NaN)); //false    
+    //  console.log(isFinite(undefined)); //false
+    //  console.log(isFinite(666)); //true
+    // console.log(isFinite(null)); //true
+    // console.log(isFinite("666")); //true
+
+    /* 
+    4.undefined 值未被定义
+    出现的场景：
+    变量被声明了，但没有赋值时，就等于undefined。
+    调用函数时，应该提供的参数没有提供，该参数等于undefined。
+    对象没有赋值的属性，该属性的值为undefined。
+    函数没有返回值时，默认返回undefined,undefined值是派生自null值的,所以undefined == null的返回结果是true
+    */
+    //  let a;
+    //  console.log(a);
+
+    /* 
+    5.null  空指针 null 表示空,与undefined不同的是,null它表示一个空对象指针，undefined则表示未定义
+    */
+    // let b = null;
+    // console.log(b);//提前定义变量,指向一个空的内存地址,知道这个变量即将存储对象数据
+    //如果一个需要保存对象的变量没有真正保存对象，就应该明确的让该变量保存 null 值，这样做不仅可以体现 null 作为空对象指针的惯例，而且有助于进一步区分 null 和 undefind; 
+    // console.log(undefined == null);//true
+    // console.log(undefined === null);//false
+
+    /*
+    6.object 对象数据类型
+    对象是最复杂的数据类型，又可以分成三个子类型。
+      * 狭义对象（object）
+      * 数组（array）
+      * 函数（function）
+     */
+    // array数组
+    // 按次序排列的一组值，每个值的位置都有编号（从0开始、下标），整个数组用方括号表示[],数组长度 length:n; 可以储存任意类型的值
+    // let arr = [1,2,3,"老曾","林黛玉",true,null,undefined];
+    let arr = [1, 2, 3];
+    // console.log(arr);
+    // console.log(arr[4]);//数组通过下标取值
+    // arr[4]="换一个";//通过下标修改某项的值
+    // console.log(arr[4]);
+    // arr[5] = 100; //从arr[3]到arr[4]会被empty填充，指定位置arr[5]成功赋值
+    // console.log(arr);
+    // let brr = [1, 2, 3, 4, , [22, 33, 44]];
+    // brr.length=3;//人为设置length小于数值的个数只保留到指定的长度的位置  其他全部删除
+    // brr.length=0;//清空数组的一种方式
+    // brr.length=12; //人为设置length大于数值的个数，会被填充为empty
+
+    // brr = [1, 2, 3, 4, , [22, 33, 44]]; //逗号之间没有值的 会用empty填充
+    // console.log(brr);
+
+    //多维数组 数组里面嵌套数组
+    let crr = [
+      "林黛玉",
+      "老曾",
+      "薛宝钗",
+      200,
+      true,
+      [
+        "绿巨人",
+        "钢铁侠",
+        "超人",
+      ]
+    ];
+    // console.log(crr[5][0]);
+
+    /* 
+    狭义对象 object （js的核心概念）
+    对象是一组键值对（名值对）的集合,是一种无序的复合数据集合
+    */
+
+    /*对象所有的属性名都是字符串,加引号和不加引号都可以 
+    除非不符合标识符的规则，比如第一个字符为数字含有空格或运算符*/
+    //属性值可以是任何数据类型
+    //每一个属性名被称为属性,如果一个属性名的值是函数,则这个属性称为方法
+    //属性之间用逗号分隔 , 最后一个属性可加可不加
+    //属性名不能相同(否则后写的会覆盖先写的) 属性值能相同
+    let obj = {
+      name: "jack",
+      sex: "男",
+      age: 18,
+      // "-hobby":"smoke",
+      // "sex?":true,
+      // age2:18
+    };
+    // console.log(obj);
+    //对象中取值
+    // console.log("jack的年龄是",obj.age);//通过对象打点取属性的值
+
+    // 修改对象的值 
+    // obj.age=100;
+    // console.log("jack的年龄是",obj.age);
+
+    // console.log(obj);
+    //对象中的属性可以动态添加，删除，修改
+    obj.hobby = "smoke"; //给对象新增原来没有的属性
+    // console.log(obj);
+
+    //删除对象属性
+    // delete obj.hobby;//删除对象属性
+    //通过  =赋值的方式不能删除对象属性
+    // obj.hobby = null;
+    // obj.hobby = undefined;
+    // console.log(obj);
+
+    let lindaiyu = {
+      name: "林黛玉小怼怼",
+      sex: "女",
+      age: 16,
+      weight: "50kg",
+      height: "150cm",
+      marry: false,
+      husband: {
+        name: "老曾",
+        age: 18,
+        hobby: ["唱歌", "看书", "加班"]
+      }
+    };
+    // console.log(lindaiyu.husband.hobby[2]);//加班
+
+    //内置对象.文档节点对象
+    // console.log(window);//js已经帮我们定义好了的对象
+    // console.log(document);//文档节点对象
+
+    /* 
+    函数对象 ：
+    函数是一段可以反复调用的代码块，把一堆代码封装起来,不会立马去执行.
+    */
+   function fn(){
+    console.log("大");
+    console.log("家");
+    console.log("好");
+   }
+   // 主动执行 执行/调用函数
+  //  fn();
+
+   /* 
+   typeof 检测一个变量的类型
+   */
+  let a=100,
+      b=123,
+      c=22.34,
+      d=Infinity,
+      e=true,
+      f=NaN,
+      g=false;
+  //js中所有数值都是number类
+  // number类型的东西, 所有的数字(不分正负,整浮,大小,进制,),Infinity, NaN,不再细分为整形int、浮点型float这些乱七八糟的东西
+
+  // console.log(typeof a,typeof b,typeof c,typeof d,typeof f);
+  // console.log(typeof e);
+  // console.log(typeof e);
+  // console.log();
+
+  let str1="老曾",
+      str2="666",
+      str3='';
+  // console.log(typeof str3);//string
+
+  // console.log(typeof undefined);//undefined
+  // console.log(typeof null);//object
+  // console.log(typeof {});//object
+  // console.log(typeof []);//object
+  // console.log(typeof window);//object
+
+
+  //特殊
+  /* 
+  null 在使用typeof检测时，数据类型为Object  
+  历史原因造成的。1995年的 JavaScript 语言第一版，
+  只设计了五种数据类型（对象、整数、浮点数、字符串和布尔值），没考虑`null`，只把它当作`object`的一种特殊值。
+  后来`null`独立出来，作为一种单独的数据类型，为了兼容以前的代码，`typeof null`返回`object`就没法改变了
+  */
+
+
+  console.log(typeof function a(){}); //function
+   
+
+
+
+  </script>
+</body>
+
+</html>

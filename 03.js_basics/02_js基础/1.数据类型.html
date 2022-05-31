@@ -1,3 +1,9 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-05-22 21:30:43
+ * @LastEditTime: 2022-05-31 16:56:57
+ * @Description: 
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,20 +17,25 @@
              3.Boolean 布尔值
              4.Null 空置
              5.Undefined 未定义
-             6.Object 对象
+             6.Object 对象（狭义obj对象，array对象，function函数）
 
            注意：其中String、Boolean、Null、Undefined属于基本数据类型
            Object 对象是引用数据类型
+
+            es6新增
+            symbol  唯一值
+            bigint  大整数
              */
 
         /*String字符串变量需要用引号引起来，注意：
-             1.使用双引号和单引号都可以但是不能混用
+             1.使用双引号和单引号或模板字符串反引号(``)都可以但是不能混用
              2.引号不能嵌套，双引号不能放双引号，单引号不能放单引号
              3.在字符串中我们使用\作为转移字符，表示一些特殊符号
              如：\"表示"  \'表示' \n表示换行  \t表示制表符  \\ 表示\
           */
         var str = "hello";
         var str2="我说:\"今天天气真好啊！\""
+        let str3=`你好啊！`
         console.log(str,str2);
 
         /*
@@ -34,9 +45,13 @@
         *         Infinity  表示正无穷
         *         -Infinity  表示负无穷
         *         NaN  是一个特殊的数字，表示 Not a number
-        *
         * 注意：整数运算基本可以保证，浮点数的运算可能得到一个比精确的结果
         *       千万不要使用js进行精确度要求比较高的运算*/
+        /*      0/0时为NaN,任何一个数/0为infinity 
+                isNaN()检测是否为数字，只对数值有效，如果被传入其他值会转换为数值
+                []空数组会转为0
+                isFinite()用于检查数值是否为正常数值，其中Infinity NaN undefined 均为false,null为true
+        */
 
         var a="123";
         var b=123;
@@ -49,15 +64,51 @@
         console.log(typeof b);
 
         /*Boolean布尔值只要两个值true和false*/
+       /*  以下6个值被转化为false其他视为true
+        undefined null 0 false NaN ""或者''或`` */
         var d=true;
 
-        /*Null(空值)类型值只有一个就是null，专门表示一个空对象，用typof检查一个null时会返回一个object*/
+        /*Null(空值)类型值只有一个就是null，
+        专门表示一个空对象，用typof检查一个null时会返回一个object*/
         var e=null;
 
-        /*Undefined (未定义)类型值只有一个，就是Undefined。如声明变量未赋值，它的值就是就是Undefined */
+        /*Undefined (未定义)类型值只有一个，就是Undefined。
+            如声明变量未赋值，它的值就是就是Undefined
+            函数调用没有提供参数
+            对象没有赋值
+            函数没有返回值
+         */
         var f=undefined;
+        // null==undefined为true
 
+        /* Object 对象（狭义obj对象，array对象，function函数）
+          array数组：按次序排列的一组值，每个值都有编号（从0开始），整个数组用[]表示，数组长度length:n */
+        let object={
+          name:'jack',
+          sex:'男',
+          age:18
+        }
+        // object['name']是完整的写法，可以简写为object.name
 
+        // 对象的增、删、改
+        object.hobby='reading';
+        delete object.age;
+        object.name='rose'
+/* 
+        内置对象
+        1.window
+        2.document文档节点对象
+         */
+        console.log(window);
+
+/*         函数对象：函数是一段可以反复调用的代码块，把一堆代码封装起来，不会立马执行 */
+        function school(){
+          console.log('hahah');
+        }
+        // 调用函数
+        school();
+
+        // typeof检测类型
     </script>
 </head>
 <body>
