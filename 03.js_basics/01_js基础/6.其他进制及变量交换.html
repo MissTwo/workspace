@@ -1,50 +1,78 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-05-22 21:30:43
- * @LastEditTime: 2022-06-01 09:23:44
+ * @LastEditTime: 2022-06-01 19:11:39
  * @Description: 
 -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>其他进制及交换变量</title>
-    <script>
-        /*js中：
-                如果需要表示16进制的数字，则需要以0x开头
-                如果需要表示8进制的数字，则需要以0开头
-                如果需要表示2进制的数字，则需要以0b开头
-                */
+  <meta charset="UTF-8">
+  <title>其他进制及交换变量</title>
+  <script>
+    /*js中：
+            如果需要表示16进制的数字，则需要以0x开头
+            如果需要表示8进制的数字，则需要以0开头
+            如果需要表示2进制的数字，则需要以0b开头
+            */
 
-        // 十六进制
-        var a = 0xff;
+    // 十六进制
+    var a = 0xff;
 
-        // 八进制
-        var b = 070;
-        /*可以在parseInt()中传递第二个参数，表示指定数字的进制*/
-        b = parseInt(b, 10);
+    // 八进制
+    var b = 070;
+    /*可以在parseInt()中传递第二个参数，表示指定数字的进制*/
+    b = parseInt(b, 10);
 
 
-        var n = 10;
-        var m = 20;
-        // 1.中间变量法：
-        /*
-          var i;
-          i=n;
-          n=m;
-          m=i; 
-        */
+    var n = 10;
+    var m = 20;
 
-        // 2.加减运算法：
+    // 一、采用引入临时变量的方法
 
-        m = n + m;
+    /*
+      var i;
+      i=n;
+      n=m;
+      m=i;
+    */
+
+    // 二、不增加临时变量的方法
+
+    /*
+      1.加减运算法：
+      缺陷：两个数的和可能会越界
+     */
+    /*
+        m +=n;
         n = m - n;
-        m = m - n;
+        m -=n;
         console.log(n, m)
+    */
+    /*
+      2.异或方法：
+      思路：通过二进制异或方法交换
+      异或：两个值相同为0，否则为1
+     */
+    /* 
+        m = m ^ n;
+        n = m ^ n;
+        m = m ^ n;
+        console.log(n, m)
+     */
+    /* 
+     3.ES6解构赋值语法
+     它允许我们提取数组和对象的值,对变量进行赋值
+     */
+    [m,n]=[n,m]
+    console.log(n, m)
+
+  
 
 
-    </script>
+
+  </script>
 
 </head>
 
