@@ -119,3 +119,38 @@ background:
 
 ```
 
+### BFC模型
+
+##### 1.概念：BFC全称Block format context块级格式化上下文
+
+形式独立的渲染区域，内容元素的渲染不会影响外界
+
+##### 2.BFC的特性：
+
+父节点与第一个子节点的上外边距重叠或者兄弟节点的外边距发生重叠
+
+内部元素不会影响外部元素
+
+不会与浮动元素重叠
+
+元素的高度计算会包括浮动元素的高度
+
+##### 3.如何创建BFC：
+
+float值不为none
+
+overflow值不为visible
+
+position值不为static或relative
+
+display的值为inline-block,table,table-cell
+
+flex元素
+
+##### 4.解决问题：
+
+高度塌陷
+
+清除浮动
+
+包裹浮动
