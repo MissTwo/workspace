@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+
+    //关系表达式 > , < , >= , <= , != , !== , == , ===
+    //大于>小于<跟数学相同(>=,<=),== 相等，只比较值是否相等,=== 全等，比较值的同时比较数据类型是否相等, != 不相等，比较值是否不相等,!== 不全等，比较值的同时比较数据类型是否不相
+
+    //##  ==比较时会将某些值进行隐式转换后再比较 ===不进行类型转换
+
+    // 返回值 boolean类型的一个值
+    // let a = 2<3;
+    //     a = 2!=3;
+
+    // let b = 10,
+    //     c = 20;
+    // console.log(b >= c);//false
+    // console.log(b == c);//false
+    // console.log(b != c);//true
+
+    // console.log(3==3);//true
+    // console.log(3===3);//true
+
+    // let a=10;
+    // let b="10";
+    // console.log(a != b);//false
+    // console.log(a == b);//true
+
+    // console.log(a !== b);//true 不进行类型转换,比较是否值和类型都不相等
+    // console.log(a === b);//false 不进行类型转换
+    
+    // console.log(1 == true);//true
+    // console.log(1 === true);//false
+    // console.log(0 == false);//true
+    // console.log(0 === false);//false
+    // console.log("" == 0); //true   
+    // console.log("" === 0); //false
+
+    // console.log(undefined == 0);//false  *   undefined => NaN
+    // console.log(undefined === 0);//false  *
+    // console.log(null == undefined);//true  ** null-->0  undefined-->NaN
+    // onsole.log(null === undefined);//false  *
+    // console.log(NaN == NaN); //false   *
+    // console.log(NaN === NaN);//false   *
+
+    //复杂数据类型（object/引用数据类型）进行比较时
+    // var a = {name:"老曾"};
+    // // var b = {name:"老曾"};  
+    // var c = ["老曾","黛玉"];
+    // var d =["老曾","黛玉"];
+    // console.log(a === b);//false
+
+    
+    // 连续判断(连比)
+    let num = 8;
+    // num是否比3大,同时比5小
+    console.log(3 < num < 5);//true
+    console.log( num>3 && num<5);//false
+    // num<5 && num>3
+
+    //字符串的比较 字符串在进行比较时，强制将字符串的 第一个字符 转换为 ASCII码 , 然后通过大小进行比较  当第一个相等的时候比第二个以此下推
+    /* 
+    常用 ASCII 码：
+    0-9  48-57   
+    a-z   97-122   
+    A-Z  65-90 
+    */
+    // console.log( "ab" < "aa" );//true
+    // console.log( "30" > "4" );//false
+
+
+  </script>
+  
+</body>
+</html>

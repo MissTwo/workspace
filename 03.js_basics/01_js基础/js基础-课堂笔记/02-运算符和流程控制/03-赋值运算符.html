@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+
+    //赋值表达式
+    /* 
+    赋值运算符 等于号（=）
+    复合赋值   +=  -=  *=  /= 
+    自增 ++
+    自减 --
+    */
+
+    //就是中 = 标识赋值，==表示判断/比较是否相等（不判断类型），===是否全等（比较值和类型）
+    // let a = 10;//在定义变量的时候 只能使用 = 赋值 赋值运算符会将等号右边的数值，赋予等号左边的变量
+    // console.log(a = 4);//4  变量a既能输出4  也能给a赋值  这个赋值语句有返回值 返回值就是等号右边的
+
+    // let a, b, c;
+    // a = b = c = 15;//可以连续使用赋值运算符 公司一般不允许使用 只出现在面试题中
+    // // console.log(a,b,c);
+    // a+=5; //a=a+5;
+    // console.log(a);//20
+    // a-=5;
+    // console.log(a);//15
+    // b*=2;
+    // console.log(b);//30
+    // a/=2;
+    // console.log(a);//7.5
+
+    //前置自增和后置自增 前置 ++a 与 后置a++都是对a进行递增的操作
+    let a=10;
+    // a++; 相当于 a=a+1; a+=1;
+    ++a;
+    // console.log(a);//11
+
+    //但是 过程(参与了其他表达式) 不一样
+    //前置: 先+1 再赋值
+    //后置：先赋值 再+1
+
+    // console.log(num1);//7
+
+    // let num1=5;
+    // num1++;
+    // num1+=1;
+    // console.log(num1);//7
+
+
+    //**自带类型转换 
+    // let num2="5";
+    // num2 = num2 + 1;//51
+    // // num2++; //6
+    // console.log(num2);
+
+
+    // let num1 = 10;
+    // // let num2 = num1++; //10 先赋值 在自增
+    // let num2 = ++num1; //11 先自增 再赋值
+    // console.log(num2);//
+
+    // let num1=5;
+    // let num2 = num1++ +1;
+    // console.log(num2); //6
+          
+    
+    // // num2 = ++num1 + 1;
+    // num2 = num1++ + 1;
+    // console.log(num2); //8
+
+
+    // let num1 = 10;
+    // let num2 = num1++ + 1;
+    // console.log(num2);//11
+
+    // let num1 = 6
+    //             // 6        7+1    3     8 
+    // // let num2 = num1++ + ++num1 + 3 + num1++;
+    // console.log(num2); //23+1 25+3 
+    // console.log(num1); //9  8+1
+
+
+    // Math.pow(n,m);表示n次幂的api,n的m次幂
+    // Math.pow(4,3); //64
+    //这是一个新的API，记住就行了，后面的课程将会告诉你，Math是一个内置对象，pow是它的一个方法。
+
+    //开根号 Math.sqrt(81);
+    // Math.sqrt(81);//9
+
+    // let d = Math.pow(2,1 + Math.pow(2,2));
+    // console.log(d); //32
+
+
+
+
+
+
+  </script>
+</body>
+</html>

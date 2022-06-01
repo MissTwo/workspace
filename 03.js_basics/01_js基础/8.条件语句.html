@@ -1,0 +1,134 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-01 10:30:43
+ * @LastEditTime: 2022-06-01 17:57:35
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>条件语句</title>
+</head>
+
+<body>
+    <script>
+        /*
+        // 闰年
+        let year=Number(prompt("请输入年份"))
+        alert(year%4==0 && year%100!=0 || year%100==0 && year%400==0)
+         */
+        /*
+            let a=Number(prompt('请输入年龄'));
+            if(a>=18 && a<70){
+              alert("可以考驾照");
+            }else{
+              alert("不行");
+            }
+         */
+        /*
+            // 奇数偶数
+            let n=Number(prompt("请输入数字"));
+            if(n%2==0){
+              alert(n+"是偶数");
+            }else{
+              alert(n+"是奇数");
+            }
+         */
+
+        /*
+            let s=Number(prompt("请输入你的成绩"))
+            if(s==100){
+              alert("逆天")
+            }else if(s<100&&s>=80){
+              alert("优秀")
+            }else if(s<80&&s>=70){
+              alert("一般")
+            }else if(s<70&&s>=60){
+              alert("及格")
+            }else{
+              alert("回炉重造")
+            }
+             */
+        /*
+            // BMI指数
+            let w=Number(prompt("请输入体重kg"))
+            let h=Number(prompt("请输入身高m"))
+            let b=w/Math.pow(h,2)
+            if(b<18.5){
+              alert("过瘦")
+            }else if(b>=18.5&&b<24){
+              alert("正常")
+            }else if(b>=24&&b<28){
+              alert("过胖")
+            }else if(b>=28&&b<32){
+              alert("肥胖")
+            }else if(b>=32){
+              alert("非常肥胖")
+            }
+           */
+        /*
+            // Math.floor()向下取值，小数部分全部砍掉
+            // 水仙花数：它的每位的数字立方和等于他本身
+            let n=Number(prompt("请输入一个三位数"))
+            if(n>=100&&n<=999){
+             
+              // Math.pow(Math.floor(n/100),2)+Math.pow(Math.floor(n/10)%10,2)+Math.pow(n%10,2)
+              if(Math.pow(n%10,3)+Math.pow((n%100-n%10)/10,3)+Math.pow((n-n%100)/100,3)==n){
+                alert(n+"是水仙花数")
+              }else{
+                alert("不是水仙花数")
+              }
+            }else{
+              alert("输入数字不合法")
+            }
+        
+         */
+        /*
+        n.toString()转化为字符串类型
+        n.charAt(0)拿去字符串中的字符 
+        */
+        /*
+          let n=(prompt("请输入一个三位数")).toString()
+      
+          let a=Number(n.charAt(0))
+          let b=Number(n.charAt(1))
+          let c=Number(n.charAt(2))
+          n=Number(n)
+              if(n>=100&&n<=999){
+               
+                // Math.pow(Math.floor(n/100),2)+Math.pow(Math.floor(n/10)%10,2)+Math.pow(n%10,2)
+                // if(Math.pow(n%10,3)+Math.pow((n%100-n%10)/10,3)+Math.pow((n-n%100)/100,3)==n){
+                if(Math.pow(a,3)+Math.pow(b,3)+Math.pow(c,3)==n){
+                  alert(n+"是水仙花数")
+                }else{
+                  alert("不是水仙花数")
+                }
+              }else{
+                alert("输入数字不合法")
+              }
+      
+       */
+        let age=Number(prompt("请输入年龄"))
+        let week=Number(prompt("请输入星期几，0表示星期日"))
+        switch (week){
+            case 1,2,3,4,5:
+                if(age>=10){
+                    alert("价格为300元")
+                }else{
+                    alert("价格是140")
+                }
+            case 6,0:{
+                if (age>=10) {
+                    alert("价格是500")
+                } else {
+                    alert("价格是210")
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

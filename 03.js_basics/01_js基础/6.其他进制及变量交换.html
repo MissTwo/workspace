@@ -1,8 +1,15 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-05-22 21:30:43
+ * @LastEditTime: 2022-06-01 09:23:44
+ * @Description: 
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>其他进制的数字</title>
+    <title>其他进制及交换变量</title>
     <script>
         /*js中：
                 如果需要表示16进制的数字，则需要以0x开头
@@ -11,17 +18,38 @@
                 */
 
         // 十六进制
-        var a=0xff;
+        var a = 0xff;
 
         // 八进制
-        var b=070;
+        var b = 070;
         /*可以在parseInt()中传递第二个参数，表示指定数字的进制*/
-        b=parseInt(b,10);
+        b = parseInt(b, 10);
+
+
+        var n = 10;
+        var m = 20;
+        // 1.中间变量法：
+        /*
+          var i;
+          i=n;
+          n=m;
+          m=i; 
+        */
+
+        // 2.加减运算法：
+
+        m = n + m;
+        n = m - n;
+        m = m - n;
+        console.log(n, m)
+
 
     </script>
 
 </head>
+
 <body>
 
 </body>
+
 </html>

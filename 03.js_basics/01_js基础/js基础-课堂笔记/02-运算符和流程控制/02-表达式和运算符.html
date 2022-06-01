@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+
+  <script>
+    // 表达式和运算符  
+    // 将同类型的数据(如常量、变量、函数等) , 用运算符号按一定的规则连接起来的、有意义的式子称为表达式每种表达式有不同的运算符
+    // 5 + 3      5 && 3
+    /* 
+    ## 运算符的分类
+      > 1、算数操作符
+      > 2、逻辑操作符
+      > 3、赋值操作符
+      > 4、比较操作符 
+      > 5、三元操作符
+    */
+//1.算数运算符   +  -  *  /  % 
+   //  加减的符号和数学一致，乘法是*号，除法是/号优先级与数学中优先级相同 先乘除后加减,默认情况下，乘除法的优先级要高于加法和减法;必要时可以使用圆括号来改变运算的顺序
+  //  console.log(5+3); //8
+  //  console.log(5-3); //2
+  //  console.log(2*4); //8
+  //  console.log(10/2); //5
+  //  console.log(10%3); //1  
+  //  console.log(1+3*3);//10
+  //  console.log((1+2)*3+4);//13
+
+   //字符串拼接(+运算符，加号有“加法”和“连字符”两种作用)
+   //+号两边任意一边出现字符串,那么为拼接功能,最终得到字符串 
+  //  console.log("老曾"+1); //老曾1
+  //  console.log("a"+10+20);//a1020   "a10"+20
+  //  console.log("10"+20);//1020    
+  //  console.log(20+10+"30");//3030    30+"30"
+   //应用 比如经过一系列运算得来的变量
+  //  xxx.style.width=300+"px";//300px
+
+  /* 
+  加法的特殊性
+  - **当一侧为`String`类型，被识别为字符串拼接，并会优先将另一侧转换为字符串类型。**
+  - **当一侧为`Number`类型，另一侧为原始类型，则将原始类型true等转换为`Number`类型。**
+  - **当一侧为`Number`类型，另一侧为引用类型，将引用类型和`Number`类型转换成字符串后拼接。**
+  - **以上 3 点，优先级从高到低，即 `3+'abc'` 会应用规则 1，而 `3+true`会应用规则2。**
+  */
+  // console.log(true + 1); //2 会将true转换为数字1
+  // console.log(null + 1); //1 会将null转换为数字0
+  // console.log(true + false); //1 1+0
+  // console.log(3 + undefined); //NaN 
+  //无论哪种运算，只要出现了undefined参与运算，结果都是NaN。
+
+  // //以下这样的加法没有什么意义,了解一下即可 
+  // console.log( [] + 0);
+  // console.log( [1] + 0);
+  // console.log( [1,2] + 0);
+   
+  //%:取余 (取余运算也叫作“求模运算”，用百分号%表示)
+  //a % b 表示求a除以b的余数，它不关心整数部分，只关心余数
+  // console.log(8 % 5);//3
+  // console.log(24 % 5);//4
+  // console.log(31.5 % 5);//1.5 小数不参与模运算
+  // console.log(5 % 5); //0
+  // console.log(3 % 9);//3
+  // console.log(5 % 9);//5
+
+  // 减法 -  
+  /* 
+  除了加法
+  我们在使用  - * /  如果两边运算不是数字,转换数字去运算(隐式类型转换)
+  会先将非`Number`类型转换为`Number`类型。
+  不纯的字符串和undefined是不能帮你进行隐式转换的，结果都是NaN, 没办法计算
+  */
+  console.log("100" - 10);//90
+  console.log("老曾" - "黛玉");//NaN
+  console.log("4" * "2");//8
+  console.log("4" / "2");//2
+  console.log(3 * undefined);//NaN
+  console.log(3 * "2天");//NaN
+
+  // 在JavaScript中丢失精度问题 解决方案
+  // 在进行小数运算时，要调用数字的toFixed(n)方法,保留指定的n位小数.
+  console.log((0.1 + 0.2).toFixed(2) - 0);//保留两位 可以使用Number()转一下
+  console.log(Number((0.1 + 0.2).toFixed(2)));
+  
+  
+
+
+
+
+
+  </script>
+</body>
+</html>

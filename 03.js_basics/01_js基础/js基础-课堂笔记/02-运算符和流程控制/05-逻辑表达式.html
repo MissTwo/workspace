@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+
+
+    //逻辑表达式  !非   &&与   ||或
+
+    /* 
+    1. &&与（并且）遇假则停取值(只要有一个条件不成立,返回false )
+    */
+    //命题1: "地球是个圆的"  真的
+    //命题2: "老曾超帅"      真的 
+
+    // 命题1 且 命题2  ==>  真   命题1 && 命题2  ==>  真 
+    // let x = 命题1 且 命题2; ==> 命题2
+
+    /* 
+    命题1：“1+1=3”(假的)   命题2：“地球是方的”(假的)
+    命题1 && 命题2 ==> 假的
+    */
+    // let x = true && false;
+    // let y = false && false;
+    // let z = true && true;
+    // console.log(x); //false
+    // console.log(y); //false
+    // console.log(z); //true
+
+
+    /* 
+    2. ||或者  条件全部为假时才为假  只要有一个条件为真就为真
+    命题1: 1 + 1 = 2; (真的)  命题2：“你很帅” (真的)
+    命题1 或者 命题2 ==> 真的
+    */
+    // let x = false || false;
+    // console.log(x);//false
+    // let z = true || false;
+    // console.log(z);//true
+    // let t = false || true;
+    // console.log(t);//true
+
+
+    /* 
+    3. !非  取反  取反运算符是一个感叹号，用于将布尔值变为相反值，即true变成false，false变成true。对于非布尔值，取反运算符会将其转为布尔值,
+    如果对一个值连续做两次取反运算，等于将其转为对应的布尔值，与Boolean函数的作用相同
+    */
+    // let x = !true;
+    // let y = !false;
+    // console.log(x,y);//false  true
+    // let z = !!false;
+    // console.log(z); //false
+
+    // console.log(!0); //true
+    // console.log(!undefined); //true
+    // console.log(!''); //true
+    // console.log(!null); //true
+    // console.log(!NaN); //true
+    // console.log(!' '); //false
+
+    //逻辑运算会按照两个数据对应的布尔值去运算,JavaScript 每个数据 在做真假判断的时候都有自身对应的布尔值,
+    //Boolean("0");布尔类强转方法 返回布尔值 
+
+    // console.log(Boolean("0"));//true  因为"0"是非空字符串
+    // console.log(Boolean("false"));//true 因为"false"是非空字符串
+    // console.log(Boolean("null"));//true 因为"null"是非空字符串
+    // console.log(Boolean(2-2));//false
+
+    // **  短路计算  &&与 两个操作数的情况,在有一个操作数不是布尔值的情况,逻辑与操作就不一定返回布尔值,此时它遵循下列规则:
+    //1、如果第前面的操作数隐式类型转换后为true,则继续往后走返回后面的操作数。
+    //2、如果当前操作数隐式类型转换后为false ,则返回这个操作数（遇假则停）
+    // let x = 1 && 0 && 2;         
+    // console.log(x); //0
+
+    // let x = 1 && 2;
+    // console.log(x); //2
+
+    //**  短路计算 遇真则停  返回当前为真操作数,都为假的话返回最后一个
+
+    // let y = true || false;
+    // console.log(y); //true
+    // let y = 0 || 1 || 0 || 2;
+    // console.log(y); //1
+    // let x = undefined || 5;
+    // console.log(x);//5
+    // let y = undefined || null;
+    // console.log(y);//null
+    // console.log(3 && 6);//6
+    // console.log(15 && undefined);//undefined
+    // console.log(null && 2);//null
+
+    // let a = 10;
+    // //true  遇真则停  不走后面的代码
+    // a || console.log(111);
+
+    // function fn(){
+    //   console.log(111);
+    // }
+    // // a || fn();
+    // a && fn(); //前面为真  会执行后面的
+
+
+    // 运算优先级 非 > 与 > 或  可以通过括号改变优先级，括号可以嵌套
+    console.log(!true || true);//true
+    console.log(!(true || true));//false
+    console.log((true && false) || (true && true));//true
+    
+
+
+
+
+
+   
+
+
+
+  </script>
+</body>
+</html>

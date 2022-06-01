@@ -1,0 +1,208 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-05-22 21:30:43
+ * @LastEditTime: 2022-06-01 17:43:32
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>算数运算符</title>
+</head>
+
+<body>
+  <script>
+    /*
+    运算符也叫操作符：通过运算符可以对一个或多个值进行运算，并获取运算结果
+    运算符的分类：
+      1.算数运算符(+ - * / %)
+      2.逻辑运算符
+      3.赋值运算符
+      4.比较运算符
+      5.三元运算符
+
+
+  一、算数运算符(+ - * / %)
+    加法注意：
+      1.加法运算时，加号任意一边存在string类型的会将+作为字符串的拼接
+
+    取模(取余)：
+      1.小数不参与取模运算
+      2.除数小于被除数(除不够)，值直接为被除数
+
+    注意：
+      1.- * / 如果存在数字会隐士转换为number类型进行运算
+      2.无论那种运算，出现undefined参与结果都为NaN
+
+    */
+
+    /*
+    js中精度丢失问题，解决方案：
+      1.在进行小数运算时，调用数字的toFixed()方法，保留指定的小数位数
+        (0.1+0.2).toFixed(2)保留2位小数
+      2.试用Number()函数转换类型
+        例如：
+            Number((0.1+0.2).toFixed(2))
+            (0.1+0.2).toFixed(2)-0
+
+     */
+    /*
+      二、赋值运算符(= += -= *= /= ++ --) 
+          1.自增和自减会存在类型转换，变成number类型
+            a++ 等同于 a=a+1 但是如果a是string类型会转化为number类型
+          2.a++是先赋值再自增
+            ++a是先自增再赋值
+    
+            Math.pow(n,m)
+            Math.sqrt(a)
+      
+      */
+    /*
+      三、比较运算符(> < >= <= != !== == ===)
+          1.比较时会将非number类型的值进行隐式转换后再比较
+          2.如果是进行===比较，或者！==不进行类型转换
+      注意：
+          NaN == NaN    false
+          NaN === NaN    false
+          null==undefined true
+
+      复杂数据类型object(引用数据类型)
+          var a={age:12}
+          var b={age:12}
+          console.log(a==b);false地址不同
+
+      连续判断
+          let a=8;
+          错误
+                3<a<8 会只执行3<a的判断后面不会再判断了
+          正确
+                3<a && a<8
+
+      字符串比较，会将第一个字符转换为ASCII码
+    
+     */
+    /* 
+      四、逻辑运算符 ( !非 &&与 ||或 )按照你优先级排序 
+          1.&&都为真则为真
+            如果用变量保存则：let 命题1 && 命题2=命题 2
+            遇到假命题就停返回当前为假的值，都为真则返回最后一个真值
+          2.||有一个为真则为真
+            遇真则停返回当前为真的值，都为假则返回最后一个加盟值
+          3.!非取反
+
+          特殊情况：
+          不会弹出会打印2
+          console.log(2 || 10 && alert(1))
+          会弹出会打印undefined,alert是函数没有返回值
+          console.log(0 || 10 && alert(1))
+
+          Boolean()转为布尔类型
+    */
+    /* 
+      五、综合表达式的优先级
+        运算顺序：非运算 数学运算 关系运算 逻辑运算
+        console.log(!12<3-3);false
+                    !true <0
+                    false <0
+     */
+
+    /* 
+    // 闰年
+    let year=Number(prompt("请输入年份"))
+    alert(year%4==0 && year%100!=0 || year%100==0 && year%400==0)
+     */
+    /* 
+        let a=Number(prompt('请输入年龄'));
+        if(a>=18 && a<70){
+          alert("可以考驾照");
+        }else{
+          alert("不行");
+        }
+     */
+    /* 
+        // 奇数偶数
+        let n=Number(prompt("请输入数字"));
+        if(n%2==0){
+          alert(n+"是偶数");
+        }else{
+          alert(n+"是奇数");
+        }
+     */
+
+    /* 
+        let s=Number(prompt("请输入你的成绩"))
+        if(s==100){
+          alert("逆天")
+        }else if(s<100&&s>=80){
+          alert("优秀")
+        }else if(s<80&&s>=70){
+          alert("一般")
+        }else if(s<70&&s>=60){
+          alert("及格")
+        }else{
+          alert("回炉重造")
+        }
+         */
+    /* 
+        // BMI指数
+        let w=Number(prompt("请输入体重kg"))
+        let h=Number(prompt("请输入身高m"))
+        let b=w/Math.pow(h,2)
+        if(b<18.5){
+          alert("过瘦")
+        }else if(b>=18.5&&b<24){
+          alert("正常")
+        }else if(b>=24&&b<28){
+          alert("过胖")
+        }else if(b>=28&&b<32){
+          alert("肥胖")
+        }else if(b>=32){
+          alert("非常肥胖")
+        }
+       */
+    /* 
+        // Math.floor()向下取值，小数部分全部砍掉
+        // 水仙花数：它的每位的数字立方和等于他本身
+        let n=Number(prompt("请输入一个三位数"))
+        if(n>=100&&n<=999){
+         
+          // Math.pow(Math.floor(n/100),2)+Math.pow(Math.floor(n/10)%10,2)+Math.pow(n%10,2)
+          if(Math.pow(n%10,3)+Math.pow((n%100-n%10)/10,3)+Math.pow((n-n%100)/100,3)==n){
+            alert(n+"是水仙花数")
+          }else{
+            alert("不是水仙花数")
+          }
+        }else{
+          alert("输入数字不合法")
+        }
+    
+     */
+    /* 
+    n.toString()转化为字符串类型
+    n.charAt(0)拿去字符串中的字符 
+    */
+    let n=(prompt("请输入一个三位数")).toString()
+
+    let a=Number(n.charAt(0))
+    let b=Number(n.charAt(1))
+    let c=Number(n.charAt(2))
+    n=Number(n)
+        if(n>=100&&n<=999){
+         
+          // Math.pow(Math.floor(n/100),2)+Math.pow(Math.floor(n/10)%10,2)+Math.pow(n%10,2)
+          // if(Math.pow(n%10,3)+Math.pow((n%100-n%10)/10,3)+Math.pow((n-n%100)/100,3)==n){
+          if(Math.pow(a,3)+Math.pow(b,3)+Math.pow(c,3)==n){
+            alert(n+"是水仙花数")
+          }else{
+            alert("不是水仙花数")
+          }
+        }else{
+          alert("输入数字不合法")
+        }
+
+  </script>
+</body>
+
+</html>
