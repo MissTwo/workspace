@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <script>
+    //switch 语句
+    /* 
+    除了if之外 js还有一种选择语句switch 
+     switch语句的用途:当一个变量被分类讨论的情形。
+    语法：
+    switch(表达式){
+      case n:
+        代码块;
+        break;
+      case m:
+        代码块;
+        break;
+      default:
+        默认代码块;
+    }
+    */
+    // 1 3 5 7 8 10 12 (31天)
+    // 4 6 9 11  (30天)
+    // 2 (28天或者29天)
+    // // 要求用户输入一个1-12的任意数字，显示这个月份的天数
+    // 使用if写;
+
+    // let month = Number(prompt("请输入1-12的月份"));
+
+    // if (month == 1 
+    // || month == 3 
+    // || month == 5 
+    // || month == 7 
+    // || month == 8 
+    // || month == 10 
+    // || month == 12) {
+    //   alert('这个月有31天');
+    // } 
+    // else if (month == 4 || month == 6 || month == 9 || month == 11) {
+    //   alert('这个月有30天');
+    // } else if (month == 2) {
+    //   alert('这个月有28天或29天');
+    // } else {
+    //   alert("请输入正确月份")
+    // }
+
+    // switch (month) {
+    //   case 1:
+    //   case 3:
+    //   case 5:
+    //   case 7:
+    //   case 8:
+    //   case 10:
+    //   case 12:
+    //     alert('这个月有31天');
+    //     break;
+    //   case 4:
+    //   case 6:
+    //   case 9:
+    //   case 11:
+    //     alert('这个月有30天');
+    //     break;
+    //   case 2: //是否闰年  
+    //     if (year % 4 == 0 && year % 100 != 0 || year % 100 == 0 && year % 400 == 0) {
+    //       alert("这个月有29天");
+    //     } else {
+    //       alert("这个月有28天");
+    //     }
+    //     break;
+    //   default:
+    //     alert("请输入正确月份");
+    // }
+
+    //  break语句    switch语句并不像if语句那样当执行了某一个分支之后会自动跳出if语句体，程序员必须主动调用break来跳出switch语句体 如果不写就算后面的条件不符合  也会走完 
+    //## 注意：一段流程走完一定要书写break
+
+    //  以上案例简写的由来
+
+    // let a = 1;
+    // switch (a) {
+    //   case 1:
+    //     console.log("A");
+    //   case 2:
+    //     console.log("B");
+    //   case 3:
+    //     console.log("C");
+    //     break;
+    //   default:
+    //     console.log("D");
+    // }
+    // //输出 A B C 
+
+    // let a = "林黛玉";
+    // if (a == "老曾") {
+    //   alert(a + "大帅比");
+    // } else if (a == "林黛玉") {
+    //   alert(a + "妹妹最美");
+    // } else if (a == "薛宝钗") {
+    //   alert(a + "妹妹最知性");
+    // } else if (a == "王熙凤") {
+    //   alert(a + "姐姐最强横");
+    // } else {
+    //   alert("who are you");
+    // }
+    //switch语句 就是用来避免开发人员编写上面这样的代码
+
+
+    // switch (a) {
+    //   case "老曾":
+    //     alert(a + "大帅比");
+    //     break;
+    //   case "林黛玉":
+    //     alert(a + "妹妹最美");
+    //     break;
+    //   case "薛宝钗":
+    //     alert(a + "妹妹最知性");
+    //     break;
+    //   case "王熙凤":
+    //     alert(a + "姐姐最强横");
+    //     break;
+    //   default:
+    //     alert("who are you");
+    // }
+
+    //案例:判断当前是星期几 语法: let week = new Date().getDay();  0-6 
+
+    // Math.floor(); //向下取整
+    // Math.ceil();  //向上取整
+    // Math.round();  //四舍五入
+    //Math.floor() 只能对一个数向下取整，不能解析字符串
+    console.log(Math.floor(36.98)); //36 **
+    console.log(Math.ceil(36.11)); //37
+    console.log(Math.round(36.11)); //36
+    console.log(Math.round(36.88)); //37
+
+    //parseInt(string/number, radix)可将任意数字开头字符串转换为相应整数，从不是数字的位置开始截取，后一个参数表进制，可取值2/8/10/16，默认不填是十进制
+    console.log(parseInt(36.98)); //36 **
+    console.log(parseInt("367a.98")); //367
+
+    console.log(parseInt("16岁")); //36
+    console.log(Math.floor("16岁")); //36
+    console.log(parseInt("36.86aaa", 8)); //30
+
+
+    // switch (parseInt(str / 10)) {
+    //   case 10:
+    //   case 9:
+    //     alert('优秀， 我骄傲了吗？');
+    //     break;
+    //   case 8:
+    //     alert('良好， 感觉好不错')
+    //     break;
+    //   case 7:
+    //     alert('中等， 还需努力')
+    //     break;
+    //   case 6:
+    //     alert('及格， 60万岁 多一分都是浪费')
+    //     break;
+    //   default:
+    //     alert('差， .....')
+    //     break;
+    // }
+
+    // if(1){
+    //   ...
+    // }
+
+
+    //switch条件括号内不能进行隐式转换 要明确指定 switch性能机制上稍微优于if流程
+    var str = prompt('请输入考试分数：');
+    switch ( true ) {
+      case str >= 90:
+        alert('优秀， 我骄傲了吗？')
+        break;
+      case str >= 80 && str < 90:
+        alert('良好， 感觉好不错')
+        break;
+      case str < 80 && str >= 70:
+        alert('中等， 还需努力')
+        break;
+      case str >= 60 && str < 70:
+        alert('及格， 60万岁 多一分都是浪费')
+        break;
+      default:
+        alert('差， .....')
+        break;
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>

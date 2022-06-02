@@ -1,0 +1,214 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-02 11:04:14
+ * @LastEditTime: 2022-06-02 16:42:59
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环语句</title>
+</head>
+
+<body>
+    <script>
+        /* 
+        一、for循环
+            1.  for(循环变量;循环条件;变量的变化){
+                    代码块
+                }
+                注意：变量的变化，自增或者自减都是在代码块运行之后执行的
+                    i++/i+=3等
+
+            2.  死循环
+                for(;;){
+                代码块
+                }
+
+            3.  for in 循环，用来遍历一个对象的全部属性
+            与hasOwnProperty方法使用，判断是否是对象自身最初的属性
+            object.property.新增属性名="xxxx"  添加属性的方法
+                let obj={
+                    a:1,
+                    b:2,
+                    c:3
+                }
+                object.property.age=18
+                for(let i in obj){
+                    console.log("键名"+i,"键值"+obj[i])
+                }
+            
+            4.嵌套循环
+                for(let i;i<n;i++){
+                    for(let j;j<n-1;j++){
+                        
+                    }
+                }
+            5.while循环，不定范围的循环
+                while(条件){
+                    代码块
+                }
+
+            6.break,continue语句
+                break:
+                    循环语句跳出当前循环
+                    嵌套循环跳出最近的内层循环语句
+                continue:
+                    结束本轮的循环继续下一轮的循环
+
+            7.js语句标签前面有label相当于定位符，用于跳出任意位置
+
+                top:
+                while (s == 123456) {
+                    s = Number(prompt("请再次输入密码"))
+                    if (s == 123456) {
+                        alert("验证成功")
+                        break top
+                    } else {
+                        alert("验证失败")
+                        break
+                    }
+                } 
+                注意：top为自己命名的标签名字
+                        
+        */
+
+        // i.toFixed(n)函数保留n位有效小数,最后是字符串类型还需要转换位number类型
+
+        /*       
+        for (let i = 0; i <=1; i += 0.2) {
+            console.log(Number(i.toFixed(1)))
+        }
+        for(j=99;j>0;j-=2){
+            console.log(j)
+        }
+     */
+
+
+        /* 
+                let j = 0
+                for (let i = 0; i <= 100; i++) {
+                    j += i
+                }
+                console.log(j)
+        
+        
+         */
+        /* 
+                for (let i = 1; i < 100; i++) {
+                    if (i % 3 == 1 && i % 4 == 2 && i % 5 == 3) {
+                        console.log(i);
+                    }
+                } */
+        /*    
+            let i=0,sum=0
+            while(i<=32){
+                sum+=i;
+                i++;
+            }
+            console.log(sum)  */
+
+        /*   
+          let n=0;
+          while(Math.pow(n,2)<45678){
+              n++;
+          }
+          console.log(n) */
+        /*      
+             let i=0,sum=0;
+             while(sum<500){
+                 i++;
+                 sum+=i;
+             }
+             console.log(i);
+             console.log(sum); */
+        /* 
+        let s
+        while(true){
+            s=Number(prompt("请输入密码"))
+            if(s==123456){
+                console.log("密码正确")
+                break
+            }
+            alert("重新输入密码")
+        }
+         */
+        /* 
+        s = Number(prompt("请输入密码"))
+        while (s != 123456) {
+            s = Number(prompt("请输入密码"))
+        }
+        while (s == 123456) {
+            s = Number(prompt("请再次输入密码"))
+            if (s == 123456) {
+                alert("验证成功")
+                break
+            } else {
+                alert("验证失败")
+                break
+            }
+        } */
+
+        /* 
+                let s
+                while (true) {
+                    s = Number(prompt("请输入密码"))
+                    if (s == 123456) {
+                        console.log("密码正确")
+                        s = Number(prompt("请再次输入密码"))
+                        if (s == 123456) {
+                            alert("验证成功")
+                            break
+        
+                        } else {
+                            alert("验证失败")
+                            break
+                        }
+                    }
+                    alert("密码错误，重新输入密码")
+                }
+         */
+
+
+        /*  let i = 0
+ 
+         while (i <= 50) {
+             i++;
+             if (i % 5 == 0 && i != 20 && i != 30) {
+                 console.log(i)
+             }
+         }
+  */
+
+        /* 
+                for (let i = 0; i <= 50; i++) {
+                    if (i % 5 == 0) {
+                        if (i == 20 || i == 30) {
+                            continue
+                        }
+                        console.log(i)
+                    }
+                }
+         */
+
+        /*         
+        let sum = 0
+        for (let i = 0; i <= 100; i++) {
+            if (i != 22 && i != 44 && i != 88 && i != 66) {
+                sum += i
+                console.log(i)
+            }
+        }
+        console.log(sum)
+ */
+
+
+
+    </script>
+</body>
+
+</html>

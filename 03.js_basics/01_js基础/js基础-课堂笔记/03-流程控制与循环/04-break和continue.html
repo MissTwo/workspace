@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <script>
+    //break和continue语句
+
+    /* 
+    break 语句和 continue 语句都具有跳转作用，可以让代码不按既有的顺序执行
+    
+    break语句：
+    （1）当它出现在switch条件语句中时，作用是终止某个case语句并跳出switch结构。
+    （2）当它出现在循环语句中时，作用是跳出当前循环语句，执行后面的代码。
+    （3）当它出现在嵌套循环语句中时，跳出最近的内层循环语句，执行后面的代码。
+     break表示立即终止循环，在for循环和while循环中都可以使用
+    */
+
+    // let i = 0;
+    // while (i < 100) {
+    //   console.log('i 当前为：' + i);//0 1 ...9
+    //   i++; //1 2 ... 10 
+    //   if (i === 10) break; //i===10的时候跳出循环 
+    // }
+
+    // for (let i = 0; i < 10; i++) {
+    //   if (i === 3) {
+    //     break;
+    //   }
+    //   console.log(i); //0 1 2 
+    // }
+
+    //break用在while语句中，通常和while(true){}搭配使用
+    // let n = 1;
+    // while (true) {
+    //   if (n * n > 456789) {
+    //     console.log(n);
+    //     break;
+    //   }
+    //   n++;
+    // }
+
+    //continue语句 结束本次循环迭代,继续开始下一次循环迭代。for循环更经常使用continue 
+    /* 
+    （1）在while、for和do...while循环结构中，执行continue语句将会使控制流略过循环体中的剩余语句，重新开始下一轮循环。
+    （2）在while和do...while循环结构中，执行cotinue语句后，将立即进行循环继续条件的测试。
+    （3）在for循环结构中，执行continue语句后，将会立即执行增量表达式，然后测试循环继续条件
+    */
+
+    // for (let i = 0; i < 10; i++) {
+    //   if (i == 3) {
+    //     continue; //跳过 除了3
+    //   }
+    //   console.log(i);
+    // }
+
+    // let i = 0;
+    // while (i < 100) {
+    //   i++;
+    //   if (i % 2 == 0) {
+    //     continue;
+    //   }
+    //   console.log("i 当前为：" + i);
+    // }
+
+    //打印所有0-50之间除了数字20和30 之外的5的倍数
+    // for (let i = 0; i <= 50; i++) {
+    //   if (i % 5 === 0) {
+    //     if (i == 20 || i == 30) {
+    //       continue;
+    //     }
+    //     console.log(i);
+    //   }
+    // }
+
+    //打印所有0-100（包含100）之间除了22，44，66以及88之外的偶数，并求他们的和。
+    // let sum = 0;
+    // for(let i = 0; i <= 100; i += 2) {
+    //   if (i == 22 || i == 44 || i == 66 || i == 88) {
+    //     continue;
+    //   }
+    //   sum += i;
+    //   console.log(i);
+    // }
+    // console.log(sum);
+
+    // //可以使得无限循环的语句跳出
+    // for(let i=0 ; true ; i++){
+    //   if(i === 20){
+    //       break;
+    //   }
+    //   console.log(i);
+    // }
+
+    //注意: 如果存在多重循环，不带参数的`break`语句和`continue`语句都只针对最内层循环
+
+    //标签（label）
+    /* 
+    JavaScript语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下。
+    标签通常与`break`语句和`continue`语句配合使用，跳出特定的循环。
+    
+    */
+    top:
+    for(let i=0;i<=2;i++){
+
+      for(let j=1;j<5;j++){
+        if(j==4){
+          break top;
+        }
+        console.log("i的值"+i,"j的值"+j);
+      }
+
+    }
+
+
+  </script>
+</body>
+
+</html>

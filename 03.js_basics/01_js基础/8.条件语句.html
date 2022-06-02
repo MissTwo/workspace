@@ -1,134 +1,262 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-01 10:30:43
- * @LastEditTime: 2022-06-01 17:57:35
+ * @LastEditTime: 2022-06-02 11:02:47
  * @Description: 
 -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>条件语句</title>
+  <meta charset="UTF-8">
+  <title>条件语句</title>
 </head>
 
 <body>
-    <script>
-        /*
-        // 闰年
-        let year=Number(prompt("请输入年份"))
-        alert(year%4==0 && year%100!=0 || year%100==0 && year%400==0)
-         */
-        /*
-            let a=Number(prompt('请输入年龄'));
-            if(a>=18 && a<70){
-              alert("可以考驾照");
-            }else{
-              alert("不行");
-            }
-         */
-        /*
-            // 奇数偶数
-            let n=Number(prompt("请输入数字"));
-            if(n%2==0){
-              alert(n+"是偶数");
-            }else{
-              alert(n+"是奇数");
-            }
-         */
+  <script>
+    /*   
+      函数：
+      Math.floor()向下取值，小数部分全部砍掉
+      Math.ceil()向下取整，小数部分全部进位
+      Math.round()小数四舍五入
+      parseInt(string/number,radix)可以任意数字开头或字符串，
+      会从不是数字处截取出数字，后一个参数表进制，可以取值2/8/10/16，默认10
 
-        /*
-            let s=Number(prompt("请输入你的成绩"))
-            if(s==100){
-              alert("逆天")
-            }else if(s<100&&s>=80){
-              alert("优秀")
-            }else if(s<80&&s>=70){
-              alert("一般")
-            }else if(s<70&&s>=60){
-              alert("及格")
-            }else{
-              alert("回炉重造")
-            }
-             */
-        /*
-            // BMI指数
-            let w=Number(prompt("请输入体重kg"))
-            let h=Number(prompt("请输入身高m"))
-            let b=w/Math.pow(h,2)
-            if(b<18.5){
-              alert("过瘦")
-            }else if(b>=18.5&&b<24){
-              alert("正常")
-            }else if(b>=24&&b<28){
-              alert("过胖")
-            }else if(b>=28&&b<32){
-              alert("肥胖")
-            }else if(b>=32){
-              alert("非常肥胖")
-            }
-           */
-        /*
-            // Math.floor()向下取值，小数部分全部砍掉
-            // 水仙花数：它的每位的数字立方和等于他本身
-            let n=Number(prompt("请输入一个三位数"))
-            if(n>=100&&n<=999){
-             
-              // Math.pow(Math.floor(n/100),2)+Math.pow(Math.floor(n/10)%10,2)+Math.pow(n%10,2)
-              if(Math.pow(n%10,3)+Math.pow((n%100-n%10)/10,3)+Math.pow((n-n%100)/100,3)==n){
-                alert(n+"是水仙花数")
-              }else{
-                alert("不是水仙花数")
-              }
-            }else{
-              alert("输入数字不合法")
-            }
-        
-         */
-        /*
-        n.toString()转化为字符串类型
-        n.charAt(0)拿去字符串中的字符 
-        */
-        /*
-          let n=(prompt("请输入一个三位数")).toString()
-      
-          let a=Number(n.charAt(0))
-          let b=Number(n.charAt(1))
-          let c=Number(n.charAt(2))
-          n=Number(n)
-              if(n>=100&&n<=999){
-               
-                // Math.pow(Math.floor(n/100),2)+Math.pow(Math.floor(n/10)%10,2)+Math.pow(n%10,2)
-                // if(Math.pow(n%10,3)+Math.pow((n%100-n%10)/10,3)+Math.pow((n-n%100)/100,3)==n){
-                if(Math.pow(a,3)+Math.pow(b,3)+Math.pow(c,3)==n){
-                  alert(n+"是水仙花数")
-                }else{
-                  alert("不是水仙花数")
-                }
-              }else{
-                alert("输入数字不合法")
-              }
-      
-       */
-        let age=Number(prompt("请输入年龄"))
-        let week=Number(prompt("请输入星期几，0表示星期日"))
-        switch (week){
-            case 1,2,3,4,5:
-                if(age>=10){
-                    alert("价格为300元")
-                }else{
-                    alert("价格是140")
-                }
-            case 6,0:{
-                if (age>=10) {
-                    alert("价格是500")
-                } else {
-                    alert("价格是210")
-                }
-            }
+      n.toString()转化为字符串类型
+      n.charAt(0)拿去字符串中的字符
+   */
+
+    /* 一、if语句
+                    if (条件) {
+                      xxx
+                    } else if (条件) {
+                      xxx
+                    } else {
+                      xxx
+                    }
+     */
+
+    /*
+    // 闰年
+    let year=Number(prompt("请输入年份"))
+    alert(year%4==0 && year%100!=0 || year%100==0 && year%400==0)
+     */
+    /*
+        let a=Number(prompt('请输入年龄'));
+        if(a>=18 && a<70){
+          alert("可以考驾照");
+        }else{
+          alert("不行");
         }
+     */
+    /*
+        // 奇数偶数
+        let n=Number(prompt("请输入数字"));
+        if(n%2==0){
+          alert(n+"是偶数");
+        }else{
+          alert(n+"是奇数");
+        }
+     */
 
-    </script>
+    /*
+        let s=Number(prompt("请输入你的成绩"))
+        if(s==100){
+          alert("逆天")
+        }else if(s<100&&s>=80){
+          alert("优秀")
+        }else if(s<80&&s>=70){
+          alert("一般")
+        }else if(s<70&&s>=60){
+          alert("及格")
+        }else{
+          alert("回炉重造")
+        }
+   */
+   let s=Number(prompt("请输入你的成绩"))
+   switch(true){
+     case s==100:
+       alert("逆天")
+       break
+     case s<100 && s>=80:
+       alert("优秀")
+       break
+     case s<80 && s>=70:
+      alert("一般")
+      break
+    case s<70 && s>=60:
+      alert("及格")
+      break
+    case s<60 && s>=0:
+      alert("回炉重造")
+      break
+    default:
+      alert("请输入正常的分数")
+      break
+   }
+
+
+    /*
+        // BMI指数
+        let w=Number(prompt("请输入体重kg"))
+        let h=Number(prompt("请输入身高m"))
+        let b=w/Math.pow(h,2)
+        if(b<18.5){
+          alert("过瘦")
+        }else if(b>=18.5&&b<24){
+          alert("正常")
+        }else if(b>=24&&b<28){
+          alert("过胖")
+        }else if(b>=28&&b<32){
+          alert("肥胖")
+        }else if(b>=32){
+          alert("非常肥胖")
+        }
+       */
+    /*
+        // Math.floor()向下取值，小数部分全部砍掉
+        // 水仙花数：它的每位的数字立方和等于他本身
+        let n=Number(prompt("请输入一个三位数"))
+        if(n>=100&&n<=999){
+         
+          // Math.pow(Math.floor(n/100),2)+Math.pow(Math.floor(n/10)%10,2)+Math.pow(n%10,2)
+          if(Math.pow(n%10,3)+Math.pow((n%100-n%10)/10,3)+Math.pow((n-n%100)/100,3)==n){
+            alert(n+"是水仙花数")
+          }else{
+            alert("不是水仙花数")
+          }
+        }else{
+          alert("输入数字不合法")
+        }
+    
+     */
+    /*
+    n.toString()转化为字符串类型
+    n.charAt(0)拿去字符串中的字符 
+    */
+    /*
+      let n=(prompt("请输入一个三位数")).toString()
+  
+      let a=Number(n.charAt(0))
+      let b=Number(n.charAt(1))
+      let c=Number(n.charAt(2))
+      n=Number(n)
+          if(n>=100&&n<=999){
+           
+            // Math.pow(Math.floor(n/100),2)+Math.pow(Math.floor(n/10)%10,2)+Math.pow(n%10,2)
+            // if(Math.pow(n%10,3)+Math.pow((n%100-n%10)/10,3)+Math.pow((n-n%100)/100,3)==n){
+            if(Math.pow(a,3)+Math.pow(b,3)+Math.pow(c,3)==n){
+              alert(n+"是水仙花数")
+            }else{
+              alert("不是水仙花数")
+            }
+          }else{
+            alert("输入数字不合法")
+          }
+  
+   */
+
+    /* 
+    二、三元运算符(表达式)  条件表达式?表达式1:表达式2
+        1.用来取值/返回表达式
+        2.如果是真返回表达式1，是假返回表达式2
+            
+     */
+    /* 
+    let a = 10;
+    let b = 20;
+    
+    let print = a > b ? "a>b" : "a<b";
+    alert(print); */
+
+    // 不推荐
+    // a > b ? (console.log(1), console.log(2)) : (console.log(3), console.log(4))
+
+
+    /*
+      let age=Number(prompt("请输入年龄"))
+      let week=Number(prompt("请输入星期几，0表示星期日"))
+      switch (week){
+          case 1:
+          case 2:
+          case 3:
+          case 4:
+          case 5:
+              if(age>=10){
+                  alert("价格为300元")
+                  break;
+              }else{
+                  alert("价格是140")
+                  break;
+              }
+
+          case 6:
+          case 0:
+              if (age>=10) {
+                  alert("价格是500")
+                  break;
+              } else {
+                  alert("价格是210")
+                  break;
+              }
+          
+      }
+*/
+ /*    let year = Number(prompt("请输入年份"))
+    let month = Number(prompt("请输入月份"))
+    switch (month) {
+      case 1:
+      case 3:
+      case 5:
+      case 7:
+      case 8:
+      case 10:
+      case 12:
+        alert(year + "的" + month + "月" + "31天");
+        break;
+      case 4:
+      case 6:
+      case 9:
+      case 11:
+        alert(year + "的" + month + "月" + "30天");
+        break;
+      case 2:
+        if (year % 4 == 0 && year % 100 != 0 || year % 100 == 0 && year % 400 == 0) {
+          alert(year + "的" + month + "月" + "29天");
+          break;
+        } else {
+          alert(year + "的" + month + "月" + "28天");
+          break;
+        }
+    }
+ */
+/* 
+    let week = new Date().getDay()
+    switch (week) {
+      case 0:
+        alert("今天星期日")
+        break
+      case 1:
+        alert("今天星期一")
+        break
+      case 2:
+        alert("今天星期二")
+        break
+      case 3:
+        alert("今天星期三")
+        break
+      case 4:
+        alert("今天星期四")
+        break
+      case 5:
+        alert("今天星期五")
+        break
+      case 6:
+        alert("今天星期六")
+        break
+    }
+ */
+  </script>
 </body>
 
 </html>

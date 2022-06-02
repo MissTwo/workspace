@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+
+  <script>
+
+    /* 
+    三元/三目运算符（表达式） 条件表达式 ? 表达式1 : 表达式2 
+    用来取值/返回表达式的
+    当条件表达式为真时 调用 表达式1，为假时调用表达式2。
+
+    如果操作语句比较简单，建议用三目运算替代 if..else..根据某个条件是否成立，在两个不同值中选择变量的值
+    */
+
+    /* 
+    问号前面是判断的条件，问号后面用冒号隔开两个表达式。
+    */
+
+    let age=Number(prompt("请输入年龄！"));
+    let type;
+    if(age>=18){
+      type="已经成年";
+    }else{
+      type="未成年"; 
+    }
+    alert(type);
+
+    let tpye1 = age>=18 ? "已经成年" : "未成年";
+    alert(tpye1);
+    let a = 10;
+    let b = 20;  //打印或弹出 a>b  或 a<b
+    if(10<20){
+      console.log(111);
+    }
+    //有些简单的if判断 没有else 只要条件为真就能走流程 条件为假什么都不需要干  这个时候另一个表达式就显得可有可无/无关紧要
+    10<20 ? console.log(111) : '';
+    
+    10<20 && console.log(111);
+
+    if (a > b) {
+        console.log(1);
+        console.log(2);
+    } else {
+        console.log(3);
+        console.log(4);
+    }
+
+    //任何时候都不建议这样写代码  可读性差
+    a>b ? (
+      console.log(1),
+      console.log(2)
+      ):(
+        console.log(3),
+        console.log(4)
+      )
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
