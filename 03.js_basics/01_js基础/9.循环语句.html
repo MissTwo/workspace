@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-02 11:04:14
- * @LastEditTime: 2022-06-02 17:18:29
+ * @LastEditTime: 2022-06-06 10:42:18
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -74,6 +74,10 @@
                     }
                 } 
                 注意：top为自己命名的标签名字
+            
+            8.do{....}while(条件);
+
+        
                         
         */
 
@@ -205,15 +209,61 @@
         }
         console.log(sum)
  */
-        for (let i = 0; i <= 35; i++) {
+        /* for (let i = 0; i <= 35; i++) {
             for (let j = 0; j <= 35; j++) {
                 if (i * 2 + j * 4 == 94 && i + j == 35) {
                     console.log("鸡有" + i + "只", "兔子有" + j + "只")
                 }
             }
         }
+ */
 
+        /*   do {
+              let x = parseInt(Math.random() * (4 + 4 + 1) - 4);
+              let y = parseInt(Math.random() * (4 + 4 + 1) - 4);
+          } while (x == 0 && y == 0)
+          console.log(x, y)
+   */
+        let a = parseInt(Math.random() * (99 - 2 + 1) + 2)
+        let n;
+        let i = 2;
+        let j = 99;
+        do {
+            
+            n = Number(prompt("请输入" + i + "至" + j + "的一个整数"))
+            if(n<=i||n>=j){
+                alert("请重新输入正确范围的数")
+                continue;
+            }
+            if (n > a) {
+                alert("数字太大了")
+                j=n
+                
+            }
+            else if (n < a) {
+                alert("数太小了")
+                i=n
+               
 
+            } else {
+                alert("回答正确")
+            }
+           
+        } while (n != a)
+
+        /*  while (true) {
+             let n = Number(prompt("请输入一个整数"))
+             if (n > a) {
+                 alert("数字太大了")
+             }
+             else if (n < a) {
+                 alert("数太小了")
+             }
+             else {
+                 alert("回答正确")
+                 break;
+             }
+         } */
 
     </script>
 </body>

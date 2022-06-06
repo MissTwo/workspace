@@ -119,7 +119,31 @@ background:
 
 ```
 
-### BFC模型
+### 二、背景渐变：原理就是一张背景图片
+
+##### 1.线性渐变
+
+```html
+background-img:linear-gradient(to 方向,颜色(百分比/像素值),颜色(百分比/像素值)~~~,颜色 终点)
+```
+
+##### 2.径向渐变
+
+圆形
+
+```
+background-img:radial-gradient(circle 半径 at 方向,颜色(百分比/像素值),颜色 终点)
+```
+
+椭圆
+
+```
+background-img:radial-gradient(ellipse 横轴半径 纵轴半径 at 方向,颜色(百分比/像素值),颜色 终点)
+```
+
+
+
+### 三、BFC模型
 
 ##### 1.概念：BFC全称Block format context块级格式化上下文
 
