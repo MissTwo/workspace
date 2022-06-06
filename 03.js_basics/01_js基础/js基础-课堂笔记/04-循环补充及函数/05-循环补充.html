@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <script>
+    // do{
+    //  ...
+    //}while(条件); do-while循环 将循环执行条件写到了循环体的后面.这样一来,循环体一定会至少执行一次，然后再检测循环执行条件是否为true,决定是否继续执行循环体.
+    // do {
+    //   console.log("★");
+    // } while (false);
+
+    // let n = 1;  //实际上不是很常用
+    // do {
+    //   console.log(n);
+    //   n++;
+    // } while (n <= 100);
+
+    //**随机数函数Math.random();
+    // console.log(Math.random()); // [0,1) 之间的随机小数
+    //从 a  到 b 之间的数字[a,b]
+    //**Math.random()*(b-a+1)+a; 
+    //**parseInt(Math.random()*(b-a+1)+a); a到b之间的整数取值[a,b]
+    //[5-12]之间的随机整数
+    // console.log(parseInt(Math.random()*8+5));
+
+    //do while 小案例
+    //请编写程序，随机生成两个变量dx和dy，它们均在[-4,4]区间随机取值，但要求dx和dy不能同时为0
+    // let dx,dy;
+    // do{
+    //   dx = parseInt(Math.random()*9-4);
+    //   dy = parseInt(Math.random()*9-4);
+    // }while(dx==0 && dy==0);//验收
+    // console.log(dx,dy);
+
+    //去一个2~99之间的整数 用户输入一个整数 判断用户输入的整数是否在区间之内，提示太大/太小/猜对
+    // let answer=parseInt(Math.random()*98+2);
+    // console.log(answer); //50   80
+    
+    // while(true){
+    //   // 询问用户猜测的数字  10-80
+    //   let n=parseInt(prompt("请输入一个2-99(包含2,99)之间的整数"));
+    //   if(n>answer){
+    //     alert("太大了");
+    //   }else if(n<answer){
+    //     alert("太小了");
+    //   }else{
+    //     alert("猜对了！");
+    //     break;
+    //   }
+    // }
+
+    //完善提示信息 如用户输入10-->提示太小之后 提示区间变为"请输入10-99之间的整数"，反之最大范围提示机制相同
+    // let answer=parseInt(Math.random()*98+2);
+    // let min=2,max=99;
+    // console.log(answer); //50  
+    // while(true){
+    //   // 询问用户猜测的数字  10-80
+    //   let n=parseInt(prompt("请输入一个"+min+"-"+max+"之间的整数"));
+    //   if(n>answer){
+    //     alert("你输入的数字太大了");
+    //     max=n;
+    //   }else if(n<answer){
+    //     alert("你输入的数字太小了");
+    //     min=n;
+    //   }else{
+    //     alert("猜对了！");
+    //     break;
+    //   }
+    // }
+
+    //完善 用户输入需要进行验证 用户输入不在min-max之间的话 提示"不在区间内" 让用户重新输入区间内的值
+    let answer=parseInt(Math.random()*98+2);
+    let min=2,max=99;
+    console.log(answer); //50  
+    while(true){
+      // 询问用户猜测的数字  10-80
+      let n=parseInt(prompt("请输入一个"+min+"-"+max+"之间的整数"));
+      if(n<min || n>max){
+        alert("你输入的数字不在区间内");
+        continue;
+      }
+      if(n>answer){
+        alert("你输入的数字太大了");
+        max=n;
+      }else if(n<answer){
+        alert("你输入的数字太小了");
+        min=n;
+      }else{
+        alert("猜对了！");
+        break;
+      }
+    }
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
