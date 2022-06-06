@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-06 08:45:26
- * @LastEditTime: 2022-06-06 17:41:08
+ * @LastEditTime: 2022-06-06 17:49:03
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -81,6 +81,7 @@
                 }
          */
 
+/* 
         // 水仙花数
         for (let i = 100; i < 1000; i++) {
             let str = i.toString()
@@ -90,34 +91,35 @@
             // 注意：如果用了数学函数存在隐式类型转换，将其他类型转换为number类型
             if (i == Math.pow(a, 3) + Math.pow(b, 3) + Math.pow(c, 3)) {
                 console.log(i)
-
             }
-
         }
 
+ */
 
 
+        // 2 4 8 16 32 64，一张纸叠多少次可以达到珠穆朗玛峰高度
+/* 
+        // 方法一：
+        let n = 0
+        while (true) {
+            n++
+            if (Math.pow(2, n)>= 8848000) {
+                break
+            }
+        }
+        console.log(n)
+ */        
 
-        // 2 4 8 16 32 64
-        /*
-                let n = 0
-                while (true) {
-                    n++
-                    if (Math.pow(2, n) > 8848000) {
-                        break
-                    }
-                }
-                console.log(n)
-        
-                for (let i = 0; ; i++) {
-                    if (Math.pow(2, i) >= 8848000) {
-                        console.log(i)
-        
-                        break
-                    }
-                } */
+        /*  // 方法二：
+         for (let i = 0; ; i++) {
+             if (Math.pow(2, i) >= 8848000) {
+                 console.log(i)
+ 
+                 break
+             }
+         }
 
-
+*/
         /*
                 let count=0
                 for (let i = 1;i< 93; i++) {
