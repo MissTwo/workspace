@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    //内置对象简介
+    /* 
+    js对象分为3种：自定义对象，内置对象，浏览器对象
+
+    前面两种对象：是JS的基础内容，属于 ECMAScript； 第三个浏览器对象：属于JS独有，即 JS 内置的API。
+
+    **内置对象**：就是指这个语言自带的一些对象，供开发者使用，这些对象提供了一些常用或者最基本而必要的功能（属性和方法）。
+    内置对象最大的优点就是帮助我们快速开发。
+    */
+    //**JavaScript的内置对象**：
+    /* 
+     | 内置对象  | 对象说明       |
+     | :-------- | :------------- |
+     | Arguments | 函数参数集合   |
+     | Array     | 数组           |
+     | Boolean   | 布尔对象       |
+     | Math      | 数学对象       |
+     | Date      | 日期时间       |
+     | Error     | 异常对象       |
+     | Function  | 函数构造器     |
+     | Number    | 数值对象       |
+     | Object    | 基础对象       |
+     | RegExp    | 正则表达式对象 |
+     | String    | 字符串对象     |
+    */
+    //  let obj={
+    //    fn:function(){
+    //      console.log(1111);
+    //    }
+    //  }
+    //  obj.fn();
+    //  console.log(111);
+
+    // 1.什么是数组 
+    /* 
+     **数组(Array)，顾名思义，用来存储一组相关的值，从而方便进行求和、计算平均数、逐项遍历等操作。**
+     */
+    //编程时，我们经常会遇见处理**—组数值**的情况，比如全班10个学生的考试成绩
+    // let a0 = 96,a1 = 97, a2 = 76,a3 = 87,a4 = 87,a5 = 90, a6 = 91, a7 = 100,a8 = 78,a9 = 56;
+    // //以上是错误的做法 无法对数据进行批量操作
+
+    // let scoreArr = [96,97,76,87,87,90,91,[100,78,56]];
+    //每种高级编程语言中都有数组，它是非常重要的**一种数据结构**
+    //数组的存储性能比普通对象要好。在实际开发中我们经常使用数组来存储一些数据（尤其是**列表数据**），使用频率非常高。
+
+    /* 
+    数组中的元素可以是任意的数据类型，也可以是对象，也可以是函数，也可以是数组。数组的元素中，如果存放的是数组，我们就称这种数组为二维数组。
+    */
+
+    /* 
+    2.数组的定义和简介
+     定义方:1：
+     字面量表示法 由一对方括号[]标识，多个元素之间逗号隔开
+     let arr=[1,2,3,4];
+    */
+    // let arr = [1,2,3,4];
+
+    //定义方法2：
+    //使用Array的构造函数 如果参数是一个数值，标识的是数组的长度，如果有多个元素，则标识数组中的元素；
+    // let arr1=new Array("a","b","c");
+    // console.log(arr1);
+
+    // let arr2=new Array(4);
+    // console.log(arr2); //标识生成一个长度为4的数组，每个位置都是空值
+
+    //Array()作为构造函数，行为很不一致。
+    //因此，不建议使用它生成新数组，直接使用数组字面量是更好的做法。
+
+
+    //定义方法3： 
+    //语法：Array.of(value1, value2, value3);
+    // let arr3=Array.of(1,"acb",true);
+    // let arr3=Array.of(4);
+    // console.log(arr3);
+
+    //**补充：`new Array()`和 `Array.of()`的区别在于:
+    //当参数只有一个时，前者表示数组的长度，后者表示数组中的内容。
+
+
+    // let arr = [1,2,3,4];
+    /* 
+    3.访问数组：
+    通过数组下标访问数组中的元素，arr[index];
+    **下标越界**
+    js规定，访问数组中不存在的项会返回undefined，而不是报错
+    */
+    // console.log(arr[5]); //undefined
+
+    //更改数组中的项
+    //数组并不是只读的，我们可以修改它的任意项的值
+    // arr[0]=111;
+    // console.log(arr[0]);
+
+    // arr[6]=111;
+    // console.log(arr); // [1, 2, 3, 4, empty × 2, 111]
+
+    //数组的长度 通过 arr.length获取  length属性是可写的
+    //数组的最后一项的下标 arr.length-1 
+    // arr.length=0; //是清空数组的一个有效方法
+    // console.log(arr); 
+
+    // arr.length=2; 
+    // console.log(arr); //[1,2]
+
+    //4.数组的遍历  数组最大的优点就是方便遍历
+    // let arr = [1,2,3,4];
+    // for(let i=0;i<arr.length;i++){
+    //   console.log(arr[i]);
+    // }
+
+    //5.数组的检测 
+    // Array.isAarray(); //返回一个布尔值 标识参数是否为数组
+
+    //6. toString(); 数组转换为字符串
+    //let 字符串= 数组.toString(); 将数组中的每一项转换为字符串，并使用，分割
+    //备注：**大多数的数据类型都可以使用`.toString()`方法，将其转换为字符串。**
+    //**知识点补充：**将数组转换为字符串，有哪些方式
+    /* 
+    let 字符串 = 数组.toString();
+    let 字符串 = String(数组);
+    let 字符串 = 数组.join(',');//将数组转为字符串，每一项用 英文逗号,分隔/连接
+    */
+
+
+    //Array.from(); 作用：将伪数组或可遍历对象转换为真数组
+    /* 
+    可遍历的  ===> 数组,字符串,Set.Map.NodeList,arguments以及拥有length属性的任意对象
+    另外，伪数组的原型链中没有 Array.prototype，而真数组的原型链中有 Array.prototype。因此伪数组没有数组的一般方法，比如 pop()、join() 等方法。
+    */
+    // let name = "laozeng";
+    // console.log(Array.from(name));
+
+    //数组的投喂操作 push(),pop(),unshift(),shift();都会改变原数组
+
+    // 新数组的长度 = 数组.push(元素);
+
+    //push()方法用来**在数组末尾推入新项**，参数就是要推入的项 , 并**返回添加新元素后的数组长度**。如果要推入多项，可以用逗号隔开
+    //调用push()方法后，**原先数组会立即改变**，不需要赋值
+    // let arr=[1,2,3,4,5,6,8];
+    // let a = arr.push(5,6); //返回数组长度
+    // console.log(a); //5 
+    // console.log(arr); //5
+
+
+    //pop() 被删除的元素 = 数组.pop(); 用于删除数组最后一个元素，并返回被删除的元素
+    // console.log(arr.pop());
+    // console.log(arr);
+
+    //unshift()方法：用于在数组的**第一个位置添加元素**，并返回添加新元素后的数组长度。插入元素后，其他元素的索引会依次调整。
+    // console.log(arr.unshift(0)); //8
+    // console.log(arr);//[0,1,2,3,4,5,6,8]
+
+    //shift();  删除第一个元素，返回被删除的元素
+    // console.log(arr.shift()); //1
+    // console.log(arr);//[2,3,4,5,6,8]
+
+    //splice() 方法用于替换数组中的指定项  会改变原数组
+    /* 
+    语法：
+    新数组 = 原数组.splice(删除起始索引index（从0开始）, 需要删除的个数); 
+    新数组 = 原数组.splice(删除起始索引index（从0开始）, 需要删除的个数, 新的元素1, 新的元素2...);
+    */
+    // console.log(arr.splice(0,2)); //以数组的形式返回被删除的元素
+    // console.log(arr); //[2,3,4,5,6,8]
+
+    // console.log(arr.splice(0,2,"laozeng","lisi")); //[1,2]
+    // console.log(arr); ['laozeng', 'lisi', 1, 2, 3, 4, 5, 6, 8]
+
+    // let arr=[1,2,3,4,5,6,8,[1,2]];
+    // let arr=[1,2,3,4,5,6,8];
+    //##只写一个参数的情况 从这个索引开始(包括这个索引)后面的全部删除
+    // arr.splice(0); //也是清空数组的一种方式 
+    // console.log(arr); //[]
+    // let arr2=arr.splice(0);
+    // console.log(arr2[7] == arr[7]); 
+
+    //## 写负数的情况  倒数  删除后面几个元素
+    // console.log(arr.splice(-1));//8
+    // console.log(arr);//[1,2,3,4,5,6]
+
+    //从第index为1的位置开始删除元素,一共删除三个元素。并且在原来的index=1 的前面追加两个元素 a  b
+    // arr.splice(1,3,"a","b");
+
+    // ## slice();方法 用于得到子数组 不会改变原数组
+    /*
+     slice(a,b);从下标为a开始截取到下标为b的位置（不包括b）[a,b)，返回一个新数组
+     */
+    // let arr=[1,2,3,4];
+    // let arr1=arr.slice(1,2);
+    // console.log(arr1); //[1, 2] 
+    // console.log(arr); //[1, 2,3,4]
+
+    //只写一个参数的情况：从指定的起点后面全部截取
+    // arr1=arr.slice(1);  
+    // console.log(arr1); //[2,3,4] 
+
+    //slice()方法的参数允许为负数，**表示数组的倒数第几项**
+    // arr1=arr.slice(-2);  
+    // console.log(arr1); //[3,4]
+
+
+    // let colors = ["red" , "green" , "blue" , "yellow"];
+
+    // //不加参数 全部截取相当于arr.slice(0);
+    // let newColors1 = colors.slice();
+    // console.log(newColors1); //["red" , "green" , "blue" , "yellow"]
+
+    // let newColors2 = colors.slice(3, 2);
+    // console.log(newColors2); // 空  没有意义的截取
+    // let newColors3 = colors.slice(1, colors.length);
+    // let newColors6 = colors.slice(1 , -1);
+    // console.log(newColors6); // [ "green" , "blue" ]
+
+
+    //fill(): 用一个固定值填充/替换数组，返回结果为**新的数组**,会改变原数组。
+    // 新数组 = 数组.fill(固定值, startIndex , endIndex); [startIndex,endIndex)前闭后开
+    // let arr=[];
+    // arr.length=4;
+    // let arr1 = arr.fill("f");
+    // console.log("arr",arr);//['f', 'f', 'f', 'f']
+    // console.log("arr1",arr1);//['f', 'f', 'f', 'f']
+
+    // let arr=["a","b","c","d"];
+    // let arr1=arr.fill("f");
+    // console.log(arr); // ['f', 'f', 'f', 'f']
+    // console.log(arr1); // ['f', 'f', 'f', 'f']
+
+    // arr1=arr.fill("x",0,2);
+    // console.log(arr1);
+
+    // join() 和 split()方法
+    // 数组的join()方法可以**使数组转为字符串**; 不改变原数组
+    // 字符串的split()方法可以**使字符串转为数组。** 不改变原字符串
+    // let arr = [11, 22, 33, 44];
+
+    //join()的参数表示**以什么字符作为连接符**，如果留空则默认**以逗号分隔**，如同调用toString()方法
+    // let newArr = arr.join();//默认什么都不加会已逗号进行连接
+    // console.log(arr); //[11, 22, 33, 44]
+    // console.log(newArr); // 11,22,33,44
+
+    // let newArr = arr.join("-");//默认什么都不加会已逗号进行连接
+    // console.log(newArr); // 11-22-33-44
+    // newArr = arr.join("");
+    // console.log(newArr);//11223344
+    // newArr = arr.join(",");//等同于默认 什么都不加
+    // console.log(newArr); //11,22,33,44
+    // newArr = arr.join("|")
+    // console.log(newArr); //11|22|33|44
+
+    //### split()的参数表示以什么字符**拆分字符串**，**一般不能留空**
+    //注意：这是字符串的方法 不是数组的方法
+    // let str="a,b,c,def";
+    // let str1=str.split();
+    // console.log(str1); //['a,b,c,def']
+
+    // str1=str.split(",");//已逗号为分界点取每一项放到数组中
+    // console.log(str1);//['a', 'b', 'c', 'def']
+
+    // let str = "2020-11-11";
+    // let str1=str.split("-");
+    // console.log(str1);//['2020', '11', '11']
+
+    // //以空字符串做分隔时 则表示：分隔字符串中每一个字符，分别添加到数组中 
+    // str1=str.split("");
+    // console.log(str1);//['2', '0', '2', '0', '-', '1', '1', '-', '1', '1']
+    // //已字符串中有的字符进行分隔时 指定的这个符号不会写到数组中
+    // str1=str.split("0");
+    // console.log(str1); // ['2', '2', '-11-11']
+
+    //**备注**：`split()`这个方法在实际开发中用得非常多。一般来说，从接口拿到的 json 数据中，经常会收到类似于`"l, m, n"`这样的字符串，前端需要将这个字符串拆分成`['l', 'm', 'n']`数组，这个时候`split()`方法就派上用场了
+
+
+    //数组的concat方法 用于多个数组合并，它将新数组的成员，添加到原数组成员的后部，然后返回一个新数组，**原数组不变。**
+    //语法： 
+    // let arr1 = ["a", "b", "c", "d", "e"];
+    // let arr2 = ["f", "g"];
+    // let arr3 = ["h"];
+    // let newArr = arr1.concat(arr2, arr3, [1, 2, 3]);
+    // // console.log(newArr);//['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 1, 2, 3]
+    // console.log(arr1);
+    // console.log(arr2);
+    // console.log(arr3);
+    // let arr4=[];
+    // arr4.concat(arr1,arr2,arr3,[1, 2, 3])
+
+    //reverse() `reverse`方法用于**置反排列数组元素**，返回改变后的数组。该方法会**改变原数组**
+    //语法： 反转后的数组 = 数组.reverse();
+    // let arr = [1,2,3,4,5];
+    // let arr2 = arr.reverse();
+    // console.log(arr);
+    // console.log(arr2);
+
+    // 例：如何把"ABCDEFG"字符串置反
+    // let str="ABCDEFG";
+    // let newArr=str.split("");// 字符串转数组['A', 'B', 'C', 'D', 'E', 'F', 'G']
+    // newArr.reverse();//反转 ['G', 'F', 'E', 'D', 'C', 'B', 'A'] 
+    // let newStr = newArr.join("");//数组转字符串 不改变原数组
+    // console.log(newStr);
+
+    // indexOf()和 lastIndexOf()
+    /* 
+    indexof()方法的功能是**搜索数组中的元素**，并返回它所在的位置(下标)，如果元素不存在，则返回-1
+    */
+    //语法： 索引值 = 数组.indexOf(想要查询的元素);
+    // let arr = [1,2,3,4,5];
+    // console.log(arr.indexOf(5));
+    // console.log(arr.indexOf(6));
+    // if(arr.indexOf("元素")!=-1){ //说明arr数组中有该元素
+    // }else{}
+
+    //**注意**，这两个方法不能用来搜索`NaN`的位置，即它们无法确定数组成员是否包含`NaN`。
+    //语法2：`indexOf`方法还可以接受第二个参数，表示**搜索的开始位置。**
+    //   索引值 = 数组.indexOf(想要查询的元素, [起始位置]);
+    let arr1 = ['q', 'i', 'a', 'n', 'g', 'u', 'y', 'i', 'h', 'a', 'o'];
+    let x=arr1.indexOf("n", 3); //第二个参数是检索的起点
+    console.log(x); // 
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    //计算阶乘函数
+    // function factorial(n) {
+    //   // 累乘器
+    //   let result = 1;
+    //   for (let i = 1; i <= n; i++) {
+    //     result *= i;
+    //   }
+    //   return result;
+    // }
+    // // 穷举法  从100到999寻找喇叭花数
+    // for (let i = 100; i <= 999; i++) {
+    //   // 把数字i变为字符串
+    //   let i_str = i.toString();
+    //   // a b c 分别代表百位,十位，个位
+    //   let a = Number(i_str.charAt(0));
+    //   let b = Number(i_str.charAt(1));
+    //   let c = Number(i_str.charAt(2));
+    //   //根据喇叭花数的条件进行判断
+    //   if (factorial(a) + factorial(b) + factorial(c) == i) {
+    //     console.log(i + "是喇叭花数");
+    //   }
+    // }
+
+
+    //需求：输出2~100的所有质数，所谓的质数，就是只有1、自己两个约数，没有其他约数。
+    //要把一个复杂的问题，拆分为一个个小问题。约数个数函数 → 判断质数函数 → 高层业务
+
+    //约数的个数函数：传入一个数字，能吐出这个数字的约数的个数
+    // function approximateNumber(a){
+    //   //计数器
+    //   let count=0;
+    //   for(let i=0;i<=a;i++){
+    //     if(a%i==0){
+    //       count++;
+    //     }
+    //   }
+    //   return count;
+    // }
+    // //判断一个数是否是质数的函数，如果一个函数的名字取is...一般是一个判断，就暗示了将返回布尔值，要么是true要么是false。是通常做法，不是规定
+    // function isZhishu(m){
+    //   if(approximateNumber(m)==2){
+    //     return true;
+    //   }
+    //   return false;
+    // }
+    // //业务流程
+    // for(let i=1;i<=100;i++){
+    //   if(isZhishu(i)){
+    //     console.log(i);
+    //   }
+    // }
+
+
+    //递归 
+    /* 
+    函数的内部语句可以**调用这个函数自身**，从而发起对**函数的一次迭代**。在新的迭代中，又会执行调用函数自身的语句，从而又产生一次迭代。当函数执行到某一次时，不再进行新的迭代，函数被一层一层返回，函数被递归。
+
+    递归是一种较为**高级的编程技巧**，它把一个大型复杂的问题层层转化为一个与原问题相似的规模较小的问题来求解。
+
+    **递归的要素**
+    边界条件 : 确定递归到何时终止 也称为**递归出口**
+    递归模式: 大问题是如何分解为小问题的 , 也称为**递归体**
+    */
+
+    // 求4的阶乘  4*3*2*1  n*(n-1)
+    //书写一个递归函数 这个函数内部会调用自己
+    // function factorial(n){ 
+    //   //这个就是递归的出口,如果计算1的阶乘,可以不用递归了,直接告诉你答案就是1
+    //   if(n==1){
+    //     return 1;
+    //   }
+    //   return n*factorial(n-1);
+    // }
+    // console.log(factorial(4));//24
+
+
+    // ##斐波那契数列  斐波那契数列是这样的数列: 1、1、2、3、5、8、13、21
+    // 数列 下标为1和2的项的值都是1，从下标为2的项开始，每项等于前面两项的和
+    // 编写一个函数 传入下标n 就能够返回该项的值
+    //传入位数n
+
+    function fib(n){
+      if( n==1 || n==2 ){
+        return 1;
+      }
+      return fib(n-1)+fib(n-2);
+    }
+    // // console.log(fib(15)); //987
+    console.log(fib(5));
+
+
+    // 实现深克隆  
+    /* 
+    *JavaScript中的数据类型有两类: 基本类型（简单数据类型）和引用类型值（复杂数据类型）
+    基本数据类型 直接将值存在栈内存中
+    引用数据类型 数据存在堆内存中 但是数据指针是存在栈内存中
+
+      访问引用数据时，先从栈内存中获取指针（地址），通过指针在堆内存中找到数据
+    */
+
+    // let a = 100;
+    // let b = 100;
+    // console.log( a==b );//true
+    // console.log( a===b );//true
+
+
+    // let a=100;
+    // let b=a; //可以理解为复制了一个文本 将a的值拷贝一份给b
+    // console.log(b);//100
+    // b=200;
+    // console.log(b);//200
+    // console.log(a);//100
+
+    // let a = {
+    //   age: 18,
+    //   weight: "80kg"
+    // }
+    // let b = {
+    //   age: 18,
+    //   weight: "80kg"
+    // }
+    // console.log(a == b); //false 引用数据类型比较的是指针/内存地址
+    // console.log(a === b); //false
+
+    // let a={
+    //   age: 18,
+    //   weight: "80kg"
+    // };
+    // let b=a; //可以理解为发送一个快捷方式到桌面 此时a和b同时指向同一个地址链接到同一个对象
+    // console.log(a);
+    // // console.log(a==b);//true
+    // // console.log(a===b);//true
+    // b.age=20;
+    // console.log(a);
+
+    // let arr1 = [11, 22, 33, 44];
+    // let arr2 = [11, 22, 33, 44];
+    // let arr3 = arr1;
+    // // console.log(arr1==arr2);//false 数组也属于对象中的引用数据类型
+    // console.log(arr1 == arr3); //true
+    // arr3[2] = 55;
+    // console.log(arr1);
+
+    /* 
+    总结：
+    基础数据类型赋值时给值 ，引用数据类型赋值时给地址
+
+    为什么值类型可以直接复制值?引用类型就必须复制地址呢?
+    原因可能在性能存储方面的问题.
+    值类型因为只有值,直接赋值没什么问题,占用内存比较少.
+    引用类型JSON对象可能会非常大,导致不好管理.而且直接赋值可能会导致速度比较慢.
+    */
+
+    //数组的浅克隆  
+    //push()数组的方法 往数组的尾部推入元素
+    // let arr1 = [11, 22, 33, 44];
+    // let result=[];
+    // // result.push(3333);
+    // // result.push(444);
+    // // console.log(result);
+    // for(let i=0; i<arr1.length; i++){
+    //   result.push(arr1[i]); //将数组arr1中的项逐一推入result中
+    // }
+    // console.log(result);
+    // console.log(result == arr1);//false
+    // result[0]=66;
+    // console.log(arr1[0]);//11
+    // console.log(result[0]);//66
+
+
+    // let arr1 = [11, 22, 33, [44, 55, 66]];
+    // let result = []; //接收用的数组
+    // for(let i=0; i<arr1.length; i++){
+    //   result.push(arr1[i]); //将数组arr1中的项逐一推入result中
+    // }
+    // console.log(result==arr1);//false
+    // console.log(arr1[3] == result[3]);//true 测试这样的的克隆是浅克隆 藕断丝连
+    // result[3][0]=88;
+    // console.log(arr1[3]);//[88,55,66] 直接将引入地址推入了result 导致原数组第3项藕断丝连
+
+
+    //深克隆 使用递归思想
+    /* 
+    使用递归整体思路浅克隆相似，稍微做些改动 如果遍历到的是基本类型，直接推入数组，如果是复杂数据类型重复执行递归操作
+    */
+    // typeof 
+    //  console.log(typeof arr1);//object
+    // Array.isArray();方法返回一个布尔值，表示参数是否为数组。可以弥补typeof的不足
+    //  console.log(Array.isArray({}));//false
+    //  console.log(Array.isArray(arr));//true
+    //需求： 封装一个函数  传入一个数组 可以对它实现深克隆
+    // let arr = [11, 22, 33, [44, 55, 66]];
+
+    // function deepClone(arr) {
+    //   //准备一个数组用于接收
+    //   let result=[];
+    //   for(let i=0; i<arr.length; i++){
+    //     //判断 如果遍历到的项还是引用数据类型
+    //     if(Array.isArray(arr[i])){
+    //       result.push(deepClone(arr[i]));
+    //     }else{
+    //       result.push(arr[i]);
+    //     }
+    //   }
+    //   //操作完成返回这个数组
+    //   return result;
+    // }
+
+    // let arr2=deepClone(arr);
+    // console.log(arr2);
+    // console.log(arr2[3]==arr[3]); //验证不相等
+    // arr2[3][0]=88; //此时秀该不会对原数组产生影响
+    // console.log(arr[3][0]);//44 
+
+
+
+  </script>
+</body>
+
+</html>

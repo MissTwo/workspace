@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-06 15:36:27
- * @LastEditTime: 2022-06-06 17:43:39
+ * @LastEditTime: 2022-06-07 14:07:35
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -16,66 +16,73 @@
 <body>
     <script>
         /* 
-                一、函数：语句的封装，可以让一些代码方便的被复用
-                二、函数的定义：先定义后使用，js的函数定义有三种方式
-                    1.function命令：使用关键字定义函数
-        
-                        // 函数声明
-                        function 函数名(){
-                            函数语句
-                        }
-                        // 函数调用(可重复多次调用)
-                        函数名()
-        
-                    
-                    2.函数表达式：使用变量赋值的写法
-                        这种写法将一个匿名函数赋值给变量。
-                        这个匿名函数又称函数表达式，
-                        因为赋值语句的等号右侧只能放表达式
-        
-                        // 函数声明
-                        let 变量名=function(){
-                            函数语句
-                        }
-                        // 函数调用
-                        变量名()
-        
-        
-                    注意：
-                    如果加上函数名，该函数名函数体内部有效，外部无效
-                    
-                        let fn=function fn1(){
-                                函数语句
-                                fn1()
-                            }
-                            fn()
-                    3.Function构造函数：可以传递任意数量的参数给Function构造函数(x,y)
-                    只要最后一个参数会被作为函数体，
-                    如果只要一个参数，改参数为函数体(这种声明函数的方式不直观，几乎不用)
-        
-                    let 变量名=new Function("x","y","函数语句")
-                    例如：let a=new Function("x","y","console.log(x+y)")
-        
-        
-                三、函数声明的提升(先调用)
-                    函数名()
-                    function 函数名(){
-        
-                    }
-                    注意：函数表达式不能提升
-                四、函数的参数：函数内待定的值-形参
-                五、系统自带函数
-                    arguments对象：由于js允许函数有不定数目的参数，所以用该函数在函数体内部读取所以参数。类似数组，[]访问每一个元素，length确定传递参数个数
-                        arguments[0]下标为0的
-                        arguments.length
-                            function fn(){
-                                console.log(arguments)
+        一、函数：语句的封装，可以让一些代码方便的被复用
+        二、函数的定义：先定义后使用，js的函数定义有三种方式
+            1.function命令：使用关键字定义函数
 
-                            }
-                六、函数返回值
-                    return:立即终止函数执行，并且返回指定的返回值
-                    如果不指定返回什么，会返回undefined
-          */
+                // 函数声明
+                function 函数名(){
+                    函数语句
+                }
+                // 函数调用(可重复多次调用)
+                函数名()
+
+            
+            2.函数表达式：使用变量赋值的写法
+                这种写法将一个匿名函数赋值给变量。
+                这个匿名函数又称函数表达式，
+                因为赋值语句的等号右侧只能放表达式
+
+                // 函数声明
+                let 变量名=function(){
+                    函数语句
+                }
+                // 函数调用
+                变量名()
+
+
+            注意：
+            如果加上函数名，该函数名函数体内部有效，外部无效
+            
+                let fn=function fn1(){
+                        函数语句
+                        fn1()
+                    }
+                    fn()
+            3.Function构造函数：可以传递任意数量的参数给Function构造函数(x,y)
+            只要最后一个参数会被作为函数体，
+            如果只要一个参数，改参数为函数体(这种声明函数的方式不直观，几乎不用)
+
+            let 变量名=new Function("x","y","函数语句")
+            例如：let a=new Function("x","y","console.log(x+y)")
+
+
+        三、函数声明的提升(先调用)
+            函数名()
+            function 函数名(){
+
+            }
+            注意：函数表达式不能提升
+        四、函数的参数：函数内待定的值-形参
+        五、系统自带函数
+            arguments对象：由于js允许函数有不定数目的参数，所以用该函数在函数体内部读取所以参数。类似数组，[]访问每一个元素，length确定传递参数个数
+                arguments[0]下标为0的
+                arguments.length
+                    function fn(){
+                        console.log(arguments
+                    }
+        六、函数返回值
+            return:立即终止函数执行，并且返回指定的返回值
+            如果不指定返回什么，会返回undefined
+        七、递归：函数内部可以调用函数只身
+            要素：
+                    1.边界条件：递归出口
+                    2.递归模式：递归
+        八、基础数据类型赋值时给值，引用数据类型赋值时给地址
+        差异的原因是：存储方面的问题
+            1.引用数据类型占内存空间少
+            2.引用json对象影响很大速度慢不好管理故采用地址的方式
+        */
 
         /* 
                 // 求区间和
@@ -95,26 +102,157 @@
                 }
                 console.log(evenNum(80));
          */
-        // 阶乘函数
-        function factorial(n) {
-            let m=1
-            for (let i = 1; i <= n; i++) {
-                m *= i
+        /* 
+        
+                // 阶乘函数
+                function factorial(n) {
+                    let m=1
+                    for (let i = 1; i <= n; i++) {
+                        m *= i
+                    }
+                    return m
+                }
+                // 喇叭花数abc=a!+b!+c!
+                for (let i = 100; i <999; i++) {
+                    let str=i.toString()
+                    let a=str.charAt(0)
+                    let b=str.charAt(1)
+                    let c=str.charAt(2)
+                    // factorial()函数中存在乘法将其他类型转换为Number类型
+                    if(i==factorial(a)+factorial(b)+factorial(c)){
+                        console.log(i)
+                    }
+                    
+                }
+         */
+
+        /* 
+                // 2-n中的质数
+                function prime(n) {
+                    let count=0
+                    for (let i = 2; i <= n; i++) {
+                        var flag = true;
+                        for (var j = 2; j < i; j++) {
+                            if (i % j == 0) {
+                                flag = false;
+                            }
+                        }
+                        if (flag == true) {
+                            console.log(i+"是质数");
+                            count++;
+                        }
+                    }
+                    console.log("质数总个数："+count);
+        
+                }
+                prime(100) 
+         */
+
+        /*
+                // 递归求阶乘
+                function factorial(n){
+                    if(n==1)return 1
+                    return n*factorial(n-1)
+                }
+                console.log(factorial(4));
+         */
+        // 0  1  2  3  4
+        // 斐波那契数列：1、1、2、3、5、8、13、21，数列下标为0和1的项的值都为1，下标为2的项开始，每项等于前两项和，编写传入下标n返回该项值
+        /*
+                function series(n) {
+                    
+                    if (n == 0 || n == 1) {
+                        return 1
+                    } else {
+                        return series(n-1)+series(n-2)
+                    }
+                }
+                console.log(series(15));
+         */
+
+        /*      push()往数组的尾部注入元素
+                Array.isArray(数组名字)检测是否是数组，返回布尔值
+        
+                
+                
+         */
+
+        /* 
+               //  数组的浅克隆
+               let arr = [1, 2, 3, 4, 5]
+               let clone = []
+               for (let i = 0; i < arr.length; i++) {
+               // push()往数组的尾部注入元素
+                   clone.push(arr[i]) ;
+                   // clone[i]=arr[i]
+               }
+               console.log(clone==arr);
+        */
+
+
+        /* 如果存在 ：let arr = [1, 2, 3, 4, [1,2,3]]
+            数组中的数组克隆会把地址赋过去 
+        */
+        /* 
+        
+                // 数组的深克隆
+                let arr = [1, 2, 3, 4, [1, 2, 3]]
+                let clone = []
+                for (let i = 0; i < arr.length; i++) {
+                    if (Array.isArray(arr[i]) == true) {
+                        clone[i] = []
+                        for (let j = 0; j < arr[i].length; j++) {
+                            clone[i][j] = arr[i][j]
+        
+                        }
+                    } else {
+                        clone[i] = arr[i]
+                    }
+        
+                }
+                console.log(clone);
+        
+         */
+    /*  
+      
+        function deepClone(arr) {
+            let clone = []
+            for (let i = 0; i < arr.length; i++) {
+                if (Array.isArray(arr[i]) == true) {
+                    clone[i] = []
+                    for (let j = 0; j < arr[i].length; j++) {
+                        clone[i][j] = arr[i][j]
+                    }
+                } else {
+                    clone[i] = arr[i]
+                }
+
             }
-            return m
+            console.log(clone);
+            return clone;
         }
-        // 喇叭花数abc=a!+b!+c!
-        for (let i = 100; i <999; i++) {
-            let str=i.toString()
-            let a=str.charAt(0)
-            let b=str.charAt(1)
-            let c=str.charAt(2)
-            // factorial()函数中存在乘法将其他类型转换为Number类型
-            if(i==factorial(a)+factorial(b)+factorial(c)){
-                console.log(i)
+        deepClone([1, 2, 3, 4, [1, 2, 3]])
+
+ */
+        // 数组深克隆
+        function deepClone(arr) {
+            let clone = []
+            for (let i = 0; i < arr.length; i++) {
+                if (Array.isArray(arr[i])) {
+                    clone.push(deepClone(arr[i]))
+                } else {
+                    clone.push(arr[i])
+                }
+
             }
-            
+            console.log(clone);
+            return clone;
         }
+        deepClone([1, 2, 3, 4, [1, 2, 3]])
+
+
+
+
 
     </script>
 </body>

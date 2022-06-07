@@ -1,0 +1,151 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-07 08:36:08
+ * @LastEditTime: 2022-06-07 17:25:42
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+</head>
+
+<body>
+    <!-- 
+    一、数组：用来存储一组相关的值
+    二、数组的定义方法：
+        1.字面量表示法，由一对方括号[]标识，多个元素中间逗号隔开
+            let arr=[1,2,3,4,5,6]
+
+        2.使用Array的构造函数，如果参数是数值，标识的数组长度，如果有多个元素，则标识数组中的元素
+            
+            let arr1=new Array(4) 标识生成长度为4的空值
+
+            let arr2=new Array("b","a","f")
+
+        3.调用Array.of()的方法
+            let arr3=Array.of(1,"asd",true)
+
+        注意：new Array() 与 Array.of()的区别：当参数只要一个是，前者标识长度，后者表示数组中的内容
+
+    三、访问数组：通过数组下标
+        1.js中访问数组中不存在的项会返回undefined而不是报错
+        2.数组的最后一项下标：arr.length-1
+        3.清空数组：arr.length=0
+        4.更改数组长度可以截断数组
+
+    四、数组的遍历
+        for循环
+
+    五、数组的检测
+        Array.isArray()，返回布尔值
+
+    六、数组转换为字符串常见的函数
+        toString()转化为字符串，将数组中的每一项转化为字符串，并使用分割
+        Array.from()将伪数组转换为真的数组
+
+        let 字符串变量名=数组.toString()
+        let 字符串变量名=String(数组)
+        let 字符串变量名=数组.join(',')
+
+        字符串转换为数组
+        let 数组=Array.from(字符串变量名)
+    
+    七、数组的操作：push() pop() unshift() shift() splice()都会改变数组长度
+        1.push()
+            数组末尾加入新项，返回新增的元素
+            加入多项，用逗号隔开：push(1,3)
+        2.pop()
+            删除数组最后一个元素，返回被删的元素
+        3.unshift()
+            在数组第一个插入元素，返回新增的元素
+        4.shift()
+            删除数组中第一个元素，返回被删的元素
+        5.splice()
+            用于替换数组中指定项，会改变原数组，返回被删的元素
+        语法：新数组=原数组.splice(删除起始索引，需要删除的个数，新元素（可选）)
+        只写一个参数的情况，从整个索引开始后面全部删除
+            清空数组的方式：splice(0)
+                深拷贝不走寻常路：
+                let arr=[3,1,4,[5,6,7]]
+                let clone=arr.splice(0)
+            写负数的情况 倒数 删除后面几个数
+                arr.splice(-1)最后一位被删除了
+        6.slice(),用来得到子数组，不会改变原数组
+            ①slice(a,b)从下标为a开始截取到下标为b的位置(不包括b),[a,b)区间返回一个新数组
+            ②只写一个参数的情况：从指定的起点后面全部截取,写负数的情况 倒数
+                arr=[1,2,3,4,5]
+                arr.slice(2);会截取到[3,4,5]
+            ③不写参数，全部截取，相当于 arr.slice(0)
+                arr.slice(0)
+        7.fill()用一个固定的值填充数组，返回新数组，会改变原数组
+            新数组=数组.fill(固定值,startIndex,endIndex),区间[startIndex,endIndex)
+
+            var fruits = ["Banana", "Orange", "Apple", "Mango"];
+            fruits.fill("Runoob");
+            fruits 输出结果：Runoob,Runoob,Runoob,Runoob
+            
+        8.join() 和 split()方法
+            join()使数组转换为字符串，不改变原数组
+            let arr=[1,2,4,5]
+            let str=arr.join(',') 
+            let str=arr.join('') 
+
+            split()使字符串转换为数组，不改变原字符串
+            以空字符串作为分隔，表示，分隔字符串中每一个字符，方便添加到数组中
+            let str="2022-6-7"
+            let arr=str.split("-")
+            注意：用的很多，接收到json数组需要将字符串分解成数组
+        9.concat方法:用于多数组的拼接合并，返回新数组，原数组不变
+            let arr1=["a","b","c"]
+            let arr2=["d","e"]
+            let arr3=["d"]
+            let arr=arr1.concat(arr2,arr3,[1,2,4])
+
+            let arr4=[]
+            arr4.concat(arr1,arr2,arr3)
+        
+        10.reverse()置反排列数组，会改变原数组
+
+            let str="ABCDEFG"
+            let arr=(str.split("")).reverse()
+            let str1=arr.join("")
+            console.log(str1);
+
+        11.indexOf() 和 lastIndexOf()
+            indexOf():搜索数组中的元素，并且返回他的下标，如果存在元素不存在的情况，则返回-1
+                语法：索引值=数组.indexOf(想要查询的元素)
+                    let arr=[1,2,3,4]
+                    if(arr.indexOf("元素")！=-1){
+                        说明arr数组中有该元素
+                    }
+        
+            indexOf()方法还可以接受第二个参数，表示：搜索的开始位置。
+                语法：索引值 = 数组.indexOf(想要查询的元素, [起始位置]);
+                    let arr1 = ['q', 'i', 'a', 'n', 'g', 'u', 'y', 'i', 'h', 'a', 'o'];
+                    let x=arr1.indexOf("n", 3); //第二个参数是检索的起点
+                    
+        注意：这两个方法不能用来搜索NaN,它们无法确定数组成员是否包含NaN
+                
+                 
+
+
+
+
+
+
+
+    -->
+    <script>
+        
+        
+
+
+
+    </script>
+</body>
+
+</html>
