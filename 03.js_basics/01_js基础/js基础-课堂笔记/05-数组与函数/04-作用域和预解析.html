@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <script>
+    /* 
+    1.作用域 
+      JavaScript是函数级作用域编程语言:变量只在其定义时所在的function内部有意义。
+    */
+    //  function fn(){
+    //    let a=10;// 变量a在fn函数内部定义的  fn就是a的作用域 变量a被称为局部变量
+    //  }
+    //  console.log(fn());  // undefined
+    /* 
+    全局变量
+    如果不将变量定义在任何函数的内部，此时这个变量就是**全局变量**，它在任何函数内都可以被访问和更改。
+    在 [ES6] 之前，顶层对象的属性与全局变量是等价的，顶层对象的属性与全局变量挂钩，被认为是 JavaScript 语言最大的设计败笔之一。
+
+    ES6 为了改变这一点，一方面规定，为了保持兼容性，var 命令和 function 命令声明的全局变量，依旧是顶层对象的属性。
+    另一方面规定，let 命令、const 命令、class 命令声明的全局变量，不属于顶层对象的属性，而是在一般声明环境 declsEnv 中。
+    通过 var 声明的变量在 Global(全局) 作用域中
+    */
+
+    //  var a=1;
+    //console.log(window.a);//1
+
+    //  let a=2;
+    //  console.log(window.a); //undefined
+
+    /* 
+    遮蔽效应
+    如果函数中也定义了和全局同名的变量，则函数内的变量会将全局的变量“遮蔽”
+    */
+    // let a = 10;
+    // function fn() {
+    //   let a = 666;
+    //   console.log(a);
+    // }
+    // fn(); //666  
+    // console.log(a); //10 在自己的作用域中寻找
+
+
+    /* 
+    注意变量提升的情况
+    */
+    //  var a=10;
+    //  function fn(){
+    //    a++; // 先会瞭望一眼自己的作用域有没有定义这个变量，如果没有就去外部找，如果有就用自己的不会去外部找
+    //    console.log(a); //NaN
+    //    var a = 20; //会将 var a; 提升到作用域的顶部 后续再看是否有赋值 a=20;
+    //    console.log(a); //20
+    //  }
+    //  fn();
+    //  console.log(a); //10 寻找自己的作用域中的变量
+
+    // var a = 10;
+    // function fn() {
+    //   a++; //给a重新赋值 自己没有这个变量 往上层作用域去寻找
+    //   console.log(a); // 11 
+    //   a = 20; //给a重新赋值
+    //   console.log(a); // 20
+    // }
+    // fn();
+    // console.log(a); //20
+
+    // var a = 10;
+    // function fn() {
+    //   a++; 
+    //   console.log(a); // Cannot access 'a' before initialization
+    //   let a = 20; 
+    //   console.log(a); // 由于前面报错 后面不执行
+    // }
+    // fn();
+    // console.log(a); //由于前面报错 后面不执行
+
+    /* 
+    形参也是局部变量 
+    */
+    // let a=10;
+    // function fn(a){
+    //   a++;
+    //   console.log(a); 
+    // }
+    // fn(699); //700
+    // console.log(a); //10
+
+    //此时 函数中操作的a没有自己的变量a，会向上层作用域寻找 并给他重新赋值
+    // let a=10;
+    // function fn(){
+    //   a++;
+    //   console.log(a);
+    // }
+    // fn(699); // 11
+    // console.log(a); // 11
+
+
+    /* 
+    作用域链  函数的嵌套
+    一个函数内部也可以定义一个函数,和局部变量类似，定义在一个函数内部的函数是局部函数。
+    */
+  //  function fn(){
+
+  //   function inner(){
+  //     console.log("老曾");
+  //   }
+  //   inner();
+  //  }
+  // //  inner(); //报错 inner is not defined
+  // fn(); //正确打印
+  
+  //在函数的嵌套中 变量会从内到外逐层寻找他的定义
+  // let a=10;
+  // let b=20;
+  // function fn(){
+  //   let c=30;
+  //   function inner(){
+  //     let a=40;
+  //     let d=50;
+  //     console.log(a,b,c,d);
+  //   }
+  //   inner();
+  // };
+  // fn(); // 40 20 30 50 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-07 08:36:08
- * @LastEditTime: 2022-06-07 17:25:42
+ * @LastEditTime: 2022-06-08 19:19:52
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +14,30 @@
 </head>
 
 <body>
+    <!-- /* 
+    js对象分为3种：自定义对象，内置对象，浏览器对象
+
+    前面两种对象：是JS的基础内容，属于 ECMAScript； 第三个浏览器对象：属于JS独有，即 JS 内置的API。
+
+    **内置对象**：就是指这个语言自带的一些对象，供开发者使用，这些对象提供了一些常用或者最基本而必要的功能（属性和方法）。
+    内置对象最大的优点就是帮助我们快速开发。
+    */
+    //**JavaScript的内置对象**：
+    /* 
+     | 内置对象  | 对象说明       |
+     | :-------- | :------------- |
+     | Arguments | 函数参数集合   |
+     | Array     | 数组           |
+     | Boolean   | 布尔对象       |
+     | Math      | 数学对象       |
+     | Date      | 日期时间       |
+     | Error     | 异常对象       |
+     | Function  | 函数构造器     |
+     | Number    | 数值对象       |
+     | Object    | 基础对象       |
+     | RegExp    | 正则表达式对象 |
+     | String    | 字符串对象     |
+    */ -->
     <!-- 
     一、数组：用来存储一组相关的值
     二、数组的定义方法：
@@ -47,8 +71,8 @@
         toString()转化为字符串，将数组中的每一项转化为字符串，并使用分割
         Array.from()将伪数组转换为真的数组
 
-        let 字符串变量名=数组.toString()
-        let 字符串变量名=String(数组)
+        let 字符串变量名=数组.toString() 只能逗号分隔，参数无效
+        let 字符串变量名=String(数组)    只能逗号分隔
         let 字符串变量名=数组.join(',')
 
         字符串转换为数组
@@ -64,31 +88,38 @@
             在数组第一个插入元素，返回新增的元素
         4.shift()
             删除数组中第一个元素，返回被删的元素
-        5.splice()
+        5.splice()【拼接】
             用于替换数组中指定项，会改变原数组，返回被删的元素
         语法：新数组=原数组.splice(删除起始索引，需要删除的个数，新元素（可选）)
-        只写一个参数的情况，从整个索引开始后面全部删除
+            let arr=[1,2,3,4,5]
+            let newArr=arr.splice(1,1)   [1,3,4,5]
+
+        只写一个参数的情况，从整个索引开始后面全部删除，开区间如：splice(2):代表索引2及后面的全部删除
+
             清空数组的方式：splice(0)
                 深拷贝不走寻常路：
                 let arr=[3,1,4,[5,6,7]]
                 let clone=arr.splice(0)
+                
             写负数的情况 倒数 删除后面几个数
                 arr.splice(-1)最后一位被删除了
-        6.slice(),用来得到子数组，不会改变原数组
+
+        6.slice() 【割】,用来得到子数组，不会改变原数组
             ①slice(a,b)从下标为a开始截取到下标为b的位置(不包括b),[a,b)区间返回一个新数组
             ②只写一个参数的情况：从指定的起点后面全部截取,写负数的情况 倒数
                 arr=[1,2,3,4,5]
                 arr.slice(2);会截取到[3,4,5]
             ③不写参数，全部截取，相当于 arr.slice(0)
                 arr.slice(0)
-        7.fill()用一个固定的值填充数组，返回新数组，会改变原数组
+
+        7.fill()用一个固定的值填充数组，返回原数组，会改变原数组
             新数组=数组.fill(固定值,startIndex,endIndex),区间[startIndex,endIndex)
 
             var fruits = ["Banana", "Orange", "Apple", "Mango"];
             fruits.fill("Runoob");
             fruits 输出结果：Runoob,Runoob,Runoob,Runoob
             
-        8.join() 和 split()方法
+        8.join() 和 split() 【划分】方法
             join()使数组转换为字符串，不改变原数组
             let arr=[1,2,4,5]
             let str=arr.join(',') 
@@ -99,14 +130,12 @@
             let str="2022-6-7"
             let arr=str.split("-")
             注意：用的很多，接收到json数组需要将字符串分解成数组
+
         9.concat方法:用于多数组的拼接合并，返回新数组，原数组不变
             let arr1=["a","b","c"]
             let arr2=["d","e"]
             let arr3=["d"]
             let arr=arr1.concat(arr2,arr3,[1,2,4])
-
-            let arr4=[]
-            arr4.concat(arr1,arr2,arr3)
         
         10.reverse()置反排列数组，会改变原数组
 
@@ -130,21 +159,227 @@
                     
         注意：这两个方法不能用来搜索NaN,它们无法确定数组成员是否包含NaN
                 
-                 
+        12.sort()方法
+            对原数组进行排序，不会产生新数组，这个方法的参数是又一个函数，不是按照数字大小排序，默认不加参数的时，按照字典的顺序排序(元素的编码)，数值会先转化为字符串再按照字典(元素字符编码)顺序进行排序
+            通过设置参数实现自定义排序规则：
+            (1)sort的参数函数可以接收两个参数，表示进行比较的两个数组成员，如果该函数的返回值大于0，表示第一个排到后面；其他情况：表示第一个排到前面
+            注意：根据返回值来决定元素的排序
+                    (1)返回值大于0值，元素位置交换
+                    (2)返回值小于0值，元素位置不变
+                    (3)返回值等于0值.认为两个元素相等，不交换位置
 
+            写法1：
+                arr.sort(function(a,b){
+                   if(a>b){
+                        return 1
+                   } else if(a<b){
+                        return -1
+                   }else{
+                        return 0
+                   }
+                })
 
+            写法2:
+                升序
+                    arr.sort(function(a,b){return a-b})
+                降序
+                    arr.sort(function(a,b){return b-a})
+                反序
+                    arr.sort(function(a,b){return -1})
+                随机排序
+                    返回一个[-0.5,0.5]正负值各占一半
+                    arr.sort(function(a,b){return Math.random()-0.5})
+    八、遍历数组:every()、filter()、forEach()、map()等。高阶函数
+        1.forEach()方法需要一个函数作为参数,我们称为回调函数,有几个元素就会执行几次,不会返回值,遍历数组是用,基本数据类型下是不会改变原数组
+            回调函数有三个参数:
+                第一个参数:当前正在遍历的元素
+                第二个参数:当前正在遍历的元素的索引(下标)
+                第三个参数:正在遍历的数组
+            let arr=["sdf","dgd","hsf"]
+            arr.forEach(function(item,index,arr){
+                console.log(item,index,arr);
+            })
+        2.map()方法为了改变数据得到返回值,不会改变原数组,把每次的执行结果组成一个新数组
+            // 操作修改值
+            let arr=[12,34,56,42]
+            let newArr=arr.map(function (item,index,arr) {
+                return item*10
+            })
+            console.log(newArr);
 
+            // 使用map取数组对象中的某值
+            let arr = [{ name: 'fsodjf', age: 235 },{ name: 'hth', age: 235 },{ name: 'dsg', age: 235 }]
+            let a=arr.map(function(item){return item.name})
 
+        3.filter()用于过滤数组成员,参数等同上;对数组中每一项进行回调,若为true则过滤返回新数组,原数组不变
 
+                arr1 = [1, 2, 3, 45, 63]
+                let arr3 = arr1.filter(function (item) {
+                        return item>=4
+                    })
+                console.log(arr3);
 
+        4.every()返回值是布尔值;对数组中每一个运行回调函数,如果都返回true,every()返回true;如果存在返回false,every()返回false;一般用于检测是否全部符合规则
+
+        5.some()返回值是布尔值;对数组中每一个运行回调函数,只要有一个返回true,停止遍历此some()返回true;每项返回false,some()返回false
+
+        6.find()找出第一个满足(指定条件为true)的元素,如果找不到返回undefined,一旦找到就停止遍历就不在往下找
+            
+            // 找到第一个性别为女的元素
+            let a=students.find(function(i){
+                return i.sex=="女"
+            })
+
+        7.findIndex()找出第一个满足指定元素的下标,一旦找到第一个就不再找,返回该元素的下标
+
+            // 找到第一个性别为男的索引
+            let b=students.findIndex(function(i){
+                return i.sex=="男"
+            })
+            
+        8.reduce()方法,接收一个函数作为参数(累加器),数组中每一个值(从左到右)开始缩减
+        语法：
+        arr.reduce(function (previousValue, currentValue, currentIndex, arr) {...}, initialValue);
+        参数解释：
+            (1)previousValue：必填，上一次调用回调函数时的返回值，在initialValue未指定时，第一次的prev的值是数组的第一个值
+
+            (2)currentValue：必填，当前正在处理的数组元素
+
+            (3)currentIndex：选填，当前正在处理的数组元素下标
+
+            (4)arr：选填，调用 reduce()方法的数组
+
+            (5)initialValue：选填，指定的初始值（作为第一次调用回调函数时传给 previousValue 的值）默认0
 
     -->
     <script>
-        
-        
 
 
+        //sort排序,按照价格排序
+        /*
+        let datalist = [
+            {title: "best",price: 200},
+            {title: "well",price: 100},
+            {title: "good",price: 300}]
+        datalist.sort(function (a, b) { return a.price - b.price })
+         */
 
+        // 冒泡排序
+        /*
+        let arr = [3, 5, 7, 8, 2]
+        let temp
+        for (let i = 0; i < arr.length - 1; i++) {
+            for (let j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j]
+                    arr[j] = arr[j + 1]
+                    arr[j + 1] = temp
+                }
+            }
+        } */
+
+        /*
+        let arr=[{name:"许嵩",type:"一线"},{name:"凤凰传奇",type:"过气"},{name:"周杰伦",type:"一线"}]
+        let newArr=arr.filter(function(i){
+            return i.type=="一线"
+        })
+        console.log(newArr); */
+
+        /*
+        let arr = [{ name: 'fsodjf', age: 235 }, { name: 'hth', age: 235 }, { name: 'dsg', age: 235 }]
+        let a = arr.map(function (i) {
+            return {
+                myName: i.name,
+                myAge: i.age
+            }
+        })
+        console.log(a);
+ */
+
+        /* 
+        let students=[
+            {name:"杨幂",age:13,sex:'女'},
+            {name:"赵丽颖",age:63,sex:'女'},
+            {name:"杨颖",age:93,sex:'男'}
+        ]
+        // 找到所有成年人将姓名放入新数组
+        let c=students.filter(function(i){
+            if( i.age>18)return i.name
+        })
+        let d=c.map(function(item){
+            return item.name
+        }) */
+
+        // reduce累加
+        /* 
+        function add(arr){
+            let sum=arr.reduce(function(pre,item){
+                return pre+item
+            })
+        } */
+
+        // reduce累乘(阶乘)
+        /* 
+        function multiplication(arr){
+            let sum=arr.reduce(function(pre,item){
+                return pre*item
+            })
+        } */
+
+        //用reduce统计元素出现次数
+        /*
+       function repeatCount(arr, value) {
+
+           let a = arr.reduce(function (pre, i) {
+               pre += (i == value ? 1 : 0)
+               return pre
+           }, 0)
+           console.log(a);
+           return a
+       }
+       repeatCount([1, 4, 6, 8, 4, 8, 7, 8, 5, 8, 3], 8) */
+
+        // 用reduce求最大值
+        /* 
+        let arr1 = [1, 2, 6, 4, 5, 6, 1, 6]
+        let a = arr1.reduce(function (p, i) {
+            return p > i ? p : i
+        })
+        console.log(a);
+         */
+
+        // reduce统计数组中相同数的个数
+        /* 
+        let arr = [10, 4, 3, 2, 10, 4, 3, 2, 10]
+        let count = 0
+        let a = arr.reduce(function (obj, i) {
+            // console.log(obj, i);
+            if (i in obj) {
+                obj[i]++
+            } else {
+                obj[i]=1
+            }
+            return obj
+        }, {})
+        console.log(a);
+
+        var names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice', 'Bob', 'Bob'];
+        var countedNames = names.reduce(function (allNames, name) {
+            console.log(allNames, name);
+            if (name in allNames) {
+                allNames[name]++;
+            }
+            else {
+                allNames[name]=1;
+            }
+            return allNames;
+        }, {});
+        console.log(countedNames);
+ 
+ */
+
+
+       
     </script>
 </body>
 
