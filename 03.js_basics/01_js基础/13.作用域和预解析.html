@@ -1,0 +1,66 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-09 09:18:00
+ * @LastEditTime: 2022-06-09 11:12:52
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作用域和预解析</title>
+</head>
+
+<body>
+    <script>
+        /* 
+         一、es6的作用域：函数作用域、全局作用域，块级作用域{}
+             (1)var没有块级作用域,运行重新声明同一个变量,会提升当前作用域顶部
+                  var a=10
+                  var a=20
+                  打印不会报错
+             (2)let const 声明的变量只在当前块级作用域内有效,声明的变量不能被重新声明,定义的变量存在暂存性死区(就是不能在声明之前使用)
+             (3)const常量定义必须在声明时赋值,常量允许在不重新赋值的情况下修改值(主要针对引用数据类型)
+         
+        二、函数声明的预解析
+            (1)预解析步骤：定义→执行
+            (2)定义过程：找到当前作用域所以的var声明的变量名，找到作用域：()()function、函数块，提升到作用域的开头
+            (3)函数声明和函数表达式的区别：函数表达式需要先定义再使用 
+        三、定义的函数与变量重名的情况
+            (1)函数与变量分别重名：定义的重名后盖前
+            (2)函数与变量重名，不管定义顺序，function定义函数变量会覆盖var定义的普通变量,var定义的变量赋值了就等同于函数名赋值给了这个值
+         */
+
+
+
+
+
+        /*     
+        //  不加let关键字将定义全局
+        function fn(){
+        // a被加到全局变量身上了
+            a=666
+        }
+        fn()
+        console.log(a);
+        //打印函数体
+        console.log(window.fn);
+        
+     */
+
+        //  不能在函数内部重新声明形参
+        /* 
+        function fn(a) {
+            let a = 1;
+            console.log(a);
+        }
+        fn(2)//报错
+ */
+
+    </script>
+
+</body>
+
+</html>

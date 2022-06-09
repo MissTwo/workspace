@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <script>
+    //不加let关键字将定义全局变量  初次给变量赋值的时候如果没有关键字，则将定义全局变量 不管嵌套有多深
+    // function fn(){
+    //   a=666;
+    // }
+    // fn();
+    // console.log(a); //666
+    // console.log(window);
+
+    // function fn1() {
+    //   function fn() {
+    //     a = 666;
+    //   }
+    //   fn();
+    // }
+    // fn1();
+    // console.log(a); 
+    // console.log(window);
+
+
+    // let a=1;
+    // let b=2;
+    // function fn(){
+    //   c=3;
+    //   c++;
+    //   let b=4;
+    //   b++;
+    //   console.log(b);
+    // }
+    // fn(); // 5
+    // console.log(b); // 2
+    // console.log(c); // 4
+
+    // 2.var let const
+    /* 
+    es6之前的作用域  
+      函数作用域 和 全局作用域 没有块级作用域概念
+    */
+
+    // var num =10;
+    // if(num>0){
+    //   var num1=12;
+    //   var sum=num+num1;
+    //   console.log(sum); //22
+    // }
+    // console.log(sum); //22 由于var没有块级作用域  所以这里sum是全局变量
+
+    // function fn(){
+    //   var num=10;
+    //   function sum(){
+    //     console.log(3+2);
+    //   }
+    //   sum();
+    // }
+
+    // fn(); // 5
+    // console.log(num); // 10
+
+    //es6有块级作用域  let const 
+    /* 
+    通俗点说，就是一堆花括号包裹的东西 {} for(){} while(){} if(){}  switch(){}  fonction(){}
+    块级作用域可以嵌套
+
+    let  const 声明的变量只在当前块级作用域内有效
+    */
+  //  {
+  //   let age = 18;
+  //   console.log(age); //18
+  //  }
+  //  console.log(age); //报错
+
+  // {
+  //   var age = 18;
+  //   console.log(age); //18
+  //  }
+  //  console.log(age); //18
+
+  //如下函数作用域不行
+  // function fn(){
+  //   var age = 18;
+  //   console.log(age); //18
+  // }
+  // fn();
+  // console.log(age); // 报错
+
+
+  // if(true){
+  //   var a=10;
+  //   let b=20;
+  // }
+  // console.log(a); //10
+  // console.log(b); //报错
+
+  // for(let i=0;i<5;i++){
+  //   var a=20;
+  // }
+  // console.log(a); //20
+
+
+  /* 
+  使用let const声明的变量 不能被重新声明
+  使用var允许重新声明同一个变量
+  */
+  // var a = 10;
+  // var a = 20;
+  // console.log(a); //20 不报错
+
+  // let a=10;
+  // let a=20; //直接报错 Identifier 'a' has already been declared 
+
+  // let a=10;
+  // var a=20; //直接报错
+
+  // var a=10;
+  // let a=20;
+  // console.log(a); //直接报错 Identifier 'a' has already been declared
+
+  // function fn(){
+  //   let a=1;
+  // }
+  // fn();
+  // console.log(a); //报错
+
+
+  // 等同于在函数内部定义了一个变量 值是undefined let a; 因此不能在函数内部重新声明形参（注意可以申明其他和参数名不同的变量，不冲突）
+  // function fn(a){ 
+  //   let a = 1;
+  //   console.log(a);
+  // }
+  // fn(2); // 报错
+
+  //let  const 不存在变量提升 var会提升到当前作用域的顶部
+
+  // console.log(a); // Cannot access 'a' before initialization
+  // let a="张三";
+
+  // console.log(a); // undefined  var a;提升到当前作用域顶部
+  // var a="张三"; // a="张三" 进行赋值
+  // console.log(a); // 张三
+
+  /* 
+    let 和 const定义的变量存在 暂存性死区 Cannot access 'a' before initialization
+    只要作用域内有 let const 他们所声明的变量或者常量就会自动"绑定"在这个区域,不再受外层作用域的影响
+  */
+
+  // let a=2;
+  // function fn(){
+  //   console.log(a);
+  //   let a=1; //自己作用域有定义 使用自己作用域的变量
+  // }
+  // fn(); //报错
+  
+
+  //全局作用域中，var申明的变量，function申明的函数 会自动变成window上的属性和方法
+  //let const不会  全局作用域的本质是全局对象的属性
+  // var age=18;
+  // console.log(window.age);//18
+  // function fn(){}
+  // console.log(window.fn);  //打印函数体 fn(){}
+  // console.log(window.fn==fn);  //true
+
+  //const定义常量 常量定义必须在声明的时候赋值，目的就是为了那些一旦初始化了就不希望重新赋值的情况设计的 
+  // const a;
+  // console.log(a); //报错 Missing initializer in const declaration
+
+  // const a=10;
+  // console.log(a); //10
+  // a=20; 
+  // console.log(a); //报错 Assignment to constant variable. 对常量重新赋值了
+
+  //## 常量允许在不重新赋值的情况下 修改该值（主要针对引用数据类型）
+  // const a = {name:"老曾"};
+  // a = {name:"张三"};
+  // console.log(a); //报错 将a重新赋值给了另外一个对象的指针
+
+  // const a = {name:"老曾"};
+  // a.name="张三";
+  // console.log(a); //{name: '张三'} 修改原对象中的属性值
+
+
+  // 函数声明的预解析
+  /* 
+  函数声明和函数表达式的区别
+  */
+ 
+
+  /*
+  解析顺序可以整体的分为两步，第一步**定义**，第二步**执行**。
+  第一步提升 
+  function a(){
+    console.log("a函数");
+  } 
+  a();第二步  执行
+
+  定义的过程： 找到当前作用域所有的***var*声明的变量名**，找到当前作用域***function*定义的有名函数块**。**提升在作用域最开头**
+  
+  注： var声明的变量提升的仅仅是变量名 后面的=赋值这一步还是留在原地 等到代码执行到此处再进行赋值
+
+  */
+ 
+
+  // a(); //a函数 在函数定义之前调用了函数  说明此函数被提升了
+  // b(); //报错 Cannot access 'b' before initialization
+  // function a(){
+  //   console.log("a函数");
+  // }
+  // let b = function (){
+  //   console.log("b函数");
+  // }
+
+  // var x=10;
+  // fn();
+  // console.log(x); //10
+  // function fn(){
+  //   var x=20;
+  // }
+  /* 
+  1.var x;
+  2.function fn(){
+    var x=20;
+  }
+  3.x=10;
+  4.fn();
+  5.console.log(x);
+  */
+
+  // var x=10;
+  // fn();
+  // console.log(x); // 20
+  // function fn(){
+  //   x=20;
+  // }
+
+  //变量/函数的重复定义
+  // var a=10;
+  // var a=20;
+  // console.log(a); //20  var var 定义的重名变量 后盖先
+
+
+  //function function 定义的重名函数 后盖先
+  // console.log(a); // a(){console.log(22); }
+  // function a(){
+  //   console.log(11);
+  // }
+  // function a(){
+  //   console.log(22);
+  // }
+  // console.log(a); //  a(){console.log(22); }
+
+  // var function发生重名变量的时候 （不管定义顺序如何，function定义函数变量会覆盖var定义的普通变量），函数是js一等公民的体现
+
+  // console.log(a); // a(){console.log(22); }
+  // function a(){
+  //   console.log(11);
+  // }
+  // var a = 10;
+  // console.log(a); //  10 
+
+  /* 
+  1.function a(){
+      console.log(11);
+    }
+    var a;
+  2.console.log(a); // a(){console.log(22); } 把普通var同名变量覆盖
+  3.a = 10; //赋值留在原来的位置 此时a重新赋值为10
+  4.console.log(a); //10
+  */
+
+  //例1:
+  // var x=5;
+  // a();  //undefined
+  // function a(){
+  //   console.log(x);
+  //   var x=10;
+  // }
+  // console.log(x); //5  
+
+  //例2:
+  // a(); // undefined
+  // function a(){
+  //   console.log(x);
+  //   var x=10;
+  // }
+  // console.log(x); // 报错
+
+  //例3:
+  // function a(){
+  //   console.log(1);
+  // }
+  // var a;
+  // console.log(a); // a的函数体
+
+  //例4:
+  // console.log(a); // a = a(){console.log(40);}
+
+  // var a=10;
+
+  // console.log(a); // 10 
+
+  // function a(){
+  //   console.log(20);
+  // }
+
+  // console.log(a); // 10 
+
+  // var a=30;
+
+  // console.log(a); // 30 
+
+  // function a(){
+  //   console.log(40);
+  // }
+
+  // console.log(a); // 30 
+
+  //例5:
+  // var a=10;
+  // console.log(a); // 10
+  // a();  // 报错  10(); a is not a function
+  // function a(){
+  //   console.log(20);
+  // }
+
+  //例6:
+  // a(); // 2
+  // var a=function (){console.log(1);}
+
+  // a(); // 1 
+  // function a(){console.log(2);}
+
+  // a(); // 1
+  // var a=function (){console.log(3);}
+
+  // a(); // 3 
+  /* 
+  拆解：
+  // var a; //被函数a覆盖
+  // var a; //被函数a覆盖
+  function a(){console.log(2);}
+  a(); // 2
+  a=function (){console.log(1);}
+  a(); // 1 
+
+  a(); // 1
+  a=function (){console.log(3);}
+  a(); // 3
+  */
+
+  //例7:
+  // var a=10;
+  // function fn(){
+  //   console.log(a); 
+  //   var a=1;
+  //   console.log(a); 
+  // }
+  // fn(); // undefined 1
+  // console.log(a); // 10
+
+  //例8: 
+  // fn();
+  // console.log(a); //undefined 
+  // var a=10;
+  // console.log(a); //10 
+  // function fn(){
+  //   var a=1;
+  // };
+
+  //总结： 建议使用let const 定义变量常量  在变量定义之前禁止使用该变量
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

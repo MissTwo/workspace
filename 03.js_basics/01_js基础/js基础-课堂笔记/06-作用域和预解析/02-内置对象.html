@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    //数学对象Math
+    /* 
+    Math是js的原生对象，提供各种数学功能，该对象不是构造函数，不能生成实例，所有的方法和属性必须要Math对象上调用
+    */
+    //  console.log(Math);
+
+    // ##Math.min(),Math.max();
+    // Math.max();可以得到参数列表的最大值
+    // Math.min();可以得到参数列表的最小值
+    //如果参数为空，Math.max()返回-Infinit  Math.min()返回Infinity
+
+    // let maxNum = Math.max();
+    // console.log(maxNum); // -Infinity
+    // let minNum = Math.min();
+    // console.log(minNum); // Infinity
+
+    // let maxNum = Math.max(5,-4,9,100,-55);
+    // console.log(maxNum); // 100 取最大值返回
+
+
+    //只要出现了一个不是数字的字符串则返回NaN 
+    // let maxNum = Math.max(5,-4,9,100,-55, "老曾");
+    // console.log(maxNum); // NaN 
+
+    // let maxNum = Math.max(5,-4,9,100,-55,true);
+    // console.log(maxNum); // 100 true会隐式转换为数字1
+
+    // let maxNum = Math.max(5,-4,9,100,-55, undefined);
+    // console.log(maxNum); // NaN  undefined会隐式转换为Number类型NaN
+
+
+    //利用Math.max()寻找数组的的最大值 Math.max()要求参数必须是"一一罗列"出来，而不能是数组
+    // let arr=[5,-4,9,100,-55];
+    // let maxNum = Math.max(arr);
+    // console.log(maxNum); // NaN
+
+    //结合es6的展开运算符 能解决这样的问题
+    //let arr=[5,-4,9,100,-55];
+    // let maxNum = Math.max(...arr);
+    // console.log(maxNum); // 100
+
+
+    //##Math.floor();向下取整  ##Math.ceil();向上取整 ##Math.round();四舍五入
+    // let num =189.69;
+    // console.log(Math.floor(num)); //189
+    // console.log(Math.ceil(num)); //190
+    // console.log(Math.round(num)); //190
+
+    // let num1=0.1;
+    // let num2=0.5;
+    // console.log(Math.round(num1));//0
+    // console.log(Math.round(num2));//1
+
+    // let num1 = -1.1;
+    // let num2 = -1.5;
+    // let num3 = -1.6;
+    // console.log(Math.round(num1));// -1  
+    // console.log(Math.round(num2));// -1 注意负数 0.5的情况 
+    // console.log(Math.round(num3));// -2  
+
+    //##Math.abs(); 取绝对值  Math.abs(n) = |n|;
+    // console.log(Math.abs(-55)); //55
+
+    //## Math.pow(a,b); 表示a的b次幂
+    // console.log(Math.pow(2,3)); //8
+
+    //## Math.sqrt(); 开平方根  传入负值 返回NaN
+    // console.log(Math.sqrt(9));//3
+    // console.log(Math.sqrt(-9));//NaN
+
+    //## Math.random();取随机数 默认生成[0-1)之间的小数 ， 要生成[a,b]之间的数字整数 公式 Math.floor(Math.random()*(b-a+1)+a) 
+    // Math.floor(Math.random() * (m - n)) + n  取[n~m]之间的数字（包含小数）
+    //[-10,-1]
+    // console.log(Math.random()*9-10);
+    //取 0~n之间的随机整数
+    // Math.floor(Math.random()*(n+1)); 负数的时候使用parseInt()进行转整数
+
+    /* 
+    Math对象还提高一些列的三角函数
+    `Math.sin()`：返回参数的正弦（参数为弧度值） 对边比斜边
+    `Math.cos()`：返回参数的余弦（参数为弧度值） 临边比斜边
+    `Math.tan()`：返回参数的正切（参数为弧度值） 对边比临边
+    `Math.asin()`：返回参数的反正弦（返回值为弧度值）
+    `Math.acos()`：返回参数的反余弦（返回值为弧度值）
+    `Math.atan()`：返回参数的反正切（返回值为弧度值）
+    弧度和角度
+    360° 等于2π的弧度
+    */
+
+    // 抽奖  取一个随机数 0-2 之间显示一等奖   3-10 二等奖  11-60 三等奖
+    //console.log("...") 
+
+
+    /* 
+    日期对象 Date()
+    使用new Date()；即可得到当前时间的日期对象 它是obj类型
+    使用new Date(2022,06,09)即可得到指定日期的日期对象 第二个参数表月份 从0开始算
+    11就表示12月
+    */
+    //  let d1= new Date();
+    //  console.log(d1); //Thu Jun 09 2022 14:47:50 GMT+0800 (中国标准时间)
+    //  console.log(typeof d1); //object
+
+    //  let d1= new Date(2022,00,09);  // 0表示1月
+    //  console.log(d1); //Sat Jul 09 2022 00:00:00 GMT+0800 (中国标准时间)
+
+    //  let d1= new Date("2010-12-12 12:12:12"); 
+    //  console.log(d1); //Sun Dec 12 2010 12:12:12 GMT+0800 (中国标准时间)
+
+
+    /* 
+    单参数： 
+    let d1= new Date("2010-12-12 12:12:12"); 
+    设置 - 格林威治时间1970年01月01日00时00分00秒的时间戳（即 0）  +  参数（毫秒数）= 所设置的时间
+    */
+
+    // let d1= new Date(2000); //只有一个数字参数的时候会认为它是距离格林威治时间戳的毫秒数 
+    // console.log(d1); //Thu Jan 01 1970 08:00:02 GMT+0800 (中国标准时间)
+
+    // let d1= new Date(2010,11,12,12,12,12); // 年 月 日 时 分 秒 
+    // console.log(d1); 
+    //参数为年、月、日等多个整数时，年和月是不能省略的，其他参数都可以省略的。 至少需要两个参数，因为如果只使用“年”这一个数字参数，Date会将其解释为毫秒数。
+
+    //得到 2022年 6月1号 
+    // let d1= new Date(2022,05,01); //这种多个参数数字标识的时候 不计算时区 月份从0开始
+    // let d2= new Date("2022-06-01"); // 计算时区  月份从1开始
+    // let d3= new Date("2022,06,01"); // 不计算时区  月份从1开始
+    // console.log(d1); 
+    // console.log(d2); 
+    // console.log(d3); 
+
+    /* 
+    日期对象常用的方法：
+    getDate()        得到日期 1-31
+    getDay()         得到星期 0~6
+    getMonth()       得到月份 0~11
+    getFullYear()    得到年份 
+    getHours()       得到小时数 0~23
+    getMinutes()     得到分钟数 0~59
+    getSeconds()     得到秒钟数 0~59
+    */
+
+  //  let d1 = new Date(); //得到当前的日期对象
+  //  console.log("日期",d1.getDate()); //日期 9
+  //  console.log("星期",d1.getDay()); //星期 4
+  //  console.log("月份",d1.getMonth()); //月份 5 一般需要+1表示现在的月份
+  //  console.log("年份",d1.getFullYear()); //年份 2022
+  //  console.log("小时",d1.getHours()); //小时 15
+  //  console.log("分钟",d1.getMinutes()); //分钟 25
+  //  console.log("秒钟",d1.getSeconds()); //秒钟 1
+
+   /* 
+   时间戳  
+   表示1970年1月1日 0点0分0秒 距离某时刻的毫秒数 （比如现在到1970...这个时刻的总时间的毫秒数）
+    通过 getTime()方法 或者Date.parse()函数可以将日期对变为时间戳
+   */
+   let d1 = new Date(); //得到当前的日期对象
+   let timestap1= d1.getTime();
+   console.log(timestap1); //1654759881242  精确到毫秒数  1s = 1000ms
+
+   let dd = new Date(1654759881242); //从1970年 开始累计毫秒数  推算到最后的时间点
+   console.log(dd); //Thu Jun 09 2022 15:31:21 GMT+0800 (中国标准时间)
+
+
+
+
+  </script>
+
+</body>
+
+</html>

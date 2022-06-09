@@ -1,0 +1,91 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-09 11:40:27
+ * @LastEditTime: 2022-06-09 15:33:03
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内置对象</title>
+</head>
+
+<body>
+    <script>
+        /*
+        一、数学对象Math:js原生对象，提供各种数学功能，不是构造函数，不能生成实例，所有方法和属性必须要带Math对象上调用
+            (1) Math.min();
+                Math.max();
+                可以得到参数列表的最值并返回
+                最大值：let maxN=Math.max()  -Infinity
+                最小值：let minN=Math.min()  Infinity
+            注意：
+                (1)只要出现一个不是数字的会隐士转化为数字，若存在NaN则直接返回NaN
+                (2)参数必须是一个个的列出不能是数组,可以采用es6的展开运算符把数组展开
+                    let arr=[-4,6,7,188,-56]
+                    let maxN=Math.max(...arr)
+
+            (2) Math.floor()向下取整
+                Math.ceil()向上取整
+                Math.round()四舍五入取整
+                注意：Math.round()四舍五入取整时，负数0.5不会进位
+                
+            (3) Math.abs()取绝对值
+                Math.pow(a,b)表示a的b次方
+                Math.sqrt();开算数平方根
+
+            (4) Math.random();取随机数，默认生成[0,1)之间的小数
+                如果要生成[a,b]之间的整数：
+                    parseInt(Math.random()*(b-a+1)+a)
+                
+
+            (5) Math.sin()
+                Math.cos()
+                Math.tan()
+                返回参数是弧度
+                Math.asin()
+                Math.acos()
+                Math.atan()
+                角度和弧度：360°=2Π
+            
+                
+        二、日期对象
+            new Date() 得到当前时间（星期几、月份、几号、年份、时间、时区）
+            new Date(2000,09,03)即可得到指定的日期，第二个参数表示月份从0开始计数
+            单参数：一个数字参数认为是毫秒数
+            (1)getDate()        得到日期
+            (2)getDay()         得到星期
+            (3)getMonth()       得到月份
+            (4)getFullYear()    得到年份
+            (5)getHours()       得到小时数
+            (6)getMinutes()     得到分钟数
+            (7)getSeconds()     得到秒种数
+            (8)getTime()        将日期变成时间戳
+            (9)Date.parse()     将日期变成时间戳
+
+
+        )
+        */
+
+
+        // 抽奖
+        /*
+         let n = parseInt(Math.random() * 61)
+         console.log(n);
+         if (n <= 2) { console.log("恭喜一等奖"); }
+         else if (n >= 3 && n <= 10) { console.log("恭喜二等奖"); }
+         else { console.log("恭喜三等奖"); } */
+
+         let d=new Date(2022,05,1)
+         let d1=new Date("2022-06-1")
+         console.log(d);
+         console.log(d1);
+
+    </script>
+
+</body>
+
+</html>
