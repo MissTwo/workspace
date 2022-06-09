@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-09 11:40:27
- * @LastEditTime: 2022-06-09 15:33:03
+ * @LastEditTime: 2022-06-09 19:23:07
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +65,12 @@
             (7)getSeconds()     得到秒种数
             (8)getTime()        将日期变成时间戳
             (9)Date.parse()     将日期变成时间戳
-
+            注意：
+            (1)时间戳无法调用调用以上函数，需要先转化为日期对象才可以调用函数
+            (2)new Date(时间戳)直接会转化为一个时间对象
+            (3)Date.now()获取当前时间戳
+            (4)new Date()-0 或者 new Date('2023/6/9 09:00:00')-new Date()会获得时间戳，相当于使用了getTime()
+            
 
         )
         */
@@ -78,11 +83,51 @@
          if (n <= 2) { console.log("恭喜一等奖"); }
          else if (n >= 3 && n <= 10) { console.log("恭喜二等奖"); }
          else { console.log("恭喜三等奖"); } */
+        /* 
+        let d = new Date(2022, 05, 1)
+        let d1 = new Date("2022-06-1")
+        let d2 = new Date().getTime()
+         */
 
-         let d=new Date(2022,05,1)
-         let d1=new Date("2022-06-1")
-         console.log(d);
-         console.log(d1);
+        function _date(number) {
+            let d = new Date(number)
+            let a = d.getFullYear()
+            let b = d.getMonth() + 1
+            let c = d.getDate()
+            console.log(a, b, c);
+            // return (a + "-" + b + "-" + c)
+        }
+        // _date(1654761764052)
+
+        // 差值时间戳，转化为：天、时、分、秒
+        /* 
+        let goal = new Date('2023/6/9 09:00:00')
+        let local = new Date()
+        let timeValue = goal - local;
+        console.log(timeValue);
+        let second_ms = 1000; //一秒等于的毫秒数 
+        let minute_ms = 60 * second_ms; // 一分钟等于的毫秒数 
+        let hour_ms = 60 * minute_ms; //一小时等于的毫秒数
+        let day_ms = 24 * hour_ms//一天等于多少毫秒
+        let d_ms = parseInt(timeValue / day_ms);//获取多少天
+        let h_ms = parseInt(timeValue % day_ms / hour_ms); //获取小时部分 
+        let m_ms = parseInt(timeValue % hour_ms / minute_ms); //获取分钟部分 
+        let s_ms = parseInt(timeValue % minute_ms / second_ms); //获取秒数
+        console.log(d_ms, h_ms, m_ms, s_ms);
+ */
+
+        let local = new Date();
+        console.log(local);
+        let sum = 0
+        for (let i = 0; i < 99999; i++) {
+            sum *= i
+        }
+        let newTime = new Date();
+        console.log(newTime);
+        let timeValue = (newTime - local)
+        console.log(timeValue);
+
+
 
     </script>
 
