@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    // 字符串简介 
+    /* 
+    字符串就是"人类的语言"，字符串要用引号包裹，双引号和单引号都可以（模板字符串/反引号），数字 11 和字符串的 "11" 在语义上是不同的 
+    在es6之前，我们要插入一个变量到字符串当中，要"斩断连接"  "我是"+ a +"同学"。
+    */
+    // let str1 = "张三";
+    // let str2 = '张三';
+    // let str3 = `张三`;
+    // console.log(str1 === str2); //true 
+    // console.log(str1 === str3); //true 
+
+    //模板字符串的使用
+    // let year = 2008;
+    // // let str = "北京冬奥会在"+ year +"年召开";
+    // let str = `北京冬奥会${year}年召开`;
+    // console.log(str); // 北京冬奥会2008年召开  使用 ${变量} 
+
+
+    // let person={
+    //   username:"老曾",
+    //   age:18,
+    //   sex:"纯汉子"
+    // };
+    // // let info = "我的名字是" + person.username +",我的年龄是"+person.age+",我是个"+person.sex+"。"
+    // let info = `我的名字是${person.username},我的年龄是${person.age},我是个${person.sex}。`;
+    // console.log(info);
+
+    //模板字符串使用注意事项
+
+    // let str = `第一行\n第二行`;//转义字符实现换行
+    // let str = `第一行
+    // 第二行`; //模板字符串里面 所有的空格，换行 或 缩进都会被保留解析
+    // console.log(str);
+
+    //输出一些特殊字符的时候
+    // let info = `\` \\`;
+    // console.log(info); //  ` \
+
+
+    // 模板字符串的注入
+    // let user = "老曾";
+    // let person = {
+    //   age:18,
+    //   sex:"male"
+    // }
+    // let getSex = function (sex){
+    //   return sex == "male" ? "男" : "女";
+    // }
+    // let info = `${user},${person.age},${getSex(person.sex)}`;
+    // console.log(info); //老曾,18,男  只要最终可以得到一个值 就能够注入到${}花括号当中
+
+    // 注入表达式
+    // let a = Math.random();
+    // let str = `${a > 0.5 ? "正确" : "错误"}`;
+    // console.log(str);
+
+    // 模板字符串可以替代函数的小括号执行函数 （了解即可）
+    // function fn(x){
+    //   console.log(x);
+    // }
+    // fn`9`; // ['9']
+    // fn`1,2`; // ['1,2']  
+
+    // let students = [
+    //   {
+    //     username: "王二麻子",
+    //     age: 18,
+    //     sex: "male",
+    //   },
+    //   {
+    //     username: "张三",
+    //     age: 12,
+    //     sex: "female",
+    //   },
+    //   {
+    //     username: "李四",
+    //     age: 16,
+    //     sex: "male",
+    //   }
+    // ];
+    // 分行打印输出每个同学的简单自我介绍
+    // students[0].username
+
+    // 包装对象 
+    /* 
+    原始类型（基本类型）有没有属性和方法？
+    按原始数据类型的定义来说 没有属性和方法
+    只有引用类型才有属性和方法 
+    */
+    //  let num = 100; // 
+    //  let str = num.toString();
+    //  console.log(typeof str); //string  基本数据类型在调用一些方法的时候可以临时包装成一个对象 拥有对象原型上的一些方法和属性  调用完了之后 销毁这个临时对象 转回基本类型
+
+    /* 
+    js中有三种包装对象   
+    他们对应的构造函数分别是 String字符串 ，Number数值 ，Boolean布尔值 
+    包装对象的目的就是为了让基本数据从他们的圆形身上 获得方法
+    */
+    // let a = new Number(123);
+    // let b = new String("abc");
+    // let c = new Boolean(true);
+    // console.log(typeof a); //object
+    // console.log(typeof b); //object
+    // console.log(typeof c); //object
+
+    // console.log(10 + a); // 133
+    // console.log(10 + b); // 10abc
+    // console.log(10 + c); // 11
+    // //new 出来的基本类型可以正常参与运算
+
+    // let str = "hello"; //包装对象 String
+    // let num = 100;    //包装对象 Number
+    // let bool = true;  //包装对象 Boolean
+    // let und = undefined; //无包装对象
+    // let nu = null; //无包装对象
+    // console.log(str.toString()); //"hello"
+    // console.log(num.toString()); //"100"
+    // console.log(bool.toString()); //"true"
+    // console.log(und.toString()); //报错 Cannot read properties of undefined (reading 'toString')
+    // console.log(nu.toString()); // 报错 Cannot read properties of null (reading 'toString')
+
+    //通过包装对象 我们引拿到原始类型的某些属性 比如：length属性
+    // let str = "laozeng";
+    // console.log(str.length); 
+    //通过length属性，我们可以获取到字符串的长度，本身不是对象，不能调用length属性,这也是受益于包装对象
+    //JavaScript 引擎自动将laozeng转为包装对象
+    //在这个对象上调用length属性。调用结束后，这个临时对象就会被销毁。
+
+    // 步骤1： 把简单的数据类型 string转换为引用数据类型String，保存到变量中
+    // let temp = new String("laozeng");
+    // // 步骤2：把临时变量的值赋值给str 
+    // str = temp; //从而调用这个对象上的方法
+    // //步骤3 调用完之后 临时对象销毁
+    // temp=null;
+
+    // let un = undefined;
+    // console.log(un.length); //报错 undefined不能包装成对象
+
+    // let str = "hellow"; // 
+    // str.name = "test";  // name属性赋值的时候，包装对象会登场，创建一个str对应的对象
+    // //当然，这行执行完了这个对象就会被销毁。然后在第三行又会创建一个新的包装对象，这个对象当然是没有name属性的了，所以输出的是undefined
+    // console.log(str.name); // undefined
+    //如果需要原始类型具有属性和方法，那包装对象就要登场，运行完之后，包装对象创建的对象就会被销毁.
+
+    // 字符串的length属性 
+    // let str = "hellow word";
+    // // str.length=3;  // 只读 不可改
+    // console.log(str.length); // 11 空格也算一个字符 中文，数字，英文，空格都是一个字符长度
+
+
+    //字符串的方法 ：
+    //在底层 字符串是以字符数组的形式保存的 
+    // let str = "hellow";
+    // console.log(str[2]); // l
+    //上方的代码中 hellow这个字符串在底层是以["h","e","l","l","o","w"]的形式保存的 ，因此我们可以直接获取字符串的长度，也可以按照索引index获取指定位置的原色 很像数组中的操作
+
+    //**String 对象**的**很多内置方法**，也可以直接给字符串用。此时，也是临时将字符串转换为 String 对象，然后再调用内置方法
+    /*
+    ## 需要注意的是：**字符串的所有方法，都不会改变原字符串**（字符串的不可变性），操作完成后会返回一个新的值。 
+     */
+
+    //1.charAt(); 获取指定位置的字符  语法str.charAt(n);
+    // let str = "hellow word";
+    // let a = str.charAt(0);
+    // console.log(a,str); //h      hellow word
+
+    //2. 字符串[index] 
+    /* 
+    str.charAt(n)  和 str[n]效果一样，str[n]是h5的新增的特性
+    区别：
+    charAt(n) 获取不存在的下标时 返回空字符串
+    str[n]获取不存在的下标时 返回undefined
+    */
+    //  let str="he";
+    //  console.log(str.charAt(3)); // 空字符串
+    //  console.log(str[3]); // undefined
+
+    // let str = "韩梅梅";
+    // for(let i=0;i<str.length;i++){
+    //   console.log(str.charAt(i));
+    // }
+
+    //3. charCodeAt(index); 返回指定位置元素的unicode编码 
+    //   (unicode编码： 在ASCII码上做了一些拓展)
+    /* 
+    常识记忆的编码：
+       0-9  ====>  48-57
+       A-Z  ====>  65-90
+       a-z  ====>  97-122
+    */
+    // let str = "abcd";
+    // console.log(str.charCodeAt(2)); // 99 也就是字母c对应的unicode编码
+    // 代码举例： 打印字符串的占位长度（一个英文字母占一个位置），一个中文占两个位置 
+    //需求：求一个字符串占有几个字符位。封装成函数，传入一个字符串，计算出它的占位长度
+    //    判断该字符编码是否在 [0-127] 之间（在的话是英文 1，不在是非英文 2 ）。
+    // let str = 'I love my country!我你爱中国！';
+    // function getLength(str){
+    //   let count=0;
+    //   for(let i = 0;i<str.length;i++){
+    //     if(str.charCodeAt(i)<128 && str.charCodeAt(i)>=0){
+    //       count++;
+    //     }else{
+    //       count+=2;
+    //     }
+    //   }
+    //   return count;
+    // }
+    // console.log(getLength(str)); //30
+    // console.log(str.length); // 24 < 30 非全英文
+
+    //4. String.fromCharCode(字符编码); 获取对应的字符编码的字符  
+    //  charCodeAt(index);
+    // let a = String.fromCharCode(72); 
+    // let b = String.fromCharCode(20013); 
+    // console.log(a); //H
+    // console.log(b); //中
+
+    //  xxx我爱你！ ===>  编码-520   编码-520
+
+    //  解析：编码+520  编码+520  ===> 字符（xxx我爱你！）
+    //40147   29057
+    // console.log(String.fromCharCode(40147+520),String.fromCharCode(29057+520));
+
+
+    // 5. indexOf(str,index) / lastIndexOf()  索引值 = str.indexOf(想要查询的字符串,起始位置);
+    /* 
+    获取字符串中指定字符的索引,备注：`indexOf()` 是从前向后查找字符串的位置。同理，`lastIndexOf()`是从后向前寻找。 
+    **解释**：可以检索一个字符串中是否含有指定内容。如果字符串中含有该内容，则会返回其**第一次出现**的索引；如果没有找到则返回 -1。
+
+    因此我们可以得出一些技巧：
+    # 如果获取的索引为0，说明字符串是以查询的参数开头的
+    # 如果获取的索引为-1，说明这个字符串中没有指定的内容
+    */
+    // let str = "abcdea" ;
+    // console.log(str.indexOf("c")); // 2
+    // console.log(str.indexOf("a")); // 0
+    // console.log(str.lastIndexOf("c")); // 2 
+    // console.log(str.lastIndexOf("a")); // 5 ##只控制查找的方向 不会改变元素索引
+
+    // let str = "laozengdsb";
+    // // console.log(str.indexOf("zeng")); // 3
+    // // console.log(str.indexOf("zeg")); // -1 找不到
+    // console.log(str.indexOf("a",0)); // 1
+    // console.log(str.indexOf("a",3)); // -1
+
+    //案例： 查找字符串"qianguyihao"中，所有 `a` 出现的位置(索引)以及次数。
+    // let str = "qianguyihao";
+    // let num = 0; //次数统计
+    // let index = str.indexOf("a");
+    // while(index !== -1){
+    //   console.log(index);
+    //   num ++ ;
+    //   index = str.indexOf("a",index+1); 
+    // }
+    // console.log("出现的次数是",num);
+
+    //6. search(); 获取字符串中指定内容的索引(参数一般都是写正则表达式)
+    /* 
+    语法： 
+    索引值 = str.search(想要查找的字符串);
+    索引值 = str.search(正则表达式);
+    如果字符串中含有该内容，则会返回其**第一次出现**的索引。如果没找到返回-1；
+    */
+    //  let str = "zhangsan";
+    //  console.log(str.search("a"));  // 2
+    //  console.log(str.search("x"));  // -1
+    //  console.log(str.search("san")); // 5
+
+    //7. includes(); 字符串中是否包含指定内容
+    /* 
+    布尔值 = str.includes(想要查找的字符串, 位置); 如果不指定第二个位置参数，默认0 
+    如果包含该内容 返回ture  否则返回false  
+    */
+    //  let str = "zhangsan";
+    //  console.log(str.includes("a")); //true
+    //  console.log(str.includes("an")); //true
+    //  console.log(str.includes("ans")); //false
+
+    //  //应用  https://www.baidu.com  ?cateId=267 &pageIndex=1 
+    //  let url1 = "https://www.baidu.com";
+
+    //  function addUrl(url,name,value){
+    //   url += url.includes("?") ? "&" : "?"; 
+    //   url += `${name}=${value}`;
+    //   return url;
+    //  }
+    //  url1 = addUrl(url1,"cateId",267);
+    //  console.log(url1);//https://www.baidu.com?cateId=267
+
+    //  url1 = addUrl(url1,"pageIndex",1);
+    //  console.log(url1);//https://www.baidu.com?cateId=267&pageIndex=1
+
+    // 8.startWith(); 检测字符串是否以指定内容开头
+    /* 
+    语法： 布尔值 = str.startsWith(想要查找的内容, 位置);//在某位置开始(默认0) 是否以xx开头
+    返回true 或 flase
+    */
+    // let str = "abcdefg";
+    // console.log(str.startsWith("a")); //true
+    // console.log(str.startsWith("abc")); //true
+    // console.log(str.startsWith("bc")); //false
+    // console.log(str.startsWith("a",1)); //false
+
+    //9.endtWith(); 检测字符串是否以指定内容结尾
+    /* 
+    语法： 布尔值 = str.startsWith(想要查找的内容, 位置);//在某位置开始(默认0) 是否以xx开头
+    返回true 或 flase
+    */
+    //  let str = "abcdefg";
+    //  console.log(str.endsWith("a")); //false
+    //  console.log(str.endsWith("g")); //true
+    //  console.log(str.endsWith("efg")); //true
+    //  console.log(str.endsWith("gfe")); //false
+    //  console.log(str.endsWith("c",3)); // true 在下标3的位置之前是否以xx结尾
+    //  console.log(str.endsWith("bc",3)); // true 在下标3的位置之前是否以xx结尾
+
+    //10. slice(); 字符串截取(常用)
+    /* 
+    语法：
+    新字符串 = str.slice(开始索引, 结束索引); //两个参数都是索引值。包左不包右。[a,b)
+
+    */
+    //  let str = "abcdefg";
+    //  console.log(str.slice(2,5)); // c d e
+    //  console.log(str.slice(2)); // c d e f g 
+    //  console.log(str.slice(-3)); // efg 从倒数第三个开始后面的全部截取(倒数从1开始计算)
+    //  console.log(str.slice(0,-1)); // abcdef
+    //  console.log(str.slice(5,2)); // 结果为空 什么都取不到  没有意义的操作
+
+    // 11. substring(); 字符串截取 (常用)
+    /* 
+    语法：
+    新字符串 = str.substring(开始索引, 结束索引); //两个参数都是索引值。包左不包右。
+    和slice() 类似
+    不同之处：
+    substring();不能接收负值作为参数，如果传了负值默认为0；
+    substring();还会自动调整参数的位置，如果第一个参数大于第二个参数，它会自动转换他们的位置
+    如：substring(5,2); ====> substring(2,5);
+    */
+    // let str = "abcdefg"; 
+    // console.log(str.substring(2)); // cdefg 从第二个开始 全部截取
+    // console.log(str.substring(0)); // abcdefg 
+    // console.log(str.substring(-2)); // abcdefg 把负数直接转成0
+    // console.log(str.substring(5,2)); // cde str.substring(2,5)
+
+    //12. substr(); 字符串截取 
+    /* 
+    语法：
+    字符串 = str.substr(开始索引, 截取的长度); 注意第二个参数不是结束索引，而是截取的字符长度
+    ECMAscript 没有对substr();方法进行标准化 因此暂时不建议使用它
+    */
+    // let str = "abcdefg";
+    // console.log(str.substr(2,4)); //cdef 
+
+
+    
+
+
+
+
+  </script>
+
+</body>
+
+</html>

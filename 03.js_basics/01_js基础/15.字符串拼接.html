@@ -1,0 +1,261 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-10 09:07:42
+ * @LastEditTime: 2022-06-10 19:44:19
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串拼接</title>
+    <style>
+        * {
+            color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        /* 
+        一、字符串：用单引号、双引号、反引号包裹的字符 
+            模板字符串的使用${}
+            模板字符串里面所有的空格、换行、缩进都会被保留解析
+        二、包装对象
+        基本数据类型再调用一些方法的时候可以临时包装一个对象，拥有对象原型上的一些方法和属性，调用完了之后销毁这个临时对象，转回基本类型
+        js中有三种包装对象：
+            String Number Boolean
+            包装对象的目的就是为了让基本数据从他们的原型上获得方法
+
+            let a=new Number(1111)
+            let b=new String("skjdf")
+            let c=new Boolean(true)
+        通过包装对象我们引用拿取原始类型的某些属性值，如：length
+            let str="shdfuais"
+            str.length
+        js引擎自动将str转为包装对象，在这个对象上调用属性结束后，就临时对象进行销毁
+        步骤：
+            步骤1：把简单数据类型string转换为引用数据类型String报错在变量中
+            let temp=new String('akdjjka')
+            步骤2：把临时变量的值赋值给str
+            str=temp;
+            步骤3：调用完之后，临时对象销毁
+            temp=null;
+        字符串的length属性：只读不能改
+        字符串的方法：
+            在底层字符串是以字符串数组的形式保存的，因此可以直接获取字符串长度按照索引获取指定位置的元素
+        注意：不会改变原字符串
+
+            1.chatAt()获取指定位置的字符
+                let str = "hello word";
+                let a = str.charAt(0); 
+
+            2.字符串[index]是h5新特性
+                效果一样，区别是：
+                charAt()获取不存在的下标时返回空字符串,字符串[index]返回的undefined
+                let str="he";
+                str.charAt(3); // 空字符串
+                str[3]; // undefined
+
+            3.chartCodeAt(index)返回指定位置Unicode编码
+                (Unicode 编码：在ASCII码上做了一些拓展)
+                常识记忆编码：
+                0-9  48-57
+                A-Z  65-99
+                a-z  97-122
+
+                let str = "abcd"
+                str.charCodeAt(2); // 99 也就是字母c对应的unicode编码
+
+            4.String.formChartCode(编码)获取对应的字符编码的符号
+                String.fromCharCode(20013); //中
+
+            5. indexOf(str,index) / lastIndexOf()  
+                索引值 = str.indexOf(想要查询的字符串,起始位置);
+                (1)获取字符串中指定字符的索引,备注：`indexOf()` 是从前向后查找字符串的位置。同理，`lastIndexOf()`是从后向前寻找。 
+                (2)解释：可以检索一个字符串中是否含有指定内容。如果字符串中含有该内容，则会返回其**第一次出现**的索引；如果没有找到则返回 -1。
+            
+            6.search(); 获取字符串中指定内容的索引(参数一般都是写正则表达式)
+                语法：   索引值 = str.search(想要查找的字符串);
+                        索引值 = str.search(正则表达式);
+                如果字符串中含有该内容，则会返回：
+                **第一次出现**的索引。如果没找到返回-1；
+                let str = "zhangsan"
+                str.search("a");  // 2
+    
+            7.includes(); 字符串中是否包含指定内容
+                布尔值 = str.includes(想要查找的字符串, 位置); 如果不指定第二个位置参数，默认0 
+                如果包含该内容 返回ture  否则返回false 
+
+                let str = "zhangsan";
+                console.log(str.includes("ans")); //false
+
+            8.startWith(); 检测字符串是否以指定内容开头
+                语法： 布尔值 = str.startsWith(想要查找的内容, 位置);
+                注意：在某位置开始(默认0) 是否以xx开头,返回true 或 flase
+            
+            9.endtWith(); 检测字符串是否以指定内容结尾
+                语法： 布尔值 = str.startsWith(想要查找的内容, 位置);
+                在某位置开始(默认0) 是否以xx开头，返回true 或 flase
+
+            10. slice(); 字符串截取(常用)
+                语法：新字符串 = str.slice(开始索引, 结束索引);
+                注意：两个参数都是索引值。[a,b)
+
+            11. substring(); 字符串截取 (常用)
+                语法：新字符串 = str.substring(开始索引, 结束索引);
+                注意：两个参数都是索引值。[a,b)
+                substring()和slice()区别：
+                (1)substring();不能接收负值作为参数，如果传了负值默认为0；
+                (2)substring();还会自动调整参数的位置，如果第一个参数大于第二个参数，它会自动转换他们的位置
+                如：substring(5,2); ====> substring(2,5);
+
+            12. substr(); 字符串截取 
+                语法：字符串 = str.substr(开始索引, 截取的长度); 
+                注意:
+                    (1)第二个参数不是结束索引，而是截取的字符长度
+                    (2)ECMAscript 没有对substr();方法进行标准化 因此暂时不建议使用它
+                
+
+
+
+
+        */
+        // 模板字符串的使用${}
+        /* 
+        let a=2734
+        let str="hhh"+a+"dfsj"
+        let str1=`sdfk${a}jdsf`
+
+        let students=[
+            {name:"jack",age:18,sex:"男"},
+            {name:"Rose",age:28,sex:"女"},
+            {name:"Lucy",age:24,sex:"女"},
+            {name:"Bob",age:25,sex:"男"},
+
+        ]
+        students.forEach((i) => {
+            console.log(`我的名字是${i.name}，年龄${i.age}岁，性别${i.sex}`);
+            
+        })
+ */
+
+        // let a='7jf8f1f'
+        // console.log(parseInt(a));
+        function count(str) {
+            let arr = str.split('')
+            let o = arr.reduce(function (p, i) {
+                if (i in p && i != ' ') {
+                    p[i]++;
+                } else if (i != ' ') {
+                    p[i] = 1
+                }
+                return p
+            }, {})
+            console.log(o);
+            return o
+        }
+        // count("hello w orl d")
+
+
+        /*  let arr = [10, 4, 3, 2, 10, 4, 3, 2, 10]
+         let a = arr.reduce(function (obj, i) {
+             // console.log(obj, i);
+             if (i in obj) {
+                 obj[i]++
+             } else {
+                 obj[i]=1
+             }
+             return obj
+         }, {})
+         console.log(a); */
+
+        // 数组转为字符串拼接
+        /* let getTime=new Date();
+        let arr=[]
+        for (let i = 1; i < 10000; i++) {
+           arr.push(i)
+        }
+        let str=arr.join("+")
+        let newTime=new Date()
+        let timeValue=(newTime-getTime)/1000
+        console.log(timeValue); */
+
+        // 字符串直接拼接
+        /* let getTime=new Date();
+        let str=""
+        for (let i = 1; i < 10; i++) {
+           str+=i
+        }
+        console.log(str);
+        let newTime=new Date()
+        let timeValue=(newTime-getTime)/1000
+        console.log(timeValue); */
+        /*  let str = 'I love my country!我爱我国家！'
+         let c=0
+         for (let i = 0; i < str.length; i++) {
+             if(str.charCodeAt(i)<=127&&str.charCodeAt(i)>=0)c++;
+             else c+=2
+         }
+         console.log(c); */
+        /*  
+        let str = "妈妈我爱你！"
+        let arr=[]
+        for (let i = 0; i < str.length; i++) {
+            arr.push(str.charCodeAt(i)-520);
+        }
+        console.log(arr);
+        let b=arr.map((i) => {
+            return String.fromCharCode(i+520)
+        })
+        let str2=b.join('')
+        console.log(str2); */
+
+        /* let str="qianguyihao"
+        let a=[]
+        let e=0
+        for (let i = 0; i < str.length; i++) {
+            if(str[i]=='a'){
+                a.push(i);
+                e++;
+            }
+        }
+        console.log(a,e); */
+        /*    
+           let str="qianguyihao"
+           let e=0;
+           let index=str.indexOf('a')
+           while(index!=-1){
+               console.log(index);
+               e++;
+               index=str.indexOf('a',index+1)
+           }
+           console.log(e); */
+
+        // search()获取字符串中指定内容的索引(一般写正则表达式)
+        /* 语法：
+        索引值=str.search(想要查找的字符串)
+        索引值=str.search(正则表达式)
+        如果字符串中包含内容，则会返回第一次出现的索引，没有找到返回-1 */
+        function addUrl(url, name, value) {
+            if (!url.includes('?')) {
+                url = `${url}?${name}`
+            } else {
+                url = url + '&' + value
+            }
+            console.log(url);
+        }
+
+        // addUrl('https://www.baidu.com', "cateId=482", "pageIndex=1")
+        var arr = [{ a: 1 }, {}];
+        arr.forEach(function (item, idx) {
+            item.b = idx;
+        });
+        console.log(arr);
+    </script>
+</body>
+
+</html>

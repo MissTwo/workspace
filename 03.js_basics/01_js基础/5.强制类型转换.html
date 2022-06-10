@@ -1,3 +1,8 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-05-22 21:30:43
+ * @LastEditTime: 2022-06-10 10:42:18
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +44,13 @@
         var d = null;
         d = Number(d);
 
-        /*parseInt()可以将一个字符串有效的整数内容取出来转换成为Number*/
+        /*parseInt()可以将一个字符串有效的整数内容取出来转换成为Number
+        注意： 
+            (1)只有字符串中的第一个数字会被返回。
+            (2)开头和结尾的空格是允许的。
+            (3)如果字符串的第一个字符不能被转换为数字，那么 parseInt() 会返回 NaN。
+            (4)在字符串以"0"为开始时旧的浏览器默认使用八进制基数。ECMAScript 5，默认的是十进制的基数。
+        */
         var e = "123px";
         e = parseInt(e);
 

@@ -1,0 +1,50 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-10 09:21:21
+ * @LastEditTime: 2022-06-10 09:39:26
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建对象</title>
+</head>
+<body>
+    <script>
+        /* 
+        一、对象的创建方法
+            1.字面量创建
+                let obj={
+                    name:"jack"
+                }
+            2.内置构造函数创建 new Object()
+                let obj=new Object()
+                obj.name="张三"
+                注意：如果有同名属性(键),修改原属性的值，如果没有就新增一个属性(键和值)
+            3.自定义构造函数创建
+                (1)工具函数方法
+                function createPerson(name,age){
+                    let obj=new Object;
+                    obj.name=name;
+                    obj.age=age;
+                    return obj
+                }
+                let onePerson=createPerson("张三",18)
+                (2)构造函数方法
+                构造函数：再内存中开辟一个空间，使用构造函数后内部的this指向实例对象。构造函数再调用时必须加关键字new,构造函数的函数名首字母大写
+                this.xxx 中的xxx就是该空间（实例对象）所拥有的属性名
+                function Person(name,age){
+                    this.name=name;
+                    this.age=age;
+                }
+                let onePerson=new Person("张三",18)
+        
+        
+        
+        */
+    </script>
+    
+</body>
+</html>

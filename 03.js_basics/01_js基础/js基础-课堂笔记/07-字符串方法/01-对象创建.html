@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    // 计算字符串拼接从 1+...+9999的时间  1.连字符拼接 2.push()进行拼接
+    //对比这两种方法的时间
+    // let startTime=Date.now();
+    // let str='';
+    // for(let i=0;i<999999;i++){
+    //   str += i;
+    // }
+    // let endTime=Date.now();
+    // console.log("字符串拼接完成时间",endTime-startTime+"ms");
+
+
+    // let startTime1=Date.now();
+    // let str1=[];
+    // for(let i=0;i<999999;i++){
+    //   str1.push(i)
+    // }
+    // str1=str1.join("");
+    // let endTime1=Date.now();
+    // console.log("数组方法完成时间",endTime1-startTime1+"ms");
+
+    //对象的创建
+    //1.字面量创建
+    // let obj = {
+    //   name:"laozeng"
+    // }
+    // console.log(obj); //{name: 'laozeng'}
+
+    //2.内置构造函数创建 new Object();
+    // let obj2 = new Object(); //生成一个空对象
+    // obj2.name="张三"; // 如果有同名属性(键),修改原属性(键)的值，如果没有就新增一个属性(键)和值
+    // obj2.name="李四";
+    // console.log(obj2); //{name: '李四'}
+
+
+    //3.自定义构造函数创建
+    //3.1 工具函数方法
+    // function createPerson(name,age){
+    //   let obj3 = new Object(); //{} 收集器
+    //   obj3.name=name;
+    //   obj3.age=age; 
+    //   return obj3;
+    // }
+    // let a = createPerson("张三",18);
+    // console.log(a); //{name: '张三', age: 18}
+
+
+    //3.2 构造函数方法
+    // 不成文的规定 构造函数命名是 首字母大写
+    // function CreatPerson(name,age){
+    //   // {}
+    //   this.name=name;
+    //   this.age=age;
+    // }
+    // let a1 = new CreatPerson("李四",20);
+    // let a2 = new CreatPerson("张三",20);
+    // console.log(a1); // {name: '李四', age: 20}
+    /* 
+    注意： 构造函数在调用时前面必须加关键词 new 
+    new 的作用 ：
+    在内存中开辟一个空间，使构造函数内部的this指向自身的空间 指向势力对象 
+    this.xxx   xxx就是该空间（实例对象）所拥有的属性名
+    */
+
+
+
+    function Dog(name,age,type){
+      this.name = name;
+      this.age = age;
+      this.type=type;
+      this.bark = function (){
+        console.log("汪汪汪");
+      } // 类的方法   
+    }
+
+    let a1 = new Dog("小白",8,"阿拉斯加");
+    // console.log(a1); //{name: '小白', age: 8, type: '阿拉斯加', bark: ƒ}
+    console.log(a1.name); //小白
+    a1.bark(); //调用对象的方法
+
+    let a2 = new Dog("旺财",5,"中华田园犬");
+    console.log(a2.name); //旺财
+    a2.bark(); 
+
+    let a3 = {
+      name:"来福",
+      type:"哈士奇",
+      age:3,
+      bark: function () {
+        console.log("嗷呜！");
+      }
+    }
+    console.log(a3.name);
+    a3.bark();
+
+
+    let a4 = new Object();
+    a4.name = "小黑";
+    a4.age = 5;
+    a4.type = "拉布拉多";
+    a4.bark = function(){
+      console.log("汪汪汪汪");
+    }
+    console.log(a4.name);
+    a4.bark();
+
+  </script>
+
+</body>
+
+</html>
