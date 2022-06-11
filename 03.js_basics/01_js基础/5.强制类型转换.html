@@ -1,15 +1,26 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-05-22 21:30:43
- * @LastEditTime: 2022-06-10 10:42:18
+ * @LastEditTime: 2022-06-11 16:43:16
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>强制类型转换</title>
     <script>
-        /*强制类型转换：将一个数据类型转换为其他数据类型如：String Number Boolean
+        /*
+         js中有6中基本数据类型，string number boolean undefined null symbol
+        以及一种复杂数据类 ： object
+         显式转换  （强制转换）
+        Number()  String()   Boolean()三个函数 手动将各种类型的值 进行转换
+        toString()  parseInt(string)  parseFloat(string) 
+    
+        
+        
+        
+        强制类型转换：将一个数据类型转换为其他数据类型如：String Number Boolean
 
         * 1.将其他数据类型转换为String:
         *    方法一：调用被转换数据类型的方法：toString(),该方法不会影响到原变量，会将转换的结果返回
@@ -28,14 +39,23 @@
         /*
         * 2.将其他数据类型转换为Number:
         *     方法一：调用Number()方法，并将转换的变量作为参数
-        * 注意：字符串-->数字 (1)如果是纯数字的字符串，则直接转换成为数字
-        *                     (2)如果字符串中有非数字的内容，则转换为NaN
-        *                     (3)如果字符串是空串或者全是空格的字符串，则会转会为0
+        * 注意：字符串-->数字 
+        *          (1)如果是纯数字的字符串，则直接转换成为数字
+        *          (2)如果字符串中有非数字的内容，则转换为NaN
+        *          (3)如果字符串是空串或者全是空格的字符串，则会转会为0
         *      Boolean-->数字 true转为 1 ，false转为 0
         *         Null-->数字 转为 0
         *     方法二：专门用来对付字符串
-        *             parseInt()可以将一个字符串有效的整数内容取出来转换成为Number
-        *             parseFloat()可以将一个字符串中有效的浮点数内容取出来转为Number
+        *           parseInt()可以将一个字符串有效的整数内容取出来转换成为Number
+        *           parseFloat()可以将一个字符串中有效的浮点数内容取出来转为Number
+        */
+        //自动转数值
+        /* 
+        JavaScript 遇到预期为数值的地方，就会将参数值自动转换为数值。系统内部会自动调用`Number`函数。
+        除了加法运算符（`+`）有可能把运算子转为字符串，其他运算符都会把运算子自动转成数值。
+        自增、自减  ++   --
+        正号、负号  +  -  
+        运算符 - * / %
         */
 
         var c = "  ";
@@ -76,9 +96,31 @@
         h = Infinity; //true
         h = NaN; //false
         h = Boolean(h);
+
+        /*
+        html 方法 
+        anchor() 创建 a 链接
+        big()
+        sub()
+        sup()
+        link()
+        bold()
+        */
+        /*
+        let str = "你好";
+        console.log(str.anchor('haha')); //<a name="haha">你好</a>
+        console.log(str.big()); //<big>你好</big>
+        console.log(str.sub()); //<sub>你好</sub>
+        console.log(str.sup()); //<sup>你好</sup>
+        console.log(str.link('http://www.baidu.com')); //<a href="http://www.baidu.com">你好</a>
+        console.log(str.bold()); //<b>你好</b>
+     */
+
     </script>
 </head>
+
 <body>
 
 </body>
+
 </html>

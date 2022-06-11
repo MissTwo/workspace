@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    //12. substr(); 字符串截取 
+    /* 
+    语法：
+    字符串 = str.substr(开始索引, 截取的长度); 注意第二个参数不是结束索引，而是截取的字符长度
+    ECMAscript 没有对substr();方法进行标准化 因此暂时不建议使用它
+    */
+    // let str = "abcdefg";
+    // // console.log(str.substr(2,4)); //cdef 
+    // //封装 substr();方法
+    // function my_substr(str,a,len){
+    //   str = str.substring(a,a+len);
+    //   return str;
+    // }
+    // console.log(my_substr(str,2,2)); // cd
+
+
+    //13. padStart() 和 padEnd()  字符串补全
+    /* 
+    语法：
+    str.padStart(targetLength , padString) // 第一个参数代表字符串总长度 第二个参数是用于补足的字符  从字符串开始的位置开始操作
+    str.padEnd(targetLength , padString) // 第一个参数代表字符串总长度 第二个参数是用于补足的字符  从字符串结束的位置开始操作
+
+    原字符串的长度，等于或大于最大长度，不会消减原字符串，字符串补全不生效，返回原字符串
+
+    用来补全的字符串与原字符串**长度之和超过了最大长度**，**截去超出位数的补全字符串**，原字符串不动
+    如果省略第二个参数，默认使用空格补全长度
+    */
+
+    // let str = "a";
+    // console.log(str.padStart(5,"cd")); // cdcda 总长度为5  从开始位置用cd补足
+    // console.log(str.padEnd(5,"cd")); // acdcd  总长度为5  从结束位置用cd补足
+
+    // console.log(str.padStart(4,"cd")); // cdca
+    // console.log(str.padEnd(4,"cd")); // acdc
+
+    // let str = "abc";
+    // console.log(str.padStart(2, "d")); //abc
+    // console.log(str.padEnd(2, "d")); //abc
+    // console.log(str.padStart(5)); // 空格空格abc 
+
+    // 14. concat 
+    /* 
+    语法：
+    新字符串 = str1.concat(str2); 链接两个字符串
+    这种方法基本不用，直接把两个字符串相加就好。
+    */
+    //  let str1 = "zhangsan";
+    //  let str2 = "lisi";
+    //  console.log(str1.concat(str2)); //zhangsanlisi
+
+    //15. split(); 重要  字符串转数组
+    /* 
+    语法：
+    新的数组 = str.split(分隔符);
+     通过指定的分割符将一个字符串拆分成一个新的数组，不会改变原字符串 
+
+     **备注：**`split()`这个方法在实际开发中用得非常多。一般来说，从接口拿到的 json 数据中，经常会收到类似于`"y, u, n"`这样的字符串，前端需要将这个字符串拆分成`['y', 'u', 'n']`数组，这个时候`split()`方法就派上用场了
+    */
+    // let str = "lao,zeng,shuai,bi"
+
+    // let arr = str.split(",");
+    // console.log(arr);  // ["lao","zeng","shuai","bi"]
+
+    // let arr = str.split();  
+    // console.log(arr); //['lao,zeng,shuai,bi'] 默认当成一整个元素放到数组中
+
+    // let arr = str.split(""); // 拆分成单个的字符 一个一个放到数组中
+    // console.log(arr); //['l', 'a', 'o', ',', 'z', 'e', 'n', 'g', ',', 's', 'h', 'u', 'a', 'i', ',', 'b', 'i']
+
+    // let arr = str.split("o"); 
+    // console.log(arr); //['la', ',zeng,shuai,bi'] 注意点 分割的字符不会展示到数组中
+
+    // var str3 = '千古壹号|qianguyihao|许嵩';
+    // console.log('结果1：' + str3.split()); // ['千古壹号|qianguyihao|许嵩']
+    // console.log(str3.split('')); //['千', '古', '壹', '号', '|', 'q', 'i', 'a', 'n', 'g', 'u', 'y', 'i', 'h', 'a', 'o', '|', '许', '嵩']
+    // console.log(str3.split('|')); // ["千古壹号","qianguyihao","许嵩"]
+    // console.log(str3.split('许')); // ['千古壹号|qianguyihao|', '嵩']
+
+
+    // 16. replace()
+    /* 
+    新的字符串 = str.replace(被替换的字符串, 新的字符串)
+    将字符串中指定的内容，替换为新的内容并返回，不会修改原字符串
+
+    注意：这个方法默认只会替换第一个被匹配的字符，如果要全局修改，需要使用正则
+    */
+
+    // let str = "today is fine day,today is fine day !"
+    // console.log(str.replace("today","tomorrow")); //tomorrow is fine day,today is fine day !
+    // console.log(str.replace(/today/gi,"tomorrow")); //tomorrow is fine day,tomorrow is fine day !
+
+    // 17.repeat(); 重复字符串
+    /* 
+    语法:
+    newStr = str.repeat(重复的次数);  将字符串重复指定的次数，返回新字符串，不修改原字符串
+    */
+    //  let str = "zhangsan";
+    //  console.log(str.repeat(1)); //zhangsan
+    //  console.log(str.repeat(2)); //zhangsanzhangsan
+    //  console.log(str.repeat()); //空字符串 同str.repeat(0)
+
+    // 应用 将这个号码字符串后四位展示成 * 号
+    // let tel = '13088889999';
+    // let tel2 = tel.slice(0,-4)+"*".repeat(4); //1308888****
+    // console.log(tel2);
+
+    //18. trim(); 去除字符串首尾空格
+    /* 
+    语法：
+    新字符串 = str.trim();
+    */
+    //  let str = "   a   b   c   ";
+    //  console.log(str); //    a   b   c   
+    //  console.log(str.trimStart()); //去除前面的空格
+    //  console.log(str.trimLeft()); //去除前面的空格
+    //  console.log(str.trimEnd()); //去除后面的空格
+    //  console.log(str.trimRight()); //去除后面的空格
+    //  console.log(str.trim()); //去除首尾的空格
+
+    // 19. toUpperCase(); toLowerCase(); 大小写转换
+    // let str = "hello Word";
+    // console.log(str.toUpperCase()); //HELLO WORD 
+    // let str1 = "HELLO WORD ";
+    // console.log(str1.toLowerCase()); //hello word
+
+    // html 方法
+    /* 
+    anchor() 创建 a 链接
+    big()
+    sub()
+    sup()
+    link()
+    bold()
+    */
+    // let str = "你好";
+    // console.log(str.anchor('haha')); //<a name="haha">你好</a>
+    // console.log(str.big()); //<big>你好</big>
+    // console.log(str.sub()); //<sub>你好</sub>
+    // console.log(str.sup()); //<sup>你好</sup>
+    // console.log(str.link('http://www.baidu.com')); //<a href="http://www.baidu.com">你好</a>
+    // console.log(str.bold()); //<b>你好</b>
+
+
+    // 练习1  取出首次出现a的位置 再将这个位置字符进行unicode编码
+    let str = "Work hard, earn money.";
+    let strKey = str.indexOf("a");
+    console.log(strKey); //6
+    console.log(str.charCodeAt(strKey)); //97
+
+    // 练习2  用字符串的三种方法获取下面字符串中的字符world
+    let str1 = "Program ape world you do not understand"; 
+    console.log(str1.slice(12,17));
+    console.log(str1.substring(17,12));
+    console.log(str1.substr(12,5));
+
+    // 练习3  编写一个js函数， 用于获取传入的参数的后缀名，比如传入xxx.jpg,那么运行函数获取jpg
+    let imgformat = "images/index.jpg";
+    let Jsformat = "images/js/index.js";
+    function getFileFormat(str){
+      let pos = str.lastIndexOf(".");
+      return str.substr(pos+1);
+    }
+
+    // 练习4 查找字符串中所有 o 出现的位置
+    let str2 = 'abcoefoxyozzopp'; 
+    for(let i=0;i<str2.length;i++){
+      if(str2.charAt(i) === "o"){
+        console.log(i);
+      }
+    }
+
+    // 练习5  判断一个字符串中**出现次数最多的字符**，并统计这个次数
+    let str3 = "aabbbccccddddd";
+    let json = {}; //用一个对象收集信息
+    for(let i=0; i<str3.length; i++){
+      let key = str3.charAt(i);
+      if(json[key] === undefined){
+        json[key] = 1;
+      }else{
+        json[key] += 1;
+      }
+    }
+    console.log(json); // {a: 2, b: 3, c: 4, d: 5}
+    let maxKey='';
+    let maxValue=0;
+    for(let k in json){
+      if(json[k] > maxValue){
+        maxKey = k;
+        maxValue = json[k];
+      }
+    }
+    console.log(maxKey); // d
+    console.log(maxValue); // 5
+
+
+    
+
+
+
+
+  </script>
+
+</body>
+
+</html>

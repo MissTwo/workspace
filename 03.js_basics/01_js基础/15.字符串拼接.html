@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-10 09:07:42
- * @LastEditTime: 2022-06-10 19:44:19
+ * @LastEditTime: 2022-06-11 11:53:57
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,11 +11,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>字符串拼接</title>
-    <style>
-        * {
-            color: transparent;
-        }
-    </style>
 </head>
 
 <body>
@@ -119,9 +114,36 @@
                     (1)第二个参数不是结束索引，而是截取的字符长度
                     (2)ECMAscript 没有对substr();方法进行标准化 因此暂时不建议使用它
                 
+            13.padStart() 和 padEnd() 字符串补全
+                语法：str.padStart(targetLength,padString)
+                注意：
+                    (1)第一个参数表示字符串总长度，第二个参数表示从字符开始（结束）位置补全字符
+                    (2)用来补全字符串，不会消减元字符
+                    (3)第二个参数省略默认用空格来补全长度
+            
+            14.concat字符串的连接
+                语法：新字符串=str1.concat(str2)
 
+            15.split()字符串转数组
+                语法：新数组=str.split(分隔符号)
+                
+            16.replace()
+                语法：新字符串=str.replace(被替换的字符串，新的字符串)
+                将字符串中内容替换为新内容一并返回，不修改原字符串
+                注意：这个方法默认只会替换第一个匹配的字符串，如果要修改全局需要正则表达式
+            17.repeat()重复字符串
+                语法：newStr=str.repeat(重复次数)
+                将字符串重复指定次数，返回新字符串，不修改元字符串
+                str.repeat()=str.repeat(0)空字符串
 
+            18.trim()去除字符串首尾的空格
+                语法：新字符串=str.trim()
+                trimStart()
+                trimEnd()
+                trimLeft()
+                trimRight()
 
+            19.toUpperCase(),toLowerCase()大小写转换
 
         */
         // 模板字符串的使用${}
@@ -145,6 +167,7 @@
 
         // let a='7jf8f1f'
         // console.log(parseInt(a));
+
         function count(str) {
             let arr = str.split('')
             let o = arr.reduce(function (p, i) {
@@ -250,11 +273,94 @@
         }
 
         // addUrl('https://www.baidu.com', "cateId=482", "pageIndex=1")
+        /* 
         var arr = [{ a: 1 }, {}];
         arr.forEach(function (item, idx) {
             item.b = idx;
         });
-        console.log(arr);
+        console.log(arr); */
+        /* function cutStr(str,a,len){
+            let aa=str.substr(a,len)
+            console.log(aa);
+        }
+        cutStr("sdfjiorgg",3,3) */
+
+        /* let tel='13052549999'
+        let tel2=tel.replace('9',"*")
+        console.log(tel2); */
+/* 
+        // 练习1
+        let str = 'Work hard,earn money'
+        if (str.indexOf('a') != -1) {
+            let i = str.indexOf('a')
+            console.log(i, str.charCodeAt(i));
+        }
+        // 练习2
+        let str1 = 'Program ape word you do not understand'
+        let a = str1.slice(12, 16)
+        let b = str1.substring(12, 16)
+        let c = str1.substr(12, 4)
+        console.log(a, b, c);
+        // 练习3
+        let imgFormat = 'images/index.jpg'
+        let JsFormat = 'images/js/index.js'
+        function suffix(name) {
+            // 用lastIndexOf
+            let index = name.search('[\.]')
+            console.log(index);
+            let newStr = name.slice(index+1)
+            console.log(newStr);
+        }
+        suffix(imgFormat)
+        // 练习4
+        let str2 = 'abcoefoxyozzopp'
+        let e = 0;
+        let index = str.indexOf('o')
+        while (index != -1) {
+            console.log("出现的下标为"+index);
+            e++;
+            index = str.indexOf('a', index + 1)
+        }
+        console.log(e);
+
+        let str5 = "images/index.jpg"
+        console.log(
+            str5.search("[\.]")
+        ); */
+        let str3='aabbbccccddddd'
+        
+        /* let arr=str3.split('')
+        let f=arr.reduce((pre,item) => {
+            if(item in pre){
+                pre[item]++
+            }else{
+                pre[item]=1
+            }
+            return pre
+        },{})
+        console.log(f); */
+
+        let obj={}
+        for (let i = 0; i < str3.length; i++) {
+            if(str3[i] in obj){
+                obj[str3[i]]++
+            }else{
+                obj[str3[i]]=1
+            }
+        }
+        let max=''
+        let value=0
+        console.log(obj);
+        for (const key in obj) {
+            if(obj[key]>value){
+                max=key
+                value=obj[key]
+            }
+        }
+        console.log(max,value);
+        
+       
+                 
     </script>
 </body>
 

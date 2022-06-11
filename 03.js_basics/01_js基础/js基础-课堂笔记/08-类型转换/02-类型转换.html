@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    //类型转换
+    /* 
+    js中有6中基本数据类型，string number boolean undefined null symbol
+    以及一种复杂数据类 ： object
+
+    js是一门动态类型语言 变量没有类型限定 可以随时赋予任意值
+    */
+    // let y = true;
+    // let x = y ? 1 : "万年张三";
+    // console.log(x); // 1
+    // 变量x的值到底是数值还是字符串 取决于另一个变量y的值 x没法在编译阶段知道是什么类型  只有程序运行时才能知道
+    /* 
+    *虽然变量的数据类型是不确定的，但是各种运算符对数据类型是有要求的
+      如果有的运算符发现，运算子的类型与预期不符就会自动转换类型。
+      比如，减法运算符预期左右两侧的运算子应该是数值，如果不是，就会自动将它们转为数值，隐式转换
+    */
+    // console.log("10" - '4'); // 6  隐式转换
+
+    // 显式转换  （强制转换）
+    /* 
+    Number()  String()   Boolean()三个函数 手动将各种类型的值 进行转换
+
+    toString()  parseInt(string)  parseFloat(string) 
+    */
+
+    /* 
+    1. parseInt() 和 parseFloat() 专门用于将字符串转数值类型
+    只保留最开头的数字 如果遇到不能专为数字的字符就不在进行下去 返回已经转好的部分
+    
+    */
+    // console.log(parseInt("666")); //666
+    // console.log(typeof parseInt("666")); //number 
+    // 如果参数不是一个字符串 会将这个参数先转为字符串 再转为数值
+    // console.log(parseInt(3.14)); // 3 将不是数值的位置直接截取掉
+    // console.log(parseInt("3.14")); // 3 将不是数值的位置直接截取掉
+
+    // console.log(parseInt("2020.03年发表了10篇文章")); //2020
+    // console.log(parseInt("      2020.03")); //2020 会自动去除字符串头部的空格进行转换
+
+    //如果对非数字的String使用parseInt(); 带小数的时候相当于取整 不存在四舍五入
+    // console.log(parseInt("年发表了10篇文章"));  // NaN (number类型)
+    // console.log(parseInt("s666"));  // NaN (number类型)
+    // console.log(parseInt(null));  // NaN  ===>"null"
+    // console.log(parseInt(undefined));  // NaN  ===>"undefined"
+    // console.log(parseInt(true));  // NaN  ===>"true"
+    // console.log(parseInt(4.35)+parseInt(5.34)); //4+5=9
+
+    // 如果字符串的第一个字符不能转化为数值（后面跟着数字的+号除外），返回NaN
+    // console.log(parseInt(".3")); // NaN
+    // console.log(parseInt("+")); // NaN
+    // console.log(parseInt("+1")); // 1
+
+    // 可以带两个参数，带两个参数时，表示在转换时，包含了进制转换。
+    /* 
+    第二个参数（2到36之间），表示被解析的值的进制，返回该值对应的十进制数。注意表示的是被转换的数字的进制， parseInt();转换出来的值都是10进制，第二个参数 如果不填或者填0，null，undefined 则直接忽略 相当于默认的10进制
+    */
+    //  console.log( parseInt("10",8) ); // 8  10的8进制 转10进制是8
+    //  console.log( parseInt("15",8) ); // 13 10的8进制 转10进制是8
+    //  console.log( parseInt("9",8) );  // NaN  9超出了8进制标识范畴
+    //  console.log( parseInt("9",0) );  // 9
+
+    //parseFloat("3.14") 只认第一个小数点 从第一个字符开始解析每个字符,直至遇见一个无效的浮点数字符为止,忽略第一个小数点后面的小数点。
+    // console.log(parseFloat("3.14a456")); //3.14
+    // console.log(parseFloat("3.14.203")); //3.14
+
+
+    /* 
+    2.Number() 使用Number()函数 可以将任意类型的值转化成数值 
+      下面分两种情况来讨论  一种是原始数据类型 另一种是参数对象
+    */
+    /* 
+    2.1  原始数据类型
+    如果字符串中是纯数字，直接可以转化为数值
+    如果是空字符串或全部由空格组成的字符串 则转换为0
+    如果字符串中包含了其他非数字内容（小数点按数字来算），则转化为NaN
+    一定会返回一个数值，不合理的转换则返回NaN
+    */
+    //  console.log(Number(234)); //234
+    //  console.log(Number("234")); //234
+    //  console.log(Number(""));  //0
+    //  console.log(Number("    "));  //0
+    //  console.log(Number("23456dddd")); //NaN
+    //  console.log(Number("3.14")); // 3.14 
+
+    // console.log(Number(true)); //1
+    // console.log(Number(false)); //0
+
+    // console.log(Number(null)); //0
+
+    // console.log(Number(undefined)); //NaN
+
+    // Number() 比 parseInt() 要更严格一些，只要有一个字符不能转化为数字 就会转成NaN
+
+
+    /*
+    2.2 对象 
+    Number()方法的参数是对象时，返回NaN，除非是包含单个数字的数组 或 空数组
+     */
+    // console.log(Number({a:1})); // NaN 对像进行转换的时候 底层调用了toString方法
+    // console.log(Number({})); // NaN
+    // console.log(Number([1,2,3])); // NaN
+    // console.log(Number([5])); // 5  ###
+    // console.log(Number([])); // 0   ###
+
+    // Number() 和 parseInt()函数的区别
+    /* 
+    就拿Number(true) 来说  会转成 1  但是parseInt()会将其转换为 "true"==>NaN
+    Number()千方百计的想将参数专为数值  
+    parseInt() 先专为字符串再按自己的规则进行截取
+    */
+
+
+    /* 
+    3.String() 可以将任意类型的值转化为字符串
+    3.1 原始数据类型
+    数值：转为相应的字符串
+    字符串：不变
+    布尔值："true"  "false"
+    undefined: "undefined"
+    null : "null"
+    */
+    //  console.log(String(123)); // '123'
+    //  console.log(String("123")); // '123'
+    //  console.log(String(true)); // 'true'
+    //  console.log(String(false)); // 'false'
+    //  console.log(String(undefined)); // 'undefined'
+    //  console.log(String(null)); // 'null'
+
+    //3.2 对象类型
+    /* 
+    如果是对象 则返回一个[object Object]的字符串
+    如果是数组，则返回该数组的字符串形式（去掉两边的方括号，使用引号）
+    */
+    // console.log(String({a:1})); // [object Object]
+    // console.log(String([1,2,3])); // '1,2,3'
+
+    /* 
+    4. Boolean() 该方法可以将任意类型值转换为布尔值
+    */
+    //除了以下6个值转成false 其他都为true 默认什么都不传是false
+    //  console.log(Boolean(undefined)); //false
+    //  console.log(Boolean(null)); //false
+    //  console.log(Boolean(false)); //false
+    //  console.log(Boolean(0));  //false
+    //  console.log(Boolean('')); //false
+    //  console.log(Boolean(NaN)); //false
+
+    // console.log(Boolean("false")); //true
+    // console.log(Boolean()); //false
+    // console.log(Boolean(" ")); //true
+    // console.log(Boolean({})); //true
+    // console.log(Boolean([])); //true
+
+
+    //隐式转换 
+    /* 
+    自动转换，他是以强制转换规则为基础
+    遇到以下三种情况，js会自动转换类型，过程用户不可见
+    */
+    // 第一种情况 不同类型的数据相互运算
+    // console.log(123 + "abc"); // '123abc' 
+    // console.log(123 - true); // 122 
+    // console.log(123 - 22); // 101  没有隐式转换 
+
+    // 第二种情况 对非布尔值数据求布尔值的时候
+    // if("abc"){
+    //   console.log("hellow"); 
+    // }
+    // "abc"出现在了预期为布尔值的位置 被转换为了true
+
+    // 第三种情况 对非数值类型的值使用一元运算符（即+ 和 -）时
+    // console.log({a:1});
+    // console.log(Number({a:1})); //NaN
+    // console.log(+{a:1}); // NaN
+    // console.log(-[1,2,3]); // NaN
+
+    /* 
+    自动转换的规则：
+    预期是什么类型的值，就调用该类型的转换函数
+    比如：某个位置预期为字符串，就调用String()函数进行转换 
+    如果该位置既可能是字符串 也可能是数值 那么默认转数值
+    
+    ## 由于自动转换的不确定性，而且不易除错，建议在预期为布尔值，数值，字符串的地方，全部手动使用Boolean(a)  String Number进行显示转换
+    */
+    // if (!undefined && !null && !0 && !NaN && !'') {
+    //   console.log('true');
+    // }
+    // 打印true
+
+    // 表达式 ? true : false
+    // !!表达式  !(!表达式)
+
+    //自动转字符串
+    /* 
+    JavaScript 遇到预期为字符串的地方，就会将非字符串的值自动转为字符串
+    > 具体规则是:
+    > 先将复**合类型的值**转为**原始类型的值**，再将**原始类型的值**转为**字符串**。
+    字符串的自动转换，**主要发生在字符串的加法运算时**。
+    
+    当一个值为字符串，另一个值为非字符串，则后者转为字符串。
+    */
+    // console.log("5" + 1); // '51'
+    // console.log("5" + true); // '5ture'
+    // console.log("5" + false); // '5false'
+
+    // console.log("5" + {}); // '5[object Object]' 
+    // console.log("5" + []); // '5' 
+    // console.log("5" + function(){}); // '5function(){}'
+    // console.log("5" + undefined); // '5undefined'
+    // console.log("5" + null); // '5null'
+    //这种自动转换很容易出错 
+
+    // let obj = {
+    //   width:'100'
+    // };
+    // console.log(obj.width+20); //10020 我们的预期希望返回120，实际上变成了拼接
+    // console.log(Number(obj.width)+20); // 120
+
+    //自动转数值
+    /* 
+    JavaScript 遇到预期为数值的地方，就会将参数值自动转换为数值。系统内部会自动调用`Number`函数。
+    除了加法运算符（`+`）有可能把运算子转为字符串，其他运算符都会把运算子自动转成数值。
+    自增、自减  ++   --
+    正号、负号  +  -  
+    运算符 - * / %
+    */
+    //  console.log("5"-"2"); //3
+    //  console.log("5"*"2"); //10
+    //  console.log("6"/"2"); //3
+    //  console.log("6"%"4"); //2
+    //  console.log(true - 1); //0
+    //  console.log(false - 1); //-1
+    //  console.log("5" * []); // 0
+    //  console.log("abc" - 1); // NaN
+    //  console.log(null + 1); // 1
+    //  console.log(undefined - 1); // NaN
+
+    // 一元运算符也会把运算子转成数值类型
+    /* 
+    任何值做**`+a`、`-a`**运算时，运算结果都会自动转换为 Number 类型。 **内部调用的是 Number()** 函数。
+    */
+    //  let a = "666";
+    //  let b = +a;
+    //  console.log(typeof b); //number
+
+
+    // console.log(+'abc'); // NaN
+    // console.log(-'abc'); // NaN
+    // console.log(+true); // 1
+    // console.log(-false); // -0
+
+
+
+  </script>
+</body>
+
+</html>
