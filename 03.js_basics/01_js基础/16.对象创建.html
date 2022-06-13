@@ -1,16 +1,18 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-10 09:21:21
- * @LastEditTime: 2022-06-10 09:39:26
+ * @LastEditTime: 2022-06-13 16:06:37
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>创建对象</title>
 </head>
+
 <body>
     <script>
         /* 
@@ -40,11 +42,61 @@
                     this.age=age;
                 }
                 let onePerson=new Person("张三",18)
-        
-        
-        
         */
+        /* 
+         //    乘法
+         arr1 = [2, 3, [2, 1], 2]
+ 
+         function fn(arr) {
+             let b = 1;
+             for (let i = 0; i < arr.length; i++) {
+                 if (Array.isArray(arr[i])) {
+                     // 注意不能用return否则会跳出循环
+                     arr[i] = fn(arr[i])
+                 }
+                 b *= arr[i]
+             }
+             return b
+         }
+         console.log(fn(arr1));
+  */
+
+        
+        // 加法a
+        arr1 = [2, 3, [2, 1], 1]
+        function fn1(arr) {
+            let a = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+                if (Array.isArray(arr[i])) {
+
+                    arr[i] = fn1(arr[i])
+                }
+                else{
+                    a += arr[i]
+
+                }
+            }
+            return a
+        }
+        console.log(fn1(arr1));
+
+        /* function deepClone(arr) {
+            let clone = []
+            for (let i = 0; i < arr.length; i++) {
+                if (Array.isArray(arr[i])) {
+                    clone.push(deepClone(arr[i]))
+                } else {
+                    clone.push(arr[i])
+                }
+
+            }
+            // console.log(clone);
+            return clone;
+        }
+        console.log(deepClone([1, 2, 3, 4, [1, 2, [9, 0, 5]]])); */
     </script>
-    
+
 </body>
+
 </html>

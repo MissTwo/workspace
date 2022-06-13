@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-05-22 21:30:43
- * @LastEditTime: 2022-05-31 19:53:03
+ * @LastEditTime: 2022-06-13 09:38:11
  * @Description: 
 -->
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
         var str = "hello";
         var str2="我说:\"今天天气真好啊！\""
         let str3=`你好啊！`
-        console.log(str,str2);
+        // console.log(str,str2);
 
         /*
         * Number数值包括所有的整数和浮点数
@@ -44,13 +44,13 @@
         *         Number.MAX_VALUE  表示最大值
         *         Infinity  表示正无穷
         *         -Infinity  表示负无穷
-        *         NaN  是一个特殊的数字，表示 Not a number
-        * 注意：整数运算基本可以保证，浮点数的运算可能得到一个比精确的结果
-        *       千万不要使用js进行精确度要求比较高的运算*/
-        /*      0/0时为NaN,任何一个数/0为infinity 
-                isNaN()检测是否为数字，只对数值有效，如果被传入其他值会转换为数值
-                []空数组会转为0
-                isFinite()用于检查数值是否为正常数值，其中Infinity NaN undefined 均为false,null为true
+        *         NaN  是一个特殊的数字，表示 Not a number,NaN不等于NaN 
+        * 注意：
+        *     (1)整数运算基本可以保证，浮点数的运算可能得到一个比精确的结果千万不要使用js进行精确度要求比较高的运算
+        *     (2)0/0时为NaN,任何一个数/0为infinity 
+        *     (3)isNaN()检测是否为数字，只对数值有效，如果被传入其他值会转换为数值
+        *     (4)[]空数组会转为0
+        *     (5)isFinite()用于检查数值是否为正常数值，其中Infinity NaN undefined 均为false,null为true
         */
 
         var a="123";
@@ -60,8 +60,8 @@
         /*使用运算符typof来检验一个变量的类型
        * 语法：typof 变量名
        * */
-        console.log(typeof a);
-        console.log(typeof b);
+        // console.log(typeof a);
+        // console.log(typeof b);
 
         /*Boolean布尔值只要两个值true和false*/
        /*  以下6个值被转化为false其他视为true
@@ -99,19 +99,20 @@
         1.window
         2.document文档节点对象
          */
-        console.log(window);
+        // console.log(window);
 
 /*         函数对象：函数是一段可以反复调用的代码块，把一堆代码封装起来，不会立马执行 */
         function school(){
           console.log('hahah');
         }
         // 调用函数
-        school();
+        // school();
 
         /* 
         typeof检测类型
         注意：null 在使用typeof检测时，数据类型为Object  
         */
+       
     </script>
 </head>
 <body>

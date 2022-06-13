@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-10 09:07:42
- * @LastEditTime: 2022-06-11 11:53:57
+ * @LastEditTime: 2022-06-13 11:12:49
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -118,7 +118,7 @@
                 语法：str.padStart(targetLength,padString)
                 注意：
                     (1)第一个参数表示字符串总长度，第二个参数表示从字符开始（结束）位置补全字符
-                    (2)用来补全字符串，不会消减元字符
+                    (2)用来补全字符串，不会消减原字符
                     (3)第二个参数省略默认用空格来补全长度
             
             14.concat字符串的连接
@@ -285,9 +285,9 @@
         }
         cutStr("sdfjiorgg",3,3) */
 
-        /* let tel='13052549999'
-        let tel2=tel.replace('9',"*")
-        console.log(tel2); */
+        let tel='13052549999'
+        let tel2=tel.replace(/9/gi,"*")
+        console.log(tel2); 
 /* 
         // 练习1
         let str = 'Work hard,earn money'

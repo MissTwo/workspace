@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-06 15:36:27
- * @LastEditTime: 2022-06-07 14:07:35
+ * @LastEditTime: 2022-06-13 16:36:05
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -65,7 +65,7 @@
             注意：函数表达式不能提升
         四、函数的参数：函数内待定的值-形参
         五、系统自带函数
-            arguments对象：由于js允许函数有不定数目的参数，所以用该函数在函数体内部读取所以参数。类似数组，[]访问每一个元素，length确定传递参数个数
+            arguments对象：由于js允许函数有不定数目的参数，所以用该函数在函数体内部读取所有参数。类似数组，[]访问每一个元素，length确定传递参数个数
                 arguments[0]下标为0的
                 arguments.length
                     function fn(){
@@ -245,10 +245,11 @@
                 }
 
             }
-            console.log(clone);
+            console.log(clone,arguments);
+
             return clone;
         }
-        deepClone([1, 2, 3, 4, [1, 2, 3]])
+        deepClone([1, 2, 3, 4, [1, 2, [9,0,5]]])
 
 
 
