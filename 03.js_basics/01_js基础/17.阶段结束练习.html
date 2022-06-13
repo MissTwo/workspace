@@ -1,0 +1,43 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-13 18:35:58
+ * @LastEditTime: 2022-06-13 18:58:57
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1、2、3、4组成不相等不重复的3位数那些多数个
+        let arr1=[1,2,3,4]
+        let newArr1=[],a=0;
+        for (let i = 0; i < arr1.length; i++) {
+            for (let j = 0; j < arr1.length; j++) {
+                if(i!=j){
+                    for (let k = 0; k < arr1.length; k++) {
+                        if (k!=i&&k!=j) {
+                            a=arr1[i]*100+arr1[j]*10+arr1[k]
+                            newArr1.push(a)
+                        }
+                    }
+                }
+                
+            }
+            
+        }
+        console.log(newArr1,newArr1.length);
+
+        // 过滤0，输出新数组
+        let arr=[4,0,7,9,0,0,2,6,0,3,1,0]
+        let newArr=arr.filter((item) => {
+            return item!=0
+        })
+        console.log(newArr);
+    </script>
+</body>
+</html>
