@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head id="myhead">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>haha</title>
+  <script>
+    // window.onload = function () { //页面加载完毕之后 再加载函数体内的代码
+    //   let myDiv4 = document.querySelectorAll("div");
+    //   console.log(myDiv4);
+    // }
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+   
+   .btn{
+    width: 150px;
+    height: 100px;
+    background-color: pink;
+    font-size: 50px;
+    color: black;
+   }
+   
+   .btn.btn1 {
+    color: yellow;
+   }
+
+  </style>
+</head>
+
+<body>
+  <button id="box" class="btn">按钮</button>
+  <!-- <button id="box">按钮</button> -->
+  <script>
+  // 小练习：button按钮 宽150px  高50px  bgc-pink  font-size:20px; 使用类名来获取
+  // 点击按钮时 追加一条  color:yellow  使用类名来操作 mybox.className = "change";
+  // let mybtn = document.querySelector(".btn"); // 参数填写css选择器
+  // console.log(mybtn); 
+  // mybtn.onclick=function(){
+  //   // mybtn.className = "btn1"; //className="重新赋值" 会将以前的值覆盖
+  //   // mybtn.className += " btn1"; //字符串拼接 太过生硬
+  //   // mybtn.className = mybtn.className + " btn1"; //   btn + " btn1"
+  //   mybtn.className = "btn btn1"; // 重新赋值 多个类名之间 使用空格分开
+  // }
+
+  /* 
+  以上的这种方式 始终用起来还是感觉生硬 推荐使用H5中新增classList来代替className操作类名
+    元素.classList.add("类名"); 给元素追加类名 如果元素没有class属性那么会新增  如果有其他类名  那么新增的类名会追加进去 不会进行覆盖  
+    如果有同名的类名 就不添加
+
+    元素.classList.remove("类名"); 移除类名
+
+    元素.classList.toggle("类名"); 切换类名，如果之前有就移除，如果之前没有就添加
+  */
+  let mybtn1 = document.getElementById("box");
+  // mybtn1.onclick=function(){
+  //   // mybtn1.classList.add("btn1");
+  //   // mybtn1.classList.remove("btn");
+  //   mybtn1.classList.toggle("btn1"); // 偷狗
+  // }
+
+  // this  指向打点调用事件的对象
+  mybtn1.onclick=function(){
+    this.classList.toggle("btn1"); 
+  }
+
+  </script>
+
+</body>
+
+</html>
