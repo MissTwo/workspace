@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-14 09:15:26
- * @LastEditTime: 2022-06-14 16:35:51
+ * @LastEditTime: 2022-06-14 19:26:16
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -80,38 +80,38 @@
     概念：访问元素节点：就是“得到”、“获取”页面上的元素节点，访问节点主要依靠document文档对象,是DOM中最重要的东西。几乎所有的功能都封装在document对象，也是html文档，DOM节点的根。
 
     一、获取元素的方式
-        1.document.getElementById('id名')
-            通过id名
+        1.通过id名：document.getElementById('id名')
+
             let a=document.getElementById('root')
         注意：
             (1)如果页面有相同的id名元素，只能找到第一个，不管嵌套多深都可以找到
             (2)id名命名的元素，在js中可以不直接获取直接书写id名字拿元素
 
-        2.document.getElementsByTagName('标签名')
-            通过标签名
+        2.通过标签名：document.getElementsByTagName('标签名')
+            
             let b=document.getElementsByTagName('div')
         注意：
-            (1)通过标签获取一个数组，如果只有一个复合条件的元素获取到的仍然是数组
+            (1)通过标签获取一个伪数组，如果只有一个复合条件的元素获取到的仍然是数组
 
-        3.document.getElementsByName('name的属性')
-            通过name属性，表单用的最多
+        3.通过name属性：document.getElementsByName('name的属性')
+            
             let c=document.getElementsByName('sex')
             注意：
-                通过数组形式返回获取元素，只有一个元素也会返回数组
+                通过伪数组形式返回获取元素，只有一个元素也会返回数组，表单用的最多
 
-        4.document.querySelector('选择器')
-            通过选择器获取元素      
+        4.通过选择器获取元素：document.querySelector('选择器')
+                  
             let d=document.querySelector('.item')
             注意：
                 如果有多个复合条件的元素只拿第一个
 
-        5.document.querySelectorAll('选择器')
-            通过选择器获取所有复合条件的元素
+        5.通过选择器获取所有复合条件的元素：document.querySelectorAll('选择器')
+            
             let a=document.querySelectorAll('div')
             注意：
                 通过数组返回获取元素，如果只有一个元素同样用数组返回该元素
-        6.document.getElementsByClassName("类名")
-            通过选择器类名获取所有复合条件的元素
+        6.通过选择器类名获取所有复合条件的元素：document.getElementsByClassName("类名")
+            
             注意：
                 通过数组返回获取元素，如果只有一个元素同样用数组返回该元素
         注意：
