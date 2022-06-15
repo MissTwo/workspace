@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="haha" style="position: relative;">
+    <div class="brother1"></div>
+    <div id="mydiv"  style="position: fixed;">
+      <p>11</p>
+      <p>22</p>
+      <p>33</p>
+    </div>
+    <div class="brother2"></div>
+  </div>
+
+  
+
+ 
+
+
+  <script>
+    /* 
+    节点（Node 构成HTML网页的最基本单元）
+    网页中每一个部分都可以称为节点  比如：html标签  属性  文本 注释 整个文档
+
+    DOM文档就是由节点组成  html加载完毕，熏染引擎会在内存中吧html文档生成一个DOM树
+
+    整个html文档就是一个文档节点。所有的节点都是Object。
+    DOM文档包含多种节点，我们通常获取标签，只是节点中的一种
+    */
+    /* 
+     nodeType    节点类型
+
+        1        元素节点
+        3        文字节点
+        8        注释节点
+        9        document节点（根节点）
+    */
+    let mydiv = document.getElementById("mydiv")
+    console.log(mydiv.childNodes); //拿到元素内所有的子节点[text, p, text, p, text, p, text] 包含空格（文本）
+    console.log(mydiv.children); // 拿到元素内所有的子元素节点 只考虑元素节点ie9以后开始支持 
+    console.log(typeof(mydiv.children[0]));
+    // console.log(mydiv.parentNode);  // body
+    // console.log(mydiv.firstChild);  // #text
+    // console.log(mydiv.lastChild);  // #text
+    // console.log(mydiv.previousSibling);  // #text
+    // console.log(mydiv.nextSibling);  // #text
+    // console.log(mydiv.nextSibling.nodeType);  // 3
+    /* 
+       关系             考虑所有节点    兼容所有
+
+       子节点            childNodes
+       父节点            parentNode
+       第一个子节点       firstChild
+       最后一个子节点      lastChild
+      前一个兄弟节点      previousSibling
+      后一个兄弟节点      nextSibling
+     */
+
+    //小练习  封装一个函数，传入一个元素 ，可以返回元素的所有子"元素"节点（兼容到ie6），类似children功能
+    //  function getChildren(node){
+    //   //准备结果数组
+    //   let children=[];
+    //   //遍历所有节点
+    //   for(let i=0;i<node.childNodes.length;i++){
+    //     if(node.childNodes[i].nodeType === 1){
+    //       children.push(node.childNodes[i])
+    //     }
+    //   }
+    //   //返回这个数组
+    //   return children;
+    //  }
+    //  console.log(getChildren(mydiv));
+
+    /* 
+       关系              只考虑元素节点    兼容到ie9
+
+       子节点             children
+       父节点             parentNode
+       第一个子节点        firstElementChild
+       最后一个子节点      lastElementChild
+      前一个兄弟节点       previousElementSibling
+      后一个兄弟节点       nextElementSibling
+    */
+    // console.log(mydiv.children); // [p, p, p]
+    // console.log(mydiv.parentNode); // body
+    // console.log(mydiv.firstElementChild); //<p>11</p>
+    // console.log(mydiv.lastElementChild); //<p>33</p>
+    // console.log(mydiv.previousElementSibling); //<div class="brother1"></div>
+    // console.log(mydiv.nextElementSibling); //<div class="brother2"></div>
+
+    /* 
+    offsetParent  
+    获取元素节点的最近的带有有效定位属性（absolute,relative,fixed,sticky）的祖先元素节点
+    如果没有 就找到body
+    但是 自身如果有fixed定位属性 则返回null
+    */
+    // console.log(mydiv.offsetParent); // 
+
+    // 封装一个函数，传入一个元素，这个函数可以返回元素的前一个元素兄弟节点（兼容到IE6），类似previousElementSibling的功能
+    // function getElementPrevSibling(node){
+
+    //   let o=node;
+    //   while(o.previousSibling != null){
+    //     if(o.previousSibling.nodeType == 1){
+    //       return o.previousSibling; //找到了 返回出去  结束循环
+    //     }
+    //     o = o.previousSibling; // 类似递归 一层一层改变自己 
+    //   }
+    //   return null;
+    // }
+    // console.log(getElementPrevSibling(mydiv));
+
+    // function fn(){
+    //   console.log(1); 
+    //   // return 1;
+    // }
+    // let a = fn(); // 没有return默认返回undefined  
+
+
+    
+
+
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-14 09:15:26
- * @LastEditTime: 2022-06-14 19:26:16
+ * @LastEditTime: 2022-06-15 15:44:03
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -109,11 +109,11 @@
             
             let a=document.querySelectorAll('div')
             注意：
-                通过数组返回获取元素，如果只有一个元素同样用数组返回该元素
+                通过伪数组返回获取元素，如果只有一个元素同样用数组返回该元素
         6.通过选择器类名获取所有复合条件的元素：document.getElementsByClassName("类名")
             
             注意：
-                通过数组返回获取元素，如果只有一个元素同样用数组返回该元素
+                通过伪数组返回获取元素，如果只有一个元素同样用数组返回该元素
         注意：
             (1)我们常用的方法中，必须用document开头的有：
                 document.getElementById('id名')
@@ -123,9 +123,13 @@
                 let b=a.querySelectorAll('div')
 
         二、特殊元素的获取：
-            head、body、title、documentElement(html)等
+            head、body、title、documentElement(获得的html)等
             用法：
                 let a=document.head
+                let a=document.body
+                let a=document.title
+                let a=document.documentElement //获得的html
+
 
         三、延迟运行：js代码一般写在body结束标签之前 否则js可能根本无法获取到元素
             使用 window.onload=function(){} 事件，使页面加载完毕之后在执行指定的代码

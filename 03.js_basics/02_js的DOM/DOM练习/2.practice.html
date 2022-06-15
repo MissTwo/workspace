@@ -1,0 +1,81 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-15 16:38:41
+ * @LastEditTime: 2022-06-15 18:13:51
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>乘法表</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #multi {
+        border-collapse: collapse;
+    }
+
+    /* td{
+        border: 1px solid black;
+        width: 80px;
+        height: 20px;
+    } */
+</style>
+
+<body>
+    <div id="box">
+        <p>111</p>
+        <p>222</p>
+        <p>333</p>
+        <p id="four">444</p>
+        <span>666</span>
+    </div>
+    <br>
+    <table id="multi"></table>
+    <script>
+        let four = document.getElementById('four')
+        function fn(node) {
+            let arr = []
+            let temp = node;
+            while (node.previousSibling != null) {
+                if (node.previousSibling.nodeType == 1) {
+                    arr.push(node.previousSibling)
+                }
+                node = node.previousSibling
+            }
+            while (temp.nextSibling != null) {
+                if (temp.nextSibling.nodeType == 1) {
+                    arr.push(temp.nextSibling)
+                }
+                temp = temp.nextSibling
+            }
+            return arr
+        }
+        console.log(fn(four));
+        // 九九乘法表
+        let table = document.getElementById('multi')
+        for (let i = 1; i < 10; i++) {
+            console.log(i);
+            let tr = document.createElement('tr')
+            for (let j = 1; j <= i; j++) {
+                let td = document.createElement('td')
+                td.innerHTML = `${i}*${j}=${i * j}`
+                td.style.cssText = "border: 1px solid black;width: 80px;height: 20px;"
+                tr.appendChild(td)
+            }
+            table.appendChild(tr)
+        }
+
+
+    </script>
+</body>
+
+</html>

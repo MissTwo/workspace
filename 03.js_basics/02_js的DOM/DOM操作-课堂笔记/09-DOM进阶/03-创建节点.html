@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+     td {
+        width: 20px;
+        height: 20px;
+        border: 1px solid black;
+    }
+    table {
+        border-collapse: collapse; /*边框合并*/
+    }
+    #movebox{
+      width: 200px;
+      height: 200px;
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="bigbox">
+    <div id="smallbox">smallbox</div>
+  </div>
+
+  <table id="my-table"></table>
+
+  <div id="movebox"></div>
+
+  <script>
+    /*
+    +=拼接的时候 会出现问题 
+    +=只会保留html文档结构，不会保留之前节点上绑定的事件
+    */
+    let bigbox = document.getElementById("bigbox");
+    let smallbox = document.getElementById("smallbox");
+    smallbox.onclick = function () {
+      console.log("smallbox被点击了");
+    }
+    // bigbox.innerHTML += "newbox";
+
+    
+    /* 
+    创建节点
+    创建节点来解决这样的问题
+    1. 创建"孤儿节点" document.createElement("标签名"); 创建元素节点
+                     createTextNode("如果云层是天空的一封信") 创建文本节点 
+    2. 操作这个元素(往里面添加内容，属性，给这个元素添加事件，样式等等...)
+    3. 将节点挂载上树 
+       父元素.appendChild(创建好的"孤儿节点"); 将"孤儿节点"挂载为父元素的最后一个子元素
+       父元素.insertBefore(创建好的"孤儿节点" , 标杆子节点);两个参数必填,在标杆子节点之前插入创建好的"孤儿节点"
+    */
+   let odiv = document.createElement("div"); // 1. 创建"孤儿节点"
+  //  let odiv = document.createTextNode("如果云层是天空的一封信"); // 1. 创建"孤儿节点"
+   odiv.innerHTML = "newbox"; //2. 操作这个元素
+   odiv.onclick=function(){
+    console.log("新创建的newbox被点击了");
+   }
+  //  bigbox.appendChild(odiv); // 3. 将节点挂载上树 bigbox为父亲
+   bigbox.insertBefore(odiv,smallbox); // 3. 将节点挂载上树 bigbox为父亲
+  //  <tr>
+  //   <td></td>
+  //  </tr>
+  // 小练习   请动态创建出一个20行12列的表格 <table id="my-table"></table>
+  // let myTable = document.getElementById("my-table");
+  // // console.log(myTable);
+  // for(let i=0;i<20;i++){
+  //   let tr=document.createElement("tr");
+  //   for(let i=0;i<12;i++){
+  //     let td=document.createElement("td");
+  //     tr.appendChild(td);
+  //   }
+  //   myTable.appendChild(tr);
+  // }
+
+  /* 
+  移动节点  (给这个元素换一个父节点)
+  如果将已经挂载到DOM树的节点称为appendChild()或insertBefore()的参数，这个节点将会被移动
+  语法：
+  新父节点.appendChild(已有父节点的节点)
+  新父节点.insertBefore(已有父节点的节点 , 标杆子节点)
+
+  这意味着一个节点不能同时位于DOM树的两个位置，相当于给这个元素换一个父节点
+  */
+  // let movebox = document.getElementById("movebox");
+  // console.log(movebox);
+  // movebox.appendChild(smallbox);
+
+  /* 
+  删除节点
+  父节点.removeChild(需要删除的子节点);  节点不能自己删除自己必须有父节点来删除他
+  假设我们不想获取父节点，怎么删除自己 smallbox.parentNode.removeChild(smallbox);
+  */
+  // bigbox.removeChild(smallbox);
+  // smallbox.parentNode.removeChild(smallbox);
+  // function remove(smallbox){
+  //   smallbox.parentNode.removeChild(smallbox);
+  //   return smallbox;
+  // }
+
+  /* 
+  克隆节点
+  **let 孤儿节点 = 老节点.cloneNode();** 浅克隆，只会克隆这一个老节点
+  **let 孤儿节点 = 老节点.cloneNode(true);**深克隆，克隆该老节点及它内部所有的节点
+  */
+ let bigbox2 = bigbox.cloneNode();
+ let bigbox3 = bigbox.cloneNode(true);
+ console.log(bigbox2);
+ console.log(bigbox3);
+
+
+  </script>
+</body>
+
+</html>

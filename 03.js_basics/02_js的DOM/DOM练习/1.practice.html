@@ -1,0 +1,108 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-14 17:44:18
+ * @LastEditTime: 2022-06-14 19:00:43
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        section{
+            margin: 20px auto;
+            width: 100px;
+        }
+        section>div{
+            width: 100px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: #888;
+            margin-bottom: 50px;
+        }
+        .btn{
+            margin: 10px auto;
+            width: 100px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            
+        }
+        figure{
+            width: 400px;
+            margin: 0 auto;
+        }
+        figure>button{
+            width: 100px;
+            cursor: pointer;
+        }
+        .one{
+            opacity: 0;
+            transition: 1s;
+            
+        }
+        .two{
+            opacity: 1;
+        }
+        
+    </style>
+</head>
+<body>
+    <section>
+        <div   class="box1"></div>
+        <div   class="box2"></div>
+        <button class="btn">按钮</button>
+        <figure>
+            <img class="img" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201609%2F26%2F20160926104250_PYTwi.thumb.400_0.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=auto?sec=1657795199&t=57b05e4d07dcab5dd082b580aa3bb0c1" alt="">
+            <button class="show">显示</button>
+            <button class="hidden">隐藏</button>
+        </figure>
+    </section>
+    <script>
+        // 练习一
+        let box1=document.querySelector('.box1')
+        let box2=document.querySelector('.box2')
+        box1.onmouseenter=function(){
+            box2.innerText='移入了box2'
+        }
+        box1.onmouseleave=function(){
+            box2.innerText=''
+        }
+        box2.onmouseenter=function(){
+            box1.innerText='移入了box1'
+        }
+        box2.onmouseleave=function(){
+            box1.innerText=''
+        }
+        // 练习二
+        let btn=document.getElementsByClassName('btn')
+        btn[0].onclick=function(){
+            this.style.color='red'
+        }
+        btn[0].onmouseleave=function(){
+            this.style.color='green'
+        }
+        // 练习三
+        let show=document.querySelector('.show')
+        let hidden=document.querySelector('.hidden')
+        let img=document.querySelector('.img')
+        show.onclick=function(){
+
+            img.classList.add('two')
+            img.classList.remove('one')
+        }
+        hidden.onclick=() => {
+            img.classList.add('one')
+            img.classList.remove('two')
+        }
+
+    </script>
+</body>
+</html>

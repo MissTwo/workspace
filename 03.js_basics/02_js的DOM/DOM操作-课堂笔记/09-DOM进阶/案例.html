@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    img{
+            display: block;
+            width: 500px;
+            height: 700px;
+            margin: 0 auto;
+            opacity: 1;
+            transition: .5s;
+        }
+        form{
+            display: flex;
+            justify-content: space-around;
+            width: 400px;
+            margin: 0 auto;
+        }
+        /* .show{
+          opacity: 1;
+        } */
+        .hidden{
+          opacity: 0;
+        }
+  </style>
+</head>
+<body>
+  
+   <img src="./img/素材.jpg" alt="" id="tp">    
+    <form action="">
+            <input type="button" value="显示" id="bt1">
+            <input type="button" value="隐藏" id="bt2">
+    </form>
+    <script>
+      let bT1=document.getElementById("bt1"),
+            bT2=document.getElementById("bt2"),
+            tuPian=document.getElementById("tp");
+
+        bT1.onclick=function(){
+            //1.
+            // tuPian.style.opacity="1";
+
+            //2.
+            // tuPian.classList.add("show");
+            // tuPian.classList.remove("hidden");
+
+            //3.
+            // tuPian.className="show"
+
+            //4.
+            // tuPian.classList.remove("hidden");
+
+
+        };
+        bT2.onclick=function(){
+            // tuPian.style.opacity="0";
+            // tuPian.classList.add("hidden");
+            // tuPian.classList.remove("show");
+            // tuPian.className="hidden";
+
+            // tuPian.classList.add("hidden");
+
+            
+        }  
+
+    </script>
+</body>
+</html>

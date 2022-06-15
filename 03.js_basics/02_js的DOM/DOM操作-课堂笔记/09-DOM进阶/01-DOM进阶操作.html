@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <!-- <div id="myDiv" class="myDiv">1111</div> -->
+  <div id="mydiv">
+    <p>11</p>
+    <p>22</p>
+    <p>33</p>
+    <p>44</p>
+    <p>55</p>
+    <p>66</p>
+  </div>
+
+  <script>
+    //拿到所有的 p标签
+    // let ap=document.querySelectorAll("#mydiv p");
+    // let ap1=[1,2,3,4];
+    // console.log(ap); 
+    // console.log(ap1); 
+    // for(let i=0;i<ap.length;i++){
+    //   ap[i].innerHTML = 22222;
+    // }
+    // ap.forEach(function(item){
+    //   item.innerHTML = 22222;
+    // })
+    // ap.map(function(item){
+    //   item.innerHTML = 22222;
+    //   console.log(item.innerHTML);
+    // }); // 报错 ap.map is not a function
+
+    //给ap追加数组原型上的方法
+    // ap.map = Array.prototype.map;
+    // ap.map(function(item){
+    //   item.innerHTML = 22222;
+    //   console.log(item.innerHTML);
+    // }); // 正常运行
+
+    //使用Array.from(ap);返回一个真正的新数组
+    // let ap2 = Array.from(ap);
+    // console.log(ap2);
+    // ap2.map(function(item){
+    //   item.innerHTML = 22222;
+    //   console.log(item.innerHTML);
+    // }); // 正常运行
+
+    /* 
+    获取到的ap是一个伪数组，类数组  没有map方法
+    */
+    // let obj = {
+    //   0:"1",
+    //   1:"2",
+    //   2:"3",
+    //   length:3
+    // }
+    // // console.log(obj);
+    // console.log(Array.prototype.forEach);
+    // obj.forEach = Array.prototype.forEach;
+    // obj.forEach(function(item){
+    //   console.log(item);
+    // })
+
+
+  </script>
+
+  <script> 
+    /* 
+    getElementsByTagName  getElementsByName   getElementsByClassName  动态获取
+
+    querySelector   querySelectorAll   getElementById  静态获取
+    */
+
+    //静态获取
+    // let myDiv=document.getElementById("myDiv");
+    // console.log(myDiv);
+    // myDiv.id="haha"
+    // console.log(myDiv);
+    // myDiv.innerHTML="2222"; //生效
+
+    // 动态获取
+    // let myDiv = document.getElementsByClassName("myDiv");
+    // // console.log(myDiv);
+    // myDiv[0].className = "haha"
+    // // console.log(myDiv);
+    // myDiv[0].innerHTML="2222"; //报错
+
+    // 改为静态获取
+    // let myDiv = document.getElementsByClassName("myDiv");
+    // let myobj = myDiv[0];
+    // myDiv[0].className = "haha"
+    // // console.log(myDiv);
+    // myobj.innerHTML="2222";
+
+
+    // let myDiv = document.querySelectorAll(".myDiv");
+    // console.log(myDiv);
+    // myDiv[0].className = "haha"
+    // // console.log(myDiv);
+    // myDiv[0].innerHTML="2222";
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>
