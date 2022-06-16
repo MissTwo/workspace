@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.practice-one {
+    width: 300px;
+    height: 300px;
+    margin: 10px auto;
+    border: 1px solid black;
+    position: relative;
+}
+
+.choose {
+    width: 100%;
+    padding: 10px 0;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.btn {
+    cursor: pointer;
+    width: 60px;
+    height: 20px;
+    background-color: cadetblue;
+    color: white;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.square {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 20px;
+    background-color: yellow;
+    text-align: center;
+
+}
+
+.square.change1 {
+    background-color: greenyellow;
+}
+
+.square.change2 {
+    background-color: plum;
+}
+
+.square.change3 {
+    background-color: paleturquoise;
+}
+.practice-two{
+    width: 300px;
+    height: 300px;
+    margin: 10px auto;
+    border: 1px solid black;
+    position: relative;
+}
+.move{
+    width: 100px;
+    height: 100px;
+    background-color: purple;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+
+}
+.practice-three{
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    border: 1px solid black;
+    margin: 10px auto 50px;
+}
+input{
+    margin-top: 20px;
+}

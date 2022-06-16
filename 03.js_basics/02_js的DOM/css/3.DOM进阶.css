@@ -1,0 +1,86 @@
+.box {
+    margin: 10px auto;
+    width: 300px;
+    height: 300px;
+    background-color: papayawhip;
+    position: relative;
+}
+
+.child {
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: skyblue;
+    text-align: center;
+    line-height: 100px;
+    font-size: 30px;
+    transition: 2s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)scale(0);
+}
+
+.one {
+    z-index: 1;
+    transform: translate(-50%, -50%)scale(1);
+    background-color: pink;
+}
+
+.box.change>.one {
+    transform: translate(-50%, -50%)scale(0);
+}
+
+.box.change>.two {
+    transform: translate(-125%, -125%)scale(1);
+}
+
+.box.change>.three {
+    transform: translate(25%, -125%)scale(1);
+
+}
+
+.box.change>.four {
+    transform: translate(-125%, 25%)scale(1);
+}
+
+.box.change>.five {
+    transform: translate(25%, 25%)scale(1);
+}
+
+.first {
+    width: 300px;
+    height: 300px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: palegreen;
+}
+
+.second {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: palevioletred;
+}
+
+.third {
+    width: 100px;
+    height: 100px;
+    background-color: paleturquoise;
+}
+
+form {
+    background-color: antiquewhite;
+    margin: 20px auto;
+    width: 300px;
+}
+
+input {
+    margin: 10px;
+    width: 90%;
+}

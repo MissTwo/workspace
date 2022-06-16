@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-15 09:38:36
- * @LastEditTime: 2022-06-15 16:51:08
+ * @LastEditTime: 2022-06-16 09:57:22
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +41,7 @@
         <p>1111</p>
     </div>
     <table id="my-table"></table>
+    <div id="content"></div>
     <!-- 
     一、获取元素的方法：
         1.动态获取：getElementsByTagName    getElementsByName   getElementsByClassName
@@ -143,6 +144,19 @@
                 let 孤儿节点=老节点.cloneNode()
             2.深克隆：克隆包含内部所有节点
                 let 孤儿节点=老节点.cloneNode(true)
+    七、替换子元素
+            父元素.replaceChild(新子元素孤儿节点,需要被替换的子元素)
+    八、创建一个文档碎片
+            先将多个“孤儿”节点，整合到这里面再统一添加，解决使用appendChild多次添加节点时候，页面多次进行渲染的问题，使用documentFragment处理节点，速度和性能远远由于直接操作DOM
+            方法：
+                创建文档碎片document.createDocumentFragment()
+                let frag=document.createDocumentFragment()
+                创建孤儿节点
+                let p = document.createElement('p')
+                p.innerHTML = '我是p标签'
+                将孤儿节点加入到文档碎片中
+                frag.appendChild(p)
+                父元素.appendChild(frag)
 
      -->
     <script>
@@ -179,8 +193,17 @@
             }
             table.appendChild(tr)
         }
-        let a=document.documentElement
+        let a = document.documentElement
         // console.log(a);
+        let content = document.getElementById('content')
+        let frag = document.createDocumentFragment()
+        for (let i = 0; i < 100; i++) {
+            let p = document.createElement('p')
+            p.innerHTML = '我是p标签'
+            frag.appendChild(p)
+        }
+        // frag使用之后自动消失,指文档结构的消失
+        content.appendChild(frag)
     </script>
 </body>
 

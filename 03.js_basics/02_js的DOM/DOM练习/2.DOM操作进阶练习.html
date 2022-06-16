@@ -1,7 +1,7 @@
 <!--
  * @Author: lishuangling
  * @Date: 2022-06-15 16:38:41
- * @LastEditTime: 2022-06-15 18:34:12
+ * @LastEditTime: 2022-06-16 09:40:43
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -47,7 +47,7 @@
             let temp = node;
             while (node.previousSibling != null) {
                 if (node.previousSibling.nodeType == 1) {
-                    arr.push(node.previousSibling)
+                    arr.unshift(node.previousSibling)
                 }
                 node = node.previousSibling
             }
@@ -72,6 +72,7 @@
             }
             table.appendChild(tr)
         }
+
 
 
     </script>

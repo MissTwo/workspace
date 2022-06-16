@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			position: relative;
+			width: 180px;
+			height: 180px;
+			border: 1px solid skyblue;
+		}
+		#wrap .menu{
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -40px;
+			margin-left: -40px;
+			width: 80px;
+			height: 80px;
+			background-color: tomato;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 80px;
+			font-size: 14px;
+			cursor: pointer;
+			transition: 2s;
+		}
+		#wrap .child{
+			position: absolute;
+			top: 50px;
+			left: 50px;
+			width: 80px;
+			height: 80px;
+			background-color: pink;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 80px;
+			font-size: 14px;
+			transform: scale(0);
+			transition: 2s;
+		}
+		#wrap.show .child{
+			transform: scale(1);
+		}
+		#wrap.show .menu{
+			/* opacity: 0; */
+			transform: scale(0);
+		}
+		#wrap.show .child.b1{
+			/* top:  0;
+			left: 0; */
+			transform: scale(1) translate(-50px , -50px);
+		}
+		#wrap.show .child.b2{
+			/* top: 0;
+			left: 100px; */
+			transform: scale(1) translate(50px , -50px);
+		}
+		#wrap.show .child.b3{
+			/* left: 0;
+			top: 100px; */
+			transform: scale(1) translate(-50px , 50px);
+		}
+		#wrap.show .child.b4{
+			/* left: 100px;
+			top: 100px; */
+			transform: scale(1) translate(50px , 50px);
+		}
+		/* .child{
+      设置四个元素的共同性
+		} 
+		.show .b1{
+			每一个元素的差异性
+		}
+		.show .b2{
+			每一个元素的差异性
+		}
+		*/
+	</style>
+</head>
+<body>
+
+	<div id="wrap">
+		<div class="menu">菜单</div>
+		<div class="child b1">首页</div>
+		<div class="child b2">文章</div>
+		<div class="child b3">登录</div>
+		<div class="child b4">注册</div>
+	</div>
+
+	<script>	
+	  // 获取菜单 和 四个小按钮
+		let oMenu = document.querySelector("#wrap .menu");
+		let oWrap = document.getElementById("wrap");
+		// oMenu.onclick = function(){
+		// 	oWrap.classList.add("show");			
+		// 	// oWrap.classList.toggle("show");			
+		// }
+
+		let flag=1; //打一个表示
+		oWrap.onclick = function(){	
+			// oWrap.classList.toggle("show");
+			if(flag){
+				oWrap.classList.add("show");
+				// flag = 0;
+				flag = !flag;
+			}	else{
+				oWrap.classList.remove("show");
+				// flag = 1;
+				flag = !flag;
+			}	
+		}
+
+	</script>
+</body>
+</html>
