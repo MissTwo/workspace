@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    /* #box{
+        position: relative;
+        top: 200px;
+        left: 200px;
+        width: 50px;
+        height: 50px;
+        background-color: orange;
+    } */
+    body{
+      height: 3000px;
+    }
+
+    #box {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      background-color: orange;
+      font-size: 50px;
+      text-align: center;
+      line-height: 400px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .box1 {
+      width: 200px;
+      height: 200px;
+      background-color: aqua;
+      border: 1px solid #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box2 {
+      width: 50px;
+      height: 50px;
+      background-color: lawngreen;
+      border: 1px solid #333;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      /* pointer-events: none; */
+      /* 阻断事件 */
+    }
+    #myul{
+      display: flex;
+      justify-content: space-between;
+      width: 500px;
+      height: 60px;
+      line-height: 60px;
+      margin: 100px auto 0;
+    }
+    #myul li{
+      border: 1px solid #333;
+      flex: 1;
+      text-align: center;
+      user-select: none;/*禁止用户选择文本*/
+    }
+
+    #myul li.active{
+      background-color: pink;
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <!-- 练习案列 -->
+  <!-- <div id="box"></div> -->
+  <!-- 输入框练习 -->
+  <!-- <input type="text" id="field" /> -->
+
+  <!-- 捕获和冒泡 -->
+  <!-- <div id="box">
+    <div class="box1">
+      <div class="box2"></div>
+    </div>
+  </div> -->
+
+  <!--  -->
+  <!-- <div id="box">0</div> -->
+
+  <!-- <input type="button" id="btn" value="点我生成新的列表项"> -->
+  <!-- <ul id="list">
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+  </ul> -->
+
+  <!-- <ul id="list">
+    <li>
+      <span>ABCD</span>
+      列表项
+    </li>
+    <li>
+      <span>ABCD</span>
+      列表项
+    </li>
+    <li>
+      <span>ABCD</span>
+      列表项
+    </li>
+    <li>
+      <span>ABCD</span>
+      列表项
+    </li>
+  </ul> -->
+
+
+  <!-- <div id="box">
+    <div class="box2"></div>
+  </div> -->
+
+  <!-- 排它操作 -->
+  <!-- <ul id="myul">
+    <li class="active">首页</li>
+    <li>列表</li>
+    <li>关于</li>
+    <li>联系我们</li>
+    <li>售后</li>
+  </ul> -->
+  <div id="box"></div>
+
+  <script src="./dom进阶与机制.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #bigbox {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 700px;
+            height: 300px;
+            margin: 50px auto;
+            text-align: center;
+            line-height: 300px;
+            transition: .7s;
+            background-color: pink;
+        }
+
+        span {
+            width: 30px;
+            height: 50px;
+            line-height: 50px;
+            color: #fff;
+            background-color: #666;
+            cursor: pointer;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bigbox">
+        <span>
+            <</span> <p>1</p>
+                <span>></span>
+    </div>
+
+    <input type="button" value="单边">
+    <input type="button" value="循环">
+
+
+    <script>
+        let bigBox = document.getElementById("bigbox"),
+            bt = document.getElementsByTagName("span"), //左右按钮
+            p = document.querySelector("p"), //文本
+            obt = document.querySelectorAll("input"), // 单边 循环
+            oColor = ["pink", "lightgreen", "skyblue", "purple", "yellow"], //颜色数组
+            n = Number(p.innerText); // 文本初始值 --> 1
+        // 单边模式
+        obt[0].onclick = function () {
+            bt[1].onclick = function () {
+                if (n < oColor.length) {
+                    n++; //文本展示
+                    p.innerText = n;
+                    bigBox.style.backgroundColor = oColor[n - 1]
+                }
+            }
+            bt[0].onclick = function () {
+                if (n > 1) {
+                    n--; //文本展示 
+                    p.innerText = n;
+                    bigBox.style.backgroundColor = oColor[n - 1]
+                }
+            }
+        }
+        // 循环模式
+        obt[1].onclick = function () {
+            bt[1].onclick = function () {
+                if (n < oColor.length) {
+                    n++; //文本展示   
+                    // p.innerText = n;
+                    // bigBox.style.backgroundColor = oColor[n - 1]
+                } else {
+                    n = 1;
+                    // p.innerText = n;
+                    // bigBox.style.backgroundColor = oColor[n - 1]
+                }
+                p.innerText = n;
+                bigBox.style.backgroundColor = oColor[n - 1]
+            }
+            bt[0].onclick = function () {
+                if (n > 1) {
+                    n--; //文本展示   
+                    // p.innerText = n;
+                    // bigBox.style.backgroundColor = oColor[n - 1]
+                } else {
+                    n = oColor.length;
+                    // p.innerText = n;
+                    // bigBox.style.backgroundColor = oColor[n - 1]
+                }
+                p.innerText = n;
+                bigBox.style.backgroundColor = oColor[n - 1]
+            }
+
+        }
+
+
+
+
+
+
+
+        // obt[0].onclick = function () {
+        //     bt[1].onclick = function () {
+        //         n++;
+        //         if (n <= oColor.length) {
+        //             p.innerText = n;
+        //             bigBox.style.backgroundColor = oColor[n - 1];
+
+        //         } else {
+        //             n = oColor.length;
+        //         }
+        //     }
+        //     bt[0].onclick = function () {
+        //         n--;
+        //         if (n >= 1) {
+        //             p.innerText = n;
+        //             bigBox.style.backgroundColor = oColor[n - 1];
+        //         } else {
+        //             n = 1;
+        //         }
+        //     }
+        // }
+
+
+        // 循环模式
+        // obt[1].onclick = function () {
+        //     bt[1].onclick = function () {
+        //         n++;
+        //         if (n > oColor.length) {
+        //             n = 1;
+        //             p.innerText = n;
+        //             bigBox.style.backgroundColor = oColor[n - 1];
+        //         } else {
+        //             p.innerText = n;
+        //             bigBox.style.backgroundColor = oColor[n - 1];
+        //         }
+        //     }
+        //     bt[0].onclick = function () {
+        //         n--;
+        //         if (n < 1) {
+        //             n = oColor.length;
+        //             p.innerText = n;
+        //             bigBox.style.backgroundColor = oColor[n - 1];
+        //         } else {
+        //             p.innerText = n;
+        //             bigBox.style.backgroundColor = oColor[n - 1];
+        //         }
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

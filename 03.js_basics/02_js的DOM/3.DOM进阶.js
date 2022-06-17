@@ -1,7 +1,7 @@
 /*
  $ @Author: lishuangling
  $ @Date: 2022-06-16 09:58:48
- $ @LastEditTime: 2022-06-16 18:45:45
+ $ @LastEditTime: 2022-06-17 11:10:06
  */
 /* 
 一、什么是事件
@@ -21,7 +21,7 @@
         onmousedown         鼠标一旦按下
         onmouseup           鼠标抬起/松开就执行
         onmousemove         鼠标区域内移动
-        onwheel             滚轮再区域内滚动
+        onmousewheel/onwheel滚轮再区域内滚动
         oncontextmenu       鼠标右键点击触发(一般结合阻止默认事件使用)
 
     鼠标点击触发顺序：
@@ -37,13 +37,19 @@
     3.表单监听事件
         onchange            当用户改变域的内容就会触发
         onfocus             聚焦事件,当元素获取焦点时触发
+        onfocusin           聚焦事件，区别支持冒泡
         onblur              失焦事件,当元素失去焦点时触发
+        onfocusout          失焦事件，区别支持冒泡
         onsubmit            当表单提交时触发(绑定给表单)
         onreset             当表单被重置时触发(绑定给表单)
+        oninput             当表单内正在输入的时候
+        onselect            下拉框选择后触发
 
     4.页面监听事件
         onload              当页面或图像加载完成时触发
         onunload            当页面卸载的时候执行(退出/关闭页面)
+        onresize            浏览器窗口发生变化的时候触发
+        onscroll            页面滚动条滚动时
         
 注意：浏览器在加载一个页面的时候，按照从上至下读一行运行一行，如果将script放在页面上会存在dom元素还没有生成就进行获取，会获取不到，需要用onload在页面加载完成后再执行代码
 

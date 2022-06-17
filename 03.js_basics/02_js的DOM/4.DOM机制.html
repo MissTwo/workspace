@@ -1,0 +1,130 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-17 09:48:00
+ * @LastEditTime: 2022-06-17 16:49:19
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            box-sizing: border-box;
+        }
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: palevioletred;
+        }
+        #list{
+            display: flex;
+            justify-content: space-between;
+            width: 500px;
+            margin: 10px auto;
+        }
+        #list li{
+            border: 1px solid black;
+            cursor: pointer;
+            width: 100px;
+            height: 50px;
+            background-color: antiquewhite;
+            text-align: center;
+            line-height: 50px;
+
+        }
+        #list .change{
+            background-color: plum;
+        }
+        section{
+            width: 400px;
+            height: 400px;
+            background-color: palegoldenrod;
+            margin: 0 auto;
+            /* position: relative; */
+        }
+        .move{
+            width: 50px;
+            height: 50px;
+            background-color: plum;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .carousel{
+            margin: 10px auto;
+            width: 500px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+        .direction{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 500px;
+            height: 300px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .content{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2500px;
+            height: 300px;
+            display: flex;
+            justify-content: flex-start;
+
+        }
+        .content li{
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+        }
+        .direction div{
+            width: 30px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: palegoldenrod;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul id="list"></ul>
+    <div class="carousel">
+        <ul class="content">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <div class="direction">
+            <div class="direction-left">&lt;</div>
+            <div class="direction-right">&gt;</div>
+        </div>
+    </div>
+    <div class="box"></div>
+
+   
+    <p class="num"></p>
+    <button id="start">开始</button>
+    <button id="stop">暂停</button>
+    <section class="region">
+        <!-- <div class="move"></div> -->
+    </section>
+
+    <script src="./4.DOM机制.js"></script>
+</body>
+</html>
