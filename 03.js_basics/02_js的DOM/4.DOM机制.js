@@ -1,7 +1,7 @@
 /*
  $ @Author: lishuangling
  $ @Date: 2022-06-17 09:48:21
- $ @LastEditTime: 2022-06-17 17:34:58
+ $ @LastEditTime: 2022-06-17 17:54:15
  */
 /* 
 一、事件委托：可以利用事件冒泡机制将后代元素的事件委托给祖先
@@ -117,6 +117,7 @@ for (let i = 0; i < contentList.length; i++) {
 let left = document.querySelector('.direction-left')
 let right = document.querySelector('.direction-right')
 let r = content.offsetLeft
+console.log(r);
 
 right.addEventListener('click', () => {
     if (r > -2000) {
