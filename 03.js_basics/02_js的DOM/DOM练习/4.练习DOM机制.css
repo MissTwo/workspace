@@ -1,0 +1,62 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.practice-one{
+    width: 300px;
+    margin: 10px auto;
+    text-align: center;
+}
+#comment{
+    padding: 5px;
+    resize: none;
+}
+#submit{
+    width: 100px;
+}
+table{
+    border-collapse: collapse;
+    margin: 10px auto;
+}
+th{
+    background-color: rgb(245, 101, 45);
+    width: 200px;
+    height: 40px;
+    border: 1px solid black;
+}
+td{
+    width: 200px;
+    height: 150px;
+    border: 1px solid black;
+    text-align: center;
+}
+td img{
+    width: 150px;
+}
+td input{
+    display: block;
+    width: 20px;
+    text-align: center;
+    background-color: rgb(200, 196, 196);
+    border-color: rgb(200, 196, 196);
+    cursor: pointer;
+
+
+}
+.quantity{
+    width: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+
+}
+#num{
+width: 40px;
+outline: none;
+border-left: none;
+border-right: none;
+background-color: white;
+cursor: auto;
+
+}
