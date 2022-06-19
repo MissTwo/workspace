@@ -51,7 +51,7 @@ td input{
     justify-content: center;
 
 }
-#num{
+.num{
 width: 40px;
 outline: none;
 border-left: none;
@@ -59,4 +59,35 @@ border-right: none;
 background-color: white;
 cursor: auto;
 
+}
+.total{
+    margin: 10px auto;
+    padding: 0 70px;
+    width: 1000px;
+    height: 50px;
+    background-color: rgb(245, 101, 45);
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border: 1px solid black;
+
+}
+.total div:last-child{
+    margin-left: 80px;
+}
+.container{
+    width: 1000px;
+    text-align: center;
+}
+.container li{
+    border-bottom: 1px solid peru;
+    padding: 10px;
+}
+.revise{
+    background-color: black;
+    color: white;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 0 5px;
 }
