@@ -1,8 +1,5 @@
 /*
- $ @Author: lishuangling
- $ @Date: 2022-06-20 09:34:53
- $ @LastEditTime: 2022-06-20 15:02:04
- $ @Description: 
+ $ @Author: lishuangling;$ @Date: 2022-06-20 09:34:53;$ @LastEditTime: 2022-06-20 15:43:01
  */
 /* 
 一、BOM是什么？
@@ -110,6 +107,7 @@ box.addEventListener('click', () => {
     }, 2000);
 
 })
+
 let goto = document.getElementById('goto')
 // goto.href='https://taobao.com'
 goto.addEventListener('click', (e) => {

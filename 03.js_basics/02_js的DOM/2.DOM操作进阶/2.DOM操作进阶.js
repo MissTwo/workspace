@@ -1,7 +1,7 @@
 /*
  $ @Author: lishuangling
  $ @Date: 2022-06-20 15:24:52
- $ @LastEditTime: 2022-06-20 15:26:06
+ $ @LastEditTime: 2022-06-20 15:45:29
  $ @Description: 
  */
 /* 
@@ -50,7 +50,7 @@
 
          (1)拿到元素内所有的子节点[text,p,text,p,text](包括空白文本)(获得：伪数组,里面的每一项都是Object)
 
-             关系             考虑所有节点    兼容所有
+             关系               考虑所有节点    兼容所有
 
              子节点             childNodes
              父节点             parentNode

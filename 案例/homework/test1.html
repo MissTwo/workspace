@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+          width: 100vW;
+          height: 100vh;
+          overflow: hidden;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin: 20px auto 0;
+        }
+        .button{
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            height: 30px;
+            margin-top: 20px;
+        }
+        .button>div{
+            width: 80px;
+            height: 30px;
+            background-color: orange;
+            text-align: center;
+            line-height:30px;
+            color: #fff;
+            border: 2px solid transparent;
+            border-right-color: #333;
+            border-bottom-color: #333;
+            cursor: pointer;
+        }
+        .button>.border{
+            border: 2px solid transparent;
+            border-top-color: #333;
+            border-left-color: #333;
+        }
+        #element{
+            width: 180px;
+            height: 180px;
+            background-color:yellow;
+            text-align: center;
+            line-height: 180px;
+            margin: 55px auto 0;
+        }
+
+        
+        #move{
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+            font-size:100px;
+            background-color: orange;
+            border-radius: 50%;
+            border: 5px dashed black;
+            box-sizing: border-box;
+            transform: translate(0,0) rotate(0) scale(1);
+        }
+
+        #text{
+            display: block;
+            width: 200px;
+            height: 30px;
+            margin: 50px auto 0;
+            font-size: 20px;
+            padding: 0 10px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="button">
+        <div id="green">按钮1</div>
+        <div id="red">按钮2</div>
+        <div id="blue">按钮3</div>
+      </div>
+      <div id="element">元素</div>
+    </div>
+
+    <div id="move">🤣</div>
+
+    <input id="text" name="text" type="text" value="">
+
+
+    <script src="./test1.js"></script>
+  </body>
+</html>

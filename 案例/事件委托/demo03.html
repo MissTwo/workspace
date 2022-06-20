@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .box {
+        position: relative;
+        width: 500px;
+        height: 300px;
+        border: 1px solid #ccc;
+        margin: 50px auto 0;
+        overflow: hidden;
+      }
+      #lists {
+        display: flex;
+        width: 2500px;
+        height: 100%;
+      }
+      #lists li {
+        width: 500px;
+        height: 100%;
+        font-size: 50px;
+        text-align: center;
+        line-height: 300px;
+        user-select: none;
+      }
+      .prev {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+      }
+      .next {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(0, -50%);
+      }
+      .prev,
+      .next {
+        width: 50px;
+        height: 80px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 80px;
+        background-color: #ccc;
+        cursor: pointer;
+        user-select: none;
+      }
+      .one,
+      .loop {
+        width: 100px;
+        height: 30px;
+        background-color: #ccc;
+        margin-top: 30px;
+        margin-left: 50px;
+        text-align: center;
+        line-height: 30px;
+        cursor: pointer;
+      }
+      .one.enter,
+      .loop.enter {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul id="lists">
+      </ul>
+      <div class="prev">&lt;</div>
+      <div class="next">&gt;</div>
+    </div>
+    <div class="one">单向</div>
+    <div class="loop">循环</div>
+    <script src="./demo03.js"></script>
+  </body>
+</html>
