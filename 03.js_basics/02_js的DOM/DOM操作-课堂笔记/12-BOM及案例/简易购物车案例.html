@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    td,
+    th {
+      border: 1px solid #333;
+      width: 150px;
+      height: 50px;
+      text-align: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 100px auto;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <table>
+    <tr>
+      <th>商品</th>
+      <th>单价</th>
+      <th>数量</th>
+      <th>小计</th>
+    </tr>
+    <tr>
+      <td>商品1</td>
+      <td class="price">13</td>
+      <td>
+        <button class="reduce">-</button>
+        <span class="num">0</span>
+        <button class="add">+</button>
+      </td>
+      <td class="totalprice">0</td>
+    </tr>
+    <tr>
+      <td>商品2</td>
+      <td class="price">20</td>
+      <td>
+        <button class="reduce">-</button>
+        <span class="num">0</span>
+        <button class="add">+</button>
+      </td>
+      <td class="totalprice">0</td>
+    </tr>
+    <tr>
+      <td>商品3</td>
+      <td class="price">25</td>
+      <td>
+        <button class="reduce">-</button>
+        <span class="num">0</span>
+        <button class="add">+</button>
+      </td>
+      <td class="totalprice">0</td>
+    </tr>
+  </table>
+
+  <script>
+    // let reduce = document.querySelector(".reduce");
+    // let add = document.querySelector(".add");
+    // let num = document.querySelector(".num");
+    // let price = document.querySelector(".price");
+    // let totalprice = document.querySelector(".totalprice");
+    // add.addEventListener("click",function(){
+    //   num.innerHTML = Number(num.innerHTML)+1;
+    //   totalprice.innerHTML = num.innerHTML*price.innerHTML; //小计价格
+    // })
+    // reduce.addEventListener("click",function(){
+    //   if(num.innerHTML > 0){
+    //     num.innerHTML = Number(num.innerHTML)-1;
+    //     totalprice.innerHTML = num.innerHTML*price.innerHTML; //小计价格
+    //   }else{
+    //     alert("不能再少了");
+    //   }
+    // })
+
+    let reduce = document.querySelectorAll(".reduce");
+    let add = document.querySelectorAll(".add");
+    let num = document.querySelectorAll(".num");
+    let price = document.querySelectorAll(".price");
+    let totalprice = document.querySelectorAll(".totalprice");
+    // console.log(add);
+    for (let i = 0; i < add.length; i++) {
+      add[i].addEventListener("click", function () {
+        num[i].innerHTML = Number(num[i].innerHTML) + 1;
+        totalprice[i].innerHTML = num[i].innerHTML * price[i].innerHTML; //小计价格
+      })
+
+      reduce[i].addEventListener("click", function () {
+        if (num[i].innerHTML > 0) {
+          num[i].innerHTML = Number(num[i].innerHTML) - 1;
+          totalprice[i].innerHTML = num[i].innerHTML * price[i].innerHTML; //小计价格
+        } else {
+          alert("不能再少了");
+        }
+      })
+    }
+
+    
+
+
+  </script>
+
+</body>
+
+</html>

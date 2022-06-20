@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.hhh {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+
+}
+
+#root {
+    width: 100px;
+    height: 100px;
+    background-color: blueviolet;
+}
+
+p {
+    background-color: tomato;
+}
+
+button {
+    cursor: pointer;
+}
+
+#box {
+    width: 200px;
+    height: 200px;
+    background-color: green;
+}
+
+#box.box1 {
+    width: 300px;
+    height: 300px;
+    background-color: pink;
+}
+
+.one {
+    width: 150px;
+    height: 50px;
+    background-color: pink;
+    font-size: 20px;
+}
+
+.two {
+    color: yellow;
+}

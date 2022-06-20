@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      width: 3000px;
+      height: 3000px;
+    }
+
+    #box1,
+    #box {
+      width: 150px;
+      height: 150px;
+      background-color: pink;
+      position: relative;
+      top: 0;
+      left: 0;
+      transition: 2s;
+    }
+
+    #box.move {
+      left: 1000px;
+    }
+
+    #box1 {
+      position: fixed;
+      top: 0;
+      left: 45%;
+      padding: 50px;
+      border: 50px solid #333;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#">点我跳转</a>
+  <a id="myurl" href="https://www.taobao.com">点我跳转百度</a>
+  <div id="box"></div>
+  <div id="box1">演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本演示文本</div>
+  <script>
+    // console.log(1);
+    // setTimeout(function(){
+    //   console.log(2);
+    // },500)
+    // setTimeout(function(){
+    //   console.log(3);
+    // },10)
+    // console.log(4);
+    //  1  4  3  2  
+
+    // 定时器实现动画
+    // let box=document.getElementById("box");
+    // let left = 0; //点击盒子  2秒内往右边移动 1000px   
+    // box.onclick = function(){
+    //   let timer = setInterval(function(){
+    //     left += 10;
+    //     if(left > 1000){
+    //       clearInterval(timer)
+    //     }
+    //     box.style.left = left+"px";
+    //   },20)
+    // }
+
+    //实际开发中  我们是通过js结合css一起来完成一个动画 
+    // let box=document.getElementById("box");
+    // let left = 0; //点击盒子  2秒内往右边移动 1000px   
+    // box.onclick = function(){
+    //   left = 1000;
+    //   box.style.cssText =`left:${left}px; transition: 2s;`; 
+    // }
+
+    // 再次点击box 往左移动回来
+    // let box=document.getElementById("box");
+    // let pos = true;
+    // let left = 0; //点击盒子  2秒内往右边移动 1000px 
+    // box.onclick = function(){
+    //   if(pos == true){
+    //     left = 1000;
+    //     pos = false;
+    //   }else{
+    //     left = 0;
+    //     pos = true;
+    //   }
+    //   box.style.cssText =`left:${left}px; transition: 2s;`; 
+    // }
+
+    // 再升级
+    // let box=document.getElementById("box");
+    // let pos = true;
+    // let left = 0; //点击盒子  2秒内往右边移动 1000px 
+    // box["onclick"] = function(){ //通过方括号加字符串调用对象的属性或方法
+    //   box.classList[pos ? "add" : "remove"]("move");
+    //   pos=!pos;
+    // };
+
+    // 函数执行一次之后 只有大于设定的执行周期后才允许执行第二次 可以借助setTimeout()延时器
+    // let box=document.getElementById("box");
+    // let pos = true; // 左边右边运动的标识
+    // let lock = true;
+    // box["onclick"] = function(){ //通过方括号加字符串调用对象的属性或方法
+
+    //   if(!lock) return;
+
+    //   box.classList[pos ? "add" : "remove"]("move");
+    //   pos=!pos;
+
+    //   lock = false;
+
+    //   setTimeout(function(){
+    //     lock=true;
+    //   },2000)
+    // };
+
+    //函数节流  公式：
+    // let lock = true;
+    // box["onclick"] = function(){ //需要节流的函数
+    //   if(!lock) return;
+
+    //   // 函数核心语句
+    //   //.........
+
+    //   //关锁
+    //   lock = false;
+
+    //   //两秒之后开锁
+    //   setTimeout(function(){
+    //     lock=true;
+    //   },2000)
+    // };
+
+    /* 
+    BOM是什么
+    window对象是当前JS脚本运行所处的窗口，而这个窗口中包含DOM结构，window.document属性就是document对象
+    在有标签页功能的浏览器中，每个标签都拥有自己的window对象;也就是说，同一个窗口的标签页之间不会共享一个 window对象
+    全局变量 会成为window对象的属性
+     //  var a = 10;
+  //  console.log(window.a);
+    内置函数普遍是window的方法 比如 setTimeout(),alert()
+
+    innerHeight       浏览器窗口的内容区域的高度，包含水平滚动条（如果有的话）        
+    innerWidth        浏览器窗口的内容区域的宽度，包含垂直滚动条（如果有的话）     
+    outerHeight       浏览器窗口外部高度
+    outerWidth        浏览器窗口外部宽度
+    clientHeight      浏览器窗口的内容区域的高度，不包含水平滚动条
+    document.documentElement.clientHeight
+
+    clientWidth       浏览器窗口的内容区域的宽度，不包含垂直滚动条
+    document.documentElement.clientWidth
+    */
+
+    // console.log("innerHeight--",window.innerHeight);
+    // console.log("innerWidth--",window.innerWidth);
+    // // console.log("outerHeight--",window.outerHeight);
+    // // console.log("outerWidth--",window.outerWidth);
+    // console.log("clientHeight--",document.documentElement.clientHeight);
+    // console.log("clientWidth--",document.documentElement.clientWidth);
+
+    /* 
+    window.onresize 监听浏览器窗口尺寸变化
+
+    window.onfocus/onblur 常配合title修改一些东西
+    onfocus进入当前页面时触发，onblur离开当前页触发
+    */
+
+
+    // window.onresize = function(){
+    //   console.log(1111);
+    // }
+    // window.onfocus = function(){
+    //   document.title = "我回来了"
+    // }
+    // window.onblur = function(){
+    //   document.title = "我走了"
+    // }
+
+
+    /* 
+    onscroll  在窗口被卷动之后触发  
+    window.scrollY 已卷动的高度  window.scrollY 来获取
+    document.documentElement.scrollTop 也可以表示页面卷去的高度
+    兼容性写法
+    let scrollTop = document.documentElement.scrollTop || window.scrollY
+    document.documentElement.scrollTop不是只读的，window.scrollY是只读的
+    window.scrollTo(x,y); //浏览器的页面滚动
+    */
+    //  window.onscroll=function(){
+    //   // console.log("我被卷动了");
+    //   // console.log(window.scrollY);
+    //   console.log(document.documentElement.scrollTop);
+    //  }
+
+    //  box1.onclick = function(){
+    //   document.documentElement.scrollTop = 0; //可写
+    //   // window.scrollY=0; //只读
+    //  }
+
+    /* 点击返回顶部小练习 
+    body   3000px高度  当页面滚动到 1000以后右下角出现一个小方块  点击它返回页面顶部
+       需要一点缓慢过渡  setInterval();
+     */
+    // box1.style.display="none";
+    //  window.onscroll=function(){ //监听页面滚动高度
+    //   //当达到一定高度 使盒子展示
+    //   if(document.documentElement.scrollTop>1000){
+    //     box1.style.display="block";
+    //   }
+    //  }
+
+    //   box1.onclick = function(){
+    //     let top = document.documentElement.scrollTop||document.body.scrollTop;
+    //     let timer=setInterval(function(){
+    //       top -= 100;
+    //       if (top<=0) { //判断已经达到顶部的时候  清除定时器  同时top设置成极限值
+    //         clearInterval(timer);
+    //         top=0;
+    //       }
+    //       // document.documentElement.scrollTop =top;
+    //       // document.body.scrollTop=top; // 元素.scrollTop=...;
+    //       window.scrollTo(0,top); // 第一个参数代表x方向滚动的距离，第二个参数是y轴方向距离
+    //     }, 20);
+    //    } 
+
+    /* 
+    window.navigator 对象
+
+    window.navigator.userAgent 浏览器的用户代理（含有内核信息和封装壳信息）
+    一般我们只会用到navigator.userAgent类获取浏览器信息 不同的浏览器会有不同的userAgent
+
+    appName     浏览器的官方名称
+    appVersion  浏览器版本
+    platform    用户操作系统
+
+    ios版微信浏览器
+    Mozilla/5.0 (iPhone; CPU iPhone OS 9_3 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E233 MicroMessenger/6.3.15 NetType/WIFI Language/zh_CN
+
+    android 版微信浏览器
+    Mozilla/5.0 (Linux; Android 5.0.1; GT-I9502 Build/LRX22C; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.121 Mobile Safari/537.36 MicroMessenger/6.1.0.78_r1129455.543 NetType/WIFI
+
+    ios版本qq浏览器
+    Mozilla/5.0 (iPhone; CPU iPhone OS 11_2_2 like Mac OS X) AppleWebKit/604.4.7 (KHTML, like Gecko) Mobile/15C202 QQ/7.3.5.473 V1_IPH_SQ_7.3.5_1_APP_A Pixel/1125 Core/UIWebView Device/Apple(iPhone X) NetType/WIFI QBWebViewType/1
+
+    安卓版qq浏览器
+    Mozilla/5.0 (Linux; Android 4.4.2; PE-TL20 Build/HuaweiPE-TL20; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/57.0.2987.132 MQQBrowser/6.2 TBS/043807 Mobile Safari/537.36 V1_AND_SQ_7.3.2_762_YYB_D QQ/7.3.2.3350 NetType/WIFI WebP/0.3.0 Pixel/1080
+    */
+    //  console.log(window.navigator.userAgent);
+    //  console.log(window.navigator.appName);
+    //  console.log(window.navigator.appVersion);
+    //  console.log(window.navigator.platform);
+
+    /* 
+    window.history 对象
+    提供了操作浏览器会话历史的接口  可以模拟浏览器的前进后退按钮
+    window.history.back(); //返回上一个页面
+    window.history.forward(); //跳转到下一个页面
+    window.history.go(n); // 需要整数作为参数
+    */
+    //  box1.onclick = function(){
+    //     // window.history.back(); //返回上一个页面
+    //     // window.history.forward(); //跳转到下一个页面
+    //     // window.history.go(1); //跳转下一个页面 相当于history.forward();
+    //     // window.history.go(2); //跳转下两个页面 
+    //     // window.history.go(-1); //返回上一个页面 相当于 history.back();
+    //     window.history.go(0); //刷新当前页面
+    //  }
+
+    /* 
+    window.location 对象
+    标识当前所在网址，可以通过给这个属性赋值进行页面跳转
+    window.location="https://www.baidu.com";
+    window.location.href="https://www.baidu.com"; //href是页面的url路径
+    */
+    //小练习  <a id="myurl" href="https://www.taobao.com">点我跳转百度</a>
+    // myurl.onclick = function(e){
+    //   e.preventDefault(); //组织a标签的默认跳转事件
+    //   // window.location="https://www.baidu.com";
+    //   window.location.href="https://www.baidu.com";
+    // }
+    // console.log(window.location);
+
+    /* 
+    window.location.reload() 刷新页面
+    window.location.reload(true) 强制清空页面缓存刷新
+    */
+    // box1.onclick = function (e) {
+    //   window.location.reload(true);
+    // }
+
+    /* 
+    各种元素的宽高获取
+    window.innerWidth / window.innerHeight 包含滚动条
+    document.documentElement.clientWidth   不包含滚动条
+
+    元素的宽高获取
+    元素.clientWidth  元素的宽（左右padding）
+    元素.clientHeight  元素的高（上下padding）
+
+    元素.offsetWidth / 元素.offsetHeight (包括padding和border)
+
+    元素.scrollHeight 内容的实际高度，当内容没超出时clientHeight
+
+    */
+
+    //  console.log(document.documentElement.clientWidth);
+    // console.log(box1.clientWidth); //250
+    // console.log(box1.offsetWidth); //350
+    // console.log(box1.scrollHeight); // 内容超出也进入计算  就算给了超出隐藏也不会减小高度获取
+    // console.log(box1.clientHeight); //250
+
+
+    /* 
+    元素之间的各种距离
+    offsetLeft    获取元素左边距离最近带有有效定位属性的元素的距离（relative absolute fixed sticky）   
+    offsetTop     获取元素顶部距离最近带有有效定位属性的元素的距离   
+    */
+  //  console.log(box1.offsetLeft);
+  //  console.log(box1.offsetTop);
+
+  console.log(box1.offsetParent); //null  自身带有fixed固定定位属性
+  
+
+    
+
+
+
+
+
+  </script>
+</body>
+
+</html>
