@@ -1,60 +1,199 @@
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
+* {
+    margin       : 0;
+    padding      : 0;
+    list-style   : none;
     /* box-sizing: border-box; */
 }
-.lamp{
-    width: 600px;
-    height: 100px;
-    margin: 10px auto;
-    border: 5px solid black;
-    /* overflow: hidden; */
+
+.lamp {
+    width   : 600px;
+    height  : 100px;
+    margin  : 10px auto;
+    border  : 5px solid black;
+    overflow: hidden;
 }
-.container{
+
+.container {
     display: flex;
-    width: 1440px;
-    cursor: pointer;
+    width  : 1440px;
+    cursor : pointer;
 }
-.content{
-    padding-left:20px;
+
+.content {
+    padding-left    : 20px;
     background-color: aqua;
-    width: 700px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
+    width           : 700px;
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+
 }
-.content li{
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    font-size: 50px;
-    line-height: 100px;
+
+.content li {
+    width              : 100px;
+    height             : 100px;
+    text-align         : center;
+    font-size          : 50px;
+    line-height        : 100px;
     /* 字体镂空 */
-    -webkit-text-stroke:2px black;
-    color: white;
+    -webkit-text-stroke: 2px black;
+    color              : white;
 }
-.content li:nth-child(1){
+
+.content li:nth-child(1) {
     background-color: red;
 }
-.content li:nth-child(2){
+
+.content li:nth-child(2) {
     background-color: orange;
 }
-.content li:nth-child(3){
+
+.content li:nth-child(3) {
     background-color: yellow;
 }
-.content li:nth-child(4){
+
+.content li:nth-child(4) {
     background-color: rgb(33, 233, 33);
 }
-.content li:nth-child(5){
-    background-color:rgb(72, 214, 246);
+
+.content li:nth-child(5) {
+    background-color: rgb(72, 214, 246);
 }
-.content li:nth-child(6){
+
+.content li:nth-child(6) {
     background-color: rgb(99, 103, 236);
 }
 
+/* 第二题 */
+.substance {
+    width   : 400px;
+    height  : 250px;
+    margin  : 10px auto;
+    border  : 5px solid black;
+    position: relative;
+    overflow: hidden;
 
-.substance img{
+}
+
+.images {
+    width     : 2400px;
+    transition: 1s;
+    display   : flex;
+}
+
+.substance img {
     width: 400px;
 }
+
+.control {
+    width          : 400px;
+    height         : 250px;
+    display        : flex;
+    justify-content: space-between;
+    align-items    : center;
+    position       : absolute;
+    top            : 0;
+    left           : 0;
+}
+
+.control>div {
+    font-size       : 30px;
+    width           : 30px;
+    height          : 40px;
+    background-color: #999;
+    text-align      : center;
+    line-height     : 40px;
+    cursor          : pointer;
+}
+
+.clock {
+    margin          : 0 auto;
+    background-image: radial-gradient(circle 200px at center, black 0%, black 2%, #666 2%, #666 90%, #999 90%, #999 100%);
+    border-radius   : 50%;
+    width           : 400px;
+    height          : 400px;
+    position        : relative;
+}
+
+.clock span {
+    font-size: 25px;
+}
+
+.clock span:nth-child(1) {
+    position: absolute;
+    top     : 0;
+    left    : 50%;
+    margin  : 20px 0 0 -15px;
+
+}
+
+.clock span:nth-child(2) {
+    position: absolute;
+    bottom  : 0;
+    left    : 50%;
+    margin  : 0 0 20px -10px;
+}
+
+.clock span:nth-child(3) {
+    position: absolute;
+    top     : 50%;
+    right   : 0;
+    margin  : -18px 25px 0 0;
+
+}
+
+.clock span:nth-child(4) {
+    position: absolute;
+    top     : 50%;
+    left    : 0;
+    margin  : -18px 0 0 25px;
+}
+
+.hour {
+    width           : 6px;
+    height          : 80px;
+    background-color: black;
+    position        : absolute;
+    left            : 197px;
+    bottom          : 200px;
+    transform-origin: bottom;
+
+    animation: move 43200s linear infinite;
+
+}
+
+.minute {
+    width           : 4px;
+    height          : 100px;
+    background-color: black;
+    position        : absolute;
+    left            : 198px;
+    bottom          : 200px;
+    transform-origin: bottom;
+    animation       : move 3600s linear infinite;
+
+}
+
+.second {
+    width           : 2px;
+    height          : 120px;
+    background-color: black;
+    position        : absolute;
+    left            : 199px;
+    bottom          : 200px;
+    transform-origin: bottom;
+    animation       : move 60s linear infinite;
+
+}
+
+/* @keyframes move {
+    from {
+        transform: rotate(0);
+
+    }
+
+    to {
+        transform: rotate(360deg);
+
+    }
+} */
