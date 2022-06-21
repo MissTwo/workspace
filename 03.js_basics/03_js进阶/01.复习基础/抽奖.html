@@ -1,0 +1,35 @@
+<!--
+ * @Author: lishuangling
+ * @Date: 2022-06-21 16:28:43
+ * @LastEditTime: 2022-06-21 16:40:28
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖</title>
+</head>
+
+<body>
+    <script>
+        const names = ["王俊钞", "廖雪东", "康建江", "刘倩", "程家吉", "黎明", "李佳莲", "金旭龙", "李双伶", "李辉"]
+        function clone() {
+            let arr = []
+            arr = names.splice(0)
+            do {
+                let a = parseInt(Math.random() * arr.length)
+                let person = arr[a]
+                console.log(person);
+                arr.splice(a, 1)
+            } while (arr.length);
+        }
+        for (let i = 0; i < 3; i++) {
+            clone;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*内部样式表*/
+        .c3 {
+            height: 100px;
+            background-color: greenyellow;
+            font-size: 0;
+            overflow: hidden;
+        }
+
+        .c3 div {
+            font-size: 16px;
+            height: 80px;
+            width: 100px;
+            background-color: red;
+            /*display: inline-block;*/
+            margin: 10px;
+        }
+
+        #d1 {
+            color: yellow;
+        }
+
+        .c1 {
+            color: greenyellow !important;
+        }
+
+        .c2 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="c1">这是一个div，有一个样式</div>
+
+<div id="d1" class="c1 c2">这是一个div，有两个样式</div>
+<form action="#">
+    <input type="radio" name="color" value="1" /> 红
+    <input type="radio" name="color" value="2" /> 绿
+    <input type="radio" name="color" value="3" /> 蓝
+
+    <input type="radio" name="aihao" value="1" /> 红
+    <input type="radio" name="aihao" value="2" /> 绿
+    <input type="radio" name="aihao" value="3" /> 蓝
+
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+</form>
+<div class="c3">
+    <div>1</div>
+    <div>2</div>
+</div>
+<div class="c3">
+    <div style="margin-top:30px">3</div>
+    <div>4</div>
+</div>
+<div class="c3">
+    <div style="float:left">5</div>
+    <div style="float:left">6</div>
+</div>
+<img src="imgs/JavaScript.jpeg" style="opacity: 0.5">
+<script>
+    console.log(document.querySelector(".c1.c2"));
+    // 获取所有checkbox
+    document.querySelectorAll("input[type]") // 所有input标签且有type属性，不写="值"都可以
+    document.querySelectorAll("input[type=‘checkbox’]") // 所有input标签且有type属性，不写="值"都可以
+    document.querySelectorAll("input[type=‘radio’][name='aihao']") // 多个属性的写法
+</script>
+</body>
+</html>

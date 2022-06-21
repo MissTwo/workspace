@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>clock</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    .clock {
+        width: 400px;
+        height: 400px;
+        left: 50%;
+        top: 50%;
+        background: linear-gradient(#777777, #888888);
+        border-radius: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        border: 15px solid #CCCCCC;
+    }
+
+    .clock span {
+        position: absolute;
+        font-size: 25px;
+        font-family: '微软雅黑';
+        color: #111111;
+    }
+
+    .clock span.num12 {
+        left: 50%;
+        top: 2px;
+        transform: translate(-50%);
+    }
+
+    .clock span.num3 {
+        right: 0;
+        top: 50%;
+        transform: translate(-4px, -50%);
+    }
+
+    .clock span.num6 {
+        left: 50%;
+        bottom: 2px;
+        transform: translate(-50%);
+    }
+
+    .clock span.num9 {
+        left: 0;
+        top: 50%;
+        transform: translate(4px, -50%);
+    }
+
+    .clock em {
+        width: 5px;
+        height: 150px;
+        background-color: #111111;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -100%);
+        border-radius: 10px;
+        transform-origin: center bottom;
+    }
+
+    .clock em.point {
+        background-color: #111111;
+        height: 7px;
+        width: 7px;
+        transform: translate(-50%, -50%);
+    }
+
+    .clock em.shi {
+        height: 90px;
+        background-color: #222222;
+    }
+
+    .clock em.miao {
+        width: 2px;
+        background-color: #fff;
+        height: 130px;
+    }
+
+    .clock em.fen {
+        width: 3px;
+    }
+</style>
+
+
+<body>
+<div class="clock">
+    <span class="num3">3</span>
+    <span class="num6">6</span>
+    <span class="num9">9</span>
+    <span class="num12">12</span>
+    <em id='oshi' class="shi"></em>
+    <em id='ofen' class="fen"></em>
+    <em id='omiao' class="miao"></em>
+    <em class="point"></em>
+</div>
+
+
+<script>
+    function Clock() {
+        var nowTime = new Date();
+        var nowH = nowTime.getHours();
+        var nowM = nowTime.getMinutes();
+        var nowS = nowTime.getSeconds();
+        nowH > 12 ? nowH -= 12 : nowH;
+        // transform: translate(-50%,-100%) rotate(30deg);
+        document.getElementById('omiao').style.transform = ' translate(-50%,-100%) rotate(' + 6 * nowS + 'deg)';
+        document.getElementById('ofen').style.transform = ' translate(-50%,-100%) rotate(' + 6 * nowM + 'deg)';
+        document.getElementById('oshi').style.transform = ' translate(-50%,-100%) rotate(' + 30 * nowH + 'deg)';
+    }
+
+    Clock()
+    setInterval(Clock, 1000)
+</script>
+</body>
+</html>

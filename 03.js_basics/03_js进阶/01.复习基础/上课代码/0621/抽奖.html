@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const names = ["王俊钞",
+        "廖雪东",
+        "康建江",
+        "刘倩",
+        "程家吉",
+        "黎明",
+        "李佳莲",
+        "金旭龙",
+        "李双伶",
+        "李辉"]
+
+    // 1、实现随机抽取一个学生
+    // 随机数：Math.random()，产生[0, 1)
+    // 产生一个数组长度范围以内的随机数，即索引，
+    //         范围(相乘)、整数(Math.floor()，ceil()，转换为字符串再截取小数点之后内容)
+    // 2、实现每一轮每个学生只抽中一次。
+    // 只是一次使用，抽中一个，splice()、踢出一个。pop()只删除最后一个，shift()删除第一个
+
+    // 3、可以无限使用
+    // 多个使用，
+    //        每次都将原数据复制一次，抽中一个踢出一个，但要保证源数组不变
+    //        每抽中一个，将他添加到另一个空数组中，抽完之后，复制内容到源数组中，然后清空
+
+    function t1() {
+        // 保存中奖者的数组
+        let a1 = [];
+        // 将names中的元素都复制到a1数组中
+        for (let i = 0; i < names.length; i++) {
+            a1.push(names[i])
+        }
+        console.log("a1.length = " + a1.length)
+        console.log("--------------开始------------")
+        // 在操作数组遍历的时候，同是需要对遍历的数组进行元素添加或删除时，尽量不要使用for循环，建议使用while或do-while
+        // for(let i = 0; i < a1.length; i++) {
+        //     // 产生个0到names.length的随机数，且要求是整数
+        //     let r = Math.floor(Math.random() * a1.length);
+        //     let zjr = a1[r]; // 中奖人
+        //     console.log("中奖人", zjr)
+        //     // 删除抽中的人
+        //     a1.splice(r, 1)
+        // }
+        // 死循环：永不终止的
+        // do {
+        //
+        // }while (true)
+        do {
+            // 产生个0到names.length的随机数，且要求是整数
+            let r = Math.floor(Math.random() * a1.length);
+            let zjr = a1[r]; // 中奖人
+            console.log("中奖人", zjr)
+            // 删除抽中的人
+            a1.splice(r, 1)
+        } while (a1.length)
+        console.log("删除之后a1.length = " + a1.length)
+        console.log("-------------结束-------------")
+    }
+
+    for (let i = 0; i < 3; i++) {
+        t1();
+    }
+</script>
+
+</body>
+</html>

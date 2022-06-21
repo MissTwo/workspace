@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="抽奖.html" method="get">
+<!--        提交不会处理没有name属性的表单元素-->
+        <input type="text"  placeholder="随意点" />
+        <input type="text" name="aaa"  placeholder="会处理的元素" />
+        <input type="submit" value="get提交" />
+    </form>
+
+
+    <form action="抽奖.html" method="post">
+        <fieldset>
+            <legend>标题</legend>
+
+            <!--        提交不会处理没有name属性的表单元素-->
+            <input type="text"  placeholder="随意点" value="123" />
+            <input type="text" name="aaa"  placeholder="会处理的元素" />
+        </fieldset>
+        <fieldset>
+            <legend>个人信息</legend>
+
+            <!--        提交不会处理没有name属性的表单元素-->
+            <input type="text"  placeholder="随意点" value="123" />
+            <input type="text" name="aaa"  placeholder="会处理的元素" />
+        </fieldset>
+        <input type="submit" value="post提交" />
+
+        <button type="reset">重置</button>
+    </form>
+</body>
+</html>

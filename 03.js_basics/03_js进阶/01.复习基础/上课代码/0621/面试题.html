@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //==================第一题==================
+        /*
+            1、函数作用域与全局作用域
+                函数作用域只是在该函数的范围内有效，看{}。
+                严格一点来说只是影响其后面代码，但是var不会，因var会导致变量的声明提升。
+            2、b是全局变量定义，在严格模式是失效的
+         */
+        function crazyFunction() {
+            // 只是在函数的{}范围内
+            console.log("a", typeof a === "undefined"); // true
+            var a = (b = 10);
+            console.log("a", typeof a === "undefined");// false
+        }
+
+        crazyFunction();
+        console.log("b", typeof b === "undefined");
+        console.log("a", typeof a === "undefined");
+
+        //==================第二题==================
+        const numbers = [1, 2, 3];
+        for(var index = 0; index < numbers.length; index++); {
+            const number = numbers[index];
+            console.log(number);
+        }
+
+        // 拆分如下就能理解了
+        // for(var index = 0; index < numbers.length; index++);
+        // console.log("index", index)
+        // {
+        //     // 代码块，有块级作用域
+        //     const number = numbers[index];
+        //     // const只是不允许再修改值
+        //     console.log(number);
+        // }
+
+
+        //==================第三题==================
+        let i;
+        for(i = 0; i < 3; i++) {
+            setTimeout(function log() {
+                console.log(i);
+            })
+        }
+    </script>
+</body>
+</html>
