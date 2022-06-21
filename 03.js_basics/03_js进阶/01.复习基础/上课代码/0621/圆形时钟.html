@@ -111,7 +111,9 @@
         var nowH = nowTime.getHours();
         var nowM = nowTime.getMinutes();
         var nowS = nowTime.getSeconds();
-        nowH > 12 ? nowH -= 12 : nowH;
+
+        // nowH > 12 ? nowH -= 12 : nowH;
+        nowH = nowH % 12
         // transform: translate(-50%,-100%) rotate(30deg);
         document.getElementById('omiao').style.transform = ' translate(-50%,-100%) rotate(' + 6 * nowS + 'deg)';
         document.getElementById('ofen').style.transform = ' translate(-50%,-100%) rotate(' + 6 * nowM + 'deg)';

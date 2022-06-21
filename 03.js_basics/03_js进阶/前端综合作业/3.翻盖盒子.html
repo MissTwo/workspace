@@ -14,7 +14,8 @@
             padding: 0;
             box-sizing: border-box;
         }
-        .content{
+
+        .content {
             margin: 10px auto;
             width: 200px;
             height: 200px;
@@ -22,6 +23,7 @@
             position: relative;
             background-color: wheat;
         }
+
         .cover {
             position: absolute;
             left: 0;
@@ -30,50 +32,80 @@
             height: 200px;
             border-radius: 50%;
             border: 1px solid black;
-            background-image: url(./img/2.png);
+            background-image: url(/03.js_basics/03_js进阶/前端综合作业/img/2.png);
             background-size: 200px 200px;
             transform-origin: bottom;
             transition: 2s;
         }
 
-        .content:hover .cover{
-            transform: rotateX(180deg) ;
+        .content:hover .cover {
+            transform: rotateX(180deg);
 
         }
+
         .center {
             width: 200px;
             height: 200px;
             border-radius: 50%;
             border: 1px solid black;
-            background-size:200px 200px;
-            background-image: url(./img/1.jpeg);
+            background-size: 200px 200px;
+            background-image: url(/03.js_basics/03_js进阶/前端综合作业/img/1.jpeg);
         }
+
         .container {
-            position: relative;
-            margin: 200px auto;
-            width: 600px;
-            height: 600px;
-            background-color: yellow;
+            margin: 400px auto;
+            width: 200px;
+            background-color: wheat;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .item{
+
+        .item {
             position: absolute;
             width: 200px;
             height: 200px;
             border-radius: 50%;
             border: 1px solid black;
-            background-image: url(./img/2.png);
+            background-image: url(/03.js_basics/03_js进阶/前端综合作业/img/2.png);
             background-size: 200px 200px;
             transition: 2s;
-            transform-origin: center;
         }
-        .container:hover .left{
-            transform: translate(-100%,0) rotate(180deg);
+
+        .left {
+            transform-origin: left;
+
         }
-        .container:hover .right{
-            transform: translate(100%,-100%) rotate(180deg);
+
+        .right {
+            transform-origin: right;
+
+        }
+
+        .top {
+            transform-origin: top;
+
+        }
+
+        .bottom {
+            transform-origin: bottom;
+
+        }
+
+        .container:hover .left {
+            transform: rotate(180deg);
+        }
+
+        .container:hover .right {
+            transform: rotate(180deg);
+        }
+
+        .container:hover .top {
+            transform: rotate(180deg);
+        }
+
+        .container:hover .bottom {
+            transform: rotate(180deg);
         }
 
 
@@ -85,10 +117,10 @@
     <div class="center"></div>
 </div>
 <div class="container">
-<!--    <div class="item left"></div>-->
+    <div class="item left"></div>
     <div class="item right"></div>
-<!--    <div class="item top"></div>-->
-<!--    <div class="item bottom"></div>-->
+    <div class="item top"></div>
+    <div class="item bottom"></div>
     <div class="center"></div>
 </div>
 
