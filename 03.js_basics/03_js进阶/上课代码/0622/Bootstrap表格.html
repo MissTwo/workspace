@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--
+        width=device-width：页面宽度与设备宽度一致
+        initial-scale=1：初始缩放为1，即不会缩放
+        minimum-scale=1：最小缩放比
+        maximum-scale=1：最大缩放比
+        user-scalable=no：用户自定缩放
+    -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0" />
+    <title>Title</title>
+
+    <link rel="stylesheet" href="/上课代码/css/normalize.css" />
+    <!--    min.css是用于线上(正式)环境的-->
+    <link rel="stylesheet" href="/上课代码/bootstrap/css/bootstrap.css" />
+    <!--    因为bootstrap依赖jqeury，所以后面再引入-->
+    <style>
+        .container div {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <table class="table table-striped table-bordered table-hover">
+
+        <caption>表格的标题，使用比较少</caption>
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>

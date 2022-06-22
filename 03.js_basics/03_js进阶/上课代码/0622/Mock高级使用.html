@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/mock.js"></script>
+<script>
+    // 产生对象数组
+    // 完成产生个100个学生对象数据，id(自增1，从1开始)，学号(字符串数字，3位)，中文姓名（随机），年龄（10~20），分数（0~100）。同时求出最高分的学生，并打印其信息
+    let temp = {
+        "array|100": [
+            {
+                // id属性，是自增1
+                "id|+1": 1,
+                "code": "@string('number', 3)",
+                // "code": "@string('0123456789', 3)",
+                // "code": "@cword('0123456789', 3)",
+                "name": "@cname",
+                "age": "@integer(10, 20)",
+                "score": "@integer(0, 100)"
+            }
+        ]
+    };
+    let data = Mock.mock(temp);
+    console.log(data)
+    // 占位符扩展，即扩展Random中的方法
+    // 随机点名系统，数据的范围只能是上面data中的姓名。本质固定了数据来源
+    const names = ["王俊钞","廖雪东", "康建江", "刘倩", "程家吉", "黎明", "李佳莲", "金旭龙", "李双伶", "李辉"]
+
+    // 通过Random.extend方法来实现功能扩展
+    Mock.Random.extend({
+        getStuName: function () {
+            // 通过pick方法，告诉mock，getStuName的数据源是names数组
+            return this.pick(names)
+        },
+        t1: function() {
+            return 1;
+        }
+    })
+
+    console.log(Mock.mock({
+        "string|1": "@getStuName",
+        "t|1": "@t1"
+    }));
+
+    // 数据验证
+    console.log(Mock.valid(temp, data));
+    console.log(Mock.valid(temp, {array: [{
+            "id": 1,
+            "code": "742",
+            "name": "雷强",
+            "age": 20,
+            "score": 75
+        }]}))
+</script>
+</body>
+</html>

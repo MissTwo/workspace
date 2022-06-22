@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/mock.js"></script>
+<script src="../js/jquery-3.5.1.js"></script>
+<script>
+    // Mock.mock(rurl, rtype, template)
+    // rurl(请求地址), rtype(请求方式，get或post), template(mock的数据模板)
+    Mock.mock("/test", "get", {
+        "code": "@string('number', 3)",
+        "list|1-100": [
+            {
+                "id|+1": 1,
+                "name": "@cname"
+            }
+        ]
+    })
+
+    // 请求延时模拟
+    Mock.setup({
+        timeout: '2000-6000'  // 请求会延时200到600
+    })
+
+    // 发起ajax请求，
+    $.get("/test", function (data, status) {
+        // status：执行状态，是否成功
+        // data：请求的返回数据
+        console.log(data, status)
+    })
+</script>
+</body>
+</html>

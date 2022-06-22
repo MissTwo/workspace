@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/mock.js"></script>
+<script>
+    let result = Mock.mock({
+        "str|1-10": "s",
+        "number|+1": 202,
+        "rand|1-100": 10,
+        "sal|1000-10000.2": 1, // .2表示小数点的位数
+        "boolean|1": true,
+        "object|2": {   // 在下面四个选中两个
+            "310000": "上海市",
+            "320000": "江苏省",
+            "330000": "浙江省",
+            "340000": "安徽省"
+        },
+        "array|+1": [   // 递增+1
+            "AMD",
+            "CMD",
+            "UMD"
+        ],
+        "objArray|1-10": [  // 随机产生1~10个对象
+            {
+                "name|+1": [
+                    "Hello",
+                    "Mock.js",
+                    "!"
+                ]
+            }
+        ]
+    });
+    console.log(result)
+    console.log(Mock.Random.boolean(), Mock.Random.natural())
+    console.log(Mock.Random.natural(1, 100))
+    //Random.integer( min?, max? ) // ?表示可以填，也可以不填参数
+    // Random.float( min?, max?, dmin?, dmax? )  产生带小数的，dmin：最少的小数位数，dmax就是最多的小数位数
+    console.log(Mock.Random.float(1, 100, 2, 2))
+    // Random.character( pool? )
+    // Random.string( pool?, min?, max? )
+    //Random.range(start?, stop, step?)
+    // Random.date( format? ) : format指定的日期格式，yyyy-MM-dd hh:mm:ss
+    // hh：12小时、HH：24小时
+    console.log(Mock.Random.date("yyyy-MM-dd hh:mm:ss"))
+    console.log(Mock.Random.date("2022-MM-dd hh:mm:ss"))
+    // Random.time( format? )
+    // Random.datetime( format? )
+    // Random.now( unit?, format? )：获取当前系统的时间
+    // Random.paragraph( min?, max? )：产生一段文字
+    console.log(Mock.Random.paragraph())
+    // Random.word( min?, max? )：产生字母字符串
+    // Random.cparagraph( min?, max? ):产生中文的一段文字
+    // Random.cname()
+</script>
+</body>
+</html>
