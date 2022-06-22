@@ -73,37 +73,102 @@
 </div>
 
 </div>
-
+<script src="./js/mock.js"></script>
+<script src="./js/jquery-3.5.1.js"></script>
 <script>
-    let object={
-        username:'111111',
-        password:'222222',
+
+    // TODO:页面加载时，判断localstorage中rememberMe是否存在，如果存在，将其中的username和password填入input
+
+    let users={
+            '111111':'222222',
+            '222222':'222222',
+            '333333':'222222',
+            '444444':'222222',
+            '555555':'222222',
+            '666666':'222222',
+        }
+
+    Mock.mock("/login", "post", function (data){
+        let params = parseParam(data.body)
+        if (checkUserPasswd(params.username,params.password)){
+            return {
+                code: 0,
+                msg: "login success"
+            }
+        }
+        return {
+            code: 0,
+            msg: "login failed"
+        }
+    })
+
+    function checkUserPasswd(username,password){
+        return !(!users[username] || users[username] !== password)
     }
+
+    function parseParam(params) {
+        const newParams = params.split("&");
+        const urlObj = new Object();
+        for(let i = 0; i < newParams.length; i++) {
+            const newArray = newParams[i].split('=');
+            urlObj[newArray[0]] = newArray[1]
+        }
+        return urlObj;
+    }
+
     let username = document.getElementById('username'),
         password = document.getElementById('password'),
         usernameInfo = document.querySelector('.username-info'),
         passwordInfo = document.querySelector('.password-info'),
         login = document.querySelector('#login');
-    username.addEventListener('blur', function () {
+        // TODO:获取rememberMe checkbox
+    username.addEventListener('input', function () {
         if (username.value === "" || username.value.trim().length < 6) {
             usernameInfo.style.display='block'
         }else{
             usernameInfo.style.display='none'
         }
+    });
+    password.addEventListener('input', function () {
+        if (password.value === "" || password.value.trim().length < 6) {
+            passwordInfo.style.display='block'
+        }else{
+            passwordInfo.style.display='none'
+        }
 
     });
     password.addEventListener('change', function () {
         // if (password.value===""||password.value)
-        console.log(1)
+        // console.log(1)
     });
     login.addEventListener('click',function (){
-        if (username.value!=object.username||password.value!=object.password){
-            usernameInfo.style.display='block';
-            passwordInfo.style.display='block';
-            username.value='';
-            password.value='';
+
+        // TODO: 提交数据之前检查合法性
+        let data = {
+            username:username.value,
+            password:password.value
         }
+        $.post("/login",data,function (result) {
+            console.log(result)
+            if(result.code===0){
+                // TODO:将用户信息写入localstorage,user
+                // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe
+                // TODO:如果rememberMe没勾选了，那么localstorage中的rememberMe删掉
+                // TODO:跳转页面
+                return
+            }
+            // TODO:提示错误
+        })
     });
+
+    // TODO:实现以下方法替代原代码
+    function checkUsername(){
+
+    }
+    function checkPassword(){
+        // TODO:增加正则判断
+    }
+
 </script>
 </body>
 </html>
