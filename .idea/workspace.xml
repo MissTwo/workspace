@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="24774d43-1a28-44d6-80c3-684790d17723" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/.idea/03_js进阶.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap-theme.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap-theme.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/js/npm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/mock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/.idea/上课代码.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0622/Bootstrap按钮.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0622/Bootstrap表单.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0622/Bootstrap表格.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0622/Mock基本使用.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0622/Mock请求拦截.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0622/Mock高级使用.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/css/normalize.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/js/jquery-3.5.1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/js/mock.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/前端CDW100课堂笔记.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/成绩排序.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/.idea/前端综合作业.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/6.登录界面制作.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/7.简易购物车.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/img/11.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/01_js基础/12.数组.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/01_js基础/12.数组.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/.idea/上课代码.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/0621/CSS复习.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0621/CSS复习.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/0621/imgs/JavaScript.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0621/imgs/JavaScript.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/0621/圆形时钟.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0621/圆形时钟.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/0621/抽奖.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0621/抽奖.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/0621/背景铺满.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0621/背景铺满.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/0621/表单.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0621/表单.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/0621/表格.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0621/表格.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/0621/路径.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0621/路径.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/0621/路径演示目录/路径.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0621/路径演示目录/路径.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/上课代码/0621/面试题.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/0621/面试题.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/前端CDW100课堂笔记.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/抽奖.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/上课代码/抽奖.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/3.翻盖盒子.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/3.翻盖盒子.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/4.精灵登录界面.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/4.精灵登录界面.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/img/dc622d3267fb51d0c0868e56f29be581278e2f70121970-kbqHbw.jpg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2AuyyqegJyLM8Znf0475ZQvTxb8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Mermer\workspace\03.js_basics\03_js进阶\前端综合作业\img" />
+      <recent name="D:\Mermer\workspace\03.js_basics\03_js进阶" />
+      <recent name="D:\Mermer\workspace\03.js_basics\03_js进阶\01.复习基础\上课代码" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="24774d43-1a28-44d6-80c3-684790d17723" name="Default Changelist" comment="" />
+      <created>1655874027003</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1655874027003</updated>
+      <workItem from="1655874032859" duration="514000" />
+      <workItem from="1655874596105" duration="15795000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9661b4d1-45e2-4a01-b631-3ba49dae348d" name="Default Changelist" comment="5月22日">
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/.idea/03_js进阶.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap-theme.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap-theme.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/bootstrap-3.4.1-dist/js/npm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/angular/src/public-api.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/angular/src/swiper-events.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/angular/src/swiper-slide.directive.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/angular/src/swiper.component.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/angular/src/swiper.module.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/angular/src/utils/get-params.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/angular/src/utils/params-list.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/angular/src/utils/utils.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/esm2020/angular/src/public-api.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/esm2020/angular/src/swiper-events.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/esm2020/angular/src/swiper-slide.directive.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/esm2020/angular/src/swiper.component.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/esm2020/angular/src/swiper.module.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/esm2020/angular/src/utils/get-params.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/esm2020/angular/src/utils/params-list.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/esm2020/angular/src/utils/utils.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/esm2020/swiper-angular.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/esm2020/swiper_angular.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/fesm2015/swiper_angular.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/fesm2015/swiper_angular.mjs.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/fesm2020/swiper_angular.mjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/fesm2020/swiper_angular.mjs.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/swiper-angular.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/angular/swiper_angular.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/breakpoints/getBreakpoint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/breakpoints/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/breakpoints/setBreakpoint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/check-overflow/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/classes/addClasses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/classes/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/classes/removeClasses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/defaults.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/events-emitter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/events/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/events/onClick.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/events/onResize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/events/onScroll.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/events/onTouchEnd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/events/onTouchMove.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/events/onTouchStart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/grab-cursor/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/grab-cursor/setGrabCursor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/grab-cursor/unsetGrabCursor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/images/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/images/loadImage.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/images/preloadImages.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/loop/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/loop/loopCreate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/loop/loopDestroy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/loop/loopFix.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/moduleExtendParams.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/modules/observer/observer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/modules/resize/resize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/slide/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/slide/slideNext.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/slide/slidePrev.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/slide/slideReset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/slide/slideTo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/slide/slideToClickedSlide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/slide/slideToClosest.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/slide/slideToLoop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/transition/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/transition/setTransition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/transition/transitionEmit.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/transition/transitionEnd.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/transition/transitionStart.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/translate/getTranslate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/translate/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/translate/maxTranslate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/translate/minTranslate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/translate/setTranslate.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/translate/translateTo.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/update/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/update/updateActiveIndex.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/update/updateAutoHeight.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/update/updateClickedSlide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/update/updateProgress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/update/updateSize.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/update/updateSlides.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/update/updateSlidesClasses.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/update/updateSlidesOffset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/core/update/updateSlidesProgress.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/010-default.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/020-navigation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/030-pagination.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/040-pagination-dynamic.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/050-pagination-progress.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/060-pagination-fraction.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/070-pagination-custom.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/080-scrollbar.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/090-vertical.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/100-space-between.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/110-slides-per-view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/120-slides-per-view-auto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/130-centered.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/140-centered-auto.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/145-css-mode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/150-freemode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/160-scroll-container.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/170-grid.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/180-nested.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/190-grab-cursor.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/200-infinite-loop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/210-infinite-loop-with-slides-per-group.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/211-slides-per-group-skip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/220-effect-fade.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/230-effect-cube.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/240-effect-coverflow.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/250-effect-flip.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/255-effect-cards.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/257-effect-creative.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/260-keyboard-control.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/270-mousewheel-control.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/280-autoplay.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/290-manipulation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/300-thumbs-gallery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/310-thumbs-gallery-loop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/320-multiple-swipers.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/330-hash-navigation.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/340-history.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/350-rtl.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/360-parallax.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/370-lazy-load-images.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/380-responsive-breakpoints.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/381-ratio-breakpoints.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/390-autoheight.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/400-zoom.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/410-virtual-slides.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/420-custom-plugin.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/430-slideable-menu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/440-change-direction.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/450-watchslidesvisibility.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/images/nature-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/images/nature-10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/images/nature-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/images/nature-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/images/nature-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/images/nature-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/images/nature-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/images/nature-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/images/nature-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/demo/images/nature-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/a11y/a11y.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/a11y/a11y.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/a11y/a11y.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/a11y/a11y.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/autoplay/autoplay.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/autoplay/autoplay.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/autoplay/autoplay.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/autoplay/autoplay.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/controller/controller.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/controller/controller.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/controller/controller.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/controller/controller.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-cards/effect-cards.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-cards/effect-cards.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-cards/effect-cards.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-cards/effect-cards.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-coverflow/effect-coverflow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-coverflow/effect-coverflow.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-coverflow/effect-coverflow.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-coverflow/effect-coverflow.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-creative/effect-creative.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-creative/effect-creative.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-creative/effect-creative.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-creative/effect-creative.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-cube/effect-cube.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-cube/effect-cube.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-cube/effect-cube.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-cube/effect-cube.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-fade/effect-fade.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-fade/effect-fade.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-fade/effect-fade.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-fade/effect-fade.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-flip/effect-flip.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-flip/effect-flip.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-flip/effect-flip.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/effect-flip/effect-flip.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/free-mode/free-mode.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/free-mode/free-mode.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/free-mode/free-mode.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/free-mode/free-mode.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/grid/grid.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/grid/grid.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/grid/grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/grid/grid.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/hash-navigation/hash-navigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/hash-navigation/hash-navigation.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/hash-navigation/hash-navigation.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/hash-navigation/hash-navigation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/history/history.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/history/history.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/history/history.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/history/history.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/keyboard/keyboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/keyboard/keyboard.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/keyboard/keyboard.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/keyboard/keyboard.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/lazy/lazy.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/lazy/lazy.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/lazy/lazy.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/lazy/lazy.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/manipulation/manipulation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/manipulation/manipulation.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/manipulation/manipulation.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/manipulation/manipulation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/manipulation/methods/addSlide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/manipulation/methods/appendSlide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/manipulation/methods/prependSlide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/manipulation/methods/removeAllSlides.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/manipulation/methods/removeSlide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/mousewheel/mousewheel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/mousewheel/mousewheel.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/mousewheel/mousewheel.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/mousewheel/mousewheel.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/navigation/navigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/navigation/navigation.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/navigation/navigation.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/navigation/navigation.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/pagination/pagination.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/pagination/pagination.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/pagination/pagination.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/pagination/pagination.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/parallax/parallax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/parallax/parallax.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/parallax/parallax.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/parallax/parallax.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/scrollbar/scrollbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/scrollbar/scrollbar.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/scrollbar/scrollbar.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/scrollbar/scrollbar.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/thumbs/thumbs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/thumbs/thumbs.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/thumbs/thumbs.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/thumbs/thumbs.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/virtual/virtual.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/virtual/virtual.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/virtual/virtual.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/virtual/virtual.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/zoom/zoom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/zoom/zoom.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/zoom/zoom.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/modules/zoom/zoom.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/postinstall.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/context.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/get-changed-params.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/get-children.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/get-params.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/loop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/mount-swiper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/params-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/swiper-react.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/swiper-react.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/swiper-slide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/swiper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/update-swiper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/use-isomorphic-layout-effect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/react/virtual.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/classes-to-selector.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/create-element-if-not-defined.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/create-shadow.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/dom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/effect-init.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/effect-target.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/effect-virtual-transition-end.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/get-browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/get-device.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/get-support.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/shared/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/get-changed-params.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/get-params.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/init-swiper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/params-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/swiper-slide.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/swiper-svelte.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/swiper-svelte.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/swiper.svelte" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/update-swiper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/svelte/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.esm.browser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.esm.browser.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.esm.browser.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.esm.browser.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.esm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-vars.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper-vars.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper.esm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper.less" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/swiper.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/index.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/a11y.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/autoplay.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/controller.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/effect-cards.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/effect-coverflow.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/effect-creative.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/effect-cube.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/effect-fade.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/effect-flip.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/free-mode.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/grid.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/hash-navigation.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/history.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/keyboard.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/lazy.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/manipulation.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/mousewheel.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/navigation.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/pagination.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/parallax.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/public-api.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/scrollbar.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/thumbs.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/virtual.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/modules/zoom.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/shared.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/swiper-class.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/swiper-events.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/types/swiper-options.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/context.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/get-changed-params.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/get-children.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/get-params.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/init-swiper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/loop.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/params-list.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/swiper-slide.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/swiper-vue.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/swiper-vue.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/swiper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/update-swiper.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/public/swiper-8.0.7/swiper8/vue/virtual.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/.idea/前端综合作业.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/6.登录界面制作.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/01_js基础/12.数组.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/01_js基础/12.数组.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/抽奖.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/01.复习基础/抽奖.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/3.翻盖盒子.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/3.翻盖盒子.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/4.精灵登录界面.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/4.精灵登录界面.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="29WPYYV78zhvSHUerLlsQVt8jDi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9661b4d1-45e2-4a01-b631-3ba49dae348d" name="Default Changelist" comment="" />
+      <created>1653225938306</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653225938306</updated>
+      <workItem from="1653225960505" duration="2254000" />
+      <workItem from="1653271839810" duration="1249000" />
+      <workItem from="1653871567957" duration="1427000" />
+      <workItem from="1655858629010" duration="1028000" />
+      <workItem from="1655859680807" duration="377000" />
+      <workItem from="1655863989141" duration="2396000" />
+      <workItem from="1655866423272" duration="242000" />
+      <workItem from="1655866695739" duration="483000" />
+      <workItem from="1655867204883" duration="96000" />
+      <workItem from="1655867324770" duration="52000" />
+      <workItem from="1655867542049" duration="945000" />
+      <workItem from="1655868696876" duration="534000" />
+      <workItem from="1655869273090" duration="288000" />
+      <workItem from="1655869789968" duration="1584000" />
+      <workItem from="1655873418296" duration="21000" />
+      <workItem from="1655873475081" duration="446000" />
+    </task>
+    <task id="LOCAL-00001" summary="5月22日">
+      <created>1653226871757</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653226871757</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="5月22日" />
+    <option name="LAST_COMMIT_MESSAGE" value="5月22日" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
