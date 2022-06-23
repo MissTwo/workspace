@@ -72,29 +72,28 @@
 </div>
 <script src="./js/mock.js"></script>
 <script src="./js/jquery-3.5.1.js"></script>
+
 <script>
-
-    let username = document.querySelector('input[type="text"]'),
-        password = document.querySelector("input[type='password']"),
-        remember=document.getElementById('remember'),
-        login = document.querySelector('#login'),
-
-    usernameInfo = document.querySelector('.username-info'),
-        passwordInfo = document.querySelector('.password-info');
-    // TODO:页面加载时，判断localstorage中rememberMe是否存在，如果存在，将其中的username和password填入input
-    // 页面加载完成时先判断是否有
-    if(localStorage.getItem('name')&&localStorage.getItem('pwd')){
-        username.value = localStorage.getItem('name');
-        password.value = localStorage.getItem('pwd');
-        remember.checked=true;//将选择保存账户密码的复选框更改为选中
-    }
     /*
     *localStorage的方法：
     * localStorage.getItem(key):获取指定key本地存储的值
     *localStorage.setItem(key,value)：将value存储到key字段；
     *localStorage.removeItem(key):删除指定key本地存储的值
     */
-    // if(localStorage.getItem(name))
+
+    let username = document.querySelector('input[type="text"]'),
+        password = document.querySelector("input[type='password']"),
+        remember=document.getElementById('remember'),
+        login = document.querySelector('#login'),
+        usernameInfo = document.querySelector('.username-info'),
+        passwordInfo = document.querySelector('.password-info');
+    // TODO:页面加载时，判断localstorage中rememberMe是否存在，如果存在，将其中的username和password填入input
+    if(localStorage.getItem('name')&&localStorage.getItem('pwd')){
+        username.value = localStorage.getItem('name');
+        password.value = localStorage.getItem('pwd');
+        remember.checked=true;//将选择保存账户密码的复选框更改为选中
+    }
+
     let users = {
         '111111': '222222',
         '222222': '222222',
@@ -139,7 +138,7 @@
         }else{
         //若不点 则把已经记录到localStorge 中的值删除
         localStorage.removeItem('name');
-        localStorage.removeItem('pass');
+        localStorage.removeItem('pwd');
     }
     })
     // TODO:获取rememberMe checkbox
@@ -172,10 +171,10 @@
         $.post("/login", data, function (result) {
             console.log(result)
             if (result.code === 0) {
-                // TODO:将用户信息写入localstorage,user
-                // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe
+                // TODO:将用户信息写入localstorage,user{username; token; expire;}
+                // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe{username; password;}
                 // TODO:如果rememberMe没勾选了，那么localstorage中的rememberMe删掉
-                // TODO:跳转页面
+                // TODO:跳转页面 window.location
                 return
             }
             // TODO:提示错误
