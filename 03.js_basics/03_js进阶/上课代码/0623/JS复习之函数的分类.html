@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="js/1.js"></script>
+<script>
+
+    function t1() {
+
+    }
+
+    let res = (function () {
+        console.log("立即执行函数");
+        //不写在函数表达式后面
+        var i1 = 100 // 该变量能不能被函数之外的代码来使用
+        return i1; //返回多个就使用数组或对象
+    })();
+    // console.log(i1)
+    // 匿名函数：特点过期不候
+    // (function (){
+    //
+    // })
+
+
+    // =右边是匿名函数
+    let t2 = function (){
+
+    }; // 分号要加
+    // (function() {
+    //     console.log("立即执行函数")
+    //     // 防止变量污染，即变量重新定义，
+    // })();
+    // var a = 1000
+    // console.log(a)
+
+    // 嵌套函数
+    function t3() {
+        var a = 100;
+        function t31() {
+            // 闭包
+            console.log("嵌套函数", a)
+        }
+        return t31;
+    }
+
+    t3()()
+
+    // 回调函数的执行权交给另一个函数
+    // 可以扩展函数的功能
+    function t4(callback) {
+        callback()
+    }
+
+    function t41() {
+        console.log("回调函数")
+    }
+
+    t4(t41)
+
+    let arr1 = [1, 3, 5, 7, 9];
+    function myForEach(arr, callback) {
+        console.log("准备遍历之前")
+        for (var i = 0; i < arr.length; i++) {
+            let item = arr[i];
+            callback(i, item, arr)
+        }
+        console.log("准备遍历之后")
+    }
+
+    function c1(index, item, self) {
+        console.log(index, item, self)
+    }
+    // 调用了myForEach函数
+    myForEach(arr1, c1)
+
+    // 1000之后做什么
+    setTimeout(function () {
+        console.log("11")
+        console.log("11")
+        console.log("11")
+        console.log("11")
+    }, 1000)
+</script>
+</body>
+</html>

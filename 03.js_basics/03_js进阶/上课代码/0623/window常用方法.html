@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        console.log(location.href)
+        console.log(decodeURI(location.href))
+        console.log(encodeURI("你好"))
+        console.log(encodeURI("http://www.leo.com/你好.html#start"))
+        console.log(encodeURIComponent("http://www.leo.com/你好.html#start"))
+
+        let msg = "haha"
+        eval("console.log(msg)"); // 将字符串当作代码来执行
+
+        function s1(a, b) {
+            console.log("10秒后打印", a, b)
+        }
+        let ss = setTimeout(s1, 10 * 1000, 10, 20)// s1是由setTimeout来调用的
+        clearTimeout(ss);// 关闭定时器
+        s1(1, 2)// 程序员调用
+
+        //可变参数
+        function t1(a, b, ...c){
+            console.log(a, b, c)
+        }
+
+        t1(1, 2, 3, 4, 5)
+
+        // ...在形参中表示，可变参数
+        // 在实参中叫扩展运算符，将所有元素一一列举，支持展开数组
+        let a111 = [1, 3, 5, 7, 9]
+        // Math.max(a111);
+        Math.max(1, 3, 5, 7, 9)
+        Math.max(...a111); // 等同于上面一行，将数组展开
+        let obj = {
+            name: "张三",
+            age: 20
+        }
+        // console.log(...obj) // 支持迭代器才可以
+        // 在React中支持展开普通对象
+    </script>
+</body>
+</html>

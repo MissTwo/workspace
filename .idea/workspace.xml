@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c51c449-c4ec-4068-9e38-36aa3e38d6e8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/js/jquery-3.5.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/js/mock.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/6.登录界面制作.html" beforeDir="false" afterPath="$PROJECT_DIR$/03.js_basics/03_js进阶/前端综合作业/6.登录界面制作.html" afterDir="false" />
-    </list>
+    <list default="true" id="24774d43-1a28-44d6-80c3-684790d17723" name="Default Changelist" comment="简易购物车" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,9 +17,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
   <component name="ProjectId" id="2AuyyqegJyLM8Znf0475ZQvTxb8" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -33,16 +25,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "I:/Mer/workspace/03.js_basics/03_js进阶/前端综合作业",
-    "nodejs_package_manager_path": "npm"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="I:\Mer\workspace\03.js_basics\03_js进阶\前端综合作业" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Mermer\workspace\03.js_basics\03_js进阶\前端综合作业\img" />
       <recent name="D:\Mermer\workspace\03.js_basics\03_js进阶" />
@@ -58,8 +50,23 @@
       <option name="presentableId" value="Default" />
       <updated>1655874027003</updated>
       <workItem from="1655874032859" duration="514000" />
-      <workItem from="1655874596105" duration="15795000" />
+      <workItem from="1655874596105" duration="15966000" />
     </task>
+    <task id="LOCAL-00001" summary="简易购物车">
+      <created>1655899250863</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1655899250863</updated>
+    </task>
+    <task id="LOCAL-00002" summary="简易购物车">
+      <created>1655899281598</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1655899281598</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -75,8 +82,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="简易购物车" />
+    <option name="LAST_COMMIT_MESSAGE" value="简易购物车" />
   </component>
 </project>

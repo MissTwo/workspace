@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+        数组：
+            定义
+            索引：从0开始，最后一个元素通过长度-1获取，使用超过长度的元素，也可以添加元素
+            索引取值
+            长度
+            添加
+                push()
+                splice()
+                unshift()
+                数组名[长度] = 值
+           遍历：
+           更新
+                splice
+           删除：
+               pop、splice、shift、delete(长度不会改变，元素变为undefined)
+     */
+    let a1 = [];
+    a1[a1.length] = 1
+    a1[-1] = 100 // 不会引起length的变化
+    console.log(a1)
+    console.log(a1.length)
+    console.log(a1[-1])
+    for (let i in a1) {
+        console.log(i)
+        console.log(a1[i])
+    }
+
+    a1 = new Array(10) // 只有一个值的时候只会当成长度处理
+    a1 = new Array("10") // 非数字类型的值就会当成元素处理
+    console.log(a1.length)
+    a1 = new Array(10, 20)// 多个值当成元素处理
+    console.log(a1.length)
+    a1.length = 100
+    console.log(a1.length)
+    console.log(a1)
+    let a2 = [...a1] // [1, 2, 3]。只是浅复制
+
+    let obj = {
+        name: "张三",
+        age: 20
+    }
+    let obj1 = {...obj}
+    console.log(obj1)
+    let obj2 = {address: "成都", name: "李四"}
+    let obj3 = {...obj1, ...obj2}
+    console.log(obj3)
+
+    let a3 = [1, 3, 5, 7, 9]
+
+    console.log(a3.find((item, index, arr) => item > 5));
+    console.log(a3.includes(5))
+    console.log(a3.includes(10))
+    console.log(a3.indexOf(5))
+
+    // 数组的复制
+    // ...、filter
+    let a4 = a3.filter(() => true);
+    console.log(a4)
+    console.log(a3==a4)
+    console.log(a3===a4)
+
+    // a4.reduce((pre, cur, index, arr) => {
+    //
+    // }, initValue)
+    /*
+        initValue有，就传给pre，如果没有，pre就是第一个，cur就是第二个
+        后面pre就前一次处理结果
+     */
+    console.log(a4.reduce((pre, cur, index, arr) => pre + cur));
+    let a5 = [
+        {
+            a: 10
+        },
+        {
+            a: 20
+        },
+        {
+            a: 30
+        }
+    ]
+    console.log(a5.reduce((pre, cur, index, arr) => pre + cur.a, 0));
+
+    for(let i =0, j = a4.length - 1; i < Math.floor(a4.length / 2); i++, j--) {
+        a4[i] = a4[i] ^ a4[j];
+        a4[j] = a4[i] ^ a4[j];
+        a4[i] = a4[i] ^ a4[j];
+    }
+    console.log(a4)
+
+    // 小数会让循环多执行一次
+    for (let i = 0; i < 2.1; i++) {
+        console.log("1")
+    }
+
+    // 将元素使用-连接成字符串
+    console.log(a4.join("-"))
+    a4.copyWithin(2, 0)
+    console.log(a4)
+
+    function t1() {
+
+    }
+    // 检测数据的类型
+    console.log(typeof a4)
+    console.log(typeof t1)
+    console.log(Array.isArray(a4))
+    // 检测任何类型，包含自定义
+    console.log(a4 instanceof Array)
+    console.log(a4 instanceof Object)
+    console.log("-----------------")
+    console.log(1 instanceof Object)
+    console.log("1" instanceof Object)
+    console.log(a4 instanceof Function)
+</script>
+</body>
+</html>

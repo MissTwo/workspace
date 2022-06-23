@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+<!--    =>：胖箭头    -->
+    t1 =  () => {
+        console.log("=>全局函数");
+    }
+    t1()
+
+let t2 = () => {
+    console.log("=>函数表达式");
+}
+console.dir(t2)
+t2()
+
+let t3 = (x) => {
+    console.log("=>函数表达式", x);
+}
+let t4 = x => {
+    console.log("=>函数表达式", x);
+}
+let t5 = (x, y) => {
+    console.log("=>函数表达式", x, y);
+}
+
+let t6 = (x, y) => console.log("=>函数表达式", x, y);
+let t7 = (x, y) => x + y;
+console.log(t7(1, 2))
+function  t8(x, y){
+    return x + y;
+}
+// 语法糖
+</script>
+</body>
+</html>

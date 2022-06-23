@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button">按钮</button>
+<script>
+    // alert('1'); //弹出框。是一个模态弹出框。就是锁定界面，弹出框无法操作页面
+    // let res = confirm("确认框"); // 确认框：有确定和取消两个按钮，分别返回1和0
+    // console.log(res)
+    // let res = prompt("弹出输入框");
+    // console.log("您输入的内容是", res)
+
+    document.write("<button type='button'>这是write输出的按钮</button>")
+    document.write("fdfd")
+
+    // console.log(a, b);
+    // var a = 10; // 声明了一个变量a，且赋值为10.
+    // 声明提升，只是将声明的部分放到最前面
+    b = 100// 根据就没有定义，如果写在函数中，就是全局变量
+    // console.log(b);
+    // for (var i = 0; i < 10; i++) {
+    //     //{}之间就是块级作用域
+    //
+    // }
+    // if (true) {
+    //     var i = 10
+    // }
+    {
+        // 代码块
+        var i = 10; //用来做索引
+        // let j = 100;
+    }
+    // 如果var有块级作用域，那么下面的打印就报错
+    // console.log(i, j);
+    console.log(i, window.i)
+    // 中间有1万行
+    var i = "abc";// 另作他用
+    console.log(i, window.i)
+
+    /**
+     * 文档注释，就是对函数说明，包含参数
+     * 会包含进api文档中
+     * @param a
+     * @param b
+     * @param c
+     */
+    function t1(a, b, c) {
+
+    }
+
+    t1()
+
+    var a = 10
+    var b = "abc" //是原始数据类型，原始数据类型是没有属性和方法的
+    var c = {
+        name: "张三"
+    }
+    var d = 10
+
+    // 解释做了自动转换处理，使用同名的一个String包装器类，对b做出转换
+    console.log(b.length)
+    // 数据类型的包装器类，Number()
+    // 字符串：String
+    // Boolean()
+
+    for(var i = 0; i < 10; i++) {
+        let aa = 10
+    }
+    var i;
+    let aa;
+    for(i = 0; i < 10; i++) {
+        aa = 10
+    }
+
+    console.log(null == undefined)// 进行内容比较
+    console.log(null === undefined)// 地址比较
+
+    console.log(5/ 0)
+
+    console.log(isNaN("110"))
+    console.log(isNaN(1))
+    console.log(isNaN("110a"))
+
+    console.log(typeof Number("100"))
+    console.log(typeof parseInt("100"))
+    console.log(parseInt("0010", 2))
+    console.log(parseInt("71", 8))
+    console.log(parseInt("8", 10))
+    console.log(parseInt("8", 16))
+
+    let bb = `
+        ${a}这是字符串模板
+    `
+    console.log(bb)
+
+    // 执行完后，内存中有几个字符串
+    let a1 = "a1";
+    let b1 = a1 + "b1" + "c1"
+
+    // console.log(null.length);
+    // let aa1 = document.querySelector("aa");
+    // console.log(aa1)
+    // aa1.click()
+
+    let s1 = Symbol("s1")
+    let s2 = Symbol("s1")
+    console.log(s1 == s2)
+    console.log(s1 === s2)
+
+    let obj1 = {
+        "_name": "哈哈"
+    }
+
+    function t2() {
+        return {
+            [Symbol("s3")]: "哈哈"
+        }
+    }
+    console.log(obj1._name);
+    console.log(t2())
+    // console.log(t2()[Symbol("s3")])
+
+    // Date的构造函数的方法
+    Date.now()// 获取当前时间
+    // 调用构造函数，创建一个Date的对象
+    let d1 = new Date()// 获取当前时间
+    d1.getDate() // 对象方法
+
+    let obj2 = {
+        //属性
+        "name": "张三",
+        // 方法
+        say: function () {
+            console.log("say方法")
+        }
+    }
+
+    console.log(obj2)
+    obj2.name = "修改的值"
+    obj2.age = 20
+    console.log(obj2)
+    obj2.say()
+    obj2.say = function() {
+        console.log("函数被修改了")
+    }
+    obj2.say()
+
+    console.log("-----------------------------")
+    // 遍历
+    for (let key in obj2) {
+        console.log(key) // obj2的属性名
+        console.log(obj2[key]) // 通过中括号语法获取obj2的属性值
+    }
+    // Object：支持对象.属性名语法和对象["属性名"]语法
+    /*
+        .语法：如果属性名或方法名写错，就会报错
+        []语法：属性名写错也不会报错。返回一个null或undefined
+     */
+    // obj2.aaa();
+    obj2["aaa"];
+    // obj2["aaa"]["bbb"]; 会报错，相当于null.bbb
+    // 删除属性
+    delete obj2.say
+    console.log(obj2)
+
+    let obj3 = {name: "张三"}
+    let obj4 = {name: "张三"}
+    console.log(obj3 == obj4)
+    console.log(obj3 === obj4)
+
+    // 面试题：将2变成8，性能最高的方式
+    // 2:0010
+    // 8:1000
+    console.log(2 << 2)
+    console.log(8 >> 2)
+    console.log(2 & 8)
+    console.log(2 | 8)
+    console.log(2 ^ 8)
+    var a11 = 2;
+    var a12 = 8;
+    a11 = a11 ^ a12;
+    a12 = a11 ^ a12;
+    a11 = a11 ^ a12;
+
+    function t2(a = 100) {
+        console.log("t2", a)
+        for (let i in arguments) {
+            console.log(arguments[i])
+        }
+    }
+
+    console.log(t2()); // 打印函数的运行结果
+    t2(123)
+    t2(1, 2, 3, 4, 5)
+    console.log(t2); // 打印函数本身
+
+    console.dir(t2) // 打印对象的结构信息
+</script>
+</body>
+</html>
