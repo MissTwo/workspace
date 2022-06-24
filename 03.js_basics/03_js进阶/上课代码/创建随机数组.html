@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="./js/mock.js"></script>
+<script>
+    // 生成长度为10的随机数组
+    // 方法一：
+    let obj = Mock.mock({
+        "array|10": [
+            '@integer(1,100)'
+        ]
+    })
+    // console.log(obj.array)
+    // 方法二：
+    let arr1 = [];
+    for (let j = 0; j < 10; j++) {
+        let i = parseInt(Math.random() * 99 + 1)
+
+        arr1.push(i)
+    }
+    let arr = [89, 16, 97, 51, 37, 77, 4, 90, 86, 81];
+
+    // 冒泡排序
+    function bubble(arr) {
+        let flag = 0
+        if (!Array.isArray(arr)) {
+            console.log("arr必须是一个数组");
+            return;
+        }
+        for (let i = 0; i < arr.length - 1; i++) {
+            flag = 0
+            for (let j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    flag = 1
+                    arr[j] = arr[j] ^ arr[j + 1];
+                    arr[j + 1] = arr[j] ^ arr[j + 1];
+                    arr[j] = arr[j] ^ arr[j + 1];
+                }
+            }
+
+            if (!flag) {
+                break;
+            }
+
+        }
+        return arr;
+    }
+
+    console.log(bubble(arr))
+
+    //选择排序
+    function select(arr) {
+        let minItemIndex
+        for (let i = 0; i < arr.length; i++) {
+            minItemIndex = i
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[minItemIndex] > arr[j]) {
+                    minItemIndex = j
+                }
+            }
+            if (minItemIndex != i) {
+                arr[minItemIndex] = arr[minItemIndex] ^ arr[i];
+                arr[i] = arr[minItemIndex] ^ arr[i];
+                arr[minItemIndex] = arr[minItemIndex] ^ arr[i];
+            }
+
+        }
+        return arr
+    }
+
+    // 插入排序
+    function insertSort(arr) {
+        let insertItem
+        let insertIndex
+        for (let i = 1; i < arr.length; i++) {
+            insertItem = arr[i]
+            for (let j = i - 1; j >= 0; j--) {
+                if (insertItem < arr[j]) {
+                    arr[j + 1] = arr[j]
+                    insertIndex = j
+                } else {
+                    insertIndex = j + 1
+                }
+            }
+            if (i != insertIndex)
+                arr[insertIndex] = insertItem
+        }
+    }
+
+    // 自己异或自己会变成0
+    console.log(select(arr))
+    let a = 10, b = 10;
+    a = a ^ b;
+    b = a ^ b;
+    a = a ^ b;
+    console.log(a, b)
+    let c = 10;
+    c = c ^ c;
+    console.log(c)
+</script>
+
+</body>
+</html>

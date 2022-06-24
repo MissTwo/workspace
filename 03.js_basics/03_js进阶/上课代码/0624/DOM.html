@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+你好
+<div>不好</div>
+<div>哈哈</div>
+<!--这是注释节点-->
+
+<table class="reference">
+    <tbody>
+    <tr>
+        <th>Company</th>
+        <th>Contact</th>
+        <th>Country</th>
+    </tr>
+    <tr>
+        <td>Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td>Germany</td>
+    </tr>
+    <tr class="alt">
+        <td>Berglunds snabbköp</td>
+        <td>Christina Berglund</td>
+        <td>Sweden</td>
+    </tr>
+    <tr>
+        <td>Centro comercial Moctezuma</td>
+        <td>Francisco Chang</td>
+        <td>Mexico</td>
+    </tr>
+    <tr class="alt">
+        <td>Ernst Handel</td>
+        <td>Roland Mendel</td>
+        <td>Austria</td>
+    </tr>
+    <tr>
+        <td>Island Trading</td>
+        <td>Helen Bennett</td>
+        <td>UK</td>
+    </tr>
+    <tr class="alt">
+        <td>Königlich Essen</td>
+        <td>Philip Cramer</td>
+        <td>Germany</td>
+    </tr>
+    <tr>
+        <td>Laughing Bacchus Winecellars</td>
+        <td>Yoshi Tannamuri</td>
+        <td>Canada</td>
+    </tr>
+    <tr class="alt">
+        <td>Magazzini Alimentari Riuniti</td>
+        <td>Giovanni Rovelli</td>
+        <td>Italy</td>
+    </tr>
+    <tr>
+        <td>North/South</td>
+        <td>Simon Crowther</td>
+        <td>UK</td>
+    </tr>
+    <tr class="alt">
+        <td>Paris spécialités</td>
+        <td>Marie Bertrand</td>
+        <td>France</td>
+    </tr>
+    <tr>
+        <td>The Big Cheese</td>
+        <td>Liz Nixon</td>
+        <td>USA</td>
+    </tr>
+    <tr class="alt">
+        <td>Vaffeljernet</td>
+        <td>Palle Ibsen</td>
+        <td>Denmark</td>
+    </tr>
+    </tbody></table>
+<script>
+    console.log(document.nodeType)
+    console.log(document.querySelector("div").nodeType)
+    console.log(document.querySelector("body").firstChild)
+
+    console.log(document.getElementsByTagName("div"))
+    console.log("-----------------")
+    console.log(document.body.children)
+    console.log(document.body.childNodes)
+
+    //删除表格tbody标签中的内容，只留第一个标题
+    // 获取所有tr
+    let trs = document.querySelectorAll("tr");
+    // for (let i in trs) {
+    //     if (i > 0) {
+    //         trs[i].remove()
+    //     }
+    // }
+    // 清空表格body中的内容，但不删除tr和td元素
+    let tbody = document.querySelector("tbody");
+
+    function t1(node) {
+        tbody.querySelectorAll("td").forEach(function (item, key, parent) {
+            console.log(item)
+            item.firstChild.remove()
+        })
+    }
+
+    t1(tbody)
+</script>
+</body>
+</html>

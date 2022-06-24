@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    // a是原始数据类型
+    function t1(a) {
+        a += 10
+    }
+    // obj是一个引用数据类型
+    function t2(obj) {
+        obj.i += 10
+    }
+
+    i = 100
+    t1(i)
+    console.log(i)
+
+    obj = {i: 100}
+    t2(obj)
+    console.log(obj.i)
+</script>
+</body>
+</html>

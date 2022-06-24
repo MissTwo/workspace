@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    console.log("程序开始了")
+
+
+    // null.toString() // 异常发生了，但没有处理就导致程序中断
+    // try-catch-finally处理异常
+    // try：将可能会抛出异常的代码写在try语句块中
+    // catch：捕获异常后，处理的代码块写在catch中
+    // finally：不管有没有异常，都会执行
+    try {
+        // null.toString();
+        document.querySelector("#d1").value
+    } catch (e) { //e就是异常对象，包含有抛出异常的代码行号及异常信息
+        console.log(e)
+        console.log("异常已经处理了")
+    } finally {
+        console.log("异常处理完毕")
+    }
+    function t1(arr) {
+        console.log(arr)
+        // arr必须是数组
+        if (!Array.isArray(arr)) {
+            // 抛出一个自定义错误
+            throw new Error("arr必须是一个数组")
+        }
+    }
+    t1(1)
+    console.log("程序执行完毕")
+
+    // 页面上有一个input，id为d1，根据id获取该元素，并打印其value。如果id写错了，如何保证程序不会报红色错误
+
+
+</script>
+</body>
+</html>

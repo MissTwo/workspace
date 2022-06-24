@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="../js/mock.js"></script>
+<script>
+    let count = 0; //统计验证通过的次数
+    let len = 1;
+    for(let i = 0; i < len; i++) {
+        // 创建一个随机数组，长度为10。使用两种实现
+        let mockObject = Mock.mock({
+            "array|10": ["@integer(1, 100)"]
+        })
+        console.log(mockObject.array);
+        // let arr = mockObject.array;
+        let arr = [35,79,53,75,98,40,33,23,49,25];
+        // let arr = [21, 74, 89, 24, 3, 44, 27, 53, 25, 59]
+        // let arr = [7, 7, 22, 31, 47, 59, 60, 75, 89, 91];
+        let min = Math.min(...arr);
+        let max = Math.max(...arr);
+        console.log("排序之前", arr)
+        bubble([...arr])
+        select([...arr])
+        insert([...arr]);
+        if (max === arr[arr.length - 1] && min === arr[0]) {
+            count++
+        }
+        console.log("排序之后", arr);
+    }
+    console.log("验证通过的次数", count)
+
+    // 冒泡排序：两两相邻进行比较
+    function bubble(arr) {
+        // arr必须是数组
+        if (!Array.isArray(arr)) {
+            console.log("arr必须是一个数组");
+            return; // 中断程序
+        }
+        let count = 0; // 循环的总次数
+        let swapCount = 0;// 交换的总次数
+        let swapOver = false; // 数据是否提前交换完毕
+        for (let i = 0; i < arr.length - 1; i++) {  // 外循环取出需要比较的对象
+            swapOver = false; //默认每次循环不会有数据发生交换
+            for (let j = 0; j < arr.length - i - 1; j++) { // 进行比较和是否交换
+                count++;
+                if (arr[j] > arr[j + 1]) {
+                    swapOver = true;
+                    arr[j] = arr[j] ^ arr[j + 1];
+                    arr[j + 1] = arr[j] ^ arr[j + 1];
+                    arr[j] = arr[j] ^ arr[j + 1];
+                    swapCount++;
+                }
+            }
+            console.log(i, arr)
+            if (!swapOver) {
+                break;
+            }
+            // 为了理解程序，方便在某一次停止查看结果
+            if (i === arr.length) {
+                break;
+            }
+        }
+        console.log(`冒泡排序，循环次数：${count}，交换次数：${swapCount}`)
+    }
+
+    // 选择排序：每次找出最小元素的索引，然后进行交换
+    function select(arr) {
+        // arr必须是数组
+        if (!Array.isArray(arr)) {
+            console.log("arr必须是一个数组");
+            return; // 中断程序
+        }
+
+        let count = 0; // 循环的总次数
+        let swapCount = 0;// 交换的总次数
+        let minItemIndex = -1; //最元素的索引
+        for (let i = 0; i < arr.length - 1; i++) {
+            minItemIndex = i; //假设i就是最小元素的索引
+            for (let j = i + 1; j < arr.length; j++) {
+                count++;
+                if (arr[minItemIndex] > arr[j]) {
+                    minItemIndex = j;
+                }
+            }
+            // 和i位置上的元素交换
+            if (i !== minItemIndex) {
+                swapCount++;
+                arr[minItemIndex] = arr[minItemIndex] ^ arr[i];
+                arr[i] = arr[minItemIndex] ^ arr[i];
+                arr[minItemIndex] = arr[minItemIndex] ^ arr[i];
+            }
+            console.log(i, arr)
+        }
+        console.log(`选择排序，循环次数：${count}，交换次数：${swapCount}`)
+    }
+
+    // 插入排序：假设第一个元素是已经排好序数组，从第二个元素取出进行比较，如果符合条件就先
+    // 将前面的元素往后移，直到找到合适的位置再插入
+    function insert(arr) {
+        // arr必须是数组
+        if (!Array.isArray(arr)) {
+            console.log("arr必须是一个数组");
+            return; // 中断程序
+        }
+
+        let count = 0; // 循环的总次数
+        let swapCount = 0;// 交换的总次数
+        let insertItem; // 需要操作元素
+        let insertItemIndex; // 保存插入的索引
+        for (let i = 1; i < arr.length; i++) {
+            insertItem = arr[i]
+            for (let j = i - 1; j >= 0; j--) {
+                count++;
+                if (insertItem < arr[j]) {
+                    swapCount++
+                    arr[j + 1] = arr[j];
+                    insertItemIndex = j;
+                } else {
+                    insertItemIndex = j + 1;
+                    break;
+                }
+            }
+            // 将insertItem插入到合适位置
+            if (i !== insertItemIndex){
+                arr[insertItemIndex] = insertItem;
+            }
+            console.log(i, arr)
+        }
+        console.log(`插入排序，循环次数：${count}，交换次数：${swapCount}`)
+    }
+</script>
+</body>
+</html>
