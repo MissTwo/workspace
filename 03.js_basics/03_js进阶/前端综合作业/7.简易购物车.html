@@ -11,7 +11,7 @@
     <style>
         .content {
             padding: 20px 0;
-            min-width: 790px;
+            min-width: 960px;
         }
 
         .my-top {
@@ -59,7 +59,7 @@
 <body>
 <div class="container">
     <div class="content">
-
+        <!--顶部面包屑与用户的操作-->
         <div class="my-top">
             <div class="my-header">
                 <h4>书本商城</h4>
@@ -73,9 +73,9 @@
                 <button type="button" class="btn btn-danger">注销</button>
             </div>
         </div>
-        <!--    表格部分-->
+        <!-- 包含了主体部分-->
         <div class="substance">
-<!--            搜索部分-->
+        <!--搜索部分-->
             <div class="part-one">
                 <div>
                     <form class="form-inline">
@@ -100,13 +100,47 @@
                     <button type="button" class="btn btn-danger">批量删除</button>
                 </div>
             </div>
-
+            <div class="part-two">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox"></th>
+                            <th>序号</th>
+                            <th>书名</th>
+                            <th>日期</th>
+                            <th>单价</th>
+                            <th>数量</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
 
 
     </div>
 </div>
 <script>
+    let books=[
+        {id:1,name:'Java从入门到放弃',price:80,create_date:'2020-07-01',count:1},
+        {id:2,name:'C#从入门到放弃',price:100,create_date:'2021-09-01',count:1},
+        {id:3,name:'Golang从入门到放弃',price:50.9,create_date:'2021-08-01',count:1},
+        {id:4,name:'JavaScript从入门到放弃',price:68.2,create_date:'2022-07-01',count:1},
+        {id:5,name:'PHP从入门到放弃',price:10.2,create_date:'2022-10-01',count:1},
+        {id:6,name:'Python从入门到放弃',price:25.4,create_date:'2022-12-01',count:1},
+    ]
+    let tr=`
+        <tr>
+            <th><input type="checkbox"></th>
+            <th>序号</th>
+            <th>书名</th>
+            <th>日期</th>
+            <th>单价</th>
+            <th>数量</th>
+            <th>操作</th>
+        </tr>
+    `
 
 
 </script>
