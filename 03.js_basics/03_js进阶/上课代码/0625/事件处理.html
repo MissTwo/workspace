@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function (e) {
+            // 和Jquery中ready方法效果一致
+            document.querySelector("button").onclick = function (e) {
+                e.stopPropagation(); // 阻止事件冒泡
+                console.log(e.target)
+                console.log("在顶部添加的button被点击了")
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <button type="button">点击</button>
+    <a href="http://www.baidu.com" onclick="t1(event, this)">百度一下</a>
+    <hr>
+    <button type="button" onclick="t2()">html元素添加</button>
+    <button type="button" id="btn2">js的onclick属性添加</button>
+    <button type="button" id="btn3">js的addEventListener添加</button>
+</div>
+<!--尽量将JS放在body最后元素位置-->
+<script type="text/javascript">
+    document.querySelector("div").onclick = function (e) {
+        console.log("div被点击了")
+    }
+
+    // document.querySelector("button").onclick = function (e) {
+    //     e.stopPropagation(); // 阻止事件冒泡
+    //     console.log(e.target)
+    //     console.log("button被点击了")
+    // }
+
+    function t1(e, self) {
+        e.preventDefault(); // 阻止事件默认行为
+        console.log("阻止百度的超链接跳转", self)
+    }
+
+    function t2() {
+        console.log(this) //window
+    }
+
+    document.querySelector("#btn2").onclick = function (e) {
+        console.log(this) //触发事件的元素
+    }
+
+    document.querySelector("#btn3").addEventListener("click", function (e) {
+        console.log(this) //触发事件的元素
+    })
+</script>
+</body>
+</html>

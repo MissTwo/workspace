@@ -10,7 +10,8 @@
           integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <style>
         .content {
-            padding: 20px;
+            padding: 20px 0;
+            min-width: 790px;
         }
 
         .my-top {
@@ -34,6 +35,7 @@
 
         .form-inline {
             display: inline-flex;
+            width: 80%;
         }
         .part-one {
             display: flex;
@@ -47,6 +49,10 @@
         }
         .form-inline div{
             margin-left: 5px;
+        }
+        .control{
+            display: inline-flex;
+            /*width: 20%;*/
         }
     </style>
 </head>
@@ -74,13 +80,13 @@
                 <div>
                     <form class="form-inline">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="书本">
+                            <input type="search" class="form-control" placeholder="书本" name="book">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="最低价">
+                            <input type="search" class="form-control" placeholder="最低价" name="lower">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="最高价">
+                            <input type="search" class="form-control" placeholder="最高价" name="higher">
                         </div>
                         <div>
                             <button type="button" class="btn btn-default ">
@@ -89,7 +95,7 @@
                         </div>
                     </form>
                 </div>
-                <div>
+                <div class="control">
                     <button type="button" class="btn btn-primary">添加</button>
                     <button type="button" class="btn btn-danger">批量删除</button>
                 </div>

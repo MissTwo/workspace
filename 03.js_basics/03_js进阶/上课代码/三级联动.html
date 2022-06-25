@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select>
+    <option value="">选择省份</option>
+</select>
+<select>
+    <option value="">选择市</option>
+</select>
+<select>
+    <option value="">选择县</option>
+</select>
+<script src="./js/cities.js"></script>
+<script>
+  let select=document.querySelectorAll('select')
+  for (let i = 0; i < Position.length; i++) {
+      let option = document.createElement('option');
+      option.text=Position[i].value
+      option.value=Position[i]['value']
+      select[0].add(option)
+  }
+  select[0].onchange=function (e){
+      while(select[1].childElementCount>1){
+          select[1].lastElementChild.remove()
+      }
+      let index=select[0].selectedIndex-1
+      for (let i = 0; i < Position[index]['children'].length; i++) {
+          let city= document.createElement('option');
+          city.text=Position[index]['children'][i].label
+          city.value=Position[index]['children'][i]['value']
+          select[1].add(city)
+      }
+      select[1].onchange=function (e){
+          while(select[2].childElementCount>1){
+              select[2].lastElementChild.remove()
+          }
+          let subIndex=select[1].selectedIndex-1
+          for (let i = 0; i < Position[index]['children'][subIndex]['children'].length; i++) {
+              let town= document.createElement('option');
+              town.text=Position[index]['children'][subIndex]['children'][i]['value']
+              town.value=Position[index]['children'][subIndex]['children'][i]['value']
+              select[2].add(town)
+          }
+      }
+  }
+
+</script>
+</body>
+</html>

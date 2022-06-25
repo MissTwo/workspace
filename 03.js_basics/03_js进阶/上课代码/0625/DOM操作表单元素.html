@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn" type="button">点击</button>
+<form action="#" method="get">
+    <input type="text" name="account" placeholder="请输入账号" value="123"/>
+    <input type="password" name="password" placeholder="请输入密码"/>
+    <input type="number" step="5" max="100" min="0" name="age" placeholder="请输入年龄"/>
+    <input type="email" name="email" placeholder="请输入邮箱"/>
+    <input type="date" name="date" placeholder="请选择日期"/>
+    <input type="range" name="range">
+    <input type="radio" name="gender" value="1" checked> 男
+    <input type="radio" name="gender" value="0"> 女
+    <input type="checkbox" name="rem" value="1"> 记住密码
+    <select name="sheng">
+        <option value="-1">请选择省</option>
+        <option value="1">四川省</option>
+        <option value="2">广东省</option>
+    </select>
+</form>
+<script>
+    document.querySelector("#btn").addEventListener("click", function(e) {
+        document.querySelector("input[name='account']").select(); // 选中输入框中的文本内容
+        console.log(document.querySelector("input[name='account']").value);
+        console.log(document.querySelector("input[name='password']").value);
+        console.log(document.querySelector("input[name='age']").value);
+        console.log(document.querySelector("input[name='email']").value);
+        console.log(document.querySelector("input[name='date']").value);
+        console.log(document.querySelector("input[name='range']").value);
+        // 使用选择器获取选中的radio
+        console.log(document.querySelector("input[name='gender']:checked").value);
+        console.log(document.querySelector("input[name='rem']").checked);
+    })
+
+    // 实现全选和全不选、反选分别三个按钮，操作10个checkbox
+</script>
+</body>
+</html>

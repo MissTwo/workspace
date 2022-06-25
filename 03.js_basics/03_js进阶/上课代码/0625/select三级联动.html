@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="sheng">
+    <option value="-1">请选择省</option>
+</select>
+<select id="shi">
+    <option value="-1">请选择市</option>
+</select>
+<select id="qu">
+    <option value="-1">请选择区</option>
+</select>
+<script src="../js/cities.js"></script>
+<script>
+    // 分析数据
+    console.log(Position)
+    // 获取元素
+    let sheng = document.querySelector("#sheng");
+    let shi = document.querySelector("#shi");
+    let qu = document.querySelector("#qu");
+
+    // 给select标签添加数据
+    function init_select(select, data) {
+        // 清空原来的option，只保留第一个
+        while (select.childElementCount > 1) {
+            select.lastElementChild.remove()
+        }
+        data.forEach((item, index) => {
+            let option = document.createElement("option");
+            option.value = item.value;
+            option.text = item.label;
+            select.add(option);
+        });
+    }
+
+    init_select(sheng, Position)
+
+    let data = Position;
+    // 保存选中的省对象
+    let selected_sheng_obj;
+    sheng.onchange = function (e) {
+        selected_sheng_obj = Position[sheng.selectedIndex - 1];
+        // data = selected_sheng_obj.children;
+        init_select(shi, selected_sheng_obj.children)
+    }
+
+    // 保存选中的市对象
+    let selected_shi_obj;
+    shi.onchange = function (e) {
+        selected_shi_obj = selected_sheng_obj.children[shi.selectedIndex - 1];
+        // data = selected_shi_obj.children;
+        init_select(qu, selected_shi_obj.children)
+    }
+
+</script>
+</body>
+</html>

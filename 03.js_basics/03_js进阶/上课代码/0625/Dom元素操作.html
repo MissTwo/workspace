@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .c1 {
+            font-size: 30px;
+        }
+
+        .c2 {
+            color: red;
+        }
+
+        .c3 {
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>添加样式3
+<button id="btn">添加样式3</button>
+
+<div aa="aa" id="div_id"></div>
+<script>
+    let div = document.createElement("div");
+    div.innerText = "这是div标签"
+    // div.className = "样式列表" // 对样式的修改不方便，只能赋值
+    div.className = "c1"
+    // div.classList：通过add方法添加样式，通过remove方法删除样式
+    document.body.appendChild(div);
+
+    div.onclick = function (e) {
+        // div.className += " c2"
+        div.classList.toggle("c2");
+    }
+
+    document.querySelector("#btn").onclick = function (e) {
+        // div.className += " c3"
+        div.classList.toggle("c3");
+    }
+
+    // document.body.appendChild("<p>123</p>");
+
+    // 设计一个函数，必须传一个Node类型的参数，否则抛出错误，内容自定义
+    function t1(a) {
+        console.log("t1")
+        // 两种判断数据类型的方法typeof、instanceof
+        if (!(a instanceof Node)) {
+            throw new Error("a参数必须是一个Node类型")
+        }
+        //可以用于设置抽象类
+    }
+    // t1("<p>123</p>")
+    // t1(div)
+
+    let div1 = document.createElement("div");
+    div1.innerText = "这是在顶部插入div标签"
+    document.body.insertBefore(div1, div)
+
+    let div2 = document.createElement("div");
+    div2.innerText = "这是append插入div标签"
+    document.body.append(div2)
+    document.body.append("div2")
+    document.body.prepend("div3")
+
+    div2.after("div2的下铺兄弟")
+    div2.before("div2的上铺兄弟")
+
+    document.body.insertAdjacentHTML("beforebegin", "<p>兄弟节点在顶部</p>")
+    document.body.insertAdjacentHTML("afterend", "<p>兄弟节点在底部</p>")
+    document.body.insertAdjacentHTML("afterbegin", "<p>子节点在顶部</p>")
+    document.body.insertAdjacentHTML("beforeend", "<p>子节点在底部</p>")
+
+    let ul = document.querySelector("ul");
+    // 克隆ul标签
+    document.body.append(ul.cloneNode());
+    document.body.append(ul.cloneNode(true)); //参数表示是否复制子节点
+    // for (let i = 0; i < ul.childNodes.length; i++) {
+    //     ul.childNodes[i].remove()
+    // }
+    // 当数组中的元素个数不会变时，考虑使用for循环
+    // for (; ul.children.length > 0;) {
+    //     ul.firstChild.remove()
+    // }
+    // while(ul.children.length > 0) {
+    //     ul.firstChild.remove()
+    // }
+    // 只配合node相关操作，千万不要使用Element
+    // while(ul.hasChildNodes()) {
+    //     ul.firstChild.remove()
+    //     // ul.firstElementChild.remove() 不能使用
+    // }
+
+    // div.style.XXX
+
+    console.log(document.querySelector("#div_id").getAttribute("aa"));
+    console.log(document.querySelector("#div_id").getAttribute("id"));
+</script>
+</body>
+</html>

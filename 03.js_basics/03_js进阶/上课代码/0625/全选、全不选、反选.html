@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    for (let i = 0; i < 10; i++) {
+        let input = document.createElement("input");
+        input.type = "checkbox";
+        document.body.append(input)
+    }
+    // append无法解析html代码
+    document.body.insertAdjacentHTML("beforeend", "<button onclick='select_all()' type='button'>全选</button>")
+    document.body.insertAdjacentHTML("beforeend", "<button onclick='select_none()' type='button'>全不选</button>")
+    document.body.insertAdjacentHTML("beforeend", "<button onclick='fanxuan()' type='button'>反选</button>")
+
+    function select_all() {
+        // 从页面上获取所有checkbox
+        document.querySelectorAll("input").forEach(item => item.checked = true)
+    }
+    function select_none() {
+        document.querySelectorAll("input").forEach(item => item.checked = false)
+    }
+    function fanxuan() {
+        document.querySelectorAll("input").forEach(item => item.checked = !item.checked)
+    }
+</script>
+</body>
+</html>

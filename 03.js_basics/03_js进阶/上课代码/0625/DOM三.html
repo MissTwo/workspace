@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn" type="button">点击</button>
+<div id="d1"></div>
+<input type="text" name="test" />
+<input type="number" name="number" />
+<script>
+    let test = document.querySelector("input[name='test']");
+    let number = document.querySelector("input[name='number']");
+    document.querySelector("#btn").addEventListener("click", function (e) {
+        console.log("111")
+        // 相当于append和appendChild
+        document.querySelector("#d1").innerHTML = "<p>这是innerHTML添加的</p>";
+        console.log(test.value);
+        test.size = 100
+        console.log(test.size);
+        console.log(typeof number.value)
+        console.log(typeof number.valueAsNumber)
+    })
+    let t1 = function (e) {
+        console.log("2222")
+    }
+    document.querySelector("#btn").addEventListener("click", t1)
+
+    document.querySelector("#btn").removeEventListener("click", t1)
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button type="button" onclick="t1()">点击</button>
+<script type="text/javascript">
+    let sheng = document.createElement("select");
+    document.body.append(sheng)
+    let option = document.createElement("option");
+    option.text = "请选择省"
+    option.value = "-1"
+    sheng.add(option)
+    option = document.createElement("option");
+    option.text = "四川省"
+    option.value = "1"
+    sheng.add(option)
+    option = document.createElement("option");
+    option.text = "湖南省"
+    option.value = "3"
+    sheng.add(option)
+    option = document.createElement("option");
+    option.text = "广东省"
+    option.value = "2"
+    sheng.add(option)
+
+    console.log(sheng.options)
+
+    let obj = {
+        s: ""
+    }
+    sheng.onchange =  function(e) {
+        // console.log(sheng.selectedIndex)
+        console.log(sheng.value)
+        obj.s = sheng.value;
+    }
+    sheng.onchange()
+
+    function t1() {
+        console.log(sheng.selectedIndex)
+        console.log(sheng.value)
+        console.log(obj.s)
+    }
+
+    // select默认要求选中广东省
+    // sheng.selectedIndex = 2;
+    // 建议通过value或text去判断
+    Array.from(sheng.options).forEach(function(option) {
+        // option.text === "广东省"
+        if (option.value === "2" ) {
+            option.selected = true
+        }
+    })
+</script>
+</body>
+</html>

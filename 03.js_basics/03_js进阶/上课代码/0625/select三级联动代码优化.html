@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select id="sheng">
+    <option value="-1">请选择省</option>
+</select>
+<select id="shi">
+    <option value="-1">请选择市</option>
+</select>
+<select id="qu">
+    <option value="-1">请选择区</option>
+</select>
+<script src="../js/cities.js"></script>
+<script>
+    // 分析数据
+    console.log(Position)
+    // 获取元素
+    let sheng = document.querySelector("#sheng");
+    let shi = document.querySelector("#shi");
+    let qu = document.querySelector("#qu");
+    let address = {}; //记住选中的省、市、区对象
+
+    // 给select标签添加数据
+    function init_select(select, data) {
+        // 清空原来的option，只保留第一个
+        while (select.childElementCount > 1) {
+            select.lastElementChild.remove()
+        }
+        data.forEach((item, index) => {
+            let option = document.createElement("option");
+            option.value = item.value;
+            option.text = item.label;
+            select.add(option);
+        });
+    }
+
+    init_select(sheng, Position)
+
+    /**
+     *
+     * @param parent    上一级select
+     * @param select    当前处理select
+     * @param address   保存地址的对象
+     * @param prop      属性，省("sheng")、市("shi")、区("qu")
+     * @param data      数据源
+     */
+    function selected_option(parent, select, address, prop, data) {
+        // let data = Position;
+        // 保存选中的省对象
+        let selected_obj;
+        parent.onchange = function (e) {
+            selected_obj = data[parent.selectedIndex - 1];
+            address[prop] = selected_obj;
+            data = selected_obj.children;
+            init_select(select, data)
+        }
+    }
+    selected_option(sheng, shi, address, "sheng", Position)
+    selected_option(shi, qu, address, "shi", address.sheng.children)
+</script>
+</body>
+</html>

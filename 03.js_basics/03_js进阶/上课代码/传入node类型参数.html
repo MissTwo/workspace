@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    我是定位的
+</div>
+<!--<ul></ul>-->
+<form action="">
+    <button type="button">全选</button>
+    <button type="button">全不选</button>
+    <button type="button">反选</button>
+    <label><input type="checkbox" name="speak" value="0">Java</label>
+    <label><input type="checkbox" name="speak" value="1">golang</label>
+    <label><input type="checkbox" name="speak" value="2">js</label>
+    <label><input type="checkbox" name="speak" value="3">c#</label>
+</form>
+<script>
+    let input = document.querySelectorAll("input[type='checkbox']")
+    let btn = document.querySelectorAll("button[type='button']")
+    let flag = true
+
+    btn[0].addEventListener('click', function () {
+        for (let i = 0; i < input.length; i++) {
+            input[i].checked = flag
+        }
+    })
+    btn[1].addEventListener('click', function () {
+        flag = false
+        for (let i = 0; i < input.length; i++) {
+            input[i].checked = flag
+        }
+        flag = true
+    })
+    btn[2].addEventListener('click', function () {
+        for (let i = 0; i < input.length; i++) {
+            input[i].checked = !input[i].checked
+
+        }
+    })
+
+
+    // function f(a) {
+    //     for (let i = 1; i < 13; i++) {
+    //         if (a.nodeType != i) {
+    //             // 或者 a instanceof node
+    //             throw new Error("不是节点")
+    //         }
+    //     }
+    // }
+    // let p=document.querySelector('#box')
+    // let h="我是动态的"
+    // p.insertAdjacentHTML("beforebegin", `<p>${h},我的上铺兄弟</p>`)
+    // p.insertAdjacentHTML("afterend", `<p>${h},我的下铺兄弟`)
+    // p.insertAdjacentHTML("afterbegin", `<p>${h},我的大儿子</p>`)
+    // p.insertAdjacentHTML("beforeend", `<p>${h},我的幺儿子</p>`)
+    // // p.hasChildNodes()只能配合node使用
+    // let ul=document.querySelector('ul')
+    // let arr=[1,2,3,4,5,6,7,8,9]
+    // let fre=document.createDocumentFragment()
+    // for (let i=0;i<arr.length;i++){
+    //     ul.insertAdjacentHTML('afterbegin',`<li>${arr[i]}</li>`)
+    // }
+    // // ul.insertAdjacentHTML('afterbegin','fre')
+
+</script>
+
+</body>
+</html>
