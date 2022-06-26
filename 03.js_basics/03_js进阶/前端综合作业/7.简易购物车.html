@@ -1,13 +1,14 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>简易购物车</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <style>
         .content {
             padding: 20px 0;
@@ -24,6 +25,13 @@
             margin-bottom: 20px;
         }
 
+        .my-bottom {
+            padding: 10px 10px 5px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
         .my-header {
             display: flex;
         }
@@ -37,112 +45,391 @@
             display: inline-flex;
             width: 80%;
         }
+
+        .substance {
+            border: 1px solid black;
+            ;
+        }
+
         .part-one {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 14px 10px;
             background-color: #f5f5f5;
-            border-radius: 4px ;
+            border-radius: 4px;
 
 
         }
-        .form-inline div{
+
+        .form-inline div {
             margin-left: 5px;
         }
-        .control{
-            display: inline-flex;
-            /*width: 20%;*/
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid #999;
+            margin: 15px auto 20px;
+        }
+
+        th {
+            border: 1px solid #999;
+            height: 40px;
+            text-align: center;
+
+        }
+
+        tr th:nth-child(1) {
+            width: 50px;
+        }
+
+        tr th:nth-child(2) {
+            width: 100px;
+        }
+
+        tr th:nth-child(3) {
+            width: 280px;
+        }
+
+        tr th:nth-child(4) {
+            width: 150px;
+        }
+
+        tr th:nth-child(5) {
+            width: 160px;
+        }
+
+        tr th:nth-child(6) {
+            width: 160px;
+        }
+
+        tr th:nth-child(7) {
+            width: 200px;
+        }
+
+        td {
+            border: 1px solid #999;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #pages {
+            padding: 6px 12px;
+        }
+        .page{
+            padding: 0 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        select{
+            width: 100px;
+            border: 1px solid #ccc;
+            outline:none ;
         }
     </style>
 </head>
+
 <body>
-<div class="container">
-    <div class="content">
-        <!--顶部面包屑与用户的操作-->
-        <div class="my-top">
-            <div class="my-header">
-                <h4>书本商城</h4>
-                <ul class="breadcrumb" id="bread">
-                    <li class="active"><a href="#">首页</a></li>
-                    <li>购物车</li>
-                </ul>
+    <div class="container">
+        <div class="content">
+            <!--顶部面包屑与用户的操作-->
+            <div class="my-top">
+                <div class="my-header">
+                    <h4>书本商城</h4>
+                    <ul class="breadcrumb" id="bread">
+                        <li class="active"><a href="#">首页</a></li>
+                        <li>购物车</li>
+                    </ul>
+                </div>
+                <div class="btn-group " role="group" id="my-btn">
+                    <button type="button" class="btn btn-primary">修改密码</button>
+                    <button type="button" class="btn btn-danger">注销</button>
+                </div>
             </div>
-            <div class="btn-group " role="group" id="my-btn">
-                <button type="button" class="btn btn-primary">修改密码</button>
-                <button type="button" class="btn btn-danger">注销</button>
-            </div>
-        </div>
-        <!-- 包含了主体部分-->
-        <div class="substance">
-        <!--搜索部分-->
-            <div class="part-one">
-                <div>
-                    <form class="form-inline">
-                        <div class="form-group">
-                            <input type="search" class="form-control" placeholder="书本" name="book">
-                        </div>
-                        <div class="form-group">
-                            <input type="search" class="form-control" placeholder="最低价" name="lower">
-                        </div>
-                        <div class="form-group">
-                            <input type="search" class="form-control" placeholder="最高价" name="higher">
+            <!-- 包含了主体部分-->
+            <div class="substance">
+                <!--搜索部分-->
+                <div class="part-one">
+                    <div>
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <input type="search" class="form-control" placeholder="书本" name="book">
+                            </div>
+                            <div class="form-group">
+                                <input type="search" class="form-control" placeholder="最低价" name="lower">
+                            </div>
+                            <div class="form-group">
+                                <input type="search" class="form-control" placeholder="最高价" name="higher">
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-default ">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="control">
+                        <button id="add-date" type="button" class="btn btn-primary">添加</button>
+                        <button id="delete-date" type="button" class="btn btn-danger">批量删除</button>
+                    </div>
+                </div>
+                <div class="part-two">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><input id="select-all" type="checkbox"></th>
+                                <th>序号</th>
+                                <th>书名</th>
+                                <th>日期</th>
+                                <th>单价</th>
+                                <th>数量</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div class="page">
+                        <div>一共<span id="date-num"></span>条记录</div>
+                        <div>
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">首页</a>
+                                    </li>
+                                    <li  class="previous-page">
+                                        <a href="#" aria-label="Previous">上一页</a>
+                                    </li>
+                                    <li class='next-page'>
+                                        <a href="#" aria-label="Next">下一页</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" aria-label="Next">尾页</a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-default ">
-                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                            </button>
+                            <select name="" id="pages">
+                                <option value="5">5</option>
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                            </select>
                         </div>
-                    </form>
+                    </div>
                 </div>
-                <div class="control">
-                    <button type="button" class="btn btn-primary">添加</button>
-                    <button type="button" class="btn btn-danger">批量删除</button>
+                <div class="my-bottom">
+                    <p>总金额为：<span id="total"></span>元</p>
                 </div>
+
             </div>
-            <div class="part-two">
-                <table>
-                    <thead>
-                        <tr>
-                            <th><input type="checkbox"></th>
-                            <th>序号</th>
-                            <th>书名</th>
-                            <th>日期</th>
-                            <th>单价</th>
-                            <th>数量</th>
-                            <th>操作</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
+
         </div>
-
-
     </div>
-</div>
-<script>
-    let books=[
-        {id:1,name:'Java从入门到放弃',price:80,create_date:'2020-07-01',count:1},
-        {id:2,name:'C#从入门到放弃',price:100,create_date:'2021-09-01',count:1},
-        {id:3,name:'Golang从入门到放弃',price:50.9,create_date:'2021-08-01',count:1},
-        {id:4,name:'JavaScript从入门到放弃',price:68.2,create_date:'2022-07-01',count:1},
-        {id:5,name:'PHP从入门到放弃',price:10.2,create_date:'2022-10-01',count:1},
-        {id:6,name:'Python从入门到放弃',price:25.4,create_date:'2022-12-01',count:1},
-    ]
-    let tr=`
-        <tr>
-            <th><input type="checkbox"></th>
-            <th>序号</th>
-            <th>书名</th>
-            <th>日期</th>
-            <th>单价</th>
-            <th>数量</th>
-            <th>操作</th>
-        </tr>
-    `
+    <script src="./js/mock.js"></script>
+    <script>
+        let data = Mock.mock({
+            "book|100":[
+                {
+                    "id|+1":1,
+                    "name":"@cname",
+                    "price":"@float(20,200,0,2)",
+                    "create_date": "@date('yyyy-MM-dd')",
+                    "count|1-5":5
+                }
+            ]
+        })
+        let books = data.book;
+        let tbody = document.querySelector('tbody')
+        let pagination=document.querySelector('.pagination')
+        let currentPage=1
+        let pageSize=0
+        let limit = 5
+
+        function init() {
+            let pages=document.querySelector('#pages')
+            pages.value=5
+            paintPage()
+            creatPagination()
+            pages.addEventListener('change',function () {
+                limit = pages.value
+                paintPage()
+                creatPagination()
+            })
+
+        }
+        init()
+
+        // 删除内容
+
+        // 清空渲染
+        function clearContent(parent) {
+            while(parent.childElementCount>0){
+                parent.lastElementChild.remove()
+            }
+        }
+        // 创建一定范围的页码
+        function creatPagination() {
+            clearContent(pagination)
+
+            let a=Math.ceil(books.length/limit)
+            pageSize=a
+            pagination.innerHTML=`
+            <li>
+                <a href="#" aria-label="Previous" onclick="jumpTo(1)">首页</a>
+            </li>
+            <li  class="previous-page" onclick="jumpToPrev()">
+                <a href="#" aria-label="Previous">上一页</a>
+            </li>
+            <li class='next-page'>
+                <a href="#" aria-label="Next" onclick="jumpToNext()">下一页</a>
+            </li>
+            <li>
+                <a href="#" aria-label="Next" onclick="jumpTo(${pageSize})">尾页</a>
+            </li>
+            `
+            let nextPage=document.querySelector('.next-page')
+            for (let i=1;i<=a;i++){
+                let item=`<li id='pages${i}'><a href="#" onclick="jumpTo(${i})">${i}</a></li>`
+                nextPage.insertAdjacentHTML("beforebegin", item)
+            }
+        }
+
+        function jumpTo(m) {
+            currentPage=m
+            paintPage()
+            // creatPagination()
+        }
+
+        function jumpToPrev(){
+            if ( currentPage===1){
+                return
+            }
+            jumpTo(currentPage-1)
+        }
+        function jumpToNext(){
+            if ( currentPage===pageSize){
+                return
+            }
+            jumpTo(currentPage+1)
+        }
+// 分页
+        function paintPage() {
+            //
+            let current = books.slice((currentPage-1)*limit,currentPage*limit)
+            clearContent(tbody)
+            current.forEach(ele =>{
+                createRow(ele)
+            })
+
+        }
+
+        // 记录总数据量
+        let dateNum = document.querySelector('#date-num')
+        dateNum.innerHTML=`${books.length}`
+        // 全部选中操作
+        let selectAll = document.querySelector('#select-all')
+        selectAll.addEventListener('click', function () {
+            if (selectAll.checked) {
+                select_all()
+            } else {
+                select_none()
+            }
+        })
+        function select_all() {
+            document.querySelectorAll("input").forEach(item => item.checked = true)
+        }
+        function select_none() {
+            document.querySelectorAll("input").forEach(item => item.checked = false)
+        }
+        // 计算总价格
+        let total = document.querySelector('#total')
+        total.innerHTML=`${calcTotal(books)}`
+        function calcTotal(data) {
+            let total = 0
+            data.forEach(element => {
+                total+=element.price*element.count
+            });
+            return total.toFixed(2)
+        }
 
 
-</script>
+        let addDate = document.querySelector('#add-date'),
+            deleteDate = document.querySelector('#delete-date');
+
+        //添加数据按钮
+        addDate.addEventListener('click', function () {
+
+        })
+
+        // 批量删除数据
+        addDate.addEventListener('click', function () {
+
+        })
+
+        // 创建每一条数据
+        function createRow(item) {
+            // 创建一行
+            let tr = `
+                <tr id='row${item.id}'</>
+                    <td><input type="checkbox"></td>
+                    <td>${item.id}</td>
+                    <td>${item.name}</td>
+                    <td>${item.create_date}</td>
+                    <td class="price">${item.price}</td>
+                    <td>
+                        <div class="quantity">
+                            <input type="button" value="-" class="minus-num" onclick="minus('${item.id}')">
+                            <span class="num">${item.count}</span>
+                            <input type="button" value="+" class="add-num" onclick="addNum('${item.id}')">
+                        </div>
+                    </td>
+                    <td>
+                        <input type="button" value="编辑" class="add">
+                        <input type="button" value="删除" class="add">
+                    </td>
+                </tr>`
+            // 将创建的内容加入到tbody中
+            tbody.insertAdjacentHTML("beforeend", tr)
+        }
+
+        function minus(id) {
+            let row=document.querySelector(`#row${id}`)
+            let num=row.querySelector('.num')
+            let price=row.querySelector('.price')
+            let a=Number(num.innerHTML)
+            if (a > 0) {
+                a-= 1;
+            }
+            num.innerHTML=a
+            for (let i=0;i<books.length;i++){
+                if (books[i].id===Number(id)){
+                    books[i].count=a
+                    break
+                }
+            }
+            let newPrice=calcTotal(books)-Number(price.innerHTML)
+            total.innerHTML=`${newPrice}`
+        }
+        function addNum(id) {
+            let row=document.querySelector(`#row${id}`)
+            let num=row.querySelector('.num')
+            let price=row.querySelector('.price')
+            let a=Number(num.innerHTML)
+            a+=1
+            num.innerHTML=a
+            for (let i=0;i<books.length;i++){
+                if (books[i].id===Number(id)){
+                    books[i].count=a
+                    break
+                }
+            }
+            let newPrice=calcTotal(books)-Number(price.innerHTML)
+            total.innerHTML=`${newPrice}`
+
+        }
+
+    </script>
 </body>
+
 </html>
