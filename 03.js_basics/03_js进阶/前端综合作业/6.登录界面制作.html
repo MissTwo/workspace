@@ -87,9 +87,14 @@
         login = document.querySelector('#login'),
         usernameInfo = document.querySelector('.username-info'),
         passwordInfo = document.querySelector('.password-info');
+    let user={
+        "name":"1111",
+        "pwd":"11111"
+    }
+    let str=JSON.stringify(user)
     // TODO:页面加载时，判断localstorage中rememberMe是否存在，如果存在，将其中的username和password填入input
     if(localStorage.getItem('name')&&localStorage.getItem('pwd')){
-        username.value = localStorage.getItem('name');
+        // username.value = localStorage.getItem();
         password.value = localStorage.getItem('pwd');
         remember.checked=true;//将选择保存账户密码的复选框更改为选中
     }
@@ -162,6 +167,8 @@
         // console.log(1)
     });
     login.addEventListener('click', function () {
+        // 测试跳转
+        location.href='7.简易购物车.html'
 
         // TODO: 提交数据之前检查合法性
         let data = {
@@ -175,6 +182,8 @@
                 // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe{username; password;}
                 // TODO:如果rememberMe没勾选了，那么localstorage中的rememberMe删掉
                 // TODO:跳转页面 window.location
+                sessionStorage.setItem("log_token","ok")
+                location.href='7.简易购物车.html'
                 return
             }
             // TODO:提示错误

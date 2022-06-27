@@ -159,7 +159,7 @@
             </div>
             <div class="btn-group " role="group" id="my-btn">
                 <button type="button" class="btn btn-primary">修改密码</button>
-                <button type="button" class="btn btn-danger">注销</button>
+                <button type="button" class="btn btn-danger" id="log-out">注销</button>
             </div>
         </div>
         <!-- 包含了主体部分-->
@@ -244,6 +244,23 @@
 </div>
 <script src="./js/mock.js"></script>
 <script>
+
+    let logOut = document.querySelector('#log-out')
+    logOut.addEventListener('click', function () {
+        sessionStorage.removeItem("login_tag")
+        logChecked()
+    })
+
+    // 非法登录验证的方法
+    function logChecked() {
+        if (sessionStorage.getItem("login_tag") != "ok") {
+            // alert('非法登录')
+            if (confirm("确认要注销吗？")) {
+                location.href = "6.登录界面制作.html"
+            }
+        }
+    }
+
     let data = Mock.mock({
         "book|100": [
             {
@@ -378,13 +395,25 @@
     let addDate = document.querySelector('#add-date'),
         deleteDate = document.querySelector('#delete-date');
 
-    //添加数据按钮
-    addDate.addEventListener('click', function () {
 
-    })
 
     // 批量删除数据
-    addDate.addEventListener('click', function () {
+    deleteDate.addEventListener('click', function () {
+    // 获取被选中的
+        if(!confirm("确定要删除选中的这些信息吗？")){
+            return
+        }
+        let deleteItem=document.querySelectorAll('td>input[type="checkbox"]:checked')
+        deleteItem.forEach(i=>{
+            let deleteIndex=books.findIndex(item =>i.value==item.id)
+            books.splice(deleteIndex,1)
+            paintPage()
+            creatPagination()
+        })
+        if(selectAll){
+            selectAll.checked = false
+        }
+
 
     })
 
@@ -393,7 +422,7 @@
         // 创建一行
         let tr = `
                 <tr id='row${item.id}'</>
-                    <td><input type="checkbox"></td>
+                    <td><input type="checkbox" value="${item.id}"></td>
                     <td>${item.id}</td>
                     <td>${item.name}</td>
                     <td>${item.create_date}</td>
@@ -417,7 +446,7 @@
     function creatEdit() {
         let editInfo = `
             <form class="form-horizontal" id="edited">
-                <h4>编辑信息</h4>
+                <h4>基本信息</h4>
                 <div class="form-group">
                     <label for="bookName" class="col-sm-2 control-label">书名</label>
                     <div class="col-sm-10">
@@ -438,39 +467,47 @@
                 </div>
                 <div class="form-group">
                     <div style="text-align: center">
-                        <button type="button" class="btn btn-primary" onclick="confirmCreate()">确认</button>
-                        <button type="button" class="btn btn-danger" onclick="cancelCreat()">取消</button>
+                        <button type="button" class="btn btn-primary" onclick="confirmCreate(this)">确认</button>
+                        <button type="button" class="btn btn-danger" onclick="cancelCreat(this)">取消</button>
                     </div>
                 </div>
             </form>`
         document.body.insertAdjacentHTML('beforeend', editInfo)
     }
-
-    function confirmCreate() {
-
+     // 修改数据确认
+    function confirmCreate(id) {
+        console.log(id)
     }
-
-    function cancelCreat() {
-
+    // 修改数据选中取消
+    function cancelCreat(self) {
+        self.parentNode.parentNode.parentNode.remove()
     }
+    //添加数据按钮
+    addDate.addEventListener('click', function () {
+        creatEdit()
+
+    })
 
     // 编辑每一行
     function editRow(id) {
         let row = document.querySelector(`#row${id}`)
+        console.log(row)
         // 创建编辑框
         creatEdit()
-
+        // confirmCreate(id)
     }
 
     // 删除每一行
     function deleteRow(id) {
-        for (let i = 0; i < books.length; i++) {
-            if (books[i].id === Number(id)) {
-                books.splice(i, 1)
-                paintPage()
-                creatPagination()
-            }
+        if(confirm("确认要删除该条信息吗？")){
+            for (let i = 0; i < books.length; i++) {
+                if (books[i].id === Number(id)) {
+                    books.splice(i, 1)
+                    paintPage()
+                    creatPagination()
+                }
 
+            }
         }
 
     }
