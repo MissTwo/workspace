@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // sessionStorage：会话，当页面关闭后，数据丢失
+    // localStorage：本地，数据可以永久保存
+    localStorage.setItem("a", "1");
+    localStorage.setItem("b", "true");
+    let obj = {name: "张三", age: 20};
+    localStorage.setItem("c", obj);
+    localStorage.setItem("c", JSON.stringify(obj));
+    console.log(JSON.parse(localStorage.getItem("c")))
+
+    let books = [
+        {id: 1, name: 'Java从入门到放弃', price: 80, tdate: '2020-07-01', count: 1, email: "haha"},
+        {id: 2, name: 'Vue从入门到放弃', price: 90, tdate: '2020-07-02', count: 1, email: "haha"},
+        {id: 3, name: 'Mysql从入门到放弃', price: 100.01, tdate: '2020-07-03', count: 1, email: "haha"},
+        {id: 4, name: '啥都从入门到放弃', price: 70.0001, tdate: '2020-07-04', count: 1, email: "hehe"},
+        {id: 5, name: 'JavaScript从入门到放弃', price: 60.00, tdate: '2020-07-04', count: 1, email: "hehe"},
+        {id: 6, name: 'JavaScript从入门到放弃', price: 50.00, tdate: '2020-07-04', count: 1, email: "hehe"}
+    ];
+    localStorage.setItem("d", books);
+    localStorage.setItem("d", JSON.stringify(books));
+    console.log(JSON.parse(localStorage.getItem("d")))
+
+
+    sessionStorage.setItem("a", "1");
+</script>
+</body>
+</html>

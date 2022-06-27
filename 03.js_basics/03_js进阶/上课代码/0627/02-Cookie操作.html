@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+Cookie操作
+<button onclick="t1()">添加cookie</button>
+<button onclick="t2()">获取cookie</button>
+<button onclick="t3()">删除cookie</button>
+<button onclick="t4()">添加复杂数据的cookie</button>
+<!--<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>-->
+<script src="../js/js.cookie.js"></script>
+<script>
+    function t1() {
+		// 原生cookie是不支持对象
+        Cookies.set('account', 'haha你好'); //创建简单的cookie
+        Cookies.set('account', 'haha你好111', {
+            expires: 7, //7天后
+        });
+        // Cookies.set('account', 'haha你好111', {
+        //     expires: (1 / 24 / 3600) * 30, // 30秒
+        // });
+        // Cookies.set('account', 'haha你好111', {
+        //     expires: (1 / 24 / 3600) * 10, // 10秒
+        // });
+
+    }
+
+	function t2() {
+		console.log(Cookies.get('account'))
+		console.log(Cookies.get('obj'))
+		console.log(JSON.parse(Cookies.get('obj')).name);
+	}
+
+	function t3() {
+		console.log(Cookies.remove('account'))
+	}
+
+	function t4() {
+		let obj = {name: "张三"};
+		Cookies.set('obj', obj, {
+			expires: 7, //7天后
+		});
+
+	}
+</script>
+</body>
+</html>

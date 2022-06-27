@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>页面访问成功</div>
+<script>
+    if (sessionStorage.getItem("login_tag") != "ok") {
+        alert("请先登录")
+        // 去到登录页面
+        location.href = 'login.html'
+    }
+</script>
+</body>
+</html>
