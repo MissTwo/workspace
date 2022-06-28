@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // let reg = new RegExp("abc"); // 包括abc字符即可
+    // reg = RegExp("abc");
+    // reg = RegExp(/abc/);
+    reg = /abc/g;
+    console.log("reg.test(\"abc\")", reg.test("abc"));
+    console.log("reg.test(\"abbc\")", reg.test("abbc"));
+    console.log("reg.test(\"123\")", reg.test("123"));
+    console.log("reg.test(\"abc1\")", reg.test("abc1"));
+    console.log("reg.test(\"1abc1\")", reg.test("1abc1"));
+    console.log("reg.test(\"1abc1\")", reg.exec("1abc1"));
+    console.log("reg.test(\"1abc11abc1\")", reg.exec("1abc11abc1"));
+    // 要字符串必须是a开头，且内容只能是abc
+    reg = /^abc$/;
+    console.log("reg.test(\"abc\")", reg.test("abc"));
+    console.log("reg.test(\"abbc\")", reg.test("abbc"));
+    console.log("reg.test(\"123\")", reg.test("123"));
+    console.log("reg.test(\"abc1\")", reg.test("abc1"));
+    console.log("reg.test(\"1abc1\")", reg.test("1abc1"));
+    console.log("reg.test(\"1abc1\")", reg.exec("1abc1"));
+    console.log("reg.test(\"1abc11abc1\")", reg.exec("1abc11abc1"));
+
+    reg = /[abc]/;
+    console.log("reg.test(\"abc\")", reg.test("abc"));
+    console.log("reg.test(\"abbc\")", reg.test("abbc"));
+    console.log("reg.test(\"dddd\")", reg.test("dddd"));
+    console.log("reg.test(\"123\")", reg.test("123"));
+    console.log("reg.test(\"abc1\")", reg.test("abc1"));
+    console.log("reg.test(\"1abc1\")", reg.test("1abc1"));
+    console.log("reg.test(\"1abc1\")", reg.exec("1abc1"));
+    console.log("reg.test(\"1abc11abc1\")", reg.exec("1abc11abc1"));
+
+    // 只有英文字母就可以了
+    // reg = /[a-zA-Z]/;
+    reg = /[a-z]/i; // 等同上面
+    console.log("reg.test(\"123\")", reg.test("123"));
+    console.log("reg.test(\"abc1\")", reg.test("abc1"));
+    console.log("reg.test(\"ABC1\")", reg.test("ABC1"));
+    console.log("reg.test(\"XYZ\")", reg.test("XYZ"));
+
+    // 只能是数字
+    reg = /[0-9]/;
+    console.log("reg.test(\"123\")", reg.test("123"));
+    console.log("reg.test(\"abc1\")", reg.test("abc1"));
+    console.log("reg.test(\"ABC1\")", reg.test("ABC1"));
+    console.log("reg.test(\"XYZ\")", reg.test("XYZ"));
+
+    //出a或b即可
+    reg = /a|b/
+    console.log("reg.test(\"123\")", reg.test("123"));
+    console.log("reg.test(\"abc1\")", reg.test("abc1"));
+    console.log("reg.test(\"ABC1\")", reg.test("ABC1"));
+    console.log("reg.test(\"XYZ\")", reg.test("XYZ"));
+
+    reg = /./;
+    console.log("reg.test(\"1\")", reg.test("1"));
+    console.log("reg.test(\"a\")", reg.test("a"));
+    console.log("reg.test(\"A\")", reg.test("A"));
+    console.log("reg.test(\"你\")", reg.test("你"));
+    console.log("reg.test(\"你好\")", reg.test("你好"));
+    console.log("reg.test(\"\\n\")", reg.test("\n"));
+
+    // 匹配以^开头，以$结尾的字符串
+    reg = /^\^.\$$/;
+    console.log("reg.test(\"1\")", reg.test("1"));
+    console.log("reg.test(\"a\")", reg.test("a"));
+    console.log("reg.test(\"你\")", reg.test("你"));
+    console.log("reg.test(\"^1\")", reg.test("^1"));
+    console.log("reg.test(\"a$\")", reg.test("a$"));
+    console.log("reg.test(\"^你$\")", reg.test("^你$"));
+
+    reg = /^a*$/;
+    console.log("reg.test(\"1\")", reg.test("1"));
+    console.log("reg.test(\"a\")", reg.test("a"));
+    console.log("reg.test(\"aaaa\")", reg.test("aaaa"));
+    console.log("reg.test(\"abba\")", reg.test("abba"));
+    console.log("reg.test(\"\")", reg.test(""));
+
+    // 以a开头以a结尾，中间有任何数量的任何字符
+    reg = /^a.*a$/;
+    console.log("reg.test(\"abba\")", reg.test("abba"));
+    // 以a开头以a结尾，中间至少有一个任何字符
+    reg = /^a.+a$/;
+    console.log("reg.test(\"abba\")", reg.test("abba"));
+    console.log("reg.test(\"aa\")", reg.test("aa"));
+    reg = /^a.?a$/;
+    console.log("reg.test(\"abba\")", reg.test("abba"));
+    console.log("reg.test(\"aa\")", reg.test("aa"));
+    console.log("reg.test(\"aba\")", reg.test("aba"));
+
+    // 一个字符串长度大写6
+    reg = /.{6,}/
+    console.log("reg.test(\"abba\")", reg.test("abba"));
+    console.log("reg.test(\"aa\")", reg.test("aa"));
+    console.log("reg.test(\"aba\")", reg.test("aba"));
+    console.log("reg.test(\"abaaba\")", reg.test("abaaba"));
+    console.log("reg.test(\"abaabaabaaba\")", reg.test("abaabaabaaba"));
+
+    // 判断有6个a连着出现的字符串
+    reg = /a{6}/
+    console.log("reg.test(\"abba\")", reg.test("abba"));
+    console.log("reg.test(\"aa\")", reg.test("aa"));
+    console.log("reg.test(\"aba\")", reg.test("aba"));
+    console.log("reg.test(\"abaaba\")", reg.test("abaaba"));
+    console.log("reg.test(\"abaabaabaaba\")", reg.test("abaabaabaaba"));
+    console.log("reg.test(\"aaaaaaa\")", reg.test("aaaaaaa"));
+
+    // 以a开头和结尾，一个字符串长度大写6，小于12
+    reg = /^a.{6,12}a$/
+    console.log("reg.test(\"abba\")", reg.test("abba"));
+    console.log("reg.test(\"aa\")", reg.test("aa"));
+    console.log("reg.test(\"aba\")", reg.test("aba"));
+    console.log("reg.test(\"abaabaabaabaabaabaabaaba\")", reg.test("abaabaabaabaabaabaabaaba"));
+    console.log("reg.test(\"abaaba\")", reg.test("abaaba"));
+    console.log("reg.test(\"abaabaabaaba\")", reg.test("abaabaabaaba"));
+    console.log("reg.test(\"aaaaaaa\")", reg.test("aaaaaaa"));
+
+    // 密码只能数字，且只能是6位
+    reg = /^\d{6}$/;
+    console.log("reg.test(\"abba12\")", reg.test("abba12"));
+    console.log("reg.test(\"111333\")", reg.test("111333"));
+    // 密码是任意字符，且只能是6位
+    reg = /^.{6}$/;
+    console.log("reg.test(\"abba1\")", reg.test("abba1"));
+    console.log("reg.test(\"11133\")", reg.test("11133"));
+    console.log("reg.test(\"abba12\")", reg.test("abba12"));
+    console.log("reg.test(\"111333\")", reg.test("111333"));
+    console.log("reg.test(\"abba127\")", reg.test("abba127"));
+    console.log("reg.test(\"1113337\")", reg.test("1113337"));
+
+    // 账号只能是数字、字母、_、$的组合
+    reg = /^[\w\$]+$/;
+    console.log("reg.test(\"a$$$\")", reg.test("a$$$"));
+    console.log("reg.test(\"aabc123_AA$$$\")", reg.test("aabc123_AA$$$"));
+    console.log("reg.test(\"你好aabc123_AA$$$啊\")", reg.test("你好aabc123_AA$$$啊"));
+
+    // 匹配字符串，是否符合dataX.data
+    let arr = ["data.dat","data1.dat","data2.dat","datax.dat","dataN.dat"];
+    reg = /^data.*\.dat$/; //检测一个文件名是否符合指定的规则
+    arr.forEach(item => console.log(reg.test(item)));
+    //取出data[].dat之间值
+    reg = /^data(.*)\.dat$/; // 一个小括号对应一个RegExp.$1
+    console.log(" reg.exec(arr[1])", reg.exec(arr[1]), RegExp.$1);
+    // 将arr输出为字符串。然后出每个文件名中data和.dat中间的内容
+    let s = arr.join();
+    reg = /^data(.*)\.dat,data(.*)\.dat,data(.*)\.dat,data(.*)\.dat,data(.*)\.dat$/;
+    // reg.exec(s);
+    reg.test(s);
+    console.log(RegExp.$1, RegExp.$2, RegExp.$3, RegExp.$4, RegExp.$5)
+
+    reg = /Windows(?=95|98|NT|2000)/;
+    // console.log(reg.test("Windows10"))
+    // console.log(reg.test("Windows95"))
+    console.log(reg.exec("Windows95"))
+    console.log(RegExp.$1)
+
+    // 获取文件名，即不需要后缀名
+    s = "abc1.exe"; // 也可以用来取整数
+    reg = /.+(?=\..+)/;
+    console.log(reg.exec(s))
+
+    // <h1>h1标签内容</h1><div>div标签内容</div>。获取两个标签之间的内容
+    s = "<h1>h1标签内容</h1><div>div标签内容</div>";
+    // ?：量词符，表示0或1次；跟在量词符后面，表示非贪婪模式
+    // reg = /(?<=<\w+>)(.*)(?=<\/\w+>)/g; // 贪婪模式
+    reg = /(?<=<\w+>)(.)*?(?=<\/\w+>)/g; // 非贪婪模式
+    // reg = /(?<=<\w+>)(.|\s)*?(?=<\/\w+[^<]*>)/g;
+    // console.log(reg.exec(s));
+    console.log(s.match(reg))
+
+    // 1 + 2 - 10
+    // 面试题：9-2*5/3+7/3*99/4*2998+10*568/14。计算结果
+</script>
+</body>
+</html>

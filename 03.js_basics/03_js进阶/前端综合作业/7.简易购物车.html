@@ -167,19 +167,24 @@
             <!--搜索部分-->
             <div class="part-one">
                 <div>
-                    <form class="form-inline">
+                    <form class="form-inline" id="search" action="#">
                         <div class="form-group">
-                            <input type="search" class="form-control" placeholder="书本" name="book">
+                            <input type="search" class="form-control" placeholder="书本" name="book_name">
                         </div>
                         <div class="form-group">
-                            <input type="search" class="form-control" placeholder="最低价" name="lower">
+                            <input type="number" class="form-control" placeholder="最低价" name="lower">
                         </div>
                         <div class="form-group">
-                            <input type="search" class="form-control" placeholder="最高价" name="higher">
+                            <input type="number" class="form-control" placeholder="最高价" name="higher">
                         </div>
                         <div>
-                            <button type="button" class="btn btn-default ">
+                            <button type="button" class="btn btn-default" id="search_btn">
                                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                        <div>
+                            <button type="reset" class="btn btn-default ">
+                                重置
                             </button>
                         </div>
                     </form>
@@ -261,6 +266,7 @@
         }
     }
 
+
     let data = Mock.mock({
         "book|100": [
             {
@@ -282,17 +288,46 @@
     function init() {
         let pages = document.querySelector('#pages')
         pages.value = 5
-        paintPage()
-        creatPagination()
+        paintPage(books)
+        creatPagination(books)
         pages.addEventListener('change', function () {
             limit = pages.value
-            paintPage()
-            creatPagination()
+            paintPage(books)
+            creatPagination(books)
         })
 
     }
 
     init()
+    // 搜索部分
+
+    document.querySelector('#search_btn').onclick=function () {
+        let searchForm = document.querySelector('#search'),
+        lowerPrice = searchForm.querySelector('input[name="lower"]').valueAsNumber,
+        higherPrice = searchForm["higher"].valueAsNumber,
+        bookName = searchForm["book_name"].value.trim().toLowerCase();
+        let filterBook=[...books]
+        if (bookName.length>0){
+            filterBook=filterBook.filter(i => i.name.indexOf(bookName) != -1)
+        }
+        if (lowerPrice>=0){
+            filterBook=filterBook.filter(i => i.price >= lowerPrice)
+        }
+        if (higherPrice>=0){
+            filterBook=filterBook.filter(i => i.price <= higherPrice)
+        }
+        paintPage(filterBook)
+        creatPagination(filterBook)
+        console.log(filterBook)
+    }
+    document.querySelector('button[type="reset"]').onclick=function () {
+        paintPage(books)
+        creatPagination(books)
+    }
+
+
+
+
 
     // 清空渲染
     function clearContent(parent) {
@@ -303,9 +338,9 @@
 
 
     // 创建一定范围的页码
-    function creatPagination() {
+    function creatPagination(list) {
         clearContent(pagination)
-        let a = Math.ceil(books.length / limit)
+        let a = Math.ceil(list.length / limit)
         pageSize = a
         pagination.innerHTML = `
             <li>
@@ -330,7 +365,7 @@
 
     function jumpTo(m) {
         currentPage = m
-        paintPage()
+        paintPage(books)
         // creatPagination()
     }
 
@@ -348,9 +383,9 @@
         jumpTo(currentPage + 1)
     }
 
-    // 分页
-    function paintPage() {
-        let current = books.slice((currentPage - 1) * limit, currentPage * limit)
+    // 分页(包扩了清空表格内容和重新绘制表格内容)
+    function paintPage(list) {
+        let current = list.slice((currentPage - 1) * limit, currentPage * limit)
         clearContent(tbody)
         current.forEach(ele => {
             createRow(ele)
@@ -396,21 +431,20 @@
         deleteDate = document.querySelector('#delete-date');
 
 
-
     // 批量删除数据
     deleteDate.addEventListener('click', function () {
-    // 获取被选中的
-        if(!confirm("确定要删除选中的这些信息吗？")){
+        // 获取被选中的
+        if (!confirm("确定要删除选中的这些信息吗？")) {
             return
         }
-        let deleteItem=document.querySelectorAll('td>input[type="checkbox"]:checked')
-        deleteItem.forEach(i=>{
-            let deleteIndex=books.findIndex(item =>i.value==item.id)
-            books.splice(deleteIndex,1)
-            paintPage()
-            creatPagination()
+        let deleteItem = document.querySelectorAll('td>input[type="checkbox"]:checked')
+        deleteItem.forEach(i => {
+            let deleteIndex = books.findIndex(item => i.value == item.id)
+            books.splice(deleteIndex, 1)
+            paintPage(books)
+            creatPagination(books)
         })
-        if(selectAll){
+        if (selectAll) {
             selectAll.checked = false
         }
 
@@ -474,14 +508,17 @@
             </form>`
         document.body.insertAdjacentHTML('beforeend', editInfo)
     }
-     // 修改数据确认
+
+    // 修改数据确认
     function confirmCreate(id) {
         console.log(id)
     }
+
     // 修改数据选中取消
     function cancelCreat(self) {
         self.parentNode.parentNode.parentNode.remove()
     }
+
     //添加数据按钮
     addDate.addEventListener('click', function () {
         creatEdit()
@@ -499,12 +536,12 @@
 
     // 删除每一行
     function deleteRow(id) {
-        if(confirm("确认要删除该条信息吗？")){
+        if (confirm("确认要删除该条信息吗？")) {
             for (let i = 0; i < books.length; i++) {
                 if (books[i].id === Number(id)) {
                     books.splice(i, 1)
-                    paintPage()
-                    creatPagination()
+                    paintPage(books)
+                    creatPagination(books)
                 }
 
             }

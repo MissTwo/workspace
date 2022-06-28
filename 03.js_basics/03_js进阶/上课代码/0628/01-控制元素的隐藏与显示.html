@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let hidden = true;
+    let div = `<div><span ${hidden ? 'hidden' : ''}>文字</span><input ${!hidden ? 'hidden' : ''} type='text' value='123' ></div>`;
+    document.body.insertAdjacentHTML("beforeend", div);
+</script>
+</body>
+</html>
