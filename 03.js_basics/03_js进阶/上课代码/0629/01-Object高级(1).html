@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" value="">
+<script type="text/javascript">
+    let obj = {
+        name: "张三",
+        age: 20,
+        say: function () {
+            console.log("say")
+        }
+    };
+    // obj.say = "修改为字符串";
+    // delete obj.say;
+    // console.log(obj)
+
+    Object.defineProperty(obj, "sal", {
+        value: 2000.01,
+        configurable: false,  //false，不能使用delete删除，也无法通过defineProperty再次定义了
+        writable: true, // false：表示属性的值不能被修改
+        enumerable: false // 控制属性是否能遍历显示
+    });
+    // Object.defineProperty(obj, "sal", {
+    //     value: 2000.01,
+    //     configurable: true
+    // });
+    delete obj.sal;
+    obj.sal = 3000
+    obj.sal = function () {
+        console.log("sal")
+    }
+    console.log(obj)
+    for (let key in obj) {
+        console.log(key)
+    }
+
+    let obj1 = {};
+    let _name = "张三"
+    Object.defineProperty(obj1, "name", {
+        get(){
+            console.log("get函数")
+            return _name;
+        },
+        set(val) {
+            console.log("set函数")
+            _name = val;
+        },
+        enumerable: true,
+        configurable: true,
+        // writable: true  如果使用set函数，那么writable就不能使用了
+    });
+    console.log(obj1.name);
+    obj1.name = "李四";
+    console.log(obj1.name);
+
+    let _age = 20
+    Object.defineProperty(obj1, "age", {
+        set(v) {
+            if (typeof v !== 'number') {
+                return;
+            }
+            _age = v
+        },
+        get() {
+            return _age;
+        }
+    })
+    console.log(typeof obj1.age)
+    obj1.age = "aa"
+    console.log(obj1.age)
+    obj1.age = 30
+    console.log(obj1.age)
+
+    Object.defineProperties(obj1, {
+        a: {
+            value: "a",
+            writable: false
+        },
+        b: {
+            value: function (){
+                console.log("b属性")
+            },
+            configurable: false,
+            enumerable: false
+        }
+    })
+    console.log(obj1)
+
+    // 定义一个对象，有宽高属性，还有一个求面积函数，要遍历对象时，只能遍历属性，不能遍历函数
+    // 求面积的函数不能被重写，也不能被删除。分别使用defineProperty和defineProperties实现
+    let obj2 = {};
+    Object.defineProperty(obj2, "width", {
+        value: 0,
+        writable: true
+    });
+    Object.defineProperty(obj2, "height", {
+        value: 0,
+        writable: true
+    });
+    Object.defineProperty(obj2, "getArea", {
+        value: function() {
+            return this.width * this.height;
+        },
+        enumerable: false,
+        writable: false,
+        configurable: false
+    });
+    obj2.width = 10;
+    obj2.height = 10;
+    console.log(obj2)
+    obj2.getArea = "123";
+    delete obj2.getArea
+    console.log(obj2.getArea())
+
+    let obj3 = {};
+    Object.defineProperties(obj3, {
+        width: {
+            value: 0,
+            writable: true
+        },
+        height: {
+            value: 0,
+            writable: true
+        },
+        getArea: {
+            value: function() {
+                return this.width * this.height;
+            },
+            enumerable: false,
+            writable: false,
+            configurable: false
+        }
+    })
+    obj3.width = 10;
+    obj3.height = 10;
+    console.log(obj3)
+    obj3.getArea = "123";
+    delete obj3.getArea
+    console.log(obj3.getArea())
+
+    // 实现一个效果，定义一个对象，该对象有name属性，该属性与页面上的一个input的value绑定。
+    // 当name属性的值变化时，那么input中的内容自动修改，同时如果在input中输入内容，那么obj的name属性也
+    // 跟着变化。简单点就是数据的双向绑定
+    let obj4 = {};
+    _name = "";
+    Object.defineProperty(obj4, "name", {
+        get() {
+            return _name
+        },
+        set(v) {
+            document.querySelector("input").value = v
+            _name = v
+        }
+    });
+    // document.querySelector("input").oninput = function (e) {
+    //     obj4.name = e.target.value;
+    // }
+    // document.querySelector("input").onchange = function (e) {
+    //     obj4.name = e.target.value;
+    // }
+    document.querySelector("input").onblur = function (e) {
+        obj4.name = e.target.value;
+    }
+
+    console.log(Object.getOwnPropertyDescriptor(obj4, "name"));
+    console.log(Object.getOwnPropertyDescriptor(obj3, "width"));
+    console.log(Object.getOwnPropertyDescriptors(obj3));
+    console.log(Object.getOwnPropertyNames(obj3));
+    console.log(Object.keys(obj3));// 不能获取通过defineProperty定义的属性
+    console.log(Object.keys(obj));
+    console.log(Object.getOwnPropertyNames(obj));
+    console.log(Object.values(obj3));// 不能获取通过defineProperty定义的属性的值
+    console.log(Object.values(obj));
+    console.log(Object.entries(obj3));
+    console.log(Object.entries(obj));
+
+    // ES6提供的写法
+    for (let [key, value] of Object.entries(obj)) {
+        console.log(key, value)
+    }
+
+    // 复习一个obj对象
+    /*
+        Object.assign(target, ...sources)
+            target：要处理对象，将sources中的对象中内容复制到target中
+            方法会返回target对象
+     */
+
+    // let obj5 = Object.assign(obj); // obj5和obj是指向同一个地址，相当于obj5 = obj
+    let obj5 = Object.assign({}, obj);// obj5和obj指不同的地址
+    console.log(obj5 === obj);
+    console.log(obj);
+    console.log(obj5);
+    let obj6 = {...obj, ...obj1}
+
+    let obj7 = Object.assign(obj)
+    console.log(Object.is(NaN, NaN))
+    console.log(NaN === NaN)
+    console.log(Object.is(obj5, obj))
+    console.log(Object.is(obj7, obj))
+
+    /*
+        可以冻结一个对象
+            冻结指的是不能向这个对象添加新的属性，
+            不能修改其已有属性的值，
+            不能删除已有属性
+            不能修改该对象已有属性的可枚举性、可配置性、可写性。
+            也就是说，这个对象永远是不可变的。该方法返回被冻结的对象。
+     */
+    Object.freeze(obj5);
+    obj5.cc = "123";
+    console.log(obj5);
+
+    const a1 = [1, 3, 5];
+    // 不能再执行 a1 = XXX的代码
+    a1.push(7)
+    Object.freeze(a1);
+    // a1.push(9)
+    console.log(a1);
+
+    let obj8 = {
+        a: [1, 3, 5],
+        c: function(v) {
+            console.log(v)
+        }
+    }
+    Object.freeze(obj8)
+    // obj8.a.push(7)
+    obj8.a = "aaa";
+    obj8.c = "jkjk";
+    obj8.c(11);
+    obj8.d = "dd"
+    delete obj8.a;
+    console.log(obj8)
+
+    let obj9 = {
+        a: [1, 3, 5],
+        c: function(v) {
+            console.log(v)
+        }
+    }
+
+    Object.seal(obj9);
+    obj9.a = "aaa";
+    // obj9.c = "jkjk";
+    obj9.c(11);
+    obj9.d = "dd"
+    delete obj9.a;
+    console.log(obj9)
+
+    let obj10 = {
+        a: [1, 3, 5],
+        c: function(v) {
+            console.log(v)
+        }
+    }
+
+    Object.preventExtensions(obj10);
+    obj10.a = "aaa";
+    // obj10.c = "jkjk";
+    obj10.c(11);
+    obj10.d = "dd"
+    delete obj10.a;
+    console.log(obj10)
+</script>
+</body>
+</html>

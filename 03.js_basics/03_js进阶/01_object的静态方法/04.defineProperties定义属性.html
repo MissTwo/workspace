@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 给对象添加多个属性并且分别指定他们的配置
+    let obj = {};
+    Object.defineProperties(obj,
+        {
+            "id": {
+                value: 1,
+                writable: false,
+                enumerable: false,
+                configurable: false
+            },
+            "name": {
+                value: "asdf",
+
+            }
+        },
+    )
+    Object.entries()
+</script>
+</body>
+</html>

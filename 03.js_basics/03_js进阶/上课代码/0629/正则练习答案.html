@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let s = "9-21*5/3+18/3*9/9*2+10*568/14";
+  //先做乘除再做加减
+  let reg = /(\d+[*/])+\d+/g;
+  // console.log(reg.exec(s));
+  // console.log(RegExp.$1.txt);
+  // console.log(reg.exec(s));
+  let a = s.match(reg);
+  console.log(a);
+  //21*5/3  21  *   5  /   3
+  // s = "21*5/3";
+  // reg = /(\d+)|([*/])/g;
+  // console.log(reg.exec(s));
+  // console.log(reg.exec(s));
+  // console.log(reg.exec(s));
+  // let a1 = s.match(reg);
+  // console.log(a1);
+  // console.log(a1[0]);
+  // console.log(a1[1.txt]);
+  // if (a1[1.txt] == "*") {
+  //     let re = a1[0] * a1[2];
+  // }
+  a.forEach(value => {
+    let reg = /(\d+)|([*/])/g;
+    let result = t1(value.match(reg));
+    console.log(result);
+    s = s.replace(value, result);
+  });
+  // console.log("s:" + s);
+
+  function t1(a1) {
+    let mark;
+    let markIndex = 0;
+    let result;
+    for (let i = 0; i < a1.length; i+=2) {
+      markIndex = i + 1;
+      mark = a1[markIndex];
+      // console.log("markIndex:" + markIndex);
+      // console.log("mark:" + mark);
+      if (!result) {
+        result = a1[markIndex - 1];
+      }
+      // console.log("result:" + result);
+      // console.log("a1[markIndex + 1.txt]:" + a1[markIndex + 1.txt]);
+      if (mark == "*") {
+        result = result * a1[markIndex + 1];
+      } else if (mark == "/") {
+        result = result / a1[markIndex + 1];
+      }
+      // console.log("result:" + result);
+    }
+    console.log("result:" + result);
+    return result;
+  }
+</script>
+</body>
+</html>

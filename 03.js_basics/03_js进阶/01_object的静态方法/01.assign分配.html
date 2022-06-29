@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  // Object.assign()通过复制一个或者多个来创建一个新的对象
+  // 注意：通过对象定义的属性不能进行复制
+
+  let target ={}
+  let source ={
+    a:1,
+    b:"dgfas"
+  }
+  console.log("最初",source,target)
+
+  Object.defineProperty(source, "array",{
+    value:[1,2,3,4]
+  })
+  Object.assign(target,source)
+  console.log("使用对象的assign()方法后",source,target)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" name="username">
+<script type="text/javascript">
+    // 数据的双向绑定
+    let username = document.querySelector('input')
+    let user = {};
+    // let _name='';
+    Object.defineProperty(user, "username", {
+        get() {
+
+            // return _name
+            return username.value
+        },
+        set(v) {
+            username.value = v
+            // _name=v
+        }
+    })
+    console.log(user)
+    username.oninput = function (e) {
+        user.username = username.value
+    }
+    let student = {
+        name: "张三",
+        age: 20,
+
+    }
+    Object.defineProperty(student, "sex ", {
+        value: "男"
+    })
+
+    // let obj = {
+    //     name: "张三",
+    //     age: 20,
+    //     say: function () {
+    //         console.log("say")
+    //     }
+    // };
+    // // obj.say = "修改为字符串";
+    // // delete obj.say;
+    // // console.log(obj)
+    //
+    // Object.defineProperty(obj, "sal", {
+    //     value: 2000.01,
+    //     configurable: false,  //false，不能使用delete删除，也无法通过defineProperty再次定义了
+    //     writable: true, // false：表示属性的值不能被修改
+    //     enumerable: false // 控制属性是否能遍历显示
+    // });
+    // // Object.defineProperty(obj, "sal", {
+    // //     value: 2000.01,
+    // //     configurable: true
+    // // });
+    // delete obj.sal;
+    // obj.sal = 3000
+    // obj.sal = function () {
+    //     console.log("sal")
+    // }
+    // console.log(obj)
+    // for (let key in obj) {
+    //     console.log(key)
+    // }
+    //
+    // let obj1 = {};
+    // let _name = "张三"
+    // Object.defineProperty(obj1, "name", {
+    //     get(){
+    //         console.log("get函数")
+    //         return _name;
+    //     },
+    //     set(val) {
+    //         console.log("set函数")
+    //         _name = val;
+    //     },
+    //     enumerable: true,
+    //     configurable: true,
+    //     // writable: true  如果使用set函数，那么writable就不能使用了
+    // });
+    // console.log(obj1.name);
+    // obj1.name = "李四";
+    // console.log(obj1.name);
+    //
+    // let _age = 20
+    // Object.defineProperty(obj1, "age", {
+    //     set(v) {
+    //         if (typeof v !== 'number') {
+    //             return;
+    //         }
+    //         _age = v
+    //     },
+    //     get() {
+    //         return _age;
+    //     }
+    // })
+    // console.log(typeof obj1.age)
+    // obj1.age = "aa"
+    // console.log(obj1.age)
+    // obj1.age = 30
+    // console.log(obj1.age)
+    //
+    // Object.defineProperties(obj1, {
+    //     a: {
+    //         value: "a",
+    //         writable: false
+    //     },
+    //     b: {
+    //         value: function (){
+    //             console.log("b属性")
+    //         },
+    //         configurable: false,
+    //         enumerable: false
+    //     }
+    // })
+    // console.log(obj1)
+
+    // 定义一个对象，有宽高属性，还有一个求面积函数，要遍历对象时，只能遍历属性，不能遍历函数
+    // 求面积的函数不能被重写，也不能被删除。分别使用defineProperty和defineProperties实现
+    // let obj = {}
+    // let _width = 10;
+    // let _height = 20;
+    // let _area = function (a, b) {
+    //     return a * b
+    // }
+    // Object.defineProperty(obj, 'width', {
+    //     enumerable: true,
+    //     get() {
+    //         return _width
+    //     },
+    //     set(v) {
+    //         _width = v
+    //     }
+    // })
+    // Object.defineProperty(obj, 'height', {
+    //     enumerable: true,
+    //     get() {
+    //         return _height
+    //     },
+    //     set(v) {
+    //         _height = v
+    //     }
+    // })
+    // Object.defineProperty(obj, 'area', {
+    //     enumerable: false,
+    //     configurable: false,
+    //     writable: false,
+    //     value:function(a,b){
+    //         return a*b
+    //     }
+    //
+    // })
+    // console.log(obj)
+    // let obj1={}
+    // Object.defineProperties(obj, {
+    //     width:{
+    //         value:_width
+    //     },
+    //     height:{
+    //         value:_height
+    //     }
+    // })
+
+</script>
+</body>
+</html>

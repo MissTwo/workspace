@@ -271,7 +271,7 @@
         "book|100": [
             {
                 "id|+1": 1,
-                "name": "@cname",
+                "name": "@title(4)",
                 "price": "@float(20,200,0,2)",
                 "create_date": "@date('yyyy-MM-dd')",
                 "count|1-5": 5
@@ -319,6 +319,9 @@
         paintPage(filterBook)
         creatPagination(filterBook)
         console.log(filterBook)
+        filterBook=[...books]
+        console.log(filterBook)
+
     }
     document.querySelector('button[type="reset"]').onclick=function () {
         paintPage(books)
@@ -362,7 +365,7 @@
             nextPage.insertAdjacentHTML("beforebegin", item)
         }
     }
-
+configurable
     function jumpTo(m) {
         currentPage = m
         paintPage(books)
@@ -476,7 +479,7 @@
         // 将创建的内容加入到tbody中
         tbody.insertAdjacentHTML("beforeend", tr)
     }
-
+// 修改和编辑信息的模板
     function creatEdit() {
         let editInfo = `
             <form class="form-horizontal" id="edited">
@@ -484,19 +487,25 @@
                 <div class="form-group">
                     <label for="bookName" class="col-sm-2 control-label">书名</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="bookName" placeholder="请输入书名">
+                        <input type="text" class="form-control" name="name" placeholder="请输入书名">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="dateItem" class="col-sm-2 control-label">日期</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="dateItem" placeholder="yyyy-mm-dd">
+                        <input type="date" class="form-control" name="create_date" placeholder="yyyy-mm-dd">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="priceItem" class="col-sm-2 control-label">单价</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="priceItem" placeholder="请输入价格">
+                        <input type="number" class="form-control" name="price" placeholder="请输入价格">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="priceItem" class="col-sm-2 control-label">数量</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" name="count" placeholder="请输入数量">
                     </div>
                 </div>
                 <div class="form-group">
@@ -509,10 +518,7 @@
         document.body.insertAdjacentHTML('beforeend', editInfo)
     }
 
-    // 修改数据确认
-    function confirmCreate(id) {
-        console.log(id)
-    }
+
 
     // 修改数据选中取消
     function cancelCreat(self) {
@@ -522,9 +528,36 @@
     //添加数据按钮
     addDate.addEventListener('click', function () {
         creatEdit()
-
     })
+    // 修改数据确认与编辑数据的确认
+    function confirmCreate(id) {
+        // 获取输入数据的表单
+        let edited=document.querySelector('#edited')
+        let input=edited.querySelectorAll('input')
+        let obj={}
+        input=Array.from(input)
 
+        // 添加数据时,获取添加的对象
+        input.map(item => {
+            if (item.type==='number'){
+                obj[item.name]=item.valueAsNumber
+            }else{
+                obj[item.name]=item.value
+            }
+            if(obj[item.name]==='count'){
+                obj[item.name]=parseInt(item.value)
+            }
+        })
+        // 获取id放入obj,找到id最大的
+        let idList=books.map(item => item.id)
+        let maxId=Math.max(...idList)
+        console.log(maxId)
+        obj['id']=maxId+1
+        books.push(obj)
+        paintPage(books)
+        creatPagination(books)
+
+    }
     // 编辑每一行
     function editRow(id) {
         let row = document.querySelector(`#row${id}`)
@@ -584,6 +617,7 @@
         let newPrice = calcTotal(books) - Number(price.innerHTML)
         total.innerHTML = `${newPrice.toFixed(2)}`
     }
+
 
 </script>
 </body>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" name="title" value="">
+<script>
+    // 数据的双向绑定
+    let obj1={}
+    let _title =""
+    Object.defineProperty(obj1, "title", {
+        get() {
+            return _title;
+        },
+        set(value) {
+            document.querySelector("input[name='title']").value=value;
+            _title = value;
+        }
+    })
+    document.querySelector("input[name='title']").oninput = function(event, value) {
+        obj1.title=this.value
+    }
+    let obj2={}
+    // 给对对象定义一个新属性
+    Object.defineProperty(obj2, "title", {
+        value:43,
+        enumerable:false,
+        configurable: false,
+        writable: true,
+    })
+    console.log(obj2)
+</script>
+</body>
+</html>
