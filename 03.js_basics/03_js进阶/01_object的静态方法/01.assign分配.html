@@ -6,22 +6,53 @@
 </head>
 <body>
 <script>
+/*  Object.assign()通过复制一个或者多个来创建一个新的对象
+*       注意：
+*           1.通过对象定义的属性不能进行复制
+*           2.将说有可以枚举和自有属性返回true的属性复制到目标对象中
+*           3.可以将多个对象复制到target对象中
+*               Object.assign(target,source1,source2,source3)
+*               Object.assign(target,...source)
+*           4.基本类型为字符串会被包装为对象
+*           4.使用：
+*               对象的合并
+*               合并具有相同属性的对象
+*               拷贝symbol类型属性
+*  */
 
-  // Object.assign()通过复制一个或者多个来创建一个新的对象
-  // 注意：通过对象定义的属性不能进行复制
 
-  let target ={}
+  // let target ={}
   let source ={
     a:1,
     b:"dgfas"
   }
-  console.log("最初",source,target)
-
+  let source2={
+      "name" :"张三",
+      age :18
+  }
   Object.defineProperty(source, "array",{
     value:[1,2,3,4]
   })
-  Object.assign(target,source)
-  console.log("使用对象的assign()方法后",source,target)
+  let target=Object.assign({},source,source2)
+console.log("使用对象的assign()方法后", source, source2, target);
+  // 深拷贝对象使用JSON
+let obj1={a:0,b:"zhangsan",c:{age:20}}
+let str=JSON.stringify(obj1);
+let newObj=JSON.parse(str);
+console.log(newObj);
+console.log(newObj==obj1)
+let arr=[1,2,3,4,[5,6,7,[8,9,10]]]
+let clone=JSON.parse(JSON.stringify(arr));
+console.log(clone,arr)
+const v1 = 'abc';
+const v2 = true;
+const v3 = 10;
+const v4 = Symbol('foo');
+
+const obj = Object.assign({}, v3);
+// Primitives will be wrapped, null and undefined will be ignored.
+// Note, only string wrappers can have own enumerable properties.
+console.log(obj); // { "0": "a", "1": "b", "2": "c" }
 </script>
 
 </body>

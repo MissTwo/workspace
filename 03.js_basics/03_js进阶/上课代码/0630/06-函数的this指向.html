@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var name = "window中的name"
+    function t1() {
+        console.log(this) // window
+    }
+    t1()
+    // window.t1();
+
+    function Person() {
+        this.name = "哈哈";
+        this.age = 20
+        console.log(this)
+    }
+    let p = new Person()
+    p.say = function() {
+        console.log(this.name, this.age)
+    }
+    p.say();// p
+    let psay = p.say;
+    psay();// window
+    console.log("-----------------------------")
+    let obj = {
+        name: "张三",
+        say: function() {
+            console.log(this.name + "say")
+        }
+    }
+    obj.say()
+    let say = obj.say;
+    say()
+    say.apply(obj);
+    console.log("-------------函数嵌套----------------")
+    function t2() {
+        console.log(this)
+        function t21() {
+            console.log(this)
+        }
+        t21()
+    }
+
+    t2()
+
+    let obj1 = {
+        name: "张三",
+        say: function() {
+            console.log(this.name + "say")
+            function say1() {
+                console.log(this.name + "say1")
+            }
+            say1()
+        }
+    }
+    obj1.say()
+
+    console.log("-------------回调函数----------------")
+    let obj2 = {
+        name: "张三",
+        say: function(callback) {
+            console.log(this.name + "say")
+            callback()
+        },
+        work() {
+            console.log(this.name, "work")
+        }
+    }
+
+    obj2.say(obj2.work);
+
+    function t3(callback) {
+        callback()
+    }
+
+    t3(obj1.say);
+    t3(obj1.say.bind(obj1))
+    let obj111={
+        1:"a11"
+    }
+    console.log(obj111)
+    let map1=new Set()
+    map1.add(1).add(2).add(3).add(4).add(5).add(6).add(7).add(8).add(9).add(10)
+    let arr11=[...map1]
+    console.log(arr11)
+</script>
+</body>
+</html>

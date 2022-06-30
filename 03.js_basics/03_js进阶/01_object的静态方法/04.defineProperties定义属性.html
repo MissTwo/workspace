@@ -12,9 +12,9 @@
         {
             "id": {
                 value: 1,
-                writable: false,
-                enumerable: false,
-                configurable: false
+                // writable: false,
+                enumerable: true,
+                // configurable: false
             },
             "name": {
                 value: "asdf",
@@ -22,7 +22,12 @@
             }
         },
     )
-    Object.entries()
+    // 修改无效
+    obj.id=2
+    for (const prop in obj) {
+        console.log(prop)
+    }
+    console.log(obj)
 </script>
 </body>
 </html>

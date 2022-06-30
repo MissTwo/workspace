@@ -6,7 +6,19 @@
 </head>
 <body>
 <script>
-返回给对象自身可以枚举属性的[key, value]
+    /*Object.entries()返回给对象自身可以枚举属性的[key, value]
+    *返回一个给定对象自身可以枚举属性的键值对数组
+    * 区别与for··· in：
+    *           for··· in还会枚举原型链中属性
+    * */
+    let obj={
+        a: 'aaa',
+        b:'bbb',
+    }
+    for (let [key, value] of Object.entries(obj)) {
+
+    }
+
 </script>
 </body>
 </html>

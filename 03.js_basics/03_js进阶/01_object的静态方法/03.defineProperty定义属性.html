@@ -7,6 +7,16 @@
 <body>
 <input type="text" name="title" value="">
 <script>
+/* Object.defineProperty()定义或者修改对象的属性
+*    属性描述的符主要有两种：数据描述符和访问描述符
+*    描述符具有以下键注意：
+*       1.configurable该属性表示该属性可以从对象中删除，默认是false
+*       2.enumerable在枚举相应属性时是否显示该属性默认false
+*       3.value与属性关联的值，默认是undefined
+*       4.writable属性值能否被修改默认是false
+*
+*
+* */
     // 数据的双向绑定
     let obj1={}
     let _title =""
