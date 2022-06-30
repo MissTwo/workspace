@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" name="account">
+<script>
+    // 集合主要是指Map和Set
+    // 对象
+    let obj = {
+        name: "哈哈",
+        say: function () {
+            console.log("好");
+        },
+        1: "1"
+    }
+    console.log(obj)
+
+    // Map：是键值对
+    // 其中的set方法，都会返回自身对象，称为链式写法
+
+    let map = new Map();// 构造函数调用
+    // const map = Map(); // 报错，不支持普通函数的调用方式
+    map.set("a", "1");
+    map.set("a", "2"); // 修改
+    map.set(1, "a");
+    map.set({}, "obj");
+    map.set("obj", {});
+    map.set("say", function() {console.log("say")});
+    // 字符串做key是最常见的
+    console.log(map)
+    console.log(map.get("a"))
+    console.log(map.get({}))
+    console.log(map.has("a"))
+    console.log(map.delete("a"))
+    console.log(map)
+    console.log(map.has("a"))
+
+    if (map.has("a")) {
+        map.get("a")
+    }
+
+    map.forEach((value, key)=> console.log(value, key));
+    console.log(map.size)
+    map.clear()
+    console.log(map)
+
+    map.set("a", 1).set("b", 2).set("c", 3)
+
+    // 与数组之间的转换
+    let a1 = Array.from(map);
+    console.log(a1)
+    // 将数组转换为Map
+    // map = new Map([1, 3, 5])，报错不符合格式
+
+    // 获取输入框
+    let account = document.querySelector("input[name='account']")
+    map.set("account", account);// 虚拟DOM
+    console.log(map.get("account"));
+
+    // 将综合练习中的表格中的所有的tr保存到一个map中，key就数组中的对象的id
+
+</script>
+</body>
+</html>

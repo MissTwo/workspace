@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript" src="../js/mock.js"></script>
+<script>
+    let mockObject = Mock.mock({
+        "array|100": ["@integer(1, 100)"]
+    })
+    let set = new Set(mockObject.array);
+    console.log(set)
+
+    set = new Set();
+    set.add(1);
+    set.add("1");
+    set.add("1");
+    set.add(2);
+    set.add({});
+    set.add({});
+    console.log(set)
+    console.log(set.delete(1))
+    console.log(set)
+    console.log(set.has(1));
+    let list = [
+        {
+            "id": 1,
+            "name": ")",
+            "create_date": "1993-07-11",
+            "price": 133.76,
+            "count": 4
+        },
+        {
+            "id": 2,
+            "name": "[",
+            "create_date": "1977-12-10",
+            "price": 51.67,
+            "count": 7
+        },
+        {
+            "id": 3,
+            "name": "$",
+            "create_date": "1997-06-26",
+            "price": 49.43,
+            "count": 6
+        },
+        {
+            "id": 4,
+            "name": "KD7b",
+            "create_date": "2016-08-31",
+            "price": 94.69,
+            "count": 3
+        },
+        {
+            "id": 5,
+            "name": "t^",
+            "create_date": "2017-06-10",
+            "price": 85.77,
+            "count": 6
+        },
+        {
+            "id": 6,
+            "name": "US",
+            "create_date": "2018-03-24",
+            "price": 72.41,
+            "count": 7
+        },
+        {
+            "id": 7,
+            "name": "wK77",
+            "create_date": "1983-12-03",
+            "price": 44.32,
+            "count": 5
+        },
+        {
+            "id": 8,
+            "name": "#*",
+            "create_date": "1996-04-30",
+            "price": 198.97,
+            "count": 2
+        },
+        {
+            "id": 9,
+            "name": "Jg[",
+            "create_date": "2015-04-01",
+            "price": 44.88,
+            "count": 9
+        },
+        {
+            "id": 10,
+            "name": "@Tn*C",
+            "create_date": "2004-07-16",
+            "price": 49.64,
+            "count": 4
+        }
+    ]
+    list.forEach(item => set.add(item));
+    set.delete(list[0])
+    console.log(set)
+    set.clear();
+    console.log(set)
+</script>
+</body>
+</html>

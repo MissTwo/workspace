@@ -365,7 +365,6 @@
             nextPage.insertAdjacentHTML("beforebegin", item)
         }
     }
-configurable
     function jumpTo(m) {
         currentPage = m
         paintPage(books)
@@ -530,15 +529,15 @@ configurable
         creatEdit()
     })
     // 修改数据确认与编辑数据的确认
-    function confirmCreate(id) {
+    function confirmCreate(self,id) {
         // 获取输入数据的表单
         let edited=document.querySelector('#edited')
         let input=edited.querySelectorAll('input')
         let obj={}
         input=Array.from(input)
-
         // 添加数据时,获取添加的对象
         input.map(item => {
+
             if (item.type==='number'){
                 obj[item.name]=item.valueAsNumber
             }else{
@@ -556,6 +555,7 @@ configurable
         books.push(obj)
         paintPage(books)
         creatPagination(books)
+        cancelCreat(self)
 
     }
     // 编辑每一行
