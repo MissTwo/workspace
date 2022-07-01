@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // console.log(this)
+    // // 箭头函数本身没有this，this是从上一级继续过来的
+    // let t1 = () => {
+    //     console.log(this)
+    // }
+    //
+    // t1()
+    //
+    // function t2() {
+    //     console.log(this)
+    //     let t21 = () => {
+    //         console.log(this)
+    //     }
+    // }
+    //
+    // let obj = {
+    //     name: "张三",
+    //     say() {
+    //         console.log("1", this);
+    //         let say1 = () => {
+    //             console.log("2", this)
+    //         }
+    //         return say1;
+    //     },
+    //     work: () => {
+    //         console.log("3", this); // window
+    //     },
+    //     sleep: (callback) => {
+    //         console.log("sleep", this)
+    //         callback()
+    //     }
+    // }
+    //
+    // obj.say()
+    // obj.work()
+    // console.log("--------------")
+    // let say1 = obj.say;
+    // say1()
+    // let work1 = obj.work;
+    // work1()
+    //
+    // // new work1() 箭头函数不能做构造函数使用
+    //
+    // obj.sleep(() => {
+    //     // console.log("arguments", arguments); // 箭头函数没有arguments
+    //     console.log("callback1", this)
+    // })
+    // console.log("---------------------")
+    // obj.sleep(obj.work);
+    // obj.sleep(obj.say());
+    //
+    // console.log("---------------------")
+    // let t3 = (a) => {
+    //     // console.log("arguments", arguments); // 报错
+    // }
+    // t3(123)
+    // console.dir(t3)
+let obj={
+    name: "foo",
+    age:18,
+    menthod: () =>{
+        console.log(this)
+    },
+    say(){
+        console.log(this)
+    },
+    text:(callback) => {
+        console.log(this)
+        login(callback)
+    }
+}
+    console.log(obj.menthod)
+    console.log(obj.say())
+
+</script>
+</body>
+</html>

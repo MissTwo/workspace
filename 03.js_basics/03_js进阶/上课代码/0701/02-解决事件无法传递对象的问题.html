@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<button onclick="t1(obj)">按钮</button>
+<body>
+    <script type="text/javascript">
+        let obj = {name: "张三"};
+        function t1(a) {
+            console.log(a)
+        }
+
+        // 只能使用全局变量
+        document.body.insertAdjacentHTML("beforeend", `<button onclick='t1(obj)'>无法传对象</button>`)
+        document.body.insertAdjacentHTML("beforeend", `<button onclick='t1.bind(null, obj)()'>解决办法apply</button>`)
+
+        // 局部变量无法使用
+        function t2(item) {
+            document.body.insertAdjacentHTML("beforeend", `<button onclick='t1.bind(null, '${item}')()'>t2函数中创建</button>`)
+        }
+        t2(obj)
+
+        function t3() {
+            let arr = [
+                {
+                    name: "a",
+                    age: 10
+                },
+                {
+                    name: "b",
+                    age: 20
+                }
+            ]
+            arr.forEach(item => {
+                document.body.insertAdjacentHTML("beforeend", `<button>t3${item.name}</button>`)
+                document.body.lastElementChild.onclick = t4.bind(document.body.lastElementChild, item)
+            })
+        }
+
+        t3()
+
+        function t4(obj) {
+            console.log("t4", obj)
+        }
+    </script>
+</body>
+</html>

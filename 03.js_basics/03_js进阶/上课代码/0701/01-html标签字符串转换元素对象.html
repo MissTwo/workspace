@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var xmlString = "<div id='foo'><a href='#'>Link</a><span></span></div>";
+    doc = new DOMParser().parseFromString(xmlString, "text/xml");
+    console.log(doc.firstElementChild)
+
+    li = `<li><a href="#" onclick="click_pager(pager_helper.pre_num)">上一页</a></li>`;
+    let div = document.createElement("div");
+    div.innerHTML = li;
+    console.log(div.firstElementChild)
+</script>
+</body>
+</html>

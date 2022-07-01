@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../js/cities.js"></script>
+<script src="../js/lodash.js"></script>
+<script>
+    // function t1() {
+    //     console.log("t1")
+    //     t1()// 函数自已调用了自己，就是递归函数
+    //     // 使用递归函数时，一定要注意，防止死循环
+    // }
+    console.log(Position)
+    let a1 = []; // 保存需要的数据
+    /**
+     * 递归处理数据
+     * @param list  处理的数据源
+     * @param a1    保存数据的数组对象
+     */
+    function t2(list, a1) {
+        list.forEach(item => {
+            if (item.label.indexOf("北") != -1) {
+                a1.push(item)
+            }
+            if (item.children) {
+                t2(item.children, a1)
+            }
+        })
+    }
+    t2(Position, a1)
+    console.log(a1)
+
+    // 使用递归实现对象的深拷贝(复制)
+    // 浅复制：复制的引用数据类型是同一个
+    // 深复制：复制的引用数据类型不是同一个
+    let obj = {
+        name: "张三",
+        age: 20,
+        address: {
+            p: "四川省",
+            c: "成都市"
+        },
+        hobby: ["Java", "JavaScript"],
+        a: {
+            b: {
+                c: {
+                    d: "你终于找到我了"
+                }
+            }
+        }
+    }
+    // 复制对象
+    let obj1 = {...obj}
+    console.log(obj1 === obj);
+    console.log(obj1, obj)
+    obj.hobby.push("Vue")
+    console.log(obj1, obj)
+
+    /**
+     * 对象的深复制
+     * @param source    要复制的对象
+     * @param target    复制后的对象
+     */
+    function deep_clone(source, target) {
+        // 在写if时范围小的写在前面，否则永远执行不到
+        for (let key in source) {
+            let value = source[key];
+            if (value instanceof Array) {
+                target[key] = [];
+                deep_clone(value, target[key])
+            } else if (value instanceof Object) {
+                target[key] = {};
+                deep_clone(value, target[key])
+            } else {
+                target[key] = value;
+            }
+        }
+    }
+
+    let target = {}
+    deep_clone(obj, target);
+    console.log(target)
+    console.log(target.a === obj.a)
+    console.log(obj.hobby === target.hobby)
+    target.hobby.push("JQuery")
+    console.log(obj.hobby)
+
+    target = _.cloneDeep(obj);
+    console.log(target)
+    console.log(target.a === obj.a)
+    console.log(obj.hobby === target.hobby)
+    target.hobby.push("JQuery")
+    console.log(obj.hobby)
+</script>
+</body>
+</html>

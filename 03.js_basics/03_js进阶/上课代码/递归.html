@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="./js/cities.js"></script>
+<script>
+    let newArray = []
+    function findItem(array, element) {
+        array.forEach((item, index) => {
+            for (let [key, value] of Object.entries(item)) {
+                if (value.indexOf(element) != -1) {
+                    newArray.push(value)
+                }
+                if (Array.isArray(value)) {
+                    findItem(value, element)
+                }
+            }
+        })
+        return (newArray)
+    }
+    console.log(findItem(Position, '成'));
+    let setCities =new Set();
+    newArray.forEach((item) => {
+        setCities.add(item)
+    })
+    console.log(setCities)
+
+</script>
+</body>
+</html>
