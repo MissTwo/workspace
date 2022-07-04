@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*  面向对象编程思想：
+            对象：即引用数据类型创建数据。确切来说就是Object或其子类创建的对象
+            类和构造函数：
+                类是ES6提供新的写法，与构造函数功能类似
+                构造函数：就是一个构造对象的模板函数，该函数通过new 函数名()就可以创建一个对象
+                格式为：let 变量(引用或对象或实例)名 = new 构造函数()。就是通过new调用了构造函数
+                创建了一个对象，然后将该对象赋值给了=号左边的变量(引用或对象或实例)名
+            通过类和构造函数设计一个对象的生产模板，然后使用该对象。难点就在于类和构造函数的设计，需要哪些属性
+            和方法才符合该类或构造函数的特点
+        面向过程编辑思想：都一步步来执行实现的，程序员参与整个过程
+        面向对象和面向过程最大的区别，一个重在参与，一个重在让对象去完成他负责的事
+
+        所有的类和构造函数的名称都应该大写
+
+        点一份外卖：
+            点外卖的：会使用软件点击外卖即可
+            骑手：接单，去商店取餐，送餐
+            商家：接单，生产
+     */
+    /**
+     * 客户
+     * @param name
+     * @param address
+     * @param phone
+     * @constructor
+     */
+    function Customer(name, address, phone) { // 该构造函数有三个参数
+        // 构造函数通过this.属性名 = 属性值来赋值
+        this.name = name; // 将形中的name的值赋值给了对象的name属性
+        this.address = address;
+        this.phone = phone;
+        //方法，即函数
+        this.takeout = function (support) {
+            support.service();
+        }
+        //接收
+        this.received = function (rider) {
+
+        }
+    }
+
+    /**
+     * 骑手
+     * @param name
+     * @param phone
+     * @constructor
+     */
+    function Rider(name, phone) {
+        this.name = name;
+        this.phone = phone;
+        this.service = function (support) {
+            console.log("接到了谁的单", support.name)
+        }
+        this.advice = function(customer) {
+            console.log("开始送单", customer.name)
+        }
+    }
+
+    /**
+     * 商家
+     * @param name
+     * @param phone
+     * @constructor
+     */
+    function Support(name, address, phone) {
+        this.name = name;
+        this.phone = phone;
+        this.address = address;
+        this.service = function () {
+            console.log("已经接单")
+        }
+        this.advice = function (rider) {
+            console.log("通过骑手", rider.name)
+        }
+    }
+
+
+
+
+
+
+
+
+    let s1 = new Support("XXX面馆", "成都", "22");
+    let c1 = new Customer("张三", "成都", "11");
+    c1.takeout(s1);
+    let r1 = new Rider("李四", "33");
+    s1.advice(r1)
+    r1.service(s1)
+    r1.advice(c1)
+</script>
+</body>
+</html>

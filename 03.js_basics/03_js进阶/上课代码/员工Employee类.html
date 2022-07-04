@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function Employee(number, name,salary,increasing) {
+    this.number =number;
+    this.name =name;
+    this.yearSalary =salary*12;
+    this.increasing =increasing;
+    this.calculateSalary=this.yearSalary * (this.increasing+1);
+    console.log(this.calculateSalary);
+  }
+  let staff=new Employee(110,'Leo',6000,0.2);
+  let staff2=new Employee(110,'Leo',staff.calculateSalary,0.2);
+
+  function Square(width,height) {
+    this.width = width;
+    this.height = height;
+    function getArea() {
+      return(this.width*this.height)
+    }
+    console.log(getArea());
+  }
+  let reg=/\d*(?=\.)/
+  let str="123.232"
+let n=94713413
+  console.log(reg.exec(n));
+  console.log( str.match(reg))
+
+
+  function Foo() {
+      if (!new.target)
+          throw new Error("Foo() must be called with new")
+          // throw "Foo() must be called with new";
+  }
+  Foo(); // throws "Foo() must be called with new"
+  new Foo(); // logs "Foo instantiated with new"
+</script>
+</body>
+</html>

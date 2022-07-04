@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    function Person() {
+        //在构造函数中使用其中的属性和方法都必须通过this.来使用
+        this.name = "张三";
+        this.age = 20;
+        // 这缺点，体现在函数的深复制
+        this.say = function() {
+            console.log(this.name, "在说话")
+        };
+        // 下面是优点，体现在Object和Array处理上是深复制
+        this.hobby = ["java", "Vue"];
+        this.address = {
+            p: "四川",
+            s: "成都"
+        }
+    }
+
+    // 构造函数实现了属性的深复制
+    let p1 = new Person();//通过new Person()产生一个对象，并赋值给p1变量
+    let p2 = new Person();
+    console.log(p1 === p2);
+    console.log(p1.say === p2.say);
+    console.log(p1.hobby === p2.hobby);
+    console.log(p1.address === p2.address);
+
+    let obj = {
+        name: "李四",
+        say: function() {
+            console.log(this.name, "在说话");
+        }
+    }
+    // obj如何实现复制
+    let obj1 = {...obj};
+    let obj2 = Object.assign({}, obj)
+
+    // 静态属性和实例属性
+    // p1.name 实例属性，是通过对象名.属性使用的
+    // 静态属性，本质上就是构造函数上的属性
+    Person.aa = 1000
+    console.log(p1)
+    console.log(p1.aa) // undefined，与Java不一样
+    console.log(Person.aa)
+    // 浅复制：源对象和复制之后的对象中的引用数据类型指向同一个地址。
+    // 深复制：源对象和复制之后的对象中的引用数据类型指向不同的地址。
+
+    /*
+    定义员工的Employee类。员工属性包括”编号”、”姓名”、”基本薪水”、”薪水增长率”，
+    请计算编号为110的员工Leo在2015年的年薪，注意Leo的月薪为6000，薪水增长率为20%。
+    再同时预算Leo在2016的年薪。
+     */
+    function Employee(code, name, salary) {
+        this.code = code;
+        this.name = name;
+        this.salary = salary;
+        this.zzl = 0.2; // 增长率
+        this.total_salary = function () {
+            return this.salary * 12;
+        }
+    }
+
+    let e1 = new Employee("110", "Leo", 6000);
+    console.log(e1.name, "的年薪是", e1.total_salary())
+    console.log(e1.name, "的年薪是", e1.total_salary() * (1 + e1.zzl))
+
+    /*
+    新建一个名为矩形Square的类，该类有两个int类型的实例变量分别表示高和宽，
+    高和宽必须是整型数据，如果传入的是小数，则只取整数部分(用正则表达式实现)。
+    还有一个名为getArea的方法。可通过getArea方法获取该矩形的面积。
+    求高为15，宽为20的矩形的面积并打印
+     */
+    function Square(w, h) {
+        this.w = w;
+        this.h = h;
+        // this.getArea = function() {
+        //     return this.w * this.h
+        // }
+        this.getArea = () => this.w * this.h;
+    }
+
+    let s1 = new Square(10, 10);
+    console.log(s1.getArea())
+
+    function Triangle(w, h) {
+        this.w = w;
+        this.h = h;
+        // this.getArea = function() {
+        //     return this.w * this.h
+        // }
+        this.getArea = () => this.w * this.h / 2;
+    }
+</script>
+</body>
+</html>

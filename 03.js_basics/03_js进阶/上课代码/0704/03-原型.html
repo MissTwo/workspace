@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+        原型：
+            优点：解决了函数的深复制的问题、实现属性和方法的继承
+        记住五个概念
+            类或构造函数
+            对象或实例
+            引用或实例名或变量名或对象名
+            匿名对象：
+            原型对象：函数名.prototype
+            对象原型：对象名.__proto__
+     */
+    function Square(w, h) {
+        this.getArea = () => this.w * this.h;
+    }
+
+    let p1 = new Square(10, 10);
+    console.log(Square.prototype);
+    console.log(p1.__proto__)
+    console.log(Square.prototype === p1.__proto__);
+    console.log(Object.is(Square.prototype, p1.__proto__));
+
+    // 修改函数的原型对象
+    Square.prototype = {
+        age: 20
+    }
+    let p2 = new Square(20, 10);
+    console.log(p1)
+    console.log(p2)
+    console.log(p2.age)
+
+    let obj = {
+        w: 10,
+        h: 10
+    }
+
+    Square.prototype = obj;
+
+    function Triangle(w, h) {
+        this.getArea = () => this.w * this.h / 2;
+    }
+    Triangle.prototype = obj;
+
+    let s1 = new Square();
+    let t1 = new Triangle();
+    console.log(s1.getArea());
+    console.log(t1.getArea());
+</script>
+</body>
+</html>
