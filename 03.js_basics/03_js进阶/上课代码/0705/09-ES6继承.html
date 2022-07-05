@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Shape {
+        constructor(w, h) {
+            // 保存Shape是一个抽象类
+            if (new.target === Shape) {
+                throw new Error("Shape 是一个抽象类，不能实例化")
+            }
+            this.w = w;
+            this.h = h;
+        }
+
+        getArea() {
+            return this.w * this.h;
+        }
+    }
+
+    // 图形类Shape是一个统称，不应该有实例，有实例应该都其对应的子类
+    new Shape(10, 10)
+
+    class Square extends Shape {
+        constructor(w, h) {
+            // this.w = w; // 如果涉及到属性赋值等操作就必须要保证super在第一行
+            console.log(111) // 打印语句无所谓
+            super(w, h);// 调用父类中的构造函数，必须在第一行
+        }
+    }
+
+    //到底是子类对象先创建还是父类对象
+    class Triangle extends Shape {
+        constructor(w, h) {
+            // this.w = w; // 如果涉及到属性赋值等操作就必须要保证super在第一行
+            console.log(111) // 打印语句无所谓
+            super(w, h);// 调用父类中的构造函数，必须在第一行
+            console.log(super.getArea()) // super就是父类实例
+        }
+
+        // 子类重写父类中方法
+        getArea() {
+            // 也要在方法通过super来调用父类方法
+            return super.getArea() / 2;
+            // return this.w * this.h / 2;
+        }
+    }
+
+    let s1 = new Square(10, 10);
+    console.log(s1.getArea())
+    let t1 = new Triangle(10, 10);
+    console.log(t1.getArea())
+    console.log(s1)
+</script>
+</body>
+</html>
