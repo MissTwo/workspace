@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // function Sum(arr) {
+  //   this.sum=arr.reduce((pre, cur) => {
+  //     return pre=pre+cur
+  //   },0)
+  //   return this.sum
+  // }
+  // let sum=new Sum(arr)
+  Array.prototype.Sum=function () {
+    return this.reduce((pre, cur) => pre+cur,0)
+  }
+  let a=[1,2,3,4]
+  console.log(a.Sum());
+  console.log(Array.prototype)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 定义了一个名为Person的类
+    class Person {
+        name = "John" // 实例属性，比构造函数中的代码先执行
+        // 通过构造函数添加属性，
+        // constructor是固定的，就是类的构造函数
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+            this.hobby = [];
+        }
+        age = 100
+        _sal = 1000
+        // sal = 2000 和下面的set和get冲突
+        get sal() { // 获取sal的值
+            console.log("sal,get")
+            return this._sal}
+        set sal(sal) { // 修改sal的值
+            console.log("sal,set")
+            this._sal = sal;
+        }
+    }
+    let p1 = new Person("p1", 20);
+    console.log(p1)
+    p1.hobby.push("java")
+    p1.sal = 3000
+    console.log(p1.sal)
+    console.log(p1)
+    console.dir(Person)
+    let p2 = new Person("p2", 30);
+    console.log(p2)
+</script>
+</body>
+</html>

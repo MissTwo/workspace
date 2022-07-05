@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  /*Object.freeze();冻结对象，不能修改属性及对象原型
+  *注意：属性值是引用数据类型的可以改变
+  *  */
+  let obj={
+    name: 'title',
+    age: 36,
+    hobby: ["java","python","javascript"],
+  }
+  Object.freeze(obj);
+  obj.hobby.push("c++");
+  obj.name = 'jake';
+  console.log(obj)
+</script>
+
+</body>
+</html>

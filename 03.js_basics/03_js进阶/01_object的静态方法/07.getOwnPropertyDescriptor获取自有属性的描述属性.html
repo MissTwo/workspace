@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  /*Object.getOwnPropertyDescriptor(object, 'prop')自有属性指的是直接赋予该对象的属性，不需要在原型链上找
+  *   1.object需要查找的目标对象
+  *   2.prop目标对象内属性名称
+  *   3.返回值：若存在放回其属性的描述对象否则undefined
+  *  */
+  let obj = {
+    name: "张三",
+    age: 20,
+    sex: "male",
+  };
+  let _hobby=["Java","php","c++"]
+  Object.defineProperty(obj, "hobby",{
+    get: function () {
+      return _hobby
+    },
+    set(value){
+      _hobby=value
+    }
+  })
+  let a=Object.getOwnPropertyDescriptor(obj,'hobby')
+
+  let b=Object.getOwnPropertyDescriptors(obj)
+  console.log(a);
+  console.log(obj)
+  console.log(b)
+
+</script>
+</body>
+</html>

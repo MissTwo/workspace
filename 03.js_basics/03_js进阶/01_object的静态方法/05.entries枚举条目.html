@@ -10,13 +10,25 @@
     *返回一个给定对象自身可以枚举属性的键值对数组
     * 区别与for··· in：
     *           for··· in还会枚举原型链中属性
+    * Object.entries(对象)可以将对象转为为数组
+    * Object.fromEntries(数组)将数组转为对象
     * */
-    let obj={
+    let obj = {
         a: 'aaa',
-        b:'bbb',
+        b: 'bbb',
     }
     for (let [key, value] of Object.entries(obj)) {
+        console.log(key, value)
+    }
+    // 转化为数组
+    console.log(Object.entries(obj))
+    let arr = [['a', 'aaa'], ['b', 'bbb']]
+    let obj1 = Object.fromEntries(arr);
+    console.log(obj1)
 
+    for (let objKey in obj) {
+        // objKey:为键，obj[objKey]：为值
+        console.log(objKey, obj[objKey])
     }
 
 </script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        // 需要深复制写在函数内
+        this.address = {
+            p: "四川",
+        }
+        this.hobby = ["Java", "PHP"];
+        this.t1 = function () {
+            console.log(this)
+        }
+        this.t2 = () => console.log(this);
+    }
+
+    // 不需要创建任何构造函数，有没有都无所谓
+    // 1、创建原型对象
+    let p1 = new Person("张三", 20); // 使用字面量写法，也可以
+    // let o1 = {};//字面量写法
+    let obj = Object.create(p1); // 创建一个对象obj，以p1对象做为原型对象
+    console.log(obj.__proto__ === p1)
+    console.log(obj)
+    // 不需要特意创建原型对象
+    let obj1 = Object.create({id: 1}, {
+        name: {
+            value: "张三"
+        },
+        age: {
+            value: 20
+        }
+    })
+    console.log(obj1)
+</script>
+</body>
+</html>

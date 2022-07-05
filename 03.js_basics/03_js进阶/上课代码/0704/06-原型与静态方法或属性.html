@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        // 需要深复制写在函数内
+        this.address = {
+            p: "四川",
+        }
+        this.hobby = ["Java", "PHP"];
+    }
+
+    Person.say = function() {
+        console.log("静态方法say", this.name);
+    }
+
+    let p1 = new Person("张三", 20);
+    p1.say(); //报错
+</script>
+</body>
+</html>

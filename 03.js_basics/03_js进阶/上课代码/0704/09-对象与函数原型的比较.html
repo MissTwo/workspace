@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        // 需要深复制写在函数内
+        this.address = {
+            p: "四川",
+        }
+        this.hobby = ["Java", "PHP"];
+        this.t1 = function () {
+            console.log(this)
+        }
+        this.t2 = () => console.log(this);
+    }
+
+    function Student(name, age) {
+
+    }
+
+    function Teacher(name, age) {
+
+    }
+
+    let p1 = new Person();
+    Student.prototype = p1;// 影响所有构造函数创建的对象
+    Teacher.prototype = p1;
+    let s1 = new Student();
+    console.log(s1 instanceof Student);
+    console.log(s1 instanceof Person);
+    console.log(s1 instanceof Object);
+    console.log(s1 instanceof Teacher); // 从原型链找到符合要求
+    console.log("------------------------------")
+    // 构造函数.prototype.isPrototypeOf(对象)
+    console.log(Student.prototype.isPrototypeOf(s1))
+    console.log(Person.prototype.isPrototypeOf(s1))
+    console.log(Object.prototype, Object.prototype.isPrototypeOf(s1))
+    console.log(Teacher.prototype.isPrototypeOf(s1))// 从原型链找到符合要求
+    console.log("------------------------------")
+    console.log(Object.getPrototypeOf(s1) === Student.prototype)
+    // Object.getPrototypeOf(s1)获取s1的原型
+    console.log(Object.getPrototypeOf(s1) === Person.prototype)
+    console.log(Object.getPrototypeOf(s1) === Object.prototype)
+    console.log(Object.getPrototypeOf(s1) === Teacher.prototype)
+    console.log("------------------------------")
+    /*
+        如何判断Student是不是一个函数
+            typeof
+            instanceOf
+        Function：是一个函数构造函数。专门用来生产函数
+     */
+    console.log(Student instanceof Function);
+    console.log(Function.prototype.isPrototypeOf(Student))
+
+
+    // 只影响当前创建的对象obj
+    let obj = Object.create(p1); // 不通过构造函数创建对象，又想指定该对象的原型时，使用
+    console.log("------------------------------")
+    console.log(obj instanceof Person)
+</script>
+</body>
+</html>

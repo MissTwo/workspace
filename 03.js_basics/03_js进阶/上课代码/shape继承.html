@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 原型对象
+    function Shape(w, h) {
+        this.w = w;
+        this.h = h;
+    }
+
+    // 通过盗用继承
+    function Square(w, h) {
+        Shape.call(this, w, h);
+    }
+
+    function Triangle(w, h) {
+        Shape.call(this, w, h);
+        this.getArea =function () {
+            return this.w * this.h / 2
+        }
+    }
+
+    Square.prototype.getArea = function () {
+        return this.w * this.h
+    }
+    Triangle.prototype.getArea = function () {
+    }
+    let s = new Square(10, 10)
+    console.log(s.getArea())
+    let t = new Triangle(10, 10);
+    console.log(t.getArea())
+
+</script>
+</body>
+</html>
