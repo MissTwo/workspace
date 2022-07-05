@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  class Pagination {
+    constructor(limit,count) {
+    }
+  }
+  /**
+   * 生成分页对象
+   * @param limit
+   * @param count
+   */
+  function pager(limit, count) {
+    let obj = {};
+    let _limit = limit;
+    Object.defineProperty(obj, "limit", {
+      set(v) {
+        obj.currentPage = 1;
+        _limit = v;
+        getBound()
+      },
+      get() {
+        return _limit
+      },
+      enumerable: true,
+      configurable: false
+    })
+    // obj.count = count;
+    let _count = count ? count : 0;
+    Object.defineProperty(obj, "count", {
+      set(v) {
+        _count = v;
+        obj.currentPage = 1;
+        getBound()
+      },
+      get() {
+        return _count
+      },
+      enumerable: true,
+      configurable: false
+    })
+    let _currentPage = 1;
+    Object.defineProperty(obj, "currentPage", {
+      set(v) {
+        _currentPage = v
+        getBound()
+      },
+      get() {
+        return _currentPage
+      },
+      enumerable: true,
+      configurable: false
+    })
+
+    obj.first = 1
+
+    function getBound() {
+      obj.start = (obj.limit * (obj.currentPage - 1));// 起始包含边界值
+      obj.end = obj.limit * obj.currentPage // 不包含后边界值
+
+      obj.total = obj.count / obj.limit === 0 ? obj.count / obj.limit : Math.ceil(obj.count / obj.limit);// 一共多少页
+      obj.pre_num = obj.first;
+      if (obj.currentPage > 1) {
+        obj.pre_num = obj.currentPage - 1;
+      }
+      obj.last = obj.total;
+
+      obj.next_num = obj.last;
+      if (obj.currentPage < obj.total) {
+        obj.next_num = obj.currentPage + 1;
+      }
+    }
+    getBound();
+
+    return obj;
+  }
+
+  let pager_helper = pager(10, books.length);
+  let pager_lis = []; //保存所有页码li元素对象
+  function ul_pager_create() {
+    pager_lis.length = 0;//快速清空数组
+    let ul = document.querySelector("#ul_pager");
+    let li = `<li><a href="#" onclick="click_pager(pager_helper['first'])">首页</a></li>`;
+    ul.insertAdjacentHTML("beforeend", li);
+    li = `<li><a href="#" onclick="click_pager(pager_helper.pre_num)">上一页</a></li>`;
+    ul.insertAdjacentHTML("beforeend", li);
+    // 处理页码
+    for (let i = 1; i <= pager_helper.total; i++) {
+      li = `<li class="${pager_helper.currentPage === i ? 'active' : ''}" ><a href="#" onclick="click_pager(${i})">${i}</a></li>`;
+      ul.insertAdjacentHTML("beforeend", li);
+      pager_lis.push(ul.lastElementChild);
+    }
+    li = `<li><a href="#" onclick="click_pager(pager_helper.next_num)">下一页</a></li>`;
+    ul.insertAdjacentHTML("beforeend", li);
+    li = `<li><a href="#" onclick="click_pager(pager_helper.last)">尾页</a></li>`;
+    ul.insertAdjacentHTML("beforeend", li);
+  }
+  ul_pager_create();
+
+  /**
+   * 点击分页相关的按钮
+   * @param val   页码值
+   */
+  function click_pager(val) {
+    pager_helper.currentPage = val;
+    update_table(books, selector);
+    // 设置页码的选中效果
+    pager_lis.forEach((item, index) => {
+      item.className = '';
+      if ((index + 1) == val) {
+        item.className = 'active'
+      }
+    });
+  }
+
+  document.querySelector("#pager_select").onchange = function (e) {
+    pager_helper.limit = parseInt(e.target.value);
+    update_table(books, selector)
+    clear(document.querySelector("#ul_pager"));
+    ul_pager_create();
+  }
+  // 设置分页大小下拉框的默认选中
+  Array.from(document.querySelector("#pager_select").options).forEach(item => item.text == pager_helper.limit ? item.selected = true : '')
+
+</script>
+
+</body>
+</html>

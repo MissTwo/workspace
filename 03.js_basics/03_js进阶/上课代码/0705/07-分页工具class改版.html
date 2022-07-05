@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class PagerHelper {
+        //这里属性不需要通过传参来处理
+        first = 1; // 也可以定义实例属性
+        // 有默认的形参，好处即可以指定数据类型，方便提示，也可以指定默认值
+        constructor(page_size = 0, count = 0) {
+            this._page_size = page_size;
+            this._count = count;
+            this._page_num = 1;
+            // Object.defineProperty(this, "") 也支持defineProperty使用
+
+            this.getBound()
+        }
+
+        getBound() {
+            this.start = (this.page_size * (this.page_num - 1));// 起始包含边界值
+            this.end = this.page_size * this.page_num // 不包含后边界值
+
+            this.total = this.count % this.page_size === 0 ? this.count / this.page_size : Math.ceil(this.count / this.page_size);// 一共多少页
+            this.pre_num = this.first;
+            if (this.page_num > 1) {
+                this.pre_num = this.page_num - 1;
+            }
+            this.last = this.total;
+
+            this.next_num = this.last;
+            if (this.page_num < this.total) {
+                this.next_num = this.page_num + 1;
+            }
+        }
+
+        set page_num(value) {
+            console.log("_page_num,get")
+            this._page_num = value;
+            this.getBound();
+        }
+        get page_num() {
+            console.log("_page_num,set")
+            return this._page_num;
+        }
+
+        set page_size(value) {
+            console.log("_page_size,get")
+            this._page_size = value;
+            this.page_num = 1;
+            this.getBound();
+        }
+        get page_size() {
+            console.log("_page_size,set")
+            return this._page_size;
+        }
+
+        set count(value) {
+            console.log("count,get")
+            this._count = value;
+            this.page_num = 1;
+            this.getBound();
+        }
+        get count() {
+            console.log("count,set")
+            return this._count;
+        }
+    }
+
+    let p1 = new PagerHelper(5, 10);
+    p1.count = 100;
+    console.log(p1.count)
+    console.log(p1)
+</script>
+</body>
+</html>

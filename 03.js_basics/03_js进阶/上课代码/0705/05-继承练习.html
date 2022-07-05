@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Shape(w, h) {
+        this.w = w;
+        this.h = h;
+    }
+
+    let proto = {
+        constructor: Shape,
+        getArea: function () {
+            return this.w * this.h;
+        }
+    }
+    // Shape.prototype = proto; //继承不到
+    Square.prototype = proto;
+    function Square(w, h) {
+        console.log(this)
+        Shape.call(this, w, h)
+    }
+
+    Triangle.prototype = proto;
+    function Triangle(w, h) {
+        Shape.call(this, w, h)
+        // 方法重写
+        this.getArea = function () {
+            return this.w * this.h / 2;
+        }
+    }
+
+    let s1 = new Square(10, 10);
+    console.log(s1.getArea())
+    let s2 = new Square(10, 10);
+</script>
+</body>
+</html>

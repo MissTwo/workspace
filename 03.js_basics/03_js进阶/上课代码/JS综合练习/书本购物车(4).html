@@ -123,26 +123,26 @@
                     <!--行内JS绑定的事具体的只能传原始数据类型，引用数据类型都object文字-->
                     <button ${!isOnlyShow ? '' : 'hidden'} type="button" onclick="do_cancel()">取消</button>
                 </td>
-            </tr>`;
+            </tr>`
     }
 
     /**
      * 生成分页对象
-     * @param page_size
+     * @param limit
      * @param count
      */
-    function pager(page_size, count) {
+    function pager(limit, count) {
         let obj = {};
-        // obj.page_size = page_size;
-        let _page_size = page_size;
-        Object.defineProperty(obj, "page_size", {
+        // obj.limit = limit;
+        let _limit = limit;
+        Object.defineProperty(obj, "limit", {
             set(v) {
-                obj.page_num = 1;
-                _page_size = v;
+                obj.currentPage = 1;
+                _limit = v;
                 getBound()
             },
             get() {
-                return _page_size
+                return _limit
             },
             enumerable: true,
             configurable: false
@@ -152,7 +152,7 @@
         Object.defineProperty(obj, "count", {
             set(v) {
                 _count = v;
-                obj.page_num = 1;
+                obj.currentPage = 1;
                 getBound()
             },
             get() {
@@ -161,15 +161,15 @@
             enumerable: true,
             configurable: false
         })
-        let _page_num = 1;
-        // obj.page_num = 1;
-        Object.defineProperty(obj, "page_num", {
+        let _currentPage = 1;
+        // obj.currentPage = 1;
+        Object.defineProperty(obj, "currentPage", {
             set(v) {
-                _page_num = v
+                _currentPage = v
                 getBound()
             },
             get() {
-                return _page_num
+                return _currentPage
             },
             enumerable: true,
             configurable: false
@@ -178,19 +178,19 @@
         obj.first = 1
 
         function getBound() {
-            obj.start = (obj.page_size * (obj.page_num - 1));// 起始包含边界值
-            obj.end = obj.page_size * obj.page_num // 不包含后边界值
+            obj.start = (obj.limit * (obj.currentPage - 1));// 起始包含边界值
+            obj.end = obj.limit * obj.currentPage // 不包含后边界值
 
-            obj.total = obj.count / obj.page_size === 0 ? obj.count / obj.page_size : Math.ceil(obj.count / obj.page_size);// 一共多少页
+            obj.total = obj.count / obj.limit === 0 ? obj.count / obj.limit : Math.ceil(obj.count / obj.limit);// 一共多少页
             obj.pre_num = obj.first;
-            if (obj.page_num > 1) {
-                obj.pre_num = obj.page_num - 1;
+            if (obj.currentPage > 1) {
+                obj.pre_num = obj.currentPage - 1;
             }
             obj.last = obj.total;
 
             obj.next_num = obj.last;
-            if (obj.page_num < obj.total) {
-                obj.next_num = obj.page_num + 1;
+            if (obj.currentPage < obj.total) {
+                obj.next_num = obj.currentPage + 1;
             }
         }
         getBound();
@@ -209,7 +209,7 @@
         ul.insertAdjacentHTML("beforeend", li);
         // 处理页码
         for (let i = 1; i <= pager_helper.total; i++) {
-            li = `<li class="${pager_helper.page_num === i ? 'active' : ''}" ><a href="#" onclick="click_pager(${i})">${i}</a></li>`;
+            li = `<li class="${pager_helper.currentPage === i ? 'active' : ''}" ><a href="#" onclick="click_pager(${i})">${i}</a></li>`;
             ul.insertAdjacentHTML("beforeend", li);
             pager_lis.push(ul.lastElementChild);
         }
@@ -225,7 +225,7 @@
      * @param val   页码值
      */
     function click_pager(val) {
-        pager_helper.page_num = val;
+        pager_helper.currentPage = val;
         update_table(books, selector);
         // 设置页码的选中效果
         pager_lis.forEach((item, index) => {
@@ -237,13 +237,13 @@
     }
 
     document.querySelector("#pager_select").onchange = function (e) {
-        pager_helper.page_size = parseInt(e.target.value);
+        pager_helper.limit = parseInt(e.target.value);
         update_table(books, selector)
         clear(document.querySelector("#ul_pager"));
         ul_pager_create();
     }
     // 设置分页大小下拉框的默认选中
-    Array.from(document.querySelector("#pager_select").options).forEach(item => item.text == pager_helper.page_size ? item.selected = true : '')
+    Array.from(document.querySelector("#pager_select").options).forEach(item => item.text == pager_helper.limit ? item.selected = true : '')
 
     /**
      * 绘制表格

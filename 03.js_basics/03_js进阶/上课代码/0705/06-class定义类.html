@@ -15,10 +15,14 @@
             this.name = name;
             this.age = age;
             this.hobby = [];
+            // 不推荐使用，原因函数没有重用
+            this.say = function (a) {
+                console.log(this.name, "说话", a)
+            }
         }
         age = 100
         _sal = 1000
-        // sal = 2000 和下面的set和get冲突
+        // sal = 2000 //和下面的set和get冲突
         get sal() { // 获取sal的值
             console.log("sal,get")
             return this._sal}
@@ -26,6 +30,21 @@
             console.log("sal,set")
             this._sal = sal;
         }
+        // 定义方法，推荐
+        work(a) {
+            console.log(this.name, "工作", a)
+        }
+        // 本质就是属性赋值为函数对象，所以是深复制。不推荐
+        walk = (a) => console.log(this.name, "走路", a)
+
+        // 静态方法，通过类.方法名来调用的
+        static s1(a) {
+            // 静态方法没有this
+            console.log(this)
+            console.log("静态方法", a)
+        }
+        // 静态属性，只能通过类名.属性名调用，不能通过实例名调用
+        static money = 1000;
     }
     let p1 = new Person("p1", 20);
     console.log(p1)
@@ -34,8 +53,24 @@
     console.log(p1.sal)
     console.log(p1)
     console.dir(Person)
+    p1.say(1)
+    p1.work(1)
+    p1.walk(1)
     let p2 = new Person("p2", 30);
     console.log(p2)
+    p2.say(2)
+    p2.work(2)
+    p2.walk(2)
+    console.log(p1.say === p2.say)
+    console.log(p1.work === p2.work)
+    console.log(p1.walk === p2.walk)
+
+    // 调用静态方法
+    Person.s1(1)
+    // p1.s1(2) // 静态方法无法通过实例调用
+    console.log(Person.money)
+    console.log(p1.money)//undefined
+
 </script>
 </body>
 </html>
