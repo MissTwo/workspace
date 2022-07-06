@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [2, 4, 6, 8, 10]
+    console.log("-----------------push------------------")
+    Array.prototype.myPush = function () {
+        console.log("myPush被调用了")
+        for (let i = 0; i < arguments.length; i++) {
+            this[this.length] = arguments[i]
+        }
+        return this
+    }
+    // console.log(arr.myPush(10, 1, 2));
+    console.log("------------------pop---------------------")
+    Array.prototype.myPop = function () {
+        console.log("myPop被调用了")
+        this.length = this.length - 1
+        return this
+    }
+    // arr.myPop()
+    console.log("----------------unshift-------------------")
+    Array.prototype.myUnshift = function (...arr) {
+        for (let i = this.length+arr.length; i >arr.length; i--) {
+            this[i] = arr[this.length+arr.length-i]
+        }
+        for (let i = 0; i < arr.length; i++) {
+            this[i] = arr[i]
+        }
+        return this
+    }
+    console.log(arr.myUnshift(12, 10));
+    console.log("----------------shift-------------------")
+    Array.prototype.myShift = function () {
+        console.log("myShift被调用了")
+        for (let i = 0; i < this.length; i++) {
+            this[i] = this[i + 1]
+        }
+        this.length = this.length - 1
+        return this
+    }
+    // arr.myShift()
+    console.log("------------------splice------------------")
+    console.log("------------------sort-------------------")
+    Array.prototype.mySort = function (a, b) {
+
+    }
+
+    console.log("-------------------------reverse----------------------------")
+    Array.prototype.myReverse = function () {
+        console.log("myReverse被调用了")
+        for (let i = 0; i < Math.floor(this.length / 2); i++) {
+            let temp = this[i];
+            this[i] = this[this.length - 1 - i];
+            this[this.length - 1 - i] = temp
+        }
+        return this
+    }
+    // arr.myReverse()
+    console.log(arr)
+</script>
+</body>
+</html>

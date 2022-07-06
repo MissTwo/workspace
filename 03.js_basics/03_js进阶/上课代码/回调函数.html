@@ -84,21 +84,12 @@
         // cur第一次，如果没有传initValue，那么pre就是第一个元素，cur就是第二个元素
         // 如果传了initValue参数，那么cur就是第一个元素
         let pre=this[0],cur,start=0;
-
-            if (initialValue==undefined){
-                for (let i = 0; i < this.length; i++)
-            }
-            let res=callback.call(null,this[i], i, this)
-            newArr.push(res)
-
-
-
         // if (initValue === undefined || initValue === null ) {
-        if (initValue == null) {
+        if (initialValue == null) {
             // 没有传initValue
             start = 1;
         } else {
-            pre = initValue;
+            pre = initialValue;
         }
         for (let i = start; i < this.length; i++) {
             cur = this[i];
@@ -119,7 +110,6 @@
         for (let i = 0; i< this.length; i++){
             if(callback.call(null,this[i], i, this))return this[i];
         }
-
     }
     let e=arr.myFind(function(item, index, array){
         return item==5
