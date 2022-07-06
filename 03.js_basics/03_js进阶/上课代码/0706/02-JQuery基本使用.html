@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>这是div之间内容1</div>
+<div>这是div之间内容2</div>
+<ul>
+    <li>list item 1</li>
+    <li>list item 2</li>
+    <li class="active">list item 3</li>
+    <li>list item 4</li>
+    <li>list item 5</li>
+</ul>
+<button id="btn1">按钮1-on添加点击事件</button>
+<button id="btn2">隐藏或显示</button>
+<button id="btn3">动画</button>
+<script src="../js/jquery-3.5.1.js"></script>
+<script>
+    console.log($("div").text());//$开头，但如果$被其它库冲突了
+    // jQuery("div").text("修改div的文本内容");//也可以使用jQuery
+    console.log($("div"));
+    console.log($("div")[1])
+
+    console.log($(document.querySelector("div")))
+    console.log($(document.querySelectorAll("div")))
+
+    console.log($("li:not(.active)"))
+    console.log($("li:even"));
+    $("li:even").css("color", "green");
+    $("li").click([1], function (e){
+        console.log(e.data);
+        $("li").removeAttr("class");
+        $(this).attr("class", "active");
+    })
+
+    // 获取所有文本内容有list有元素
+    console.log($(":contains(list)"));
+
+    for (let i = 0; i < 10; i++) {
+        let input = document.createElement("input");
+        input.type = "checkbox";
+        $("body").append(input)
+    }
+    $("body").append("<button onclick='select_all()' type='button'>全选</button>")
+    $("body").append("<button onclick='select_none()' type='button'>全不选</button>")
+    $("body").append("<button onclick='fanxuan()' type='button'>反选</button>")
+
+    function select_all() {
+        // 从页面上获取所有checkbox
+        // $(":checkbox").prop("checked", true);// 操作boolean类型的属性时，使用prop
+        $(":checkbox").attr("checked", "checked");
+    }
+    function select_none() {
+        // $(":checkbox").prop("checked", false);
+        $(":checkbox").removeAttr("checked");
+    }
+    function fanxuan() {
+        $(":checkbox").prop("checked", (index, attr) => $(":checkbox")[index].checked = !attr);
+    }
+
+    // console.log($.browser.version)
+
+    // $("ul").empty();
+
+    //获取全选按钮
+    console.log($("button:contains(全选)"))
+    $("body").append($("button:contains(全选)").clone(false))
+
+    $(document).ready(function () {
+        //当页面加载完毕后，执行，相当于window.onload
+        $("#btn1").on("click", {name: "张三"}, function (e) {
+            console.log(e.data);
+        })
+        $("#btn1").on("click" , function (e) {
+            console.log(111);
+        })
+        // $("#btn1").off("click")
+        //
+        // $("#btn1").one("click", {name: "张三"}, function (e) {
+        //     console.log(e.data);
+        // })
+        // $("#btn1").click()// 触发点击事件,点语法的代码耦合性比较强
+        $("#btn1").trigger("click")
+    });
+    $("ul").hide("slow", "linear");
+    $("#btn2").click(function (e) {
+        // $("ul").show("slow", "linear");
+        // $("ul").hide("slow", "linear");
+        // $("ul").toggle("slow", "linear");
+        $("ul").slideDown("slow");
+    });
+    $("#btn3").click(function(){
+        //stop()停止原先动画效果
+        $("#btn2").stop().animate({
+            width: "90%",
+            height: "100%",
+            fontSize: "10em",
+            borderWidth: 10
+        }, 1000 );
+        $('ul').slideUp(300).delay(800).fadeIn(400);
+    });
+</script>
+</body>
+</html>

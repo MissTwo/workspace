@@ -7,7 +7,7 @@
 <body>
 <script>
     // Object.create()使用指定的原型对象和属性创建一个新对象
-    // 注意：深克隆对象，如同JSON克隆的效果
+    // 注意：浅克隆对象，JSON克隆是深克隆
     let student = {
         name: "张三",
         age: 20,
@@ -19,7 +19,9 @@
         value: ["hih", "uhiu"]
     })
     let newStudent=Object.create(student)
+    console.log(newStudent)
     console.log(newStudent.printIntroduction==student.printIntroduction)
+
 </script>
 </body>
 </html>
