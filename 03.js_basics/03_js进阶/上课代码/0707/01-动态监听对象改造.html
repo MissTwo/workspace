@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj = {name: "张三", a: {b: {c: "c"}}, age: 20}
+    // 改造成获取或修改obj任何值的时候都有一个打印信息
+    function t1(obj) {
+        for (let key in obj) {
+            let _val = obj[key];
+            // 跑步10圈，break，后面都不跑了。continue，这一圈不跑了
+            if (typeof _val === "function") continue;
+            if (Array.isArray(_val)) {
+
+            } else if (typeof _val === "object") {
+                t1(_val);
+                // return;
+            }
+            Object.defineProperty(obj, key, {
+                configurable: false,
+                enumerable: true,
+                set: function(val) {
+                    console.log(key,"的值被修改为", val);
+                    _val = val;
+                },
+                get: function () {
+                    console.log(key,"的值被获取了");
+                    return _val;
+                }
+            })
+        }
+    }
+
+    t1(obj);
+</script>
+</body>
+</html>

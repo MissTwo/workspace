@@ -25,15 +25,15 @@
     // arr.myPop()
     console.log("----------------unshift-------------------")
     Array.prototype.myUnshift = function (...arr) {
-        for (let i = this.length+arr.length; i >arr.length; i--) {
-            this[i] = arr[this.length+arr.length-i]
+        for (let i = this.length - 1; i >= 0; i--) {
+            this[arr.length + i] = this[i]
         }
         for (let i = 0; i < arr.length; i++) {
             this[i] = arr[i]
         }
         return this
     }
-    console.log(arr.myUnshift(12, 10));
+    // console.log(arr.myUnshift(12, 10));
     console.log("----------------shift-------------------")
     Array.prototype.myShift = function () {
         console.log("myShift被调用了")
@@ -45,11 +45,23 @@
     }
     // arr.myShift()
     console.log("------------------splice------------------")
+    Array.prototype.mySplice = function (a, b, ...arr) {
+        let newArray = []
+        for (let i = 0; i <= b-a; i++) {
+            newArray[i]=this[i+a]
+            this[a+i] =this[b+i+1]
+        }
+        this.length = this.length -b
+        for (let i = 0; i < arr.length; i++) {
+            newArray[newArray.length] = arr[i]
+        }
+        return newArray
+    }
+    // console.log(arr.mySplice(1,2))
     console.log("------------------sort-------------------")
     Array.prototype.mySort = function (a, b) {
 
     }
-
     console.log("-------------------------reverse----------------------------")
     Array.prototype.myReverse = function () {
         console.log("myReverse被调用了")
@@ -61,7 +73,13 @@
         return this
     }
     // arr.myReverse()
-    console.log(arr)
+    // console.log(arr)
+    // console.log(arr.splice(1, 2))
+    // console.log(arr)
+    let aa=[1,2,4,[6,4,3],5]
+    // console.log(aa.splice(3,2))
+    console.log(aa.mySplice(1,2))
+    console.log(aa)
 </script>
 </body>
 </html>
