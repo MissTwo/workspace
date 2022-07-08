@@ -121,41 +121,44 @@
     }
 
     // TODO:获取rememberMe checkbox
-    console.log(identity)
-    identity.__proto__.find=Array.prototype.find
     login.addEventListener("click", function () {
-        let role=identity.find(item => item.checked)
-        console.log(role.value)
-        let data
-        // TODO: 提交数据之前检查合法性
-        if (!(checkUsername(username.value) || checkPassword(password.value))) return
 
-        data = {
+        // TODO: 提交数据之前检查合法性
+        // 账户密码认证
+        if (!(checkUsername(username.value) || checkPassword(password.value))) return
+        // 角色认证
+        if(!roleJudgment(identity))return
+        let role=roleJudgment(identity)
+        // 存储数据
+        let data = {
             username: username.value,
             password: password.value,
+            token: role.value
         }
         let userObj = {
             username: username.value,
             password: password.value,
-            token: 1
+            token: role.value
         }
         $.post("/login", data, function (result) {
             console.log(result)
             if (result.code === 0) {
                 // TODO:将用户信息写入localstorage,user{username; token; expire;}
-
-
                 // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe{username; password;}
                 // TODO:如果rememberMe没勾选了，那么localstorage中的rememberMe删掉
-                if (remember.checked ) {
+                if (remember.checked) {
                     localStorage.setItem("userStr", JSON.stringify(userObj))
                 } else {
                     localStorage.removeItem("userStr")
                 }
                 // TODO:跳转页面 window.location
-                // sessionStorage.setItem("log_token", "ok")
-                location.href = '7.简易购物车.html'
-                return
+                if (data.token === "dormManager") {
+                    return location.href = "dormManager.html"
+                } else if (data.token === "administrator") {
+                    return location.href = "administrator.html"
+                } else if (data.token === "student") {
+                    return location.href = "student.html"
+                }
             }
             // TODO:提示错误
             usernameInfo.innerText = "⚠请输入正确的用户名"
@@ -195,11 +198,16 @@
         // }
         return value.trim()
     }
-    // function roleJudgment(nodeList) {
-    //     nodeList.forEach(function(item){
-    //
-    //     })
-    // }
+
+    function roleJudgment(identity) {
+        identity.__proto__.find = Array.prototype.find
+        role = identity.find(item => item.checked)
+        if (role === undefined) {
+            alert("请选择登录角色")
+            return
+        }
+        return role.value
+    }
 
 </script>
 </body>
