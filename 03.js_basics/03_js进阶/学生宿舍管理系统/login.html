@@ -164,6 +164,8 @@
                     localStorage.removeItem("RememberMe")
                 }
                 // TODO:跳转页面 window.location
+                data.password=""
+                localStorage.setItem("UserInfo", JSON.stringify(data))
                 if (data.role === "dormManager") {
                     return location.href = "dormManager.html"
                 } else if (data.role === "administrator") {
@@ -171,9 +173,6 @@
                 } else if (data.role === "student") {
                     return location.href = "student.html"
                 }
-                data.password=""
-                localStorage.setItem("UserInfo", JSON.stringify(data))
-                return
             }
             // TODO:提示错误
             usernameInfo.innerText = "⚠请输入正确的用户名"
