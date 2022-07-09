@@ -1,52 +1,67 @@
 /*
-    *localStorage的方法：
-    * localStorage.getItem(key):获取指定key本地存储的值
-    *localStorage.setItem(key,value)：将value存储到key字段；
-    *localStorage.removeItem(key):删除指定key本地存储的值
-    */
+*localStorage的方法：
+* localStorage.getItem(key):获取指定key本地存储的值
+*localStorage.setItem(key,value)：将value存储到key字段；
+*localStorage.removeItem(key):删除指定key本地存储的值
+*/
+//TODO:检查localStorage中的UserInfo，若存在，则直接根据其中的role跳转到对应页面
+
 let username = document.querySelector('input[type="text"]'),
     password = document.querySelector("input[type='password']"),
-    remember=document.getElementById('remember'),
-    login = document.querySelector('#login'),
+    identity = document.querySelectorAll('input[type="radio"]'),
+    remember = document.querySelector('#remember'),
     usernameInfo = document.querySelector('.username-info'),
     passwordInfo = document.querySelector('.password-info');
-let user={
-    "name":"1111",
-    "pwd":"11111"
-}
-let str=JSON.stringify(user)
+
 // TODO:页面加载时，判断localstorage中rememberMe是否存在，如果存在，将其中的username和password填入input
-if(localStorage.getItem('name')&&localStorage.getItem('pwd')){
-    // username.value = localStorage.getItem();
-    password.value = localStorage.getItem('pwd');
-    remember.checked=true;//将选择保存账户密码的复选框更改为选中
+let userStr = localStorage.getItem('RememberMe')
+if (userStr) {
+    let userObj = JSON.parse(userStr)
+    username.value = userObj.username;
+    password.value = userObj.password;
+    checkElementByRole(userObj.role);
+    remember.checked = true;//将选择保存账户密码的复选框更改为选中
 }
 
-let users = {
-    '111111': '222222',
-    '222222': '222222',
-    '333333': '222222',
-    '444444': '222222',
-    '555555': '222222',
-    '666666': '222222',
+function checkElementByRole(role) {
+    document.querySelector(`input[name="optionsRadios"][value=${role}]`).checked = true
+}
+
+let students = {
+    '111111': '111',
+    '222222': '222',
+    '333333': '333',
+}
+
+let managers = {
+    "manager": "123"
+}
+let admins = {
+    "admin": '123'
+}
+
+let RoleTable = {
+    "dormManager": managers,
+    "administrator": admins,
+    "student": students,
 }
 
 Mock.mock("/login", "post", function (data) {
     let params = parseParam(data.body)
-    if (checkUserPasswd(params.username, params.password)) {
+    if (checkUserPasswd(params.role, params.username, params.password)) {
         return {
             code: 0,
             msg: "login success"
         }
     }
     return {
-        code: 0,
+        code: 1,
         msg: "login failed"
     }
 })
 
-function checkUserPasswd(username, password) {
-    return !(!users[username] || users[username] !== password)
+function checkUserPasswd(role, username, password) {
+    return !(!RoleTable[role][username] || RoleTable[role][username] !== password)
 }
 
 function parseParam(params) {
@@ -58,68 +73,91 @@ function parseParam(params) {
     }
     return urlObj;
 }
-// 点击记住密码存入到local storage中
-remember.addEventListener('click',function (e){
-    if(remember.checked&&username.value!=''&&password.value!=''){
-        localStorage.setItem('name', username);
-        localStorage.setItem('pwd',password);
-    }else{
-        //若不点 则把已经记录到localStorge 中的值删除
-        localStorage.removeItem('name');
-        localStorage.removeItem('pwd');
-    }
-})
-// TODO:获取rememberMe checkbox
-username.addEventListener('input', function () {
-    if (username.value === "" || username.value.trim().length < 6) {
-        usernameInfo.style.display = 'block'
-    } else {
-        usernameInfo.style.display = 'none'
-    }
-});
-password.addEventListener('input', function () {
-    if (password.value === "" || password.value.trim().length < 6) {
-        passwordInfo.style.display = 'block'
-    } else {
-        passwordInfo.style.display = 'none'
-    }
 
-});
-password.addEventListener('change', function () {
-    // if (password.value===""||password.value)
-    // console.log(1)
-});
-login.addEventListener('click', function () {
-    // 测试跳转
-    location.href='7.简易购物车.html'
+// TODO:获取rememberMe checkbox
+login.addEventListener("click", function () {
 
     // TODO: 提交数据之前检查合法性
+    // 账户密码认证
+    if (!(checkUsername(username.value) || checkPassword(password.value))) return
+    // 角色认证
+    if (!roleJudgment(identity)) return
+    let role = roleJudgment(identity)
+    // 存储数据
     let data = {
         username: username.value,
-        password: password.value
+        password: password.value,
+        role: role
     }
+
     $.post("/login", data, function (result) {
-        console.log(result)
+        result = JSON.parse(result)
         if (result.code === 0) {
             // TODO:将用户信息写入localstorage,user{username; token; expire;}
             // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe{username; password;}
             // TODO:如果rememberMe没勾选了，那么localstorage中的rememberMe删掉
+            if (remember.checked) {
+                localStorage.setItem("RememberMe", JSON.stringify(data))
+            } else {
+                localStorage.removeItem("RememberMe")
+            }
             // TODO:跳转页面 window.location
-            sessionStorage.setItem("log_token","ok")
-            location.href='7.简易购物车.html'
-            return
+            data.password = ""
+            // localStorage.setItem("UserInfo", JSON.stringify(data))
+            sessionStorage.setItem("UserInfo", JSON.stringify(data))
+            if (data.role === "dormManager") {
+                return location.href = "dormManager.html"
+            } else if (data.role === "administrator") {
+                return location.href = "administrator.html"
+            } else if (data.role === "student") {
+                return location.href = "student.html"
+            }
         }
         // TODO:提示错误
+        usernameInfo.innerText = "⚠请输入正确的用户名"
+        passwordInfo.innerText = "⚠请输入正确的密码"
+
     })
 });
 
 // TODO:实现以下方法替代原代码
-function checkUsername() {
-
+function checkUsername(value) {
+    if (value === "") {
+        usernameInfo.innerText = "⚠账号不能为空"
+        return
+    } else if (value.trim().length < 5 || value.trim().length > 18) {
+        usernameInfo.innerText = "⚠账号不能低于5位且不能高于18位"
+        return
+    }
+    return value
 }
 
-function checkPassword() {
+function checkPassword(value) {
     // TODO:增加正则判断
+    // 匹配大小写字母和数组
     let reg = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9]{6,16}$/
     // TODO.test(passwordTag.value);
+    if (value === "") {
+        passwordInfo.innerText = "⚠密码不能为空"
+        return
+    } else if (value.trim().length < 3 || value.trim().length > 18) {
+        passwordInfo.innerText = "⚠密码不能低于3位且不能高于18位"
+        return
+    }
+    // 正则匹配密码
+    // else if (reg.test(value.trim())) {
+    //     passwordInfo.innerText = ""
+    //     return value.trim()
+    // }
+    return value.trim()
+}
+
+function roleJudgment(identity) {
+    identity.__proto__.find = Array.prototype.find
+    role = identity.find(item => item.checked)
+    if (role === undefined) {
+        alert("请选择登录角色")
+        return
+    }
+    return role.value
 }
