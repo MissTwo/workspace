@@ -53,7 +53,7 @@
                         <input type="search" class="form-control" placeholder="姓名" name="dorm-manager_name">
                     </div>
                     <div class="form-group">
-                        <input type="number" class="form-control" placeholder="手机号" name="dorm-manager_phoneNumber">
+                        <input type="phone" class="form-control" placeholder="手机号" name="dorm-manager_phoneNumber">
                     </div>
                     <div class="form-group">
                         <select id="gender">
@@ -79,11 +79,17 @@
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                     </div>
+                    <div>
+                        <button type="reset" class="btn btn-default " id="reset_btn">
+                            重置
+                        </button>
+                    </div>
+
                 </form>
             </div>
             <div class="control">
-                <button id="add-date" type="button" class="btn btn-primary">添加</button>
-                <button id="delete-date" type="button" class="btn btn-danger">批量删除</button>
+                <button id="add-data" type="button" class="btn btn-primary">添加</button>
+                <button id="delete-data" type="button" class="btn btn-danger">批量删除</button>
             </div>
         </div>
         <div class="part-two">
@@ -106,8 +112,38 @@
             </table>
         </div>
 
+        <div class="page">
+            <div>共<span id="data-num" class="label label-info"></span>条记录</div>
+            <div>
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous" onclick="jumpTo(1)">首页</a>
+                        </li>
+                        <li class="previous-page" onclick="jumpToPrev()">
+                            <a href="#" aria-label="Previous">上一页</a>
+                        </li>
+                        <li class='next-page'>
+                            <a href="#" aria-label="Next" onclick="jumpToNext()">下一页</a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Next" onclick="jumpTo(pageSize)">尾页</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div>
+                <select name="" id="limit">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                </select>
+            </div>
+        </div>
+
     </div>
 </div>
+
 
 
 <script src="./js/jquery-3.5.1.js"></script>
