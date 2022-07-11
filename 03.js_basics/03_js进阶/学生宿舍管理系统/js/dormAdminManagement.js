@@ -25,16 +25,24 @@ dormManagerData = [
     {'id': 20, 'name': '李勇', 'gender': '男', 'phoneNumber': '14525182134', 'dormitory': '第一宿舍楼', 'username': "gloldg"},
 ]
 
+// 分页的方法封装
+let limit = 5
+let currentPage = 1
+let pagenation  = new Pagenation(currentPage, limit,dormManagerData,$('.mer-pagination'), redrawDormAdminTable)
+window.pagenation = pagenation
+pagenation.draw()
+
 // 初始化绘制表格
-redrawDormAdminTable($('tbody'), dormManagerData)
+// redrawDormAdminTable($('tbody'), dormManagerData)
 // // 搜索后绘制表格
-// $('#search_btn').click(function () {
-//     searchDormManager(dormManagerData, $('input[name="dorm-manager_name"]').val(), $('input[name="dorm-manager_phoneNumber"]').val(), $("#gender option:selected").val(), $("#chooseResidence option:selected").val());
-// })
+$('#search_btn').click(function () {
+    searchDormManager(dormManagerData, $('input[name="dorm-manager_name"]').val(), $('input[name="dorm-manager_phoneNumber"]').val(), $("#gender option:selected").val(), $("#chooseResidence option:selected").val());
+})
 
 
-// 宿舍管理员表格信息的重绘制（清空再渲染）
-function redrawDormAdminTable(elementNode, data) {
+// // 宿舍管理员表格信息的重绘制（清空再渲染）
+function redrawDormAdminTable( data) {
+    let elementNode = $('tbody')
     elementNode.empty()
     data.forEach(item => {
         elementNode.append(
@@ -47,8 +55,8 @@ function redrawDormAdminTable(elementNode, data) {
                 <td>${item.dormitory}</td>
                 <td>${item.username}</td>
                 <td>
-                    <input type="button" value="编辑" onclick="editRow(this)">
-                    <input type="button" value="删除" onclick="deleteRow(this)">
+                    <input type="button" value="编辑" onclick="editRow(${item.id})">
+                    <input type="button" value="删除" onclick="deleteRow(${item.id})">
                 </td>
             </tr>`)
     })
@@ -58,31 +66,27 @@ function redrawDormAdminTable(elementNode, data) {
 
 
 // 过滤后的数据
-// let filterData
 
 // 搜索宿舍管理员信息方法封装
-// function searchDormManager(data, name, phoneNumber, gender, dormitory) {
-//     filterData = dormManagerData.slice(0)
-//     if (name != '') filterData = filterData.filter(item => item.name.indexOf(name) != -1)
-//     if (phoneNumber != '') filterData = filterData.filter(item => item.phoneNumber.indexOf(phoneNumber) != -1)
-//     if (gender != 0) filterData = filterData.filter(item => item.gender == gender)
-//     if (dormitory != 0) filterData = filterData.filter(item => item.dormitory == dormitory)
-//     redrawDormAdminTable($('tbody'), filterData)
-// }
+function searchDormManager(data, name, phoneNumber, gender, dormitory) {
+    pagenation.data= dormManagerData
+    if (name != '') pagenation.data = pagenation.data.filter(item => item.name.indexOf(name) != -1)
+    if (phoneNumber != '') pagenation.data = pagenation.data.filter(item => item.phoneNumber.indexOf(phoneNumber) != -1)
+    if (gender != 0) pagenation.data = pagenation.data.filter(item => item.gender == gender)
+    if (dormitory != 0) pagenation.data = pagenation.data.filter(item => item.dormitory == dormitory)
+    pagenation.currentPage=1
+    pagenation.draw()
+}
 
 // 批量删除点击事件绑定
-// $('#delete-data').click(() => {
-//     let a = batchDeletion(filterData)
-//     let b = batchDeletion(dormManagerData)
-//     console.log(b)
-//     // 过滤后批量
-//     if (filterData!= undefined) {
-//         redrawDormAdminTable($('tbody'), a)
-//         filterData.length = 0
-//     } else {
-//         redrawDormAdminTable($('tbody'), b)
-//     }
-// })
+$('#delete-data').click(() => {
+    if (!confirm("确定要删除选中的这些信息吗？")) return
+    $('td>input[type="checkbox"]:checked').__proto__.forEach = Array.prototype.forEach
+    $('td>input[type="checkbox"]:checked').forEach(i => {
+        deleteFromData(Number(i.value))
+    })
+    if ($('#select-all')) $('#select-all').prop("checked", false);
+})
 // // 添加
 // $('add-data').click(function () {
 //     creatEdit()
@@ -129,37 +133,45 @@ function redrawDormAdminTable(elementNode, data) {
 // }
 //
 // // 重置按钮，绘制所有的数据
-// $('#reset_btn').click(() => {
-//     redrawDormAdminTable($('tbody'), dormManagerData)
-// })
+$('#reset_btn').click(() => {
+    pagenation.data = dormManagerData
+    pagenation.currentPage=1
+    pagenation.draw()
+})
 //
 // // // 批量删除方法封装(需要在表格绘制好之后才可以操作)
-// function batchDeletion(data) {
-//     // if ($('td>input[type="checkbox"]:checked').length != 0)
-//         if (!confirm("确定要删除选中的这些信息吗？")) return
-//     $('td>input[type="checkbox"]:checked').__proto__.forEach = Array.prototype.forEach
-//     $('td>input[type="checkbox"]:checked').forEach(i => {
-//         data.splice(data.findIndex(item => i.value == item.id), 1)
-//     })
-//     if ($('#select-all')) $('#select-all').prop("checked", false);
-//     return data
-// }
-//
+function batchDeletion() {
+    // if ($('td>input[type="checkbox"]:checked').length != 0)
+
+}
+
 // // 删除每一行的操作
-// function deleteRow(self) {
-//     if (!confirm("确定要删除选中的这些信息吗？")) return
-//     self.parentElement.parentElement.remove()
-// }
+function deleteRow(id) {
+    if (!confirm("确定要删除选中的这些信息吗？")) return
+    deleteFromData(id)
+}
+
+function deleteFromData(id){
+    console.log(id)
+    for (let i = 0; i < pagenation.data.length; i++){
+        if(pagenation.data[i].id===id){
+            pagenation.data.splice(i, 1)
+            break
+        }
+    }
+    for (let i = 0; i < dormManagerData.length; i++){
+        if(dormManagerData[i].id===id){
+            dormManagerData.splice(i, 1)
+            break
+        }
+    }
+    pagenation.draw()
+}
 
 
 
 
-
-// 分页的方法封装
-let pageSize
-let limit = 5
-let currentPage = 1
-drawPagination(currentPage, limit, dormManagerData)
+// drawPagination(currentPage, limit, dormManagerData)
 
 // 绘制分页
 
@@ -170,39 +182,3 @@ drawPagination(currentPage, limit, dormManagerData)
  * @param limit 每一页展示的数据范围
  * @param data  数据的总数
  */
-
-function drawPagination(currentPage, limit, data) {
-    // 清空分页页码
-    $('.previous-page').nextUntil($('.next-page'), "li").remove()
-    // 当前展示的数据
-    pageSize = Math.ceil(data.length / limit)
-    for (let i = 1; i <= pageSize; i++) {
-        $('.next-page').before(`<li id='pages${i}'><a href="#" onClick="jumpTo(${i})">${i}</a></li>`)
-    }
-    // 当前的数据
-    let current = data.slice((currentPage - 1) * limit, currentPage * limit)
-    redrawDormAdminTable($('tbody'), current)
-}
-// 上一页
-function jumpToPrev() {
-    if (currentPage === 1) return
-    jumpTo(currentPage - 1)
-}
-// 下一页
-function jumpToNext() {
-    if (currentPage === pageSize) return
-    jumpTo(currentPage + 1)
-}
-
-// 跳转那一页
-function jumpTo(m) {
-    currentPage = m
-    drawPagination(currentPage, limit, dormManagerData)
-}
-// 数量范围
-$('#limit').change(function () {
-    limit = $('#limit').val()
-    drawPagination(currentPage, limit, dormManagerData)
-})
-// 数据数量展示
-$('#data-num').text(dormManagerData.length)

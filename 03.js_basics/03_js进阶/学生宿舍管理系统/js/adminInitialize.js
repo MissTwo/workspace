@@ -66,3 +66,83 @@ let dormAdminManagement = Mock.mock({
         }
     ]
 })
+
+class Pagenation {
+    constructor(currentPage,limit,data, parent, tableRender) {
+        this.currentPage = currentPage;
+        this.limit = limit;
+        this.data = data;
+        this.tableRender = tableRender;
+        this.pageSize =  Math.ceil(this.data.length / this.limit);
+        this.parent = parent;
+    }
+    draw(){
+        this.parent.empty()
+        this.parent.append(`<div>共<span id="data-num" class="label label-info"></span>条记录</div>
+            <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous" onclick="pagenation.jumpTo(1)">首页</a>
+                        </li>
+                        <li class="previous-page" onclick="pagenation.jumpToPrev()">
+                            <a href="#" aria-label="Previous">上一页</a>
+                        </li>
+                        <li class='next-page'>
+                            <a href="#" aria-label="Next" onclick="pagenation.jumpToNext()">下一页</a>
+                        </li>
+                        <li>
+                            <a href="#" aria-label="Next" onclick="pagenation.jumpTo(${this.pageSize})">尾页</a>
+                        </li>
+                    </ul>
+                </nav>
+            <div>
+                <select name="" id="limit">
+                </select>
+            </div>`)
+
+        // 数据数量展示
+        $('#data-num').text(pagenation.data.length)
+        // 数量范围
+        for (let i = 5; i <=15; i+=5) {
+            if(i===this.limit){
+                $('#limit').append(`<option value="${i}" selected>${i}</option>`)
+                continue
+            }
+            $('#limit').append(`<option value="${i}">${i}</option>`)
+        }
+        $('#limit').change(function () {
+            limit = $('#limit').val()
+            pagenation.limit=Number(limit)
+
+            pagenation.draw()
+        })
+        // 当前展示的数据
+        this.pageSize = Math.ceil(this.data.length / this.limit)
+        for (let i = 1; i <= this.pageSize; i++) {
+            if(i===this.currentPage){
+                $('.next-page').before(`<li id='pages${i}' class="active"><a href="#" onClick="pagenation.jumpTo(${i})">${i}</a></li>`)
+                continue
+            }
+            $('.next-page').before(`<li id='pages${i}'><a href="#" onClick="pagenation.jumpTo(${i})">${i}</a></li>`)
+        }
+        // 当前的数据
+        let current = this.data.slice((this.currentPage - 1) * this.limit, this.currentPage * this.limit)
+        this.tableRender(current)
+    }
+    // 上一页
+    jumpToPrev() {
+        if (this.currentPage === 1) return
+        this.jumpTo(this.currentPage - 1)
+    }
+// 下一页
+    jumpToNext() {
+        if (this.currentPage === this.pageSize) return
+        this.jumpTo(this.currentPage + 1)
+    }
+
+// 跳转那一页
+    jumpTo(m) {
+        this.currentPage = m
+        this.draw(this.currentPage, this.limit, this.data)
+    }
+}
