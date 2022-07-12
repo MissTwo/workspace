@@ -62,11 +62,6 @@ function redrawDormAdminTable( data) {
     })
 }
 
-
-
-
-// 过滤后的数据
-
 // 搜索宿舍管理员信息方法封装
 function searchDormManager(data, name, phoneNumber, gender, dormitory) {
     pagenation.data= dormManagerData
@@ -87,6 +82,41 @@ $('#delete-data').click(() => {
     })
     if ($('#select-all')) $('#select-all').prop("checked", false);
 })
+// // 重置按钮，绘制所有的数据
+$('#reset_btn').click(() => {
+    pagenation.data = dormManagerData
+    pagenation.currentPage=1
+    pagenation.draw()
+})
+
+// // 删除每一行的操作
+function deleteRow(id) {
+    if (!confirm("确定要删除选中的这些信息吗？")) return
+    deleteFromData(id)
+}
+// 批量删除
+function deleteFromData(id){
+    for (let i = 0; i < pagenation.data.length; i++){
+        if(pagenation.data[i].id===id){
+            pagenation.data.splice(i, 1)
+            break
+        }
+    }
+    for (let i = 0; i < dormManagerData.length; i++){
+        if(dormManagerData[i].id===id){
+            dormManagerData.splice(i, 1)
+            break
+        }
+    }
+    pagenation.draw()
+}
+
+// // // 批量删除方法封装(需要在表格绘制好之后才可以操作)
+// function batchDeletion() {
+//     // if ($('td>input[type="checkbox"]:checked').length != 0)
+//
+// }
+
 // // 添加
 // $('add-data').click(function () {
 //     creatEdit()
@@ -132,53 +162,3 @@ $('#delete-data').click(() => {
 //
 // }
 //
-// // 重置按钮，绘制所有的数据
-$('#reset_btn').click(() => {
-    pagenation.data = dormManagerData
-    pagenation.currentPage=1
-    pagenation.draw()
-})
-//
-// // // 批量删除方法封装(需要在表格绘制好之后才可以操作)
-function batchDeletion() {
-    // if ($('td>input[type="checkbox"]:checked').length != 0)
-
-}
-
-// // 删除每一行的操作
-function deleteRow(id) {
-    if (!confirm("确定要删除选中的这些信息吗？")) return
-    deleteFromData(id)
-}
-
-function deleteFromData(id){
-    console.log(id)
-    for (let i = 0; i < pagenation.data.length; i++){
-        if(pagenation.data[i].id===id){
-            pagenation.data.splice(i, 1)
-            break
-        }
-    }
-    for (let i = 0; i < dormManagerData.length; i++){
-        if(dormManagerData[i].id===id){
-            dormManagerData.splice(i, 1)
-            break
-        }
-    }
-    pagenation.draw()
-}
-
-
-
-
-// drawPagination(currentPage, limit, dormManagerData)
-
-// 绘制分页
-
-/**
- *
- * @param elementNode 挂载的父节点
- * @param currentPage   当前页面
- * @param limit 每一页展示的数据范围
- * @param data  数据的总数
- */
