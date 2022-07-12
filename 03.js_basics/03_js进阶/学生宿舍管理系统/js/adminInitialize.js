@@ -53,19 +53,6 @@ function selectAllItem(selector) {
         else $(':checkbox').prop('checked', false)
     })
 }
-// 模拟宿舍管理员的信息
-let dormAdminManagement = Mock.mock({
-    "dormAdminManagement|10": [
-        {
-            "id|+1": 1,
-            "name": "@cname",
-            "gender|1": ["男", "女"],
-            "phoneNumber": /^1\d{10}/,
-            "dormitory|1": ["第一宿舍楼", "第二宿舍楼", "第三宿舍楼", "第四宿舍楼", "第五宿舍楼"],
-            "username": "@word(4,7)"
-        }
-    ]
-})
 
 class Pagenation {
     constructor(currentPage,limit,data, parent, tableRender) {
@@ -113,7 +100,6 @@ class Pagenation {
         $('#limit').change(function () {
             limit = $('#limit').val()
             pagenation.limit=Number(limit)
-
             pagenation.draw()
         })
         // 当前展示的数据

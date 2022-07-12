@@ -58,6 +58,7 @@ function searchDormManager(data, dormitory) {
 
 // 批量删除点击事件绑定
 $('#delete-data').click(() => {
+    if ($('td>input[type="checkbox"]:checked').length === 0) return
     if (!confirm("确定要删除选中的这些信息吗？")) return
     $('td>input[type="checkbox"]:checked').__proto__.forEach = Array.prototype.forEach
     $('td>input[type="checkbox"]:checked').forEach(i => {
@@ -93,3 +94,84 @@ function deleteFromData(id){
     }
     pagenation.draw()
 }
+
+// 编辑与修改模块
+
+// 修改与添加的模板
+function creatEdit(id) {
+    $('#main-content').append(
+        `<form class="form-horizontal" id="edited">
+                <h4>基本信息</h4>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">名称</label>
+                    <div class="col-sm-8">
+                        <select id="editDormitory" style="width: 100%;">
+                        <option value="0">请选择宿舍楼</option>
+                        <option value="第一宿舍楼">第一宿舍楼</option>
+                        <option value="第二宿舍楼">第二宿舍楼</option>
+                        <option value="第三宿舍楼">第三宿舍楼</option>
+                        <option value="第四宿舍楼">第四宿舍楼</option>
+                        <option value="第五宿舍楼">第五宿舍楼</option>
+                    </select>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">简介</label>
+                    <div class="col-sm-8">
+                        <input id="editDescription" type="text" class="form-control" name="username" placeholder="请输入简介">
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="col-sm-3 control-label">管理员</label>
+                    <div class="col-sm-8">
+                        <input id="editManager" type="text" class="form-control" name="phoneNumber" placeholder="请输入管理员">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="text-align: center">
+                        <button type="button" class="btn btn-primary" onclick="confirmCreate(this,${id})">确认</button>
+                        <button type="button" class="btn btn-danger" onclick="cancelCreat(this)">取消</button>
+                    </div>
+                </div>
+            </form>`)
+}
+// 取消添加或修改
+function cancelCreat(self) {
+    self.parentNode.parentNode.parentNode.remove()
+}
+//添加数据按钮
+$('#add-data').click(function() {
+    creatEdit()
+})
+// 编辑每一行
+function editRow(id) {
+    let row = document.querySelector(`#row${id}`)
+    // 创建编辑框
+    creatEdit(`${id}`)
+}
+// 修改数据确认与编辑数据的确认
+function confirmCreate(self,id) {
+    if(!($('#editDescription').val()&&$('#editManager').val()&&$('#editDormitory option:selected').val())){
+        alert("信息填写有误！")
+        return
+    }
+    // 添加信息
+    if(id===undefined){
+        let obj = {
+            "id": dormManagementData.length+1,
+            "dormitory":$('#editDormitory option:selected').val(),
+            "description":$('#editDescription').val(),
+            "name":$('#editManager').val(),
+        };
+        dormManagementData.push(obj)
+        pagenation.data.push(obj)
+        pagenation.draw()
+
+    }
+    // 修改信息
+    $(`#row${id} td:nth-child(3)`).text($('#editDormitory option:selected').val())
+    $(`#row${id} td:nth-child(4)`).text($('#editDescription').val())
+    $(`#row${id} td:nth-child(5)`).text($('#editManager').val())
+    self.parentNode.parentNode.parentNode.remove()
+}
+

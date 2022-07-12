@@ -62,6 +62,7 @@ function searchDormManager(data, name,startTime,endTime) {
 
 // 批量删除点击事件绑定
 $('#delete-data').click(() => {
+    if ($('td>input[type="checkbox"]:checked').length === 0) return
     if (!confirm("确定要删除选中的这些信息吗？")) return
     $('td>input[type="checkbox"]:checked').__proto__.forEach = Array.prototype.forEach
     $('td>input[type="checkbox"]:checked').forEach(i => {
