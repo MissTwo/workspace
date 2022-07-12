@@ -166,6 +166,8 @@ function confirmCreate(self,id) {
         dormManagementData.push(obj)
         pagenation.data.push(obj)
         pagenation.draw()
+        self.parentNode.parentNode.parentNode.remove()
+        return;
 
     }
     // 修改信息

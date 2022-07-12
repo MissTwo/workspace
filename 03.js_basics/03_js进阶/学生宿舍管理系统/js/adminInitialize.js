@@ -58,13 +58,15 @@ class Pagenation {
     constructor(currentPage,limit,data, parent, tableRender) {
         this.currentPage = currentPage;
         this.limit = limit;
-        this.data = data;
+        this.data = data.slice(0);
         this.tableRender = tableRender;
         this.pageSize =  Math.ceil(this.data.length / this.limit);
         this.parent = parent;
     }
     draw(){
         this.parent.empty()
+        // 当前展示的数据
+        this.pageSize = Math.ceil(this.data.length / this.limit)
         this.parent.append(`<div>共<span id="data-num" class="label label-info"></span>条记录</div>
             <nav aria-label="Page navigation">
                     <ul class="pagination">
@@ -102,8 +104,6 @@ class Pagenation {
             pagenation.limit=Number(limit)
             pagenation.draw()
         })
-        // 当前展示的数据
-        this.pageSize = Math.ceil(this.data.length / this.limit)
         for (let i = 1; i <= this.pageSize; i++) {
             if(i===this.currentPage){
                 $('.next-page').before(`<li id='pages${i}' class="active"><a href="#" onClick="pagenation.jumpTo(${i})">${i}</a></li>`)

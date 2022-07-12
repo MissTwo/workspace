@@ -163,15 +163,15 @@ function editRow(id) {
 }
 // 修改数据确认与编辑数据的确认
 function confirmCreate(self,id) {
-    console.log(id)
     if(!($('#editName').val()&&$('#editGender option:selected').val()&&$('#editPhoneNum').val()&&$('#editDormitory option:selected').val()&&$('#editUserName').val())){
         alert("信息填写有误！")
         return
     }
+    console.log(dormManagerData)
     // 添加信息
     if(id===undefined){
         let obj = {
-            "id": dormManagerData.length+1,
+            "id": dormManagerData[dormManagerData.length-1].id+1,
             "name":$('#editName').val(),
             "gender":$('#editGender option:selected').val(),
             "phoneNumber":$('#editPhoneNum').val(),
@@ -181,6 +181,8 @@ function confirmCreate(self,id) {
         dormManagerData.push(obj)
         pagenation.data.push(obj)
         pagenation.draw()
+        self.parentNode.parentNode.parentNode.remove()
+        return;
     }
     // 修改信息
     $(`#row${id} td:nth-child(3)`).text($('#editName').val())

@@ -167,7 +167,6 @@ function editRow(id) {
 }
 // 修改数据确认与编辑数据的确认
 function confirmCreate(self,id) {
-    console.log(id)
     if(!($('#editName').val()&&$('#editGender option:selected').val()&&$('#editPhoneNum').val()&&$('#editDormitory option:selected').val()&&$('#editDormNum').val())){
         alert("信息填写有误！")
         return
@@ -186,6 +185,8 @@ function confirmCreate(self,id) {
         studentManagementData.push(obj)
         pagenation.data.push(obj)
         pagenation.draw()
+        self.parentNode.parentNode.parentNode.remove()
+        return;
     }
     // // 修改信息
     $(`#row${id} td:nth-child(4)`).text($('#editName').val())
