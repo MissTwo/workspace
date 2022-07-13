@@ -2,9 +2,78 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>dormManagerChangePwd</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DormManagerChangePwd</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
+          integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/administrator.css">
+    <link rel="stylesheet" href="./css/changePassword.css">
 </head>
 <body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header" id="home"><a href="#" class="navbar-brand">宿舍管理系统</a></div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav breadcrumb" id="breadcrumb">
+                <li class="active"><a href="#">修改密码</a></li>
+            </ul>
+            <div style="margin:2px 2px 0" class="btn-group user_nav navbar-right" >
+                <div class="btn btn-default dropdown-toggle user_img" data-toggle="dropdown">
+                    <img style="width: 38px" src="./image/1.jpeg" alt="" class="img-circle">
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#" >个人信息</a></li>
+                    <li onclick="logOut()"><a href="#">注销</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="container" id="main-content">
+    <div class="content-left">
+        <ul class="list-group">
+        </ul>
+    </div>
+    <div class="content-right">
+        <h4>修改密码</h4>
+        <div class="part-one">
+            <form class="form-inline" id="changePwd" action="#">
+                <div class="form-group">
+                    <input id="oldPassword" type="password" class="form-control" placeholder="原密码" name="">
+                    <div class="info"><label class="oldInfo"></label></div>
+                </div>
+                <div class="form-group">
+                    <input id="newPassword" type="password" class="form-control" placeholder="新密码" name="">
+                    <div class="info"><label class="newInfo"></label></div>
+                </div>
+                <div class="form-group">
+                    <input id="repeatPassword" type="password" class="form-control" placeholder="重复密码" name="">
+                    <div class="info"><label class="repeatInfo"></label></div>
+                </div>
+                <div class="control">
+                    <button id="confirmChange"type="button" class="btn btn-primary" >确认</button>
+                    <button  type="reset" class="btn btn-primary">重置</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="./js/mock.js"></script>
+<script src="./js/jquery-3.5.1.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+        crossorigin="anonymous">
+</script>
+<script src="./js/adminInitialize.js"></script>
+<script src="./js/managerChangePwd.js"></script>
 </body>
 </html>
