@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Administrator</title>
+    <title>studentAbsence</title>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
           integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
@@ -14,7 +14,9 @@
           integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/administrator.css">
     <link rel="stylesheet" href="./css/dormAdminManagement.css">
-    <link rel="stylesheet" href="./css/dormManagement.css">
+    <link rel="stylesheet" href="./css/studentAbsence.css">
+
+
 </head>
 <body>
 <div class="navbar navbar-default navbar-fixed-top">
@@ -22,7 +24,7 @@
         <div class="navbar-header" id="home"><a href="#" class="navbar-brand">宿舍管理系统</a></div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav breadcrumb" id="breadcrumb">
-                <li class="active"><a href="#">宿舍楼管理</a></li>
+                <li class="active"><a href="#">首页</a></li>
             </ul>
             <div style="margin:2px 2px 0" class="btn-group user_nav navbar-right" >
                 <div class="btn btn-default dropdown-toggle user_img" data-toggle="dropdown">
@@ -43,42 +45,18 @@
         </ul>
     </div>
     <div class="content-right">
-        <h4>宿舍楼管理</h4>
-        <div class="part-one">
-            <div>
-                <form class="form-inline" id="search" action="#">
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="名称" name="dormitory">
-                    </div>
-
-                    <div>
-                        <button type="button" class="btn btn-default" id="search_btn">
-                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                        </button>
-                    </div>
-                    <div>
-                        <button type="reset" class="btn btn-default " id="reset_btn">
-                            重置
-                        </button>
-                    </div>
-
-                </form>
-            </div>
-            <div class="control">
-                <button id="add-data" type="button" class="btn btn-primary">添加</button>
-                <button id="delete-data" type="button" class="btn btn-danger">批量删除</button>
-            </div>
-        </div>
+        <h4>缺勤记录</h4>
         <div class="part-two">
             <table>
                 <thead>
                 <tr>
-                    <th><input id="select-all" type="checkbox"></th>
                     <th>序号</th>
-                    <th>名称</th>
-                    <th>简介</th>
-                    <th>管理员</th>
-                    <th>操作</th>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>宿舍楼</th>
+                    <th>寝室号</th>
+                    <th>日期</th>
+                    <th>备注</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -87,13 +65,8 @@
             </table>
         </div>
 
-        <div class="page mer-pagination">
-
-        </div>
-
     </div>
 </div>
-
 
 <script src="./js/mock.js"></script>
 <script src="./js/jquery-3.5.1.js"></script>
@@ -103,6 +76,6 @@
         crossorigin="anonymous">
 </script>
 <script src="./js/adminInitialize.js"></script>
-<script src="./js/dormManagement.js"></script>
+<script src="js/studentAbsence.js"></script>
 </body>
 </html>

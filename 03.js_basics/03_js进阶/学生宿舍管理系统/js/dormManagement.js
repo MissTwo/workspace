@@ -1,3 +1,4 @@
+createMenu(adminMenu, ".list-group")
 selectEffectToggle(document.querySelector("#item3"))
 let dormManagement = Mock.mock({
     "dormManagement|20": [

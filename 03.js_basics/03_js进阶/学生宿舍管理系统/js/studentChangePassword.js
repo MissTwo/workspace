@@ -1,8 +1,9 @@
-createMenu(adminMenu, ".list-group")
-selectEffectToggle(document.querySelector("#item5"))
+createMenu(studentMenu, ".list-group")
+selectEffectToggle(document.querySelector("#item2"))
 let user = JSON.parse(localStorage.getItem("User"))
 $('#confirmChange').click(function () {
     changePassword($('#oldPassword').val(), $('#newPassword').val(), $('#repeatPassword').val())
+    location.href='./login.html'
 })
 
 // 修改密码

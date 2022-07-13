@@ -24,9 +24,15 @@
             <ul class="nav breadcrumb" id="breadcrumb">
                 <li class="active"><a href="#">缺勤记录</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right ">
-                <li><a href="#" id="login"><img src="./image/1.jpeg" alt=""></a></li>
-            </ul>
+            <div style="margin:2px 2px 0" class="btn-group user_nav navbar-right" >
+                <div class="btn btn-default dropdown-toggle user_img" data-toggle="dropdown">
+                    <img style="width: 38px" src="./image/1.jpeg" alt="" class="img-circle">
+                </div>
+                <ul class="dropdown-menu">
+                    <li><a href="#" >个人信息</a></li>
+                    <li onclick="logOut()"><a href="#">注销</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

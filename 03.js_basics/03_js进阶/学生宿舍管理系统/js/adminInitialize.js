@@ -1,9 +1,33 @@
+illegalLogin()
 let UserInfo = JSON.parse(sessionStorage.getItem("UserInfo"));
 let adminMenu = ["首页", "宿舍管理员管理", "学生管理", "宿舍楼管理", "缺勤记录", "修改密码"];
+let studentMenu=["首页","缺勤记录","修改密码"]
+let managerMenu=["首页","学生管理", "缺勤记录", "修改密码"]
 headerInformationUpdate()
-createMenu(adminMenu, ".list-group")
+// createMenu(adminMenu, ".list-group")
 selectAllItem("#select-all")
-
+// 注销
+function logOut(){
+    if(confirm("确定要注销吗？")){
+        sessionStorage.removeItem("UserInfo");
+        illegalLogin()
+    }
+}
+// 非法登录
+function illegalLogin() {
+    if (!sessionStorage.getItem("UserInfo")) {
+        $('body').empty();
+        let i = 3
+        setInterval(() => {
+            $('body').empty();
+            $('body').append(`<h2 style="position: absolute; top: 50%; left: 50%;transform: translate(-50%, -50%)">${i}秒后将跳转登录页面...</h2>`);
+            i--;
+        }, 1000)
+        setTimeout(() => {
+            location.href = './login.html'
+        }, 3000)
+    }
+}
 // 更新头部信息
 function headerInformationUpdate() {
     let roleType = {"administrator": "系统管理员", "dormManager": "宿舍管理员", "student": "同学"}
@@ -29,12 +53,25 @@ function createMenu(menu, selector) {
 
 // 跳转不一样的页面
 function pageJump(id) {
-    if (id === "item0") location.href = './administrator.html'
-    if (id === "item1") location.href = './dormAdminManagement.html'
-    if (id === "item2") location.href = './studentManagement.html'
-    if (id === "item3") location.href = './dormManagement.html'
-    if (id === "item4") location.href = './absenceRecord.html'
-    if (id === "item5") location.href = './changePassword.html'
+    if(JSON.parse(sessionStorage.getItem("UserInfo")).role==="administrator"){
+        if (id === "item0") location.href = './administrator.html'
+        if (id === "item1") location.href = './dormAdminManagement.html'
+        if (id === "item2") location.href = './studentManagement.html'
+        if (id === "item3") location.href = './dormManagement.html'
+        if (id === "item4") location.href = './absenceRecord.html'
+        if (id === "item5") location.href = './changePassword.html'
+    }
+    if(JSON.parse(sessionStorage.getItem("UserInfo")).role==="student"){
+        if (id === "item0") location.href = './student.html'
+        if (id === "item1") location.href = './studentAbsence.html'
+        if (id === "item2") location.href = './studentChangePassword.html'
+    }
+    if(JSON.parse(sessionStorage.getItem("UserInfo")).role==="dormManager"){
+        if (id === "item0") location.href = './dormManager.html'
+        if (id === "item1") location.href = './manageStudents.html'
+        if (id === "item2") location.href = './dormAbsences.html'
+        if (id === "item3") location.href = './managerChangePwd.html'
+    }
 }
 
 // 点击菜单样式的切换

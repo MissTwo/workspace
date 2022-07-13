@@ -28,9 +28,9 @@ function checkElementByRole(role) {
 }
 
 let students = {
+    'guomeili': '111',
+    'xiaoming': '111',
     '111111': '111',
-    '222222': '222',
-    '333333': '333',
 }
 
 let managers = {
@@ -102,6 +102,8 @@ login.addEventListener("click", function () {
                 localStorage.removeItem("RememberMe")
             }
             // TODO:跳转页面 window.location
+            localStorage.setItem("User", JSON.stringify(data))
+
             data.password = ""
             // localStorage.setItem("UserInfo", JSON.stringify(data))
             sessionStorage.setItem("UserInfo", JSON.stringify(data))

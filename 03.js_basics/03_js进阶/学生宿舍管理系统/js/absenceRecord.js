@@ -1,3 +1,5 @@
+createMenu(adminMenu, ".list-group")
+
 selectEffectToggle(document.querySelector("#item4"))
 let absenceRecord = Mock.mock({
     "absenceRecord|20": [
