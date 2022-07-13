@@ -1,20 +1,21 @@
 createMenu(managerMenu, ".list-group")
 selectEffectToggle(document.querySelector("#item1"))
-let studentManagement = Mock.mock({
-    "studentManagement|60": [
+console.log(1)
+let managerStudents = Mock.mock({
+    "managerStudent|60": [
         {
             "id|+1": 1,
             "studentID|+1":20220000,
             "name": "@cname",
             "gender|1": ["男", "女"],
             "phoneNumber": /^1\d{10}/,
-            "dormitory|1": ["第一宿舍楼", "第二宿舍楼", "第三宿舍楼", "第四宿舍楼", "第五宿舍楼"],
+            "dormitory": "第三宿舍楼",
             "dormitoryNumber|100-599": 100,
         }
     ]
 })
 // 宿舍管理员的数组对象
-let studentManagementData = studentManagement.studentManagement
+let managerStudentsData = managerStudents.managerStudent
 // // 宿舍管理员表格信息的重绘制（清空再渲染）
 function redrawDormAdminTable( data) {
     let elementNode = $('tbody')
@@ -43,24 +44,23 @@ function redrawDormAdminTable( data) {
 // 分页的方法封装
 let limit = 5
 let currentPage = 1
-let pagenation  = new Pagenation(currentPage, limit,studentManagementData,$('.mer-pagination'), redrawDormAdminTable)
+let pagenation  = new Pagenation(currentPage, limit,managerStudentsData,$('.mer-pagination'), redrawDormAdminTable)
 window.pagenation = pagenation
 pagenation.draw()
 
 // 初始化绘制表格
-// redrawDormAdminTable($('tbody'), studentManagementData)
+// redrawDormAdminTable($('tbody'), managerStudentsData)
 // // 搜索后绘制表格
 $('#search_btn').click(function () {
-    searchDormManager(studentManagementData, $('input[name="dorm-manager_name"]').val(), $('input[name="dorm-manager_phoneNumber"]').val(), $("#gender option:selected").val(), $("#chooseResidence option:selected").val());
+    searchDormManager(managerStudentsData, $('input[name="dorm-manager_name"]').val(), $('input[name="dorm-manager_phoneNumber"]').val(), $("#gender option:selected").val());
 })
 
 // 搜索宿舍管理员信息方法封装
 function searchDormManager(data, name, phoneNumber, gender, dormitory) {
-    pagenation.data= studentManagementData
+    pagenation.data= managerStudentsData
     if (name != '') pagenation.data = pagenation.data.filter(item => item.name.indexOf(name) != -1)
     if (phoneNumber != '') pagenation.data = pagenation.data.filter(item => item.phoneNumber.indexOf(phoneNumber) != -1)
     if (gender != 0) pagenation.data = pagenation.data.filter(item => item.gender == gender)
-    if (dormitory != 0) pagenation.data = pagenation.data.filter(item => item.dormitory == dormitory)
     pagenation.currentPage=1
     pagenation.draw()
 }
@@ -77,7 +77,7 @@ $('#delete-data').click(() => {
 })
 // // 重置按钮，绘制所有的数据
 $('#reset_btn').click(() => {
-    pagenation.data = studentManagementData
+    pagenation.data = managerStudentsData
     pagenation.currentPage=1
     pagenation.draw()
 })
@@ -95,9 +95,9 @@ function deleteFromData(id){
             break
         }
     }
-    for (let i = 0; i < studentManagementData.length; i++){
-        if(studentManagementData[i].id===id){
-            studentManagementData.splice(i, 1)
+    for (let i = 0; i < managerStudentsData.length; i++){
+        if(managerStudentsData[i].id===id){
+            managerStudentsData.splice(i, 1)
             break
         }
     }
@@ -175,15 +175,15 @@ function confirmCreate(self,id) {
     // 添加信息
     if(id===undefined){
         let obj = {
-            "id": studentManagementData.length+1,
-            "studentID": (studentManagementData[studentManagementData.length-1].studentID)+1,
+            "id": managerStudentsData.length+1,
+            "studentID": (managerStudentsData[managerStudentsData.length-1].studentID)+1,
             "name":$('#editName').val(),
             "gender":$('#editGender option:selected').val(),
             "phoneNumber":$('#editPhoneNum').val(),
             "dormitory":$('#editDormitory option:selected').val(),
             "dormitoryNumber": $('#editDormNum').val(),
         };
-        studentManagementData.push(obj)
+        managerStudentsData.push(obj)
         pagenation.data.push(obj)
         pagenation.draw()
         self.parentNode.parentNode.parentNode.remove()
