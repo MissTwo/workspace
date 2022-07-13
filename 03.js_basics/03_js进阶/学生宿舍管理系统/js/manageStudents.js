@@ -1,6 +1,5 @@
 createMenu(managerMenu, ".list-group")
 selectEffectToggle(document.querySelector("#item1"))
-console.log(1)
 let managerStudents = Mock.mock({
     "managerStudent|60": [
         {
