@@ -64,6 +64,7 @@ class Pagenation {
         this.parent = parent;
     }
     draw(){
+        $('#select-all').prop('checked', false)
         this.parent.empty()
         // 当前展示的数据
         this.pageSize = Math.ceil(this.data.length / this.limit)
