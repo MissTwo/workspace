@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+这是index.html
+<script>
+    fetch("http://localhost:3000/json.html")
+        .then(response => response.json())
+        .then(result => console.log(result));
+</script>
+</body>
+</html>
