@@ -302,7 +302,6 @@ having count(C)=(select count(C) from course)
 --46、查询各学生的年龄
 SELECT *,YEAR(NOW())-YEAR(Sage) age FROM student
 
-
 --47、查询本周过生日的学生
 SELECT * FROM student where week(Sage)=week(now())
 
