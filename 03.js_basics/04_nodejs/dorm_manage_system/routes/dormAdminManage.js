@@ -15,32 +15,32 @@ const pool=mysql.createPool({
 
 
 // 查询宿舍管理员信息
-router.get('/manage/search',(req,res,next)=> {
+router.get('/manager/list',(req,res,next)=> {
     res.setHeader('Content-Type', 'text/plain; charset=utf-8')
-    const baseSql='SELECT a.*,d.`name` dorm_name FROM dorm_admins a LEFT JOIN dorms d ON a.dorm_id=d.id '
-    let name = req.params.name
-    let number = req.params.number
-    let gender=req.params.gender
-    let dorm_name = req.params.dorm_name
-    let obj={
-        name:name,
-        number:number,
-        gender:gender,
-        dorm_name:dorm_name
+    let sql=`SELECT a.*,d.name dorm_name FROM dorm_admins a LEFT JOIN dorms d ON a.dorm_id=d.id WHERE 1=1 `
+    let params=[]
+    if(req.params.name!=''){
+        sql+=` AND a.name LIKE ?`
+        params.push(req.params.name)
     }
-    if(name!='' ){
-        let sql=`SELECT a.*,d.name dorm_name FROM dorm_admins a LEFT JOIN dorms d ON a.dorm_id=d.id WHERE a.name like ? ;`
-        let w='%${name}%'
-        pool.query(sql,name,function(err, results,fields) {
-            if (err) throw err;
-            if(results.affectedRows > 0){
-                res.json({code:0,message:"success",data:result});
-            }else{
-                res.json({code:1,message:"failure"});
-            }
-        })
+    if(req.params.number!=''){
+        sql+=` AND a.number LIKE ?`
+        params.push(req.params.number)
     }
+    if(req.params.gender!=''){
+        sql+=` AND a.gender=?`
+    }
+    if(req.params.dorm_id!=''){
+        sql+=` AND d.dorm_id =?`
+    }
+    pool.query(sql,params,function(err, results) {
+        if (err) {
+            res.json({code:10001,message:"数据库连接失败"})
+            throw err
+        }
+        res.json({code:0,message:"success",data:results});
 
+    })
 
 })
 // 删除每一行管理员信息
@@ -60,8 +60,8 @@ router.delete('/manager/delete', (req,res,next)=>{
 // 每一行数据的修改
 router.put('/manager/update', (req, res, next) => {
     res.setHeader('Content-Type', 'text/plain; charset=utf-8')
-    const updateSql='UPDATE dorm_admins SET (?,?,?,?,?,?) where id = ? ;'
-    pool.query(addSql,[0,req.body.name,req.body.gender,req.body.account,req.body.phone,req.body.dorm_id,req.body.id],(err, results) => {
+    const updateSql='UPDATE dorm_admins SET (name=?,gender=?,account=?,phone=?,dorm_id=?) where id = ? ;'
+    pool.query(addSql,[req.body.name,req.body.gender,req.body.account,req.body.phone,req.body.dorm_id,req.body.id],(err, results) => {
         if (err) throw err;
         if(results.affectedRows > 0){
             res.json({code:0,message:"success",data:results});

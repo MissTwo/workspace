@@ -6,7 +6,7 @@ server.on("request", (req, res) => {
     console.log(req.url, req.method, req.url.substring(0, req.url.indexOf("?")));
     // if(req.url.substring(0,req.url.indexOf("?")).endsWith("login.html")) {
         // 读取文件的同步函数
-        let r=require('fs').readFileSync(require('path').join(__dirname, '../../03_js进阶/学生宿舍管理系统/login.html'), 'utf8');
+        let r = require('fs').readFileSync(require('path').join(__dirname, '../../03_js进阶/学生宿舍管理系统/login.html'), 'utf8');
         res.end(r)
     // }
    //  // 读取文件的回调函数
