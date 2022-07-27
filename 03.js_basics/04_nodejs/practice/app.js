@@ -131,15 +131,33 @@ app.post('/api', (req, res) => {
         password:'root',
         database:'dorm_manage_system'
     });
-    pool.query('select * from students',function (err,result, fields) {
+    // const baseSql='select a.*,d.name dorm_name from dorm_admins a left join dorms d on a.dorm_id=d.id where a.id= ? ;'
+    // pool.query(baseSql,[1],function(err, results) {
+    //     if (err) throw err;
+    //     if(results.affectedRows > 0){
+    //         res.json({code:0,message:"success",data:result});
+    //     }else{
+    //         res.json({code:1,message:"failure"});
+    //     }
+    // })
+    let id=1;
+    let msql='SELECT a.*,d.name dorm_name FROM dorm_admins a LEFT JOIN dorms d ON a.dorm_id=d.id where a.id= ?'
+    pool.query(msql,[id], (err, result) => {
         if (err) throw err;
-        res.json({result})
+        res.json({code:0,message:"success",data:result});
+        console.log(1111111,result.affectedRows)
+
+        // if(result.affectedRows > 0){
+        //             res.json({code:0,message:"success",data:result});
+        //         }else{
+        //             res.json({code:1,message:"failure"});
+        //         }
     })
 })
-app.get('/users',(req, res) => {
-    const mysql=require('mysql');
-    const poo
-})
+// app.get('/users',(req, res) => {
+//     const mysql=require('mysql');
+//     const poo
+// })
 
 // 统一错误处理
 // app.use((req, res)=> {

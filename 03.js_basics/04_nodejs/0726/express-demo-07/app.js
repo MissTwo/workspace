@@ -8,7 +8,7 @@ const conn = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'root',
-    database: 'hello'
+    database: 'dorm_manage_system'
 })
 conn.connect();
 
@@ -16,7 +16,7 @@ conn.connect();
  * 查询所有用户信息
  */
 app.get("/persons", (req, res) => {
-    conn.query("select * from persons;", (err, results) => {
+    conn.query("select * from dorms;", (err, results) => {
         if (err) throw err;
         res.json(results);
     })
@@ -24,7 +24,7 @@ app.get("/persons", (req, res) => {
 
 app.get("/persons/deleteById", (req, res) => {
     const id = req.query.id;
-    conn.query("delete from persons where p_id = ?;", [id], (err, results) => {
+    conn.query("delete from dorms where id = ?;", [id], (err, results) => {
         if (err) throw err;
         res.send(results.affectedRows > 0 ? "删除成功" : "删除失败");
     })
@@ -32,7 +32,7 @@ app.get("/persons/deleteById", (req, res) => {
 
 app.get("/persons/getById", (req, res) => {
     const id = req.query.id;
-    conn.query("select * from persons where p_id = ?;", [id], (err, results) => {
+    conn.query("select * from dorms where id = ?;", [id], (err, results) => {
         if (err) throw err;
         res.json(results);
     })
@@ -40,9 +40,9 @@ app.get("/persons/getById", (req, res) => {
 
 app.post("/persons/update", (req, res) => {
     console.log("1111", req.body);
-    const p_id = req.body.p_id;
-    delete req.body.p_id;
-    const query = conn.query("update persons set ? where p_id = ?;", [req.body, p_id], (err, results) => {
+    const id = req.body.id;
+    delete req.body.id;
+    const query = conn.query("update persons set ? where id = ?;", [req.body, id], (err, results) => {
         if (err) throw err;
         res.send(results.affectedRows > 0 ? "更新成功" : "更新失败");
     });
@@ -52,7 +52,7 @@ app.post("/persons/update", (req, res) => {
 app.post("/persons/insert", (req, res) => {
     // insert into persons set 列名=值, 列名=值.
     console.log("2222", req.body);
-    const query = conn.query("insert into persons set ? ;", req.body, (err, results) => {
+    const query = conn.query("insert into dorms set ? ;", req.body, (err, results) => {
         if (err) throw err;
         res.send(results.affectedRows > 0 ? "添加成功" : "添加失败");
     });
