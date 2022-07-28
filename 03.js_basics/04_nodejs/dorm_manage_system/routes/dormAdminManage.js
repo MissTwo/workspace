@@ -1,37 +1,27 @@
 const express = require('express')
 const router =express.Router();
-
-const mysql= require('mysql');
-
-// 数据库使用连接池
-const pool=mysql.createPool({
-    connectionLimit : 10,
-    host:'localhost',
-    user:'root',
-    password:'root',
-    database:'dorm_manage_system',
-    port:3306,
-})
-
+const pool=require('../dao/dbConnect')
 
 // 查询宿舍管理员信息
 router.get('/manager/list',(req,res,next)=> {
     res.setHeader('Content-Type', 'text/plain; charset=utf-8')
     let sql=`SELECT a.*,d.name dorm_name FROM dorm_admins a LEFT JOIN dorms d ON a.dorm_id=d.id WHERE 1=1 `
     let params=[]
-    if(req.params.name!=''){
+    if(req.query.name){
         sql+=` AND a.name LIKE ?`
-        params.push(req.params.name)
+        params.push(`%${req.query.name}%`)
     }
-    if(req.params.number!=''){
-        sql+=` AND a.number LIKE ?`
-        params.push(req.params.number)
+    if(req.query.phone){
+        sql+=` AND a.phone LIKE ?`
+        params.push(`%${req.query.phone}%`)
     }
-    if(req.params.gender!=''){
+    if(req.query.gender){
         sql+=` AND a.gender=?`
+        params.push(req.query.gender)
     }
-    if(req.params.dorm_id!=''){
+    if(req.query.dorm_id){
         sql+=` AND d.dorm_id =?`
+        params.push(req.query.dorm_id)
     }
     pool.query(sql,params,function(err, results) {
         if (err) {
@@ -41,7 +31,6 @@ router.get('/manager/list',(req,res,next)=> {
         res.json({code:0,message:"success",data:results});
 
     })
-
 })
 // 删除每一行管理员信息
 router.delete('/manager/delete', (req,res,next)=>{
@@ -60,8 +49,8 @@ router.delete('/manager/delete', (req,res,next)=>{
 // 每一行数据的修改
 router.put('/manager/update', (req, res, next) => {
     res.setHeader('Content-Type', 'text/plain; charset=utf-8')
-    const updateSql='UPDATE dorm_admins SET (name=?,gender=?,account=?,phone=?,dorm_id=?) where id = ? ;'
-    pool.query(addSql,[req.body.name,req.body.gender,req.body.account,req.body.phone,req.body.dorm_id,req.body.id],(err, results) => {
+    const updateSql='UPDATE dorm_admins SET name=?,gender=?,account=?,phone=?,dorm_id=? where id = ? ;'
+    pool.query(updateSql,[req.body.name,req.body.gender,req.body.account,req.body.phone,req.body.dorm_id,req.body.id],(err, results) => {
         if (err) throw err;
         if(results.affectedRows > 0){
             res.json({code:0,message:"success",data:results});
