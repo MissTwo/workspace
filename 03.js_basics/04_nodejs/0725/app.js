@@ -42,4 +42,26 @@ app.post("/upload.do", upload.single("avater"), function (req, res) {
     res.send("上传成功");
 });
 
+// 最多上传10个，所有文件都通过avater字段来上传的
+// app.post("/upload_multi.do", upload.array("avater", 10), function (req, res) {
+//     console.log(req.files);
+//     //保存到数据库的路径是
+//     req.files.forEach(file => {
+//         console.log("保存到数据库的路径：", path.join(subFolder, path.basename(file.path)))
+//     });
+//     res.send("上传成功");
+// });
+
+// 多文件上传，每个字段名称不一样
+app.post("/upload_multi.do", upload.fields([{name: "avater", maxCount: 2}, {name: "head_pic", maxCount: 1}]), function (req, res) {
+    console.log(req.files);//是一个对象了，
+    //保存到数据库的路径是
+    Object.values(req.files).forEach(files => {
+        files.forEach(file => {
+            console.log("保存到数据库的路径：", path.join(subFolder, path.basename(file.path)))
+        })
+    });
+    res.send("上传成功");
+});
+
 app.listen(3000);
