@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.js"></script>
+<script>
+    // axios.defaults.timeout = 1;
+    // 全局默认配置
+    axios.interceptors.request.use(function (config) {
+        // 请求拦截
+        config.headers["authorization"] = "my token1111";
+        return config;
+    }, function (err, config) {
+        console.log(err);
+        return Promise.reject(err);
+    });
+
+    axios.interceptors.response.use(function (response) {
+        const {data, status} = response;
+        return {data, status};
+    }, function (err, config) {
+        console.log(err);
+        location.href = "404.html";
+        return Promise.reject(err);
+    })
+
+    axios.get('http://localhost:3000/dorm_admins/get_by_page.do?page_num=1&page_size=10')
+        .then(response => console.log(response))
+</script>
+</body>
+</html>

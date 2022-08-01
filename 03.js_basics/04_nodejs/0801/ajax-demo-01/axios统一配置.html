@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.js"></script>
+<script>
+    // 全局默认配置
+    axios.defaults.baseURL = "http://localhost:3000/dorm_admins";
+    axios.defaults.timeout = 15 * 1000;
+    axios.defaults.headers.common["Authorization"] = "my token";
+
+    axios.get("/get_by_page.do?page_num=1&page_size=10")
+        .then(response => console.log(response))
+    axios.post("/test_validator.do", {
+        cfm_password: 123451,
+        new_password: 12345
+    })
+        .then(response => console.log(response))
+    axios({
+        url: "/test_validator.do",
+        method: "post",
+        data: {
+            cfm_password: 123451,
+            new_password: 12345
+        }
+    })
+        .then(response => console.log(response))
+
+    // 也会受全局配置影响，相当局部配置，凡是通过instance对象发起的请求都会受影响
+    const instance = axios.create({
+        baseURL: "http://localhost:8080"
+    });
+    instance({
+        url: "/test_validator.do",
+        method: "post",
+        data: {
+            cfm_password: 123451,
+            new_password: 12345
+        }
+    })
+        .then(response => console.log(response))
+</script>
+</body>
+</html>

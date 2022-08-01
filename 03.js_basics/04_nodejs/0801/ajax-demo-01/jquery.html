@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script type="text/javascript">
+    // $.get("http://localhost:3000/dorm_admins/get_by_page.do?page_num=1&page_size=10",
+    //     function (result, status, error) {
+    //         console.log(result, status, error);
+    //     }, "text");
+    // $.get("http://localhost:3000/dorm_admins/get_by_page.do",
+    //     {page_num: 1, page_size: 10},
+    //     function (result, status, error) {
+    //         console.log(result, status, error);
+    //     }, "text");
+    // $.post("http://localhost:3000/dorm_admins/test_validator.do",
+    //     {
+    //         cfm_password:12345,
+    //         new_password:12345
+    //     },
+    //     function (result, status, error) {
+    //         console.log(result, status, error);
+    //     }, "json");
+    $.post("http://localhost:3000/dorm_admins/test_validator.do",
+        {
+            cfm_password:12345,
+            new_password:12345
+        }, "json").then(result => console.log(result));
+    $.ajax({
+        url: "http://localhost:3000/dorm_admins/get_by_page.do",
+        type: "get",
+        dataType: "json",
+        timeout: 15 * 1000,
+        data: {page_num: 1, page_size: 10},
+        headers: {
+            Authorization: "token content"
+        },
+        // query: {page_num: 1, page_size: 10}, jquery中不支持，
+        // params: {page_num: 1, page_size: 10},jquery中不支持，
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+</script>
+</body>
+</html>

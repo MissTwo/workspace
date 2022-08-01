@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dormAdminManagement</title>
+</head>
+<body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.js"></script>
+<script>
+    // html5写法
+    // fetch("http://localhost:3000/manager/list").then((response) => console.log(response.json()))
+
+    // jquery的get写法
+    // $.get("http://localhost:3000/manager/list",{gender:"男"}, response => {
+    //     console.log(response)
+    // },'json')
+
+    //   ajax的写法
+    // $.ajax({
+    //     url:"http://localhost:3000/manager/list",
+    //     type:"GET",
+    //     data:{
+    //         gender:"男"
+    //     },
+    //     dataType:"json",
+    //     timeout:15*1000,
+    //     success:function(data){
+    //         console.log(data);
+    //     },
+    //     statusCode:{
+    //         200:function () {
+    //             console.log("成功了哈！")
+    //         }
+    //     }
+    // })
+
+    // axios的get写法
+    // axios.get("http://localhost:3000/manager/list",{
+    //   params:{
+    //       gender:"男"
+    //   }
+    // }).then(response => console.log(response))
+
+    // axios的post写法
+    // axios.post("http://localhost:3000/manager/update",{
+    //         name:"张三",
+    //         gender:"女",
+    //         account:"ljdkfie",
+    //         phone:"15484568545",
+    //         dorm_id:"5" ,
+    //         id :"20"
+    // }).then(response => console.log(response))
+
+    // axios的综合写法
+    axios({
+        method:"get",
+        url:"/manager/list",
+        params:{
+            gender:"男"
+        },
+        timeout:15*1000,
+        baseURL:"http://localhost:3000"
+    }).then(response => console.log(response))
+
+    // axios配置默认值,全局配置
+    // axios.defaults.baseURL="http://localhost:3000"
+    // // 自定义实例默认值
+    // const instance=axios.create({
+    //     baseURL: "http://localhost:3000",
+    //     timeout:15*1000
+    // })
+    // instance({
+    //     url:'/manager/list',
+    //     method:"get",
+    //     // 该处覆写的超时时间是权重最高的
+    //     timeout:5*1000
+    // }).then(response => console.log(response.data.data));
+
+</script>
+
+</body>
+</html>
