@@ -27,38 +27,25 @@ function checkElementByRole(role) {
     document.querySelector(`input[name="optionsRadios"][value=${role}]`).checked = true
 }
 
-let students = {
-    'guomeili': '111',
-    'xiaoming': '111',
-    '111111': '111',
-}
+// let RoleTable = {
+//     "dormManager": managers,
+//     "administrator": admins,
+//     "student": students,
+// }
 
-let managers = {
-    "manager": "123"
-}
-let admins = {
-    "admin": '123'
-}
-
-let RoleTable = {
-    "dormManager": managers,
-    "administrator": admins,
-    "student": students,
-}
-
-Mock.mock("/login", "post", function (data) {
-    let params = parseParam(data.body)
-    if (checkUserPasswd(params.role, params.username, params.password)) {
-        return {
-            code: 0,
-            msg: "login success"
-        }
-    }
-    return {
-        code: 1,
-        msg: "login failed"
-    }
-})
+// Mock.mock("/login", "post", function (data) {
+//     let params = parseParam(data.body)
+//     if (checkUserPasswd(params.role, params.username, params.password)) {
+//         return {
+//             code: 0,
+//             msg: "login success"
+//         }
+//     }
+//     return {
+//         code: 1,
+//         msg: "login failed"
+//     }
+// })
 
 function checkUserPasswd(role, username, password) {
     return !(!RoleTable[role][username] || RoleTable[role][username] !== password)
@@ -85,41 +72,43 @@ login.addEventListener("click", function () {
     let role = roleJudgment(identity)
     // 存储数据
     let data = {
-        username: username.value,
+        account: username.value,
         password: password.value,
         role: role
     }
-
-    $.post("/login", data, function (result) {
-        result = JSON.parse(result)
-        if (result.code === 0) {
-            // TODO:将用户信息写入localstorage,user{username; token; expire;}
-            // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe{username; password;}
-            // TODO:如果rememberMe没勾选了，那么localstorage中的rememberMe删掉
-            if (remember.checked) {
-                localStorage.setItem("RememberMe", JSON.stringify(data))
-            } else {
-                localStorage.removeItem("RememberMe")
-            }
-            // TODO:跳转页面 window.location
-            localStorage.setItem("User", JSON.stringify(data))
-
-            data.password = ""
-            // localStorage.setItem("UserInfo", JSON.stringify(data))
-            sessionStorage.setItem("UserInfo", JSON.stringify(data))
-            if (data.role === "dormManager") {
-                return location.href = "dormManager.html"
-            } else if (data.role === "administrator") {
-                return location.href = "administrator.html"
-            } else if (data.role === "student") {
-                return location.href = "student.html"
-            }
-        }
-        // TODO:提示错误
-        usernameInfo.innerText = "⚠请输入正确的用户名"
-        passwordInfo.innerText = "⚠请输入正确的密码"
-
-    })
+    $.post("http://localhost:3000/login_check", data, function (data) {
+        console.log(data)
+    }, "json")
+    // $.post("http://localhost:3000/login_check", data, function (result) {
+    //     result = JSON.parse(result)
+    //     if (result.code === 0) {
+    //         // TODO:将用户信息写入localstorage,user{username; token; expire;}
+    //         // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe{username; password;}
+    //         // TODO:如果rememberMe没勾选了，那么localstorage中的rememberMe删掉
+    //         if (remember.checked) {
+    //             localStorage.setItem("RememberMe", JSON.stringify(data))
+    //         } else {
+    //             localStorage.removeItem("RememberMe")
+    //         }
+    //         // TODO:跳转页面 window.location
+    //         localStorage.setItem("User", JSON.stringify(data))
+    //
+    //         data.password = ""
+    //         // localStorage.setItem("UserInfo", JSON.stringify(data))
+    //         sessionStorage.setItem("UserInfo", JSON.stringify(data))
+    //         if (data.role === "dormManager") {
+    //             return location.href = "dormManager.html"
+    //         } else if (data.role === "administrator") {
+    //             return location.href = "administrator.html"
+    //         } else if (data.role === "student") {
+    //             return location.href = "student.html"
+    //         }
+    //     }
+    //     // TODO:提示错误
+    //     usernameInfo.innerText = "⚠请输入正确的用户名"
+    //     passwordInfo.innerText = "⚠请输入正确的密码"
+    //
+    // })
 });
 
 // TODO:实现以下方法替代原代码
@@ -127,8 +116,8 @@ function checkUsername(value) {
     if (value === "") {
         usernameInfo.innerText = "⚠账号不能为空"
         return
-    } else if (value.trim().length < 5 || value.trim().length > 18) {
-        usernameInfo.innerText = "⚠账号不能低于5位且不能高于18位"
+    } else if (value.trim().length < 6 || value.trim().length > 12) {
+        usernameInfo.innerText = "⚠账号不能低于6位且不能高于12位"
         return
     }
     return value
@@ -142,8 +131,8 @@ function checkPassword(value) {
     if (value === "") {
         passwordInfo.innerText = "⚠密码不能为空"
         return
-    } else if (value.trim().length < 3 || value.trim().length > 18) {
-        passwordInfo.innerText = "⚠密码不能低于3位且不能高于18位"
+    } else if (value.trim().length < 6 || value.trim().length > 12) {
+        passwordInfo.innerText = "⚠密码不能低于6位且不能高于12位"
         return
     }
     // 正则匹配密码

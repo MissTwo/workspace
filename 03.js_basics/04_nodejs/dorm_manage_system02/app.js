@@ -3,6 +3,8 @@ const app=express()
 // 处理post请求中的参数
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: true }))
+const cors = require("cors");
+app.use(cors());
 // 登录
 app.use('/',require("./routers/login.js"))
 // 宿舍管理员管理
