@@ -22,8 +22,11 @@ router.post('/login_check', [
         else if(req.body.role==='student')table='students'
         else if(req.body.role==='dormManager')table='dorm_admins'
         login_dao.loginCheck(table,object).then(results=> {
+            if(results.length<=0)return  res.json({code: 1, message: "failure",reason:"账号密码错误！"});
             res.json({code: 0, message: "success", data: results});
-        }).catch(err => {throw err})
+        }).catch(err=> {
+            console.log(err);
+        })
     })
 
 module.exports = router

@@ -33,7 +33,7 @@ function headerInformationUpdate() {
     let roleType = {"administrator": "系统管理员", "dormManager": "宿舍管理员", "student": "同学"}
     $('#breadcrumb').append(`
      <li>
-         <span>${UserInfo.username}</span>&nbsp;
+         <span>${UserInfo.name}</span>&nbsp;
          <span style="color:red">欢迎您！${roleType[UserInfo.role]}</span>
      </li>`
     )

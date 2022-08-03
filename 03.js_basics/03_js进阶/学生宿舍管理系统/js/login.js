@@ -17,7 +17,7 @@ let username = document.querySelector('input[type="text"]'),
 let userStr = localStorage.getItem('RememberMe')
 if (userStr) {
     let userObj = JSON.parse(userStr)
-    username.value = userObj.username;
+    username.value = userObj.account;
     password.value = userObj.password;
     checkElementByRole(userObj.role);
     remember.checked = true;//将选择保存账户密码的复选框更改为选中
@@ -27,46 +27,13 @@ function checkElementByRole(role) {
     document.querySelector(`input[name="optionsRadios"][value=${role}]`).checked = true
 }
 
-// let RoleTable = {
-//     "dormManager": managers,
-//     "administrator": admins,
-//     "student": students,
-// }
-
-// Mock.mock("/login", "post", function (data) {
-//     let params = parseParam(data.body)
-//     if (checkUserPasswd(params.role, params.username, params.password)) {
-//         return {
-//             code: 0,
-//             msg: "login success"
-//         }
-//     }
-//     return {
-//         code: 1,
-//         msg: "login failed"
-//     }
-// })
-
-function checkUserPasswd(role, username, password) {
-    return !(!RoleTable[role][username] || RoleTable[role][username] !== password)
-}
-
-function parseParam(params) {
-    const newParams = params.split("&");
-    const urlObj = new Object();
-    for (let i = 0; i < newParams.length; i++) {
-        const newArray = newParams[i].split('=');
-        urlObj[newArray[0]] = newArray[1]
-    }
-    return urlObj;
-}
 
 // TODO:获取rememberMe checkbox
 login.addEventListener("click", function () {
 
     // TODO: 提交数据之前检查合法性
     // 账户密码认证
-    if (!(checkUsername(username.value) || checkPassword(password.value))) return
+    if (!(checkUsername(username.value) && checkPassword(password.value))) return
     // 角色认证
     if (!roleJudgment(identity)) return
     let role = roleJudgment(identity)
@@ -76,39 +43,32 @@ login.addEventListener("click", function () {
         password: password.value,
         role: role
     }
-    $.post("http://localhost:3000/login_check", data, function (data) {
-        console.log(data)
-    }, "json")
-    // $.post("http://localhost:3000/login_check", data, function (result) {
-    //     result = JSON.parse(result)
-    //     if (result.code === 0) {
-    //         // TODO:将用户信息写入localstorage,user{username; token; expire;}
-    //         // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe{username; password;}
-    //         // TODO:如果rememberMe没勾选了，那么localstorage中的rememberMe删掉
-    //         if (remember.checked) {
-    //             localStorage.setItem("RememberMe", JSON.stringify(data))
-    //         } else {
-    //             localStorage.removeItem("RememberMe")
-    //         }
-    //         // TODO:跳转页面 window.location
-    //         localStorage.setItem("User", JSON.stringify(data))
-    //
-    //         data.password = ""
-    //         // localStorage.setItem("UserInfo", JSON.stringify(data))
-    //         sessionStorage.setItem("UserInfo", JSON.stringify(data))
-    //         if (data.role === "dormManager") {
-    //             return location.href = "dormManager.html"
-    //         } else if (data.role === "administrator") {
-    //             return location.href = "administrator.html"
-    //         } else if (data.role === "student") {
-    //             return location.href = "student.html"
-    //         }
-    //     }
-    //     // TODO:提示错误
-    //     usernameInfo.innerText = "⚠请输入正确的用户名"
-    //     passwordInfo.innerText = "⚠请输入正确的密码"
-    //
-    // })
+    $.post("http://localhost:3000/login_check", data, function (result) {
+        if (result.code === 0) {
+            // TODO:将用户信息写入localstorage,user{username; token; expire;}
+            // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe{username; password;}
+            // TODO:如果rememberMe没勾选了，那么localstorage中的rememberMe删掉
+            if (remember.checked) {
+                localStorage.setItem("RememberMe", JSON.stringify(data))
+            } else {
+                localStorage.removeItem("RememberMe")
+            }
+            // TODO:跳转页面 window.location
+            localStorage.setItem("User", JSON.stringify(data))
+            // localStorage.setItem("UserInfo", JSON.stringify(result.data[0]))
+            sessionStorage.setItem("UserInfo", JSON.stringify(result.data[0]))
+            if (data.role === "dormManager") {
+                return location.href = "dormManager.html"
+            } else if (data.role === "administrator") {
+                return location.href = "administrator.html"
+            } else if (data.role === "student") {
+                return location.href = "student.html"
+            }
+        }
+        // TODO:提示错误
+        usernameInfo.innerText = "⚠请输入正确的用户名"
+        passwordInfo.innerText = "⚠请输入正确的密码"
+    },"json")
 });
 
 // TODO:实现以下方法替代原代码
@@ -152,3 +112,37 @@ function roleJudgment(identity) {
     }
     return role.value
 }
+
+// let RoleTable = {
+//     "dormManager": managers,
+//     "administrator": admins,
+//     "student": students,
+// }
+
+// Mock.mock("/login", "post", function (data) {
+//     let params = parseParam(data.body)
+//     if (checkUserPasswd(params.role, params.username, params.password)) {
+//         return {
+//             code: 0,
+//             msg: "login success"
+//         }
+//     }
+//     return {
+//         code: 1,
+//         msg: "login failed"
+//     }
+// })
+//
+// function checkUserPasswd(role, username, password) {
+//     return !(!RoleTable[role][username] || RoleTable[role][username] !== password)
+// }
+//
+// function parseParam(params) {
+//     const newParams = params.split("&");
+//     const urlObj = new Object();
+//     for (let i = 0; i < newParams.length; i++) {
+//         const newArray = newParams[i].split('=');
+//         urlObj[newArray[0]] = newArray[1]
+//     }
+//     return urlObj;
+// }
