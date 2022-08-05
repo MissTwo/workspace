@@ -19,7 +19,7 @@ let PagerHelper = (function () {
         if (this.page_num < this.total) {
             this.next_num = this.page_num + 1;
         }
-        console.log("pager helper", this.count, this.total, this.page_size, this.page_num);
+        // console.log("pager helper", this.count, this.total, this.page_size, this.page_num);
     }
     return class {
         first = 1; 

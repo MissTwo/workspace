@@ -1,7 +1,7 @@
 const BaseDao = require('./base_dao.js');
-const table = "dorms";
+const table = "admins";
 
-class DormsDao extends BaseDao {
+class AdminsDao extends BaseDao {
     constructor(table, primary_key) {
         super(table, primary_key);
     }
@@ -32,6 +32,15 @@ class DormsDao extends BaseDao {
         }
         return where;
     }
+
+    login({account, password}) {
+        // const sql = `select * from ${table} where account = ?;` // 密码加密之后的内容不一致的情况处理
+        // const sql = `select * from ${table} where account = ? and password = ?;`;
+        const bean = {
+            where: "where account = ? and password = ?"
+        }
+        return super.find_one(bean, [account, password])
+    }
 }
 
-module.exports = new DormsDao(table, "id");
+module.exports = new AdminsDao(table, "id");

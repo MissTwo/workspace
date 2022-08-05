@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const dao = require('../dao/dorms_dao.js');
+const dao = require('../dao/menus_dao.js');
 const pager = require('../utils/pager_helper.js');
 const { query, body, validationResult } = require('express-validator');
 
@@ -41,9 +41,12 @@ router.get("/get_by_page.do", async (req, res, next) => {
 });
 
 const rules = [
-    body("name").trim()
+    body("title").trim()
         .exists().withMessage("属性是必填的").bail()
-        .isLength({ min: 5, max: 20 }).withMessage("长度必须在5到20之间"),
+        .isLength({ min: 1, max: 20 }).withMessage("长度必须在1到20之间"),
+    body("href").trim()
+        .exists().withMessage("属性是必填的").bail()
+        .isLength({ min: 1, max: 20 }).withMessage("长度必须在1到20之间"),
 ];
 router.post("/add_save.do", ...rules, async (req, res, next) => {
     //数据合法性验证
@@ -55,12 +58,18 @@ router.post("/add_save.do", ...rules, async (req, res, next) => {
         });
     }
     try {
-        // 宿舍楼名称不能重复
-        const isExists = await dao.check_exists("name", req.body.name);
+        let isExists = await dao.check_exists("title", req.body.title);
         if (isExists) {
             return res.json({
                 code: 500,
-                message: "宿舍楼名称不能重复"
+                message: "菜单标题不能重复"
+            });
+        }
+        isExists = await dao.check_exists("href", req.body.href);
+        if (isExists) {
+            return res.json({
+                code: 500,
+                message: "菜单链接不能重复"
             });
         }
 
@@ -87,12 +96,18 @@ router.post("/update_save.do", ...rules, async (req, res, next) => {
         });
     }
     try {
-        // 宿舍楼名称不能重复
-        const isExists = await dao.check_exists("name", req.body.name, req.body.id);
+        let isExists = await dao.check_exists("title", req.body.title, req.body.id);
         if (isExists) {
             return res.json({
                 code: 500,
-                message: "宿舍楼名称不能重复"
+                message: "菜单标题不能重复"
+            });
+        }
+        isExists = await dao.check_exists("href", req.body.href, req.body.id);
+        if (isExists) {
+            return res.json({
+                code: 500,
+                message: "菜单链接不能重复"
             });
         }
 
@@ -145,7 +160,7 @@ router.get("/get_by_id.do", ...rules_edit, async (req, res, next) => {
         const result = await dao.find_by_primary_key(req.query.id);
         console.log("result", result);
         res.json({
-            code: result  ? 200 : 501,
+            code: result ? 200 : 501,
             data: result
         });
     } catch (err) {
