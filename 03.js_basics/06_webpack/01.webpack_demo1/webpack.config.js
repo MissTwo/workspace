@@ -1,9 +1,13 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
-    entry: './src/index.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js',
-    },
+  entry: {
+    index: "./src/index.js",
+  },
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].[chunkhash].bundle.js",
+    clean: true,
+  },
+  mode: "none",
 };

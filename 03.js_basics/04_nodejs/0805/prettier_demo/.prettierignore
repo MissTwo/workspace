@@ -1,0 +1,6 @@
+# Ignore artifacts:针对命令
+build
+coverage
+
+# Ignore all HTML files:不处理html
+# *.html
