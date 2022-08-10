@@ -35,8 +35,7 @@ module.exports = {
             chunks: ["index"]
         }),
         // 引入css文件分离的插件对象
-        new MiniCssExtractPlugin()
-
+        new MiniCssExtractPlugin(),
     ],
     devServer: {
         static: "../dist",
@@ -57,12 +56,14 @@ module.exports = {
         //     logging: 'info',
         //     overlay:true
         // },
-        hot: true, // 热替换
-        // liveReload: true, // 热加载
+        // 热替换
+        hot: true,
+        // 热加载
+        liveReload: true,
         proxy:{
             '/api':{
                 target: 'http://localhost:3000',
-                pathRewrite:{'/api':''}
+                pathRewrite:{'^/api':''}
             }
         }
     },
@@ -83,7 +84,20 @@ module.exports = {
         minimizer: [
             new CssMinimizerPlugin(),
             new TerserPlugin()
-        ]
+        ],
+        // 防止重复
+        runtimeChunk: 'single',
+        // js代码分离，提取公共的库放在一起
+        splitChunks: {
+            chunks:"all",
+            cacheGroups: {
+                commons:{
+                    test:/[\\/]node_modules[\\/]/,
+                    name: 'commons',
+                    minChunks:2,
+                }
+            }
+        }
     }
 
 
