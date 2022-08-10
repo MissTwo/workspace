@@ -1,7 +1,7 @@
 .box1 {
     width: 200px;
     height: 200px;
-    background-color: red;
+    background-color: deeppink;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,4 +10,9 @@
     width: 100px;
     height: 100px;
     background-color: deepskyblue;
+}
+.d1 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
 }
