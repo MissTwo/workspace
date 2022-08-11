@@ -58,59 +58,59 @@
 
 ​    2.js代码（语句）:带逻辑结构
 
-- ​		if(){}
+- if( ){  }
+- for( ){  } 
 
-- ​		for(){} 
 
-  #### 二、vue模板语法
+#### 二、vue模板语法
 
-  1.插值语法:
+##### 1.插值语法:
 
-  ​    功能:用于解析标签体内容
+​    功能:用于解析标签体内容
 
-  ​    写法:{{xxx}},xxx是js表达式,且可以直接读取到data中的所有属性
+​    写法:{{xxx}},xxx是js表达式,且可以直接读取到data中的所有属性
 
-    2.指令语法:
+#####   2.指令语法:
 
-  ​    功能:用于解析标签(包括:标签属性,标签体内容,绑定事件````)
+​    功能:用于解析标签(包括:标签属性,标签体内容,绑定事件````)
 
-  ​    举例:v-bind:href="xxx" 或 简写为:href="xxx",xxx要写js表达式,且可以直接读取到data中的所有属性。
+​    举例:v-bind:href="xxx" 或 简写为:href="xxx",xxx要写js表达式,且可以直接读取到data中的所有属性。
 
-   **备注**：Vue中有很多指令，且形式都是：v-???,此处我们只是拿v-bind举例 
+ **备注**：Vue中有很多指令，且形式都是：v-???,此处我们只是拿v-bind举例 
 
-  ```html
-  <body>
-      <div id='root'>
-          <!--插值语法-->
-          <h1>
-              你好{{name}}
-          </h1>
-          <!--指令语法-->
-        	<a v-bind:herf="url">点位去尚硅谷学习</a>
-      </div>
-  </body>
-  <script>
-  	const vm=new Vue({
-          el:'root',
-          data:{
-              name:'jack',
-              url:'http://www.atguigu.com'
-          }
-      })
-  </script>
-  ```
+```html
+<body>
+    <div id='root'>
+        <!--插值语法-->
+        <h1>
+            你好{{name}}
+        </h1>
+        <!--指令语法-->
+      	<a v-bind:herf="url">点位去尚硅谷学习</a>
+    </div>
+</body>
+<script>
+	const vm=new Vue({
+        el:'root',
+        data:{
+            name:'jack',
+            url:'http://www.atguigu.com'
+        }
+    })
+</script>
+```
 
-  #### 三、vue的数据绑定
+#### 三、vue的数据绑定
 
-  1.单向绑定（v-bind:value="xx"简写为:value="xx"）:数据只能从data流向页面
+##### 1.单向绑定（v-bind:value="xx"简写为:value="xx"）:数据只能从data流向页面
 
-   2.双向绑定（v-model:value="xx"简写为v-model="xx"）:数据不仅能从data流向页面，还可以从页面流向data
+#####  2.双向绑定（v-model:value="xx"简写为v-model="xx"）:数据不仅能从data流向页面，还可以从页面流向data
 
-  **备注：**
+**备注：**
 
-  ​    	1.双向绑定一般应用在表单类元素上（如：input、select等）
+​    	1.双向绑定一般应用在表单类元素上（如：input、select等）
 
-  ​    	2.v-model:value可以简写为v-model,因为v-model默认收集的就是value的值 
+​    	2.v-model:value可以简写为v-model,因为v-model默认收集的就是value的值 
 
 ```html
 <body>
@@ -135,23 +135,23 @@
 
 #### 四、el与data的两种写法
 
-1.el的2种写法
+##### 1.el的2种写法
 
 ​      （1）new Vue时候配置el属性
 
 ​      （2）先创建Vue实例，随后再通过vm.$mount('.root')指定el的值
 
-​    2.data的2种写法
+#####     2.data的2种写法
 
 ​      （1）对象式 
 
-```
+```javascript
 data:{xxxx:'xxxx'}
 ```
 
 ​      （2）函数式
 
-```
+```javascript
 data( ){
 	retrun{
 	xxx:'xxxx'
@@ -161,11 +161,11 @@ data( ){
 
    **如何选择：**目前都可以，后期学习到组件data必须用函数式，否则会报错
 
-​    3.一个重要的原则：由vue管理的函数，一定不要写箭头函数，一旦写了箭头函数 this就不再是Vue实例了 
+#####     3.一个重要的原则：由vue管理的函数，一定不要写箭头函数，一旦写了箭头函数 this就不再是Vue实例了 
 
 - el与data的对象式写法，第一种写法
 
-```
+```javascript
 new Vue({
 	el:'#root',
 	data:{
@@ -177,7 +177,7 @@ new Vue({
 
 - el与data的函数式写法，第二种写法
 
-```
+```javascript
 const vm=new Vue({
 	data( ){
 		retrun{
@@ -190,9 +190,9 @@ vm.$mount('#root')
 
 #### 五、MVVM模型
 
-1. M(模型 model):data中的数据
-2.  V(视图 view)：模板代码
-3.   VM(视图模板 ViewModel):Vue实例
+1. ##### M(模型 model):data中的数据
+2.  ##### V(视图 view)：模板代码
+3.   ##### VM(视图模板 ViewModel):Vue实例
 
   **观察发现：**
 
@@ -227,7 +227,7 @@ vm.$mount('#root')
 
 原生js中的Object.defineProperty方法，例如：需求通过number控制person对象中的年龄
 
-```
+```javascript
 <script>
        // 需求通过number控制person对象中的年龄
        let number=18
