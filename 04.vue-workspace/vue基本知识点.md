@@ -112,6 +112,8 @@
 
 ​    	2.v-model:value可以简写为v-model,因为v-model默认收集的就是value的值 
 
+​		3.v-bind可以用绑定行内样式
+
 ```html
 <body>
     <!-- 基础写法 -->
@@ -120,7 +122,12 @@
     <!-- 简单写法 -->
         单向数据绑定:<input type="text" :value="name"><br>
         双向数据绑定:<input type="text" v-model="name"><br>
-    </div>
+    <!-- 数据单向绑定的应用场景 -->
+    <!-- 对象语法 -->
+    <div v-bind:class="{active:isActive,'text-danger': hasError}"></div>
+    <div v-bind:class="{clssObject}"></div>
+    <!-- 数组语法 -->
+    <div v-bind:class="[activeClass, errorClass]"></div>
 </body>
 <script>
     Vue.config.productionTip=false
@@ -128,6 +135,14 @@
         el:'#root',
         data:{
             name:'尚硅谷',
+            isActive: true,
+            hasError: false,
+            classObject: {
+                active: true,
+                'text-danger': false
+              },
+            activeClass: 'active',
+  		   errorClass: 'text-danger',
         }
     })
 </script>
@@ -225,6 +240,8 @@ vm.$mount('#root')
 
 #### 六、数据代理
 
+##### 1.数据代理:通过一个对象代理对另外一个对象中属性的操作(读/写)
+
 原生js中的Object.defineProperty方法，例如：需求通过number控制person对象中的年龄
 
 ```javascript
@@ -265,3 +282,123 @@ vm.$mount('#root')
    </script>
 ```
 
+##### 2.vue中的数据代理
+
+概念：通过vm对象来代理data对象中属性的操作(读/写)
+
+优势：Vue中数据代理的好处：更加方便的操作data中的数据
+
+基本原理：通过object.defineProoerty()把data对象中所有属性添加到vm上为每一个添加到vm上的属性，都指定一个getter和setter，在getter/setter内部上操作(读/写)data中对象的属性
+
+![数据代理](D:\Mermer\workspace\04.vue-workspace\Vue中的数据代理.jpg)
+
+#### 七、事件处理
+
+##### 1.事件的基本使用
+
+- 使用v-on:xxx="function(方法名称)"或@xxx="function(方法名称)",xxx为事件名称
+-  事件的回调需要配置在methods对象中，最终会在vm上
+-  methods中配置的函数，不要用箭头函数:(event)=>,否则this不是vm
+- methods中配置的函数，都是被Vue所管理的函数，this的指向是vm或组件实例对象
+- @click="demo"和@click="demo($event)"效果一致，但后者可以传参
+
+```html
+<div class="root">
+    <button v-on:click="showInfo1">点我提示信息1(不传参数)</button>
+    <button @click="showInfo2($event,66)">点我提示信息2(传参数)</button>
+</div>
+<script>
+    const vm=new Vue({
+        el:'.root',
+        data:{name:'尚硅谷'},
+        methods:{
+            // event是默认可以传入的事件对象
+            showInfo1(event){
+                // target属性是拿到事件目标在这就是button按钮
+                // innerText属性是拿到元素里面的文字
+                console.log(event.target.innerText)
+                // 此处的this是vm,不能用:()=>这个函数下是this是window
+                console.log(this)
+                alert('同学你好！')
+            },
+            showInfo2(event,number){
+                console.log(event,number)
+                alert('同学你好啊！！')
+            }
+        }
+    })
+</script>
+```
+
+
+
+##### 2.事件修饰符
+
+Vue中的事件修饰符：
+
+- prevent:阻止默认事件(常用)
+
+```html
+<a href="https://www.baidu.com" @click.prevent="showInfo('阻止默认行为')">
+	点我去百度
+</a>
+```
+
+- stop:阻止事件冒泡(常用)                     [冒泡：从内到外，一层层]
+
+```html
+<div class="box1" @click="showInfo(1)">
+        box1
+    <div class="box2" @click.stop="showInfo(2)">
+            box2
+    </div>
+</div>
+```
+
+- once:事件只触发一次(常用) 
+
+```html
+<button @click.once="showInfo(1)">点我只触发一次效果</button>
+```
+
+- capture：使用事件的捕获模式            [捕获：从外到内，一层层]
+
+```
+
+```
+
+- self:只有event.target是当前操作的元素时候才触发事件
+
+```
+
+```
+
+- passive：事件的默认行为立即执行，无需等待事件回调执行完毕
+
+```
+
+```
+
+数据绑定中常用修饰符：
+
+- trim:去除文本左右空格
+
+```
+
+```
+
+- number:转换为number类型
+
+```
+
+```
+
+- lazy:失去焦点时才会更新变量值
+
+```
+
+```
+
+
+
+##### 3.键盘事件
