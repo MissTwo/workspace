@@ -1,0 +1,38 @@
+#log-in {
+    margin: 10px auto;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+}
+
+#register {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#register button {
+    margin: 0;
+    width: 49%;
+
+}
+
+.info {
+    height: 23px;
+    color: red;
+    font-size: 12px;
+    text-align: left;
+}
+
+body{
+    width:100%;
+    height: 100vh;
+    background-image: url("../image/4115.gif_wh860.gif");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: 100px;
+}

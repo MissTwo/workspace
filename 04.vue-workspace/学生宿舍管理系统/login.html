@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面制作</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-sm-8 col-xs-8 col-md-offset-3 col-sm-offset-2 col-xs-offset-2">
+            <form action="http://localhost:3000/login_check" id="log-in" method="post">
+                <div class="h2">欢迎使用学生宿舍管理系统</div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="账号" v-model.trim.lazy="username">
+                    <div class="info"><label class="username-info">{{usernameInfo}}</label></div>
+                </div>
+                <div class="from-group">
+                    <input type="password" class="form-control" placeholder="密码" v-model.trim.lazy="password">
+                    <div class="info"><label class="password-info">{{passwordInfo}}</label></div>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" v-model="identity" value="administrator">
+                        系统管理员
+                    </label>
+                    <label>
+                        <input type="radio" name="optionsRadios" v-model="identity" value="dormManager">
+                        宿舍管理员
+                    </label>
+                    <label>
+                        <input type="radio" name="optionsRadios" v-model="identity" value="student">
+                        学生
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label for="remember">
+                        <input type="checkbox" id="remember" v-model="remember">记住密码
+                    </label>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" id="login" >登录</button>
+                <div id="register">
+                    <button class="btn btn-default " type="button">注册</button>
+                    <button id="forget" class="btn btn-default" type="reset">重置</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<script src="./js/vue.js"></script>
+<script src="./js/mock.js"></script>
+<script src="./js/jquery-3.5.1.js"></script>
+<!--<script src="./js/login.js"></script>-->
+<script>
+    const vm=new Vue({
+        el:'.container',
+        data:{
+            username:'',
+            password:'',
+            identity:'',
+            remember: '',
+            usernameInfo:'',
+            passwordInfo:'',
+
+        }
+    });
+    // let userStr = localStorage.getItem('RememberMe')
+    // if (userStr) {
+    //     let userObj = JSON.parse(userStr)
+    //     username.value = userObj.account;
+    //     password.value = userObj.password;
+    //     checkElementByRole(userObj.role);
+    //     remember.checked = true;//将选择保存账户密码的复选框更改为选中
+    // }
+    //
+    // function checkElementByRole(role) {
+    //     document.querySelector(`input[name="optionsRadios"][value=${role}]`).checked = true
+    // }
+    // // TODO:获取rememberMe checkbox
+    // login.addEventListener("click", function () {
+    //
+    //     // TODO: 提交数据之前检查合法性
+    //     // 账户密码认证
+    //     if (!(checkUsername(username.value) && checkPassword(password.value))) return
+    //     // 角色认证
+    //     if (!roleJudgment(identity)) return
+    //     let role = roleJudgment(identity)
+    //     // 存储数据
+    //     let data = {
+    //         account: username.value,
+    //         password: password.value,
+    //         role: role
+    //     }
+    //     $.post("http://localhost:3000/login_check", data, function (result) {
+    //         if (result.code === 0) {
+    //             // TODO:将用户信息写入localstorage,user{username; token; expire;}
+    //             // TODO:如果rememberMe勾选了，那么将用户名密码存入localstorage,rememberMe{username; password;}
+    //             // TODO:如果rememberMe没勾选了，那么localstorage中的rememberMe删掉
+    //             if (remember.checked) {
+    //                 localStorage.setItem("RememberMe", JSON.stringify(data))
+    //             } else {
+    //                 localStorage.removeItem("RememberMe")
+    //             }
+    //             // TODO:跳转页面 window.location
+    //             localStorage.setItem("User", JSON.stringify(data))
+    //             // localStorage.setItem("UserInfo", JSON.stringify(result.data[0]))
+    //             sessionStorage.setItem("UserInfo", JSON.stringify(result.data[0]))
+    //             if (data.role === "dormManager") {
+    //                 return location.href = "dormManager.html"
+    //             } else if (data.role === "administrator") {
+    //                 return location.href = "administrator.html"
+    //             } else if (data.role === "student") {
+    //                 return location.href = "student.html"
+    //             }
+    //         }
+    //         // TODO:提示错误
+    //         usernameInfo.innerText = "⚠请输入正确的用户名"
+    //         passwordInfo.innerText = "⚠请输入正确的密码"
+    //     },"json")
+    // });
+    //
+    // // TODO:实现以下方法替代原代码
+    // function checkUsername(value) {
+    //     if (value === "") {
+    //         usernameInfo.innerText = "⚠账号不能为空"
+    //         return
+    //     } else if (value.trim().length < 6 || value.trim().length > 12) {
+    //         usernameInfo.innerText = "⚠账号不能低于6位且不能高于12位"
+    //         return
+    //     }
+    //     return value
+    // }
+    //
+    // function checkPassword(value) {
+    //     // TODO:增加正则判断
+    //     let reg = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9]{6,16}$/
+    //     // TODO.test(passwordTag.value);
+    //     if (value === "") {
+    //         passwordInfo.innerText = "⚠密码不能为空"
+    //         return
+    //     } else if (value.trim().length < 6 || value.trim().length > 12) {
+    //         passwordInfo.innerText = "⚠密码不能低于6位且不能高于12位"
+    //         return
+    //     }
+    //     return value.trim()
+    // }
+    //
+    // function roleJudgment(identity) {
+    //     identity.__proto__.find = Array.prototype.find
+    //     role = identity.find(item => item.checked)
+    //     if (role === undefined) {
+    //         alert("请选择登录角色")
+    //         return
+    //     }
+    //     return role.value
+    // }
+
+</script>
+</body>
+</html>
