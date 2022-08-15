@@ -1,11 +1,3 @@
-<!--
- * @Author: lishuangling
- * @Date: 2022-02-23 16:26:01
- * @LastEditTime: 2022-04-30 17:58:00
- * @LastEditors: lishuangling
- * @Description: 
- * @FilePath: \vue_basic\18_非单文件组件\1.基本使用.html
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,57 +8,113 @@
     <script src="../js/vue.js"></script>
 </head>
 <body>
-    <!-- vue中使用组件的三大步骤： -->
+<!--非单文件组件：一个文件中包含n个组件-->
+<!--单文件组件：一个文件只包含1个组件-->
+<!-- vue中使用组件的三大步骤：
+         1.创建组件(定义组件)
+         2.注册组件
+         3.编写组件标签(使用组件)
+一、如何定义一个组件？
+    使用Vue.extend(options)创建，其中options和new Vue(options)时传入的那个options机会一样。
+    但是也有区别，如下：
+        1.el不要写，为什么？
+            最终所有的组件都要经过一个vm的管理，由vm中的el决定服务于哪一个容器。
+        2.data必须写成函数的形式。为什么？
+            避免组件被复用时，数据存在引用关系
+        备注：使用template可以配置组件结构
+二、如何注册组件？
+    1.局部注册：靠new Vue的时候传入components选项
+    2.全局注册：靠Vue.component('组件名',组件)
+三、编写组件
+    <student></student>
+ -->
 
-    <div id="root">
-        <school></school>
-        <hr>
-        <student></student>
-    </div>
+<div id="root">
+    <!--第三步：编写组件标签-->
+    <school></school>
+    <!--第三步：编写组件标签-->
+    <student></student>
+    <hello></hello>
+</div>
+<hr>
+<div id="app">
+    <school></school>
+    <hello></hello>
+</div>
+
 </body>
 <script>
-    Vue.config.productionTip=false
-    // 第一步：创建组件
-    const school=Vue.extend({
-        // 模板字符串的形式写模板内容才可以换行,必须只有一个根标签
-        template:`
-        <div>
-            <h2>学校名称:{{schoolName}}</h2>
-            <h2>学校地址:{{address}}</h2>
-        </div>
-        `,
-        data(){
-            return{
-                schoolName:'尚硅谷',
-                address:'北京'
-            }
-        }
-    })
+    // 非单文件组件的写法,开发一般不用这种
+    Vue.config.productionTip = false;
 
-    const student=Vue.extend({
-        template:`
-        <div>
-            <h2>学生姓名:{{name}}</h2>
-            <h2>学生年龄:{{age}}</h2>
-        </div>`,
-        data(){
-            return{
-                name:'张三',
-                age:18
-            }
-        }
-    })
-    
+    // 第一步：创建组件
+    // 创建school组件
+    const school = Vue.extend({
+        // 模板字符串的形式写模板内容才可以换行,必须只有一个根标签
+        template: `
+          <div>
+          <h2>学校名称:{{ schoolName }}</h2>
+          <h2>学校地址:{{ address }}</h2>
+          <button @click="showInfo">点我弹出信息</button>
+          </div>
+        `,
+        data() {
+            return {
+                schoolName: '尚硅谷',
+                address: '北京',
+            };
+        },
+        methods: {
+            showInfo() {
+                alert(this.address);
+            },
+        },
+    });
+    // 创建学生组件
+    const student = Vue.extend({
+        template: `
+          <div>
+          <h2>学生姓名:{{ name }}</h2>
+          <h2>学生年龄:{{ age }}</h2>
+          </div>`,
+        data() {
+            return {
+                name: '张三',
+                age: 18,
+            };
+        },
+    });
+    // 第一步：创建全局需要的hello组件
+    const hello = Vue.extend({
+        // 必须用函数的形式
+        data() {
+            return {
+                say: 'hello',
+            };
+        },
+        template: `
+          <p>全局组件案例演示{{ say }}</p>
+        `,
+    });
+    // 第二步：注册全局的组件
+    Vue.component('hello',hello)
+
     // 创建vue实例
-    const vm=new Vue({
-        el:'#root',
+    const vm = new Vue({
+        el: '#root',
         // 第二步：注册组件(局部注册)
-        components:{
+        components: {
             // school:school键值对名字一样可以简写school
             // 第一个是你取的组件名称，第二个为你创建的组件中转变量的名称
             school,
-            student
-        }
-    })
+            student,
+        },
+    });
+    const app = new Vue({
+        el: '#app',
+        components: {
+            school,
+        },
+    });
 </script>
 </html>

@@ -1,9 +1,9 @@
-illegalLogin()
+// illegalLogin()
 let UserInfo = JSON.parse(sessionStorage.getItem("UserInfo"));
 let adminMenu = ["首页", "宿舍管理员管理", "学生管理", "宿舍楼管理", "缺勤记录", "修改密码"];
 let studentMenu=["首页","缺勤记录","修改密码"]
 let managerMenu=["首页","学生管理", "缺勤记录", "修改密码"]
-headerInformationUpdate()
+// headerInformationUpdate()
 // createMenu(adminMenu, ".list-group")
 selectAllItem("#select-all")
 // 注销
@@ -92,11 +92,10 @@ function selectAllItem(selector) {
 }
 
 class Pagenation {
-    constructor(currentPage,limit,data, parent, tableRender) {
+    constructor(currentPage,limit,data, parent) {
         this.currentPage = currentPage;
         this.limit = limit;
         this.data = data.slice(0);
-        this.tableRender = tableRender;
         this.pageSize =  Math.ceil(this.data.length / this.limit);
         this.parent = parent;
     }
@@ -151,7 +150,6 @@ class Pagenation {
         }
         // 当前的数据
         let current = this.data.slice((this.currentPage - 1) * this.limit, this.currentPage * this.limit)
-        this.tableRender(current)
     }
     // 上一页
     jumpToPrev() {

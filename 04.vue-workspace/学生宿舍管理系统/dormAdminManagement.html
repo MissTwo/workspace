@@ -23,12 +23,12 @@
             <ul class="nav breadcrumb" id="breadcrumb">
                 <li class="active"><a href="#">宿舍管理员管理</a></li>
             </ul>
-            <div style="margin:2px 2px 0" class="btn-group user_nav navbar-right" >
+            <div style="margin:2px 2px 0" class="btn-group user_nav navbar-right">
                 <div class="btn btn-default dropdown-toggle user_img" data-toggle="dropdown">
                     <img style="width: 38px" src="./image/1.jpeg" alt="" class="img-circle">
                 </div>
                 <ul class="dropdown-menu">
-                    <li><a href="#" >个人信息</a></li>
+                    <li><a href="#">个人信息</a></li>
                     <li onclick="logOut()"><a href="#">注销</a></li>
                 </ul>
             </div>
@@ -37,6 +37,8 @@
 </div>
 
 <div class="container" id="main-content">
+
+
     <div class="content-left">
         <ul class="list-group">
         </ul>
@@ -47,22 +49,24 @@
             <div>
                 <form class="form-inline" id="search" action="#">
                     <div class="form-group">
-                        <input type="search" class="form-control" placeholder="姓名" name="dorm-manager_name">
+                        <input type="search" v-model.trim.lazy="search.managerName" class="form-control"
+                               placeholder="姓名" name="dorm-manager_name">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="手机号" name="dorm-manager_phoneNumber">
+                        <input type="text" v-model.trim.lazy="search.managerPhoneNumber" class="form-control"
+                               placeholder="手机号" name="dorm-manager_phoneNumber">
                     </div>
                     <div class="form-group">
-                        <select id="gender">
-                            <option value="0">请选择性别</option>
+                        <select id="gender" v-model="search.gender">
+                            <option value="0" selected>请选择性别</option>
                             <option value="男">男</option>
                             <option value="女">女</option>
                         </select>
 
                     </div>
                     <div class="form-group">
-                        <select id="chooseResidence">
-                            <option value="0">请选择宿舍楼</option>
+                        <select id="chooseResidence" v-model="search.chooseResidence">
+                            <option value="0" selected>请选择宿舍楼</option>
                             <option value="第一宿舍楼">第一宿舍楼</option>
                             <option value="第二宿舍楼">第二宿舍楼</option>
                             <option value="第三宿舍楼">第三宿舍楼</option>
@@ -72,7 +76,8 @@
 
                     </div>
                     <div>
-                        <button type="button" class="btn btn-default" id="search_btn">
+                        <button type="button" class="btn btn-default" id="search_btn"
+                                @click="searchDormManager(dormManagerData, search.managerName, search.managerPhoneNumber, search.gender, search.chooseResidence)">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
                     </div>
@@ -85,11 +90,12 @@
                 </form>
             </div>
             <div class="control">
-                <button id="add-data" type="button" class="btn btn-primary">添加</button>
-                <button id="delete-data" type="button" class="btn btn-danger">批量删除</button>
+                <button @click="add_data" type="button" class="btn btn-primary">添加</button>
+                <button type="button" class="btn btn-danger">批量删除</button>
             </div>
         </div>
         <div class="part-two">
+
             <table>
                 <thead>
                 <tr>
@@ -104,7 +110,19 @@
                 </tr>
                 </thead>
                 <tbody>
-
+                <tr v-for="(p,index) in dormManagerData" :key="p.id">
+                    <td><input type="checkbox"></td>
+                    <td>{{p.id}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.gender}}</td>
+                    <td>{{p.phoneNumber}}</td>
+                    <td>{{p.dormitory}}</td>
+                    <td>{{p.username}}</td>
+                    <td>
+                        <input type="button" value="编辑" @click="editRow(index)">
+                        <input type="button" value="删除" @click="deleteRow(index)">
+                    </td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -114,18 +132,127 @@
         </div>
 
     </div>
+    <form class="form-horizontal" id="edited" v-show="flag">
+        <h4>基本信息</h4>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">姓名</label>
+            <div class="col-sm-8">
+                <input v-model="addData.name" id="editName" type="text" class="form-control" name="name"
+                       placeholder="请输入姓名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">用户名</label>
+            <div class="col-sm-8">
+                <input v-model="addData.username" id="editUserName" type="text" class="form-control" name="username"
+                       placeholder="请输入用户名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">手机号</label>
+            <div class="col-sm-8">
+                <input id="editPhoneNum" v-model="addData.phoneNumber" type="text" class="form-control"
+                       name="phoneNumber"
+                       placeholder="请输入手机号">
+            </div>
+        </div>
+        <div class="form-group">
+            <select id="editGender" v-model="addData.gender">
+                <option value="0">请选择性别</option>
+                <option value="男">男</option>
+                <option value="女">女</option>
+            </select>
+            <select id="editDormitory" v-model="addData.dormitory">
+                <option value="0" selected>请选择宿舍楼</option>
+                <option value="第一宿舍楼">第一宿舍楼</option>
+                <option value="第二宿舍楼">第二宿舍楼</option>
+                <option value="第三宿舍楼">第三宿舍楼</option>
+                <option value="第四宿舍楼">第四宿舍楼</option>
+                <option value="第五宿舍楼">第五宿舍楼</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div style="text-align: center">
+                <button type="button" class="btn btn-primary" @click="confirmCreate">确认</button>
+                <button type="button" class="btn btn-danger" @click="cancelCreate">取消</button>
+            </div>
+        </div>
+    </form>
 </div>
 
 
-
-<script src="./js/jquery-3.5.1.js"></script>
 <script src="./js/mock.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-        crossorigin="anonymous">
+<script src="./js/vue.js"></script>
+<script>
+    // 模拟宿舍管理员的信息
+    let dormAdminManagement = Mock.mock({
+        "dormAdminManagement|5": [
+            {
+                "id|+1": 1,
+                "name": "@cname",
+                "gender|1": ["男", "女"],
+                "phoneNumber": /^1\d{10}/,
+                "dormitory|1": ["第一宿舍楼", "第二宿舍楼", "第三宿舍楼", "第四宿舍楼", "第五宿舍楼"],
+                "username": "@word(4,7)",
+            },
+        ],
+    });
+    // 宿舍管理员的数组对象
+    let dormManagerData = dormAdminManagement.dormAdminManagement;
+
+    Vue.config.productionTip = false;
+    const vm = new Vue({
+        el: '#main-content',
+        data: {
+            search: {
+                managerName: '',
+                managerPhoneNumber: '',
+                gender: '0',
+                chooseResidence: '0',
+            },
+            dormManagerData: dormManagerData,
+            flag: false,
+            addData: {
+                id:dormManagerData[dormManagerData.length-1].id+1,
+                name: '',
+                gender: '',
+                phoneNumber: '',
+                dormitory: '0',
+                username: '',
+            },
+
+        },
+        methods: {
+            // 添加
+            add_data() {
+                this.flag = true;
+                this.addData.name='';
+                this.addData.gender='';
+                this.addData.phoneNumber='';
+                this.addData.dormitory='0';
+                this.addData.username='';
+            },
+            confirmCreate(){
+                if(this.addData.name&&this.addData.gender&&this.addData.phoneNumber&&this.addData.dormitory&&this.addData.username){
+                    let newDate=JSON.parse(JSON.stringify(this.addData))
+                    this.dormManagerData.push(newDate)
+                    this.flag = false;
+                }else{
+                    alert("请将信息填写完整！")
+                }
+
+            },
+            cancelCreate(){
+                this.addData.name='';
+                this.addData.gender='';
+                this.addData.phoneNumber='';
+                this.addData.dormitory='0';
+                this.addData.username='';
+                this.flag = false;
+            }
+        },
+    });
 </script>
-<script src="./js/adminInitialize.js"></script>
-<script src="./js/dormAdminManagement.js"></script>
+
 </body>
 </html>
