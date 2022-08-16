@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-component</title>
+</head>
+<body>
+<!--
+关于VueComponent:
+    1.school组件本质是一个名为VueComponent的构造函数，且不说程序员定义的，是Vue.extend生成的
+    2.我们只需要写<school/>或<school></school>,Vue解析时会帮我们创建school组件的实例对象
+        即Vue帮我们执行的：new VueComponent(options)
+    3.特别注意：每次调用Vue.extend,返回的都是一个全选的VueComponent
+    4.关于this指向
+        (1)组件配置中：
+            data函数，methods中的函数、watch中的函数、computed中的函数，它们中this均是【VueComponent实例对象】
+        (2)new Vue()配置中：
+            data函数，methods中的函数、watch中的函数、computed中的函数，它们中this均是【Vue实例对象】
+    5.VueComponent的实例对象，以后简称vc (也可以称之为：组件实例对象)
+        Vue的实例对象，以后简称vm
+-->
+<div id="root">
+    <div>{{name}}</div>
+    <my-school></my-school>
+    <!--    必须再脚手架搭建的情况下使用-->
+    <!--    <MySchool></MySchool>-->
+    <button @click="showMsg">点我打印vue实例中的this指向</button>
+</div>
+<div id="app">
+
+</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    Vue.config.productionTip = false;
+    let school = Vue.extend({
+        data() {
+            return {
+                name: 'bob',
+                age: 18,
+            };
+        },
+        template: `
+          <div>
+          <p>{{ name }}</p>
+          <p>{{ age }}</p>
+          <button @click="showInfo">点我打印this</button>
+          </div>`,
+        methods: {
+            showInfo() {
+                console.log('我是组件中的this', this);
+            },
+        },
+    });
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            name: '我是vue实例',
+        },
+        methods: {
+            showMsg() {
+                console.log('我是vue实例中的this', this);
+            },
+        },
+        components: {
+            // 会被vue开发者工具解析为驼峰命名法：MySchool
+            'my-school': school,
+            // 需要再脚手架的情况使用
+            // MySchool: school,
+        },
+    });
+    // 创建vue实例的另外一种方式
+    new school().$mount('#app')
+</script>
+</html>
