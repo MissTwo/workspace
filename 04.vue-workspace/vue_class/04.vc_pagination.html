@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+          integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+
+<div id="root">
+
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    Vue.config.productionTip = false;
+    const pagination = {
+        data() {
+            return {
+                first:1,
+                last:1,
+            };
+        },
+        props: [p.currentPage, p.limit, p.totalPages],
+        template: `
+          <div>
+          <span>一共有{{ }}条记录</span>
+          <nav aria-label="Page navigation">
+            <ul id="ul_pager" class="pagination">
+              <li @click="handler_num_change(com_pager.first)"><a href="#">首页</a></li>
+              <li @click="handler_num_change(com_pager.pre)"><a href="#">上一页</a></li>
+              <li @click="handler_num_change(item)" :class="{active: item == com_pager.num}"
+                  v-for="(item, index) in com_pager.total" :key="index">
+                <a href="#">{{ item }}</a>
+              </li>
+              <li @click="handler_num_change(com_pager.next)"><a href="#">下一页</a></li>
+              <li @click="handler_num_change(com_pager.last)"><a href="#">尾页</a></li>
+            </ul>
+          </nav>
+          <select v-model="pager.size">
+            <option>5</option>
+            <option>10</option>
+            <option>50</option>
+          </select>
+          </div>
+        `,
+        methods: {
+
+        },
+
+    };
+    const root = new Vue({
+        el: '#root',
+        data: {
+            currentPage: 1,
+            limit: 5,
+            totalPages: 10,
+        },
+        components: {
+            pagination,
+        },
+    });
+</script>
+</html>

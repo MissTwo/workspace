@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+  <count></count>
+  <count></count>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+  Vue.config.productionTip=false
+  const count={
+    data(){
+      return{
+        num:0
+      }
+    },
+    template:`
+      <div>
+      <button @click="handler_minus">-</button>
+      <span>{{num}}</span>
+      <button @click="handler_add">+</button>
+      </div>`,
+    methods:{
+      handler_minus(){
+        if(this.num>0){
+          this.num--
+        }
+      },
+      handler_add(){
+        this.num++
+      }
+    }
+  }
+  const app=new Vue({
+    el: '#root',
+    components:{
+      count
+    }
+  })
+</script>
+</html>

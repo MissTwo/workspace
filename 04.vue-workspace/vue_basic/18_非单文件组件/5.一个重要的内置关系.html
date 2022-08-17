@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+1.一个重要的内置关系：VueComponent.prototype.__proto__===Vue.prototype
+2.为什么要有这个关系：让组件实例对象（vc）可以访问到Vue原型上的属性和方法
+-->
+<div id="root">
+    <school></school>
+</div>
+</body>
+<script src="../js/vue.js"></script>
+<script>
+    Vue.config.productionTip = false;
+    Vue.prototype.x = 100;
+    const school = {
+        data() {
+            return {
+                name: "尚硅谷",
+                address: "北京",
+            };
+        },
+        template: `
+          <div>
+          <p>{{ name }}-{{ address }}</p>
+          <button @click="handler_log">点位打印</button>
+          </div>`,
+        methods:{
+            handler_log(){
+                console.log(this.x);
+            }
+        }
+    };
+    const vm = new Vue({
+        el: '#root',
+        components:{
+            school
+        }
+    });
+
+    // // 定义一个构造函数
+    // function Demo(){
+    //     this.a=1
+    //     this.b=2
+    // }
+    // let d= new Demo()
+    // // 显示原型属性(原型对象)与隐式原型属性(对象原型)是相等的
+    // console.log(Demo.prototype===d.__proto__);
+    // Demo.prototype.x=100
+    // console.log(d.__proto__.x);
+    // console.log(d.x);
+
+</script>
+</html>
