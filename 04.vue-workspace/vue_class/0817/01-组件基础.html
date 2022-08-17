@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <child-a></child-a>
+        <child-b></child-b>
+    </div>
+    <script src="../js/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <script>
+        // Vue.config.silent = true; // 关闭警告与报错信息
+        // Vue.config.productionTip = false;
+        // 定义组件
+        const Child = {
+            data() {
+                return {
+                    message: "组件中的message"
+                }
+            },
+            // 双根节点
+            // template: `<div></div><div></div>`
+            // 单节点，Vue2只支持单根节点，Vue3没有这个限制
+            template: `<div>{{message}}</div>`
+        }
+
+        // 注册组件
+        Vue.component("child-a", Child);
+        Vue.component("childB", Child);
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Vue中的message'
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="age">
+            <hr>
+            {{new_age}}{{new_age}}
+            <button @click="chg">修改计算属性的值</button>
+        </div>
+        <div id="app2">
+            <input type="text" v-model="arg">
+            <ul>
+                <li v-for="item in search_list">{{item}}</li>
+            </ul>
+            {{t1()}}
+            <hr>
+            当前搜索查到的数据总数{{search_list.length}}
+            当前搜索查到的数据总数{{t1().length}}
+        </div>
+        <script src="../../js/vue.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+        <script>
+            // Vue.config.silent = true; // 关闭警告与报错信息
+            // Vue.config.productionTip = false;
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    age: 20,
+                },
+                methods: {
+                    chg() {
+                        this.new_age = 30;
+                    }
+                },
+                computed:{
+                    // 判断年龄是否符合正常范围0~120
+                    // new_age() {
+                    //     if(this.age < 0 || this.age > 120) {
+                    //         return "年龄不正常"
+                    //     }
+                    //     return this.age;
+                    // } 
+                    new_age: {
+                        get() {
+                            console.log("111");
+                            return this.age;
+                        },
+                        set(val) {
+                            this.age = val;
+                        }
+                    }
+                }
+            });
+            const app2 = new Vue({
+                el: "#app2",
+                data: {
+                    arg: '',
+                    list: ["java", "javascript", "vue"]
+                },
+                methods: {
+                    t1(){
+                        console.log("t1");
+                        let results = this.list;
+                        if(this.arg) {
+                            results = results.filter(item => item.indexOf(this.arg) != -1);
+                        }
+                        return results;
+                    }
+                },
+                computed: {
+                    search_list() {
+                        console.log("search_list");
+                        let results = this.list;
+                        if(this.arg) {
+                            results = results.filter(item => item.indexOf(this.arg) != -1);
+                        }
+                        return results;
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

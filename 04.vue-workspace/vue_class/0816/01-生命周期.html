@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        <button @click="do_destroyed">销毁Vue实例</button>
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script src="../../js/moment.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <script>
+        // Vue.config.silent = true; // 关闭警告与报错信息
+        // Vue.config.productionTip = false;
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "这是一个消息",
+                money: 100,
+            },
+            methods: {
+                t1() {
+                    console.log("t1");
+                },
+                do_destroyed() {
+                    this.$destroy();
+                }
+            },
+            beforeCreate() {
+                console.log(this);
+                console.log("beforeCreate", this.message, this.$el, this.$data);
+            },
+            created() {
+                console.log("created", this.message, this.$el, this.$data);
+            },
+            beforeMount() {
+                console.log("beforeMount", this.message, this.$el, this.$data, this._vnode);
+            },
+            mounted() {
+                console.log("mounted", this.message, this.$el, this.$data, this._vnode);
+            },
+            beforeUpdate() {
+                console.log("beforeUpdate", this.message, this.$el, this.$data);
+            },
+            updated() {
+                console.log("updated", this.message, this.$el, this.$data);
+            },
+            beforeDestroy() {
+                console.log("beforeDestroy", this.message, this.$el, this.$data);
+            },
+            destroyed() {
+                console.log("destroyed", this.message, this.$el, this.$data);
+            },
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+    </head>
+    <body>
+        <div id="app">
+            <input type="text" v-model="message">
+        </div>
+        <script src="../../js/vue.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+        <script>
+            // Vue.config.silent = true; // 关闭警告与报错信息
+            // Vue.config.productionTip = false;
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    message: "这是一个消息",
+                    obj: {
+                        a: "a",
+                        b: {
+                            c: 10
+                        },
+                        d: [4, 5, 6]
+                    },
+                    list: [1, 2, 3]
+                },
+                // 使用计算属性解决对象和数组监听的地址问题
+                computed: {
+                    c_obj(){
+                        // 浅复制，也有问题
+                        // return Object.assign({}, this.obj);
+                        // 深复制，可以完美解决
+                        return JSON.parse(JSON.stringify(this.obj))
+                        // 使用lodash中的clonedeep方法
+                    }
+                },
+                watch: {
+                    // message: function(val, oldVal) {
+                    //     console.log("message", val, oldVal);
+                    // },
+                    // "obj.a": function(val, oldVal) {
+                    //     console.log("obj.a", val, oldVal);
+                    // },
+                    // 默认也有deep和immediate，但值都是false
+                    // list: function(val, oldVal) {
+                    //     console.log("list", val, oldVal);
+                    // },
+                    list: {
+                        handler: function(val, oldVal) {
+                            console.log("list", val, oldVal);
+                        },
+                        // 默认值是false
+                        deep: true
+                    },
+                    "obj.d": {
+                        handler: function(val, oldVal) {
+                            console.log("obj.d", val, oldVal);
+                        },
+                        // 默认值是false
+                        deep: true
+                    },
+                    obj: {
+                        // 监听的是整个对象中所有的属性值，不管有多少层
+                        handler: function(val, oldVal) {
+                            console.log("obj");
+                            console.log(val.a, val.b.c);
+                            console.log(oldVal.a, oldVal.b.c);
+                        },
+                        // 默认值是false
+                        deep: true
+                    },
+                    c_obj: {
+                        // 监听的是整个对象中所有的属性值，不管有多少层
+                        handler: function(val, oldVal) {
+                            console.log("c_obj");
+                            console.log(val.a, val.b.c);
+                            console.log(oldVal.a, oldVal.b.c);
+                        },
+                        // 默认值是false
+                        deep: true
+                    },
+                }
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="message">
+        <!-- {{age}} -->
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script src="../../js/moment.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <script>
+        // Vue.config.silent = true; // 关闭警告与报错信息
+        // Vue.config.productionTip = false;
+        // const app = new Vue({
+        //     data: {
+        //         message: "这是一个消息",
+        //         money: 100,
+        //     },
+        // });
+        // app.$mount("#app"); //将Vue实例app挂载到#app的元素上
+        const app2 = Vue.extend({ //app2与Vue差不多，自带了一些内容
+            // data是一个函数，否则data会被共享
+            data() {
+                return {
+                    message: "这是一个消息",
+                }
+            },
+            mounted() {
+                console.log(this)
+            },
+            // template: `
+            //     <p>{{message}}</p>
+            // `
+        })
+        new app2().$mount("#app");
+        // new app2({
+        //     el: "#app",
+        //     data: {
+        //         // message: "11111",
+        //         age: 20
+        //     }
+        // });
+    </script>
+</body>
+
+</html>

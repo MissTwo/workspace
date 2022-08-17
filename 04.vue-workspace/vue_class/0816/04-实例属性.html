@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+</head>
+
+<body>
+    <div id="app">
+        <input ref="input_1" type="text" v-model="message">
+        <!-- {{age}} -->
+    </div>
+    <script src="../../js/vue.js"></script>
+    <script src="../../js/moment.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <script>
+        // Vue.config.silent = true; // 关闭警告与报错信息
+        // Vue.config.productionTip = false;
+
+        const app = new Vue({
+            props: ["id"],
+            data: {
+                message: "这是一个消息",
+                money: 100,
+            },
+            el: "#app",
+            methods: {
+                t1() {
+                    console.log("t1");
+                }
+            },
+        });
+        console.log(app);
+    </script>
+</body>
+
+</html>

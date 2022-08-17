@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+    </head>
+    <body>
+        <div id="app">
+            <button @click="add_listener">添加监听</button>
+            <button @click="cancle_listener">取消监听</button>
+            <input type="text" v-model="message">
+        </div>
+        <script src="../../js/vue.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+        <script>
+            // Vue.config.silent = true; // 关闭警告与报错信息
+            // Vue.config.productionTip = false;
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    message: "您当前年龄是",
+                    age: 20,
+                    obj: {
+                        a: "a",
+                        b: {
+                            c: 10
+                        },
+                        d: [4, 5, 6]
+                    },
+                    list: [1, 2, 3],
+                    // unwatch_list: [], //将所有需要取消监听对象放该数组中，本身没有去重能力
+                    // unwatch_set: new Set(),
+                    unwatch_obj: {}
+                },
+                methods: {
+                    add_listener() {
+                        console.log("add_listener已经执行了");
+                        // unwatch可以取消息监听，每次执行返回的对象都不一样
+                        if(!this.unwatch_obj.unwatch_messeage) {
+                            this.unwatch_obj.unwatch_messeage = this.$watch('message', function (newValue, oldValue) {
+                                console.log('message', newValue, oldValue);
+                            });
+                        }
+                        
+                        // unwatch() //取消监听
+                        // this.unwatch_list.push(unwatch);
+                        // this.unwatch_set.add(unwatch);
+
+                        // this.$watch(function() {
+                        //     return this.message + this.age;
+                        // }, function (newValue, oldValue) {
+                        //     console.log('message', newValue, oldValue);
+                        // });
+                        // this.$watch(function() {
+                        //     return {
+                        //         msg: this.message,
+                        //         age: this.age
+                        //     };
+                        // }, function (newValue, oldValue) {
+                        //     console.log('message', newValue, oldValue);
+                        // });
+                        this.$watch(function() {
+                            return {...this.obj};
+                        }, function (newValue, oldValue) {
+                            console.log('this.obj');
+                            console.log(newValue.a, newValue.b.c);
+                            console.log(oldValue.a, oldValue.b.c);
+                        }, {
+                            deep: true
+                        });
+                    },
+                    cancle_listener() {
+                        // this.unwatch_list.forEach(item => {
+                        //     item();
+                        // });
+                        // this.unwatch_set.forEach(item => {
+                        //     item();
+                        // });
+                        for(const key in this.unwatch_obj) {
+                            const fn = this.unwatch_obj[key];
+                            if(fn && typeof fn === "function") fn();
+                            delete this.unwatch_obj[key];
+                        }
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>

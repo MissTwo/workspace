@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+			  integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+	</head>
+
+	<body>
+		<div id="app">
+			{{obj.id}}-{{obj.name}}-
+            <count_btn :pcount="obj.count"></count_btn>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+			// 定义组件
+			const count_btn = {
+				data() {
+					return {
+						count: 0,
+					};
+				},
+                props: ["pcount"],
+				methods: {
+					handler_count(val) {
+						// this指向组件对象不是Vue实例了
+						pcount += val;
+						if (val < 0 && pcount < 0) {
+							pcount = 0;
+						}
+					},
+				},
+				// 双根节点
+				// template: `<div></div><div></div>`
+				// 单节点，Vue2只支持单根节点，Vue3没有这个限制
+				template: `<div><button @click='handler_count(-1)'>-</button> {{pcount}} <button @click='handler_count(1)'>+</button></div>`,
+			};
+
+			// 注册组件
+			Vue.component("count_btn", count_btn);
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+					obj: {
+                        id: 1,
+                        name: "JavaScript入门",
+                        count: 1
+                    }
+				},
+			});
+		</script>
+	</body>
+</html>

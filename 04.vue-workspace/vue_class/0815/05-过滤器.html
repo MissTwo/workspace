@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+    </head>
+    <body>
+        <div id="app">
+            {{money}}--------{{money | money_format}}
+            <input type="text" v-model="qq"> {{qq | mail}}
+            {{date | date_format}}
+            {{100 | args(1, 2)}}
+            <input type="text" :value="money | money_format">
+        </div>
+        <script src="../../js/vue.js"></script>
+        <script src="../../js/moment.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+        <script>
+            // Vue.config.silent = true; // 关闭警告与报错信息
+            // Vue.config.productionTip = false;
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    message: "这是一个消息",
+                    money: 100,
+                    qq: '',
+                    date: "2022-01-01 13:12:23"
+                },
+                
+                filters: {
+                    money_format(value) {
+                        console.log(value, typeof value);
+                        return "$ " + value.toFixed(2);
+                    },
+                    mail(value) {
+                        return value + "@qq.com";
+                    },
+                    date_format(value) {
+                        return moment(value).format("YYYY年MM月DD日 HH时mm分ss秒")
+                    },
+                    args(value, b, c) {
+                        console.log(value, b, c);
+                        return "参数演示"
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
