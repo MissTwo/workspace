@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			{{message}}
+			<child @send="receive" @send-obj="receiveObj"></child>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+
+			const child = {
+				data() {
+					return {
+						message: "子组件中的message",
+						obj: {name: "张三", age: 20}
+					};
+				},
+				methods: {
+					send() {
+						console.log("子组件中的send触发了");
+						// emit发射
+						this.$emit("send", this.message, "110");
+					},
+					sendObj() {
+						console.log("子组件中的sendObj触发了");
+						// 不要使用驼峰式命名
+						// this.$emit("send-obj", {name: "张三", age: 20});
+						this.$emit("send-obj", this.obj);
+					},
+				},
+				template: `<div>{{message}}-----{{obj.age}}
+					<button @click="send">点击传值给父组件</button>
+					<button @click="sendObj">传值对象类型</button>
+					</div>`,
+			};
+
+			// 注册组件
+			Vue.component("child", child);
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+					message: "Vue实例中的message"
+				},
+				methods: {
+					// payload：荷载，包含了子组件给父组件传值的内容
+					receive(payload, a) {
+						console.log("父组件中的receive方法触发了", payload, a);
+						this.message = payload
+					},
+					receiveObj(payload) {
+						console.log("父组件中的receiveObj方法触发了", payload);
+						payload.age = 30
+					}
+				},
+			});
+		</script>
+	</body>
+</html>

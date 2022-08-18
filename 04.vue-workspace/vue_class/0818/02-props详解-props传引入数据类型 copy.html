@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			{{obj.id}}-{{obj.name}}-
+			<!-- v-bind使用后就可以使用Vue中的属性，如果不使用v-bind就只能传原始数据类型的值 -->
+			<child :p_obj="obj"></child>
+			<child :p_obj="obj"></child>
+			<count_btn></count_btn>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+			// 定义组件
+			const Child = {
+				data() {
+					return {
+						count: 0,
+					};
+				},
+				props: ["p_obj"],
+				// 双根节点
+				// template: `<div></div><div></div>`
+				// 单节点，Vue2只支持单根节点，Vue3没有这个限制
+				template: `<div><input type="text" v-model='p_obj.name'></div>`,
+				beforeCreate() {
+					// console.log(this);
+					console.log("beforeCreate", "Child", this.$data);
+				},
+				created() {
+					console.log("created", "Child", this.$data);
+				},
+				beforeMount() {
+					console.log("beforeMount", "Child", this.$data);
+				},
+				mounted() {
+					console.log("mounted", "Child", this.$data);
+				},
+				beforeUpdate() {
+					console.log("beforeUpdate", "Child", this.$data);
+				},
+				updated() {
+					console.log("updated", "Child", this.$data);
+				},
+				beforeDestroy() {
+					console.log("beforeDestroy", "Child", this.$data);
+				},
+				destroyed() {
+					console.log("destroyed", "Child", this.$data);
+				},
+			};
+
+			// 注册组件
+			Vue.component("child", Child);
+
+			const count_btn = {
+				data() {
+					return {
+						count: 0,
+					};
+				},
+				methods: {
+					handler_count(val) {
+						// this指向组件对象不是Vue实例了
+						this.count += val;
+						if (val < 0 && this.count < 0) {
+							this.count = 0;
+						}
+					},
+				},
+				// 双根节点
+				// template: `<div></div><div></div>`
+				// 单节点，Vue2只支持单根节点，Vue3没有这个限制
+				template: `<div><button @click='handler_count(-1)'>-</button> {{count}} <button @click='handler_count(1)'>+</button></div>`,
+
+				beforeCreate() {
+					// console.log(this);
+					console.log("beforeCreate", "count_btn", this.$data);
+				},
+				created() {
+					console.log("created", "count_btn", this.$data);
+				},
+				beforeMount() {
+					console.log("beforeMount", "count_btn", this.$data);
+				},
+				mounted() {
+					console.log("mounted", "count_btn", this.$data);
+				},
+				beforeUpdate() {
+					console.log("beforeUpdate", "count_btn", this.$data);
+				},
+				updated() {
+					console.log("updated", "count_btn", this.$data);
+				},
+				beforeDestroy() {
+					console.log("beforeDestroy", "count_btn", this.$data);
+				},
+				destroyed() {
+					console.log("destroyed", "count_btn", this.$data);
+				},
+			};
+
+			// 注册组件
+			Vue.component("count_btn", count_btn);
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+					obj: {
+						id: 1,
+						name: "JavaScript入门",
+						count: 1,
+					},
+				},
+			});
+		</script>
+	</body>
+</html>

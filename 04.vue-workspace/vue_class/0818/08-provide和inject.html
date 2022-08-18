@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- a组件向b组件传值 -->
+			<child></child>
+			<button @click="chg">修改obj中的name</button>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+			Vue.component("sub_child", {
+				inject: ["msg", "child_msg", "p_obj"],
+				template: `<div>{{msg}}--{{child_msg}}---{{p_obj.name}}</div>`,
+			});
+
+			const app = new Vue({
+				// provide: {
+				// 	msg: "来自祖宗的问候",
+				// },
+				provide() {
+					return {
+						// msg: "来自祖宗的问候", // 普通值，无法实现响应式
+						p_obj: this.obj
+					};
+				},
+				el: "#app",
+				data: {
+					obj: {
+						//是一个对象，能实现响应式
+						name: "张三",
+					},
+				},
+				methods: {
+					chg() {
+						this.obj.name = "Hello";
+					}
+				},
+				components: {
+					child: {
+						provide: {
+							child_msg: "来自父亲的问候",
+						},
+						// inject: ["msg"],
+						inject: {
+							msg: {
+								from: "msg",
+								default: "这是child中的msg默认值"
+							}
+						},
+						template: `<div>{{msg}}---- <sub_child></sub_child></div>`,
+					},
+				},
+			});
+		</script>
+	</body>
+</html>

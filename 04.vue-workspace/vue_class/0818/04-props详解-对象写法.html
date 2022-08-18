@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- 使用了v-bind那么1就是数字，如果需要是字符串，即使用"'1'" -->
+			<count_btn :p_count="30" btn_left="减"></count_btn>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+
+			const count_btn = {
+				data() {
+					return {
+						count: this.p_count,
+					};
+				},
+				// props: ["p_count"],
+				props: {
+					// p_count: Number,
+					p_count: {
+						type: Number,
+						//只能验证传进来的值
+						validator: function(val) {
+							// console.log(val);
+							// count只能是10到20
+							return val >= 10 && val <= 20;
+						}
+					},
+					btn_left: String,
+					btn_right: {
+						type: String,
+						required: true,
+						default: "+"
+					}
+				},
+				methods: {
+					handler_count(val) {
+						// this指向组件对象不是Vue实例了
+						this.count += val;
+						if (val < 0 && this.count < 0) {
+							this.count = 0;
+						}
+					},
+				},
+				// 双根节点
+				// template: `<div></div><div></div>`
+				// 单节点，Vue2只支持单根节点，Vue3没有这个限制
+				template: `<div><button @click='handler_count(-1)'>{{btn_left}}</button> {{count}} 
+					<button @click='handler_count(1)'>{{btn_right}}</button></div>`,
+			};
+
+			// 注册组件
+			Vue.component("count_btn", count_btn);
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+				},
+			});
+		</script>
+	</body>
+</html>

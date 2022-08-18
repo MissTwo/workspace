@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- a组件向b组件传值 -->
+			<child-a></child-a>
+			<child-b></child-b>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+
+			const bus = new Vue();
+
+			const ChildA = {
+				data() {
+					return {
+						msg: "childa中的msg,1111111111111",
+						receiveMsg: "",
+					};
+				},
+				mounted() {
+					// 思考一下，为什么要使用箭头函数
+					// 自己深度一下$once
+					bus.$on("send_b", payload => {
+						console.log("ChildA监听到了send_b事件", payload);
+						this.receiveMsg = payload;
+					});	
+				},
+				destroyed() {
+					// 取消事件监听
+					bus.$off("send_b");
+				},
+				methods: {
+					handler_send(val) {
+						bus.$emit("send_a", this.msg);
+					},
+					handler_cancle() {
+						console.log("取消send_b事件监听成功");
+						bus.$off("send_b");
+					}
+				},
+				template: `<div>{{msg}}---{{receiveMsg}} 
+					<button @click="handler_send">childa兄弟组件传值</button>
+					<button @click="handler_cancle">取消事件监听</button>
+					</div>`,
+			};
+
+			// 注册组件
+			Vue.component("childA", ChildA);
+
+			const ChildB = {
+				data() {
+					return {
+						msg: "childb中的msg,222222222222",
+						receiveMsg: "",
+					};
+				},
+				mounted() {
+					// 思考一下，为什么要使用箭头函数
+					bus.$on("send_a", payload => {
+						console.log("ChildB监听到了send_a事件", payload);
+						this.receiveMsg = payload;
+					});	
+				},
+				destroyed() {
+					// 取消事件监听
+					bus.$off("send_a");
+				},
+				methods: {
+					handler_send(val) {
+						bus.$emit("send_b", this.msg);
+					},
+				},
+				template: `<div>{{msg}}---{{receiveMsg}} <button @click="handler_send">childb兄弟组件传值</button></div>`,
+			};
+
+			// 注册组件
+			Vue.component("childB", ChildB);
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+				},
+			});
+		</script>
+	</body>
+</html>
