@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>子传父</title>
+</head>
+<body>
+<div id="root">
+    <p>{{student.name}}--{{student.age}}</p>
+    <hr>
+    <persons @send-info="receiveInfo"></persons>
+</div>
+
+</body>
+<script src="js/vue.js"></script>
+<script>
+    Vue.config.productionTip = false;
+    // 子组件
+    const persons = {
+        data() {
+            return {
+                student: {
+                    name: '我是子组件',
+                    age: 19,
+                },
+                message:'我是子组件的信息'
+            };
+        },
+        template: `
+          <div>
+          <p>姓名：{{ student.name }}</p>
+          <p>年龄：{{ student.age }}</p>
+          <button @click="send">点我传递参数值给vue实例</button>
+          </div>
+        `,
+        methods: {
+            send() {
+                // 有效载荷:payload
+                this.$emit('send-info', this.student);
+            },
+        },
+    };
+    // vue实例对象
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            student: {
+                name: '我是vue实例，相对于子组件是父亲',
+                age: 30,
+            },
+        },
+        components: {
+            persons,
+        },
+        methods: {
+            receiveInfo(payload) {
+                this.student.name=payload.name
+                this.student.age=payload.age
+                console.log('值来了', payload);
+            },
+        },
+    });
+</script>
+</html>

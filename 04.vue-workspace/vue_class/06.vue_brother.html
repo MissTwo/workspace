@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+    <component-a></component-a>
+    <component-b></component-b>
+</div>
+</body>
+<script src="js/vue.js"></script>
+<script>
+    const bus = new Vue();
+    // 组件
+    const componentA = ({
+        data() {
+            return {
+                msg: "我是A组件的信息",
+                reciveInfo: '',
+            };
+        },
+        template: `
+          <div>
+          <p>{{ msg }}</p>
+          <p>{{ reciveInfo }}</p>
+          <button @click="send">点我给兄弟组件传值</button>
+          </div>
+        `,
+        methods: {
+            send() {
+                bus.$emit('show-a', this.msg);
+            },
+        },
+        mounted() {
+            // 如果用箭头函数指向的是组件，一般函数this指向vue实例对象
+            bus.$on('show-b', payload => {
+                console.log(payload);
+                this.reciveInfo = payload;
+            });
+        },
+    });
+    // 组件
+    const componentB = ({
+        data() {
+            return {
+                msg: "我是B组件的信息",
+                reciveInfo: '',
+            };
+        },
+        template: `
+          <div>
+          <hr>
+          <p>{{ msg }}</p>
+          <p>{{ reciveInfo }}</p>
+          <button @click="send">点我给兄弟组件传值</button>
+          <hr>
+          </div>
+        `,
+        methods: {
+            send() {
+                bus.$emit('show-b', this.msg);
+            },
+        },
+        mounted() {
+            // 如果用箭头函数指向的是组件，一般函数this指向vue实例对象
+            bus.$on('show-a', payload => {
+                console.log(payload);
+                this.reciveInfo = payload;
+            });
+         },
+
+    });
+    const root = new Vue({
+        el: '#root',
+        components: {
+            'component-a': componentA,
+            'component-b': componentB,
+        },
+    });
+</script>
+</html>
