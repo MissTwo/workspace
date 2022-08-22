@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<button v-debounce.number="{delay: 2000, fn: t1, args: [obj.a]}" >防抖按钮</button>
+			<button v-throttle.number="{delay: 2000, fn: t1, args: [obj.a]}" >节流按钮</button>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+			// console.log(Vue.config.optionMergeStrategies);
+			Vue.directive("debounce", {
+				bind: function (el, binding, vnode) {
+					console.log("bind", el, binding, vnode);
+					let val = binding.value.delay;
+					if (binding.modifiers.number && val) {
+						val = parseInt(val);
+					}
+					let timer = null;
+					let fn = binding.value.fn;
+					let args = binding.value.args;
+					el.addEventListener(
+						"click",
+						(e) => {
+							console.log("debounce");
+							if (timer) clearTimeout(timer);
+							timer = setTimeout(() => {
+								timer = null;
+								fn.apply(null, args);
+							}, val);
+							// 让元素上的所有事件立即停止
+							// e.stopImmediatePropagation();
+						},
+						true
+					);
+				},
+			});
+			Vue.directive("throttle", {
+				bind: function (el, binding, vnode) {
+					console.log("bind", el, binding, vnode);
+					let val = binding.value.delay;
+					if (binding.modifiers.number && val) {
+						val = parseInt(val);
+					}
+					let start = Date.now();
+					let fn = binding.value.fn;
+					let args = binding.value.args;
+					el.addEventListener(
+						"click",
+						(e) => {
+							console.log("throttle");
+							let end = Date.now();
+							if(end - start >= val) {
+								fn.apply(null, args)
+								start = Date.now();
+							}
+						},
+						true
+					);
+				},
+			});
+			const app = new Vue({
+				el: "#app",
+				data: {
+					msg: "这是Vue实例的msg",
+					obj: {
+						a: 10,
+						c: 3,
+					},
+					list: [1, 2, 4],
+				},
+				methods: {
+					t1(a) {
+						console.log("t1", a);
+					},
+				},
+				components: {},
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<child count="100" age="100" @click="count++">
+				<span style="color: red;">替换插槽中的内容1111111111</span>
+			</child>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+			Vue.component("child", {
+				inject: ["msg"],
+				functional: true,
+				props: ["count"],
+				data() {
+					return {
+						msg: "函数式组件的msg"
+					}
+				},
+				// h：createElement
+				// context：因为函数式组件没有this，数据及其它的，很多都保存在context中
+				render(h, context) {
+					console.log(this); //指向window
+					console.log(context);
+					return h("div", {
+						on: {
+							click: function() {
+								console.log("被点击了");
+								context.listeners.click()
+							}
+						}
+					}, [`函数式组件${context.props.count}`, context.children, h("slot")])
+				},
+			});
+
+			const app = new Vue({
+				provide: {
+					msg: "这是Vue实例中的msg"
+				},
+				el: "#app",
+				data: {
+					count: 100
+				},
+				methods: {},
+				components: {},
+			});
+		</script>
+	</body>
+</html>

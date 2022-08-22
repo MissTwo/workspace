@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<button id="btn_debounce">防抖</button>
+			<button id="btn_throttle">节流</button>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			//防抖: n 秒后在执行该事件，若在 n 秒内被重复触发，则重新计时
+			//节流: n 秒内只运行一次，若在 n 秒内重复触发，只有一次生效
+			//假设2秒，记住函数创建时间，然后执行代码的时候要判断是否间隔了2秒，如果要没有就不执行
+
+			function debounce(callback, delay) {
+				let s1 = null;
+				return function () {
+					if (s1) clearTimeout(s1);
+					// 为什么使用箭头函数
+					s1 = setTimeout(() => {
+						// console.log(arguments);
+						callback.apply(this, arguments);
+					}, delay);
+				};
+			}
+			const d1 = debounce(function (a, b) {
+				console.log("防抖执行了", a, b);
+			}, 2000);
+			document.querySelector("#btn_debounce").onclick = function () {
+				d1(1, 2); //保存end
+			};
+
+			function throttle(callback, delay) {
+				// 使用了闭包特性
+				let start = Date.now(); //开始时间，
+				return function () {
+					const end = Date.now();
+					if (end - start >= delay) {
+						callback.apply(this, arguments);
+						start = Date.now();
+					}
+				};
+			}
+
+			const fn = throttle(function () {
+				console.log("节流执行了");
+			}, 2000); //保存start
+			document.querySelector("#btn_throttle").onclick = function () {
+				fn(); //保存end
+			};
+		</script>
+	</body>
+</html>

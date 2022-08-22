@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- a组件向b组件传值 -->
+			<!-- 不去替换插槽内容 -->
+			<child></child>
+			<hr>
+			<!-- 替换插槽中的内容 -->
+			<child>
+				<!-- 如果只有一个插槽，那么可以不写template -->
+				<span style="color: red;">替换插槽中的内容</span>
+			</child>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+
+			Vue.component("child", {
+				template: "<div><slot></slot>插槽前面的内容 <slot></slot> 插槽后面的内容<slot></slot></div>"
+			})
+			
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+					list: [
+						{
+							id: 1,
+							name: "java",
+							price: 100,
+							create_date: "2020-08-19",
+							count: "1"
+						},
+						{
+							id: 2,
+							name: "vue",
+							price: 80,
+							create_date: "2020-08-21",
+							count: "10"
+						}
+					]
+				},
+				methods: {
+				},
+				components: {
+				},
+			});
+		</script>
+	</body>
+</html>

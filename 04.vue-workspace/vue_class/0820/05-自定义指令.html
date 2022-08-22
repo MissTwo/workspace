@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<span v-demo:foo.lazy="1+1"></span>
+			<span v-demo:foo.lazy="msg"></span>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+			// console.log(Vue.config.optionMergeStrategies);
+			Vue.directive("demo", {
+				bind: function(el, binding, vnode) {
+					console.log("bind", el, binding, vnode);
+					el.textContent = binding.value
+				},
+				update(el, binding, vnode, oldVnode) {
+					console.log("update", el, binding);
+					// console.log(vnode, oldVnode);
+				},
+				componentUpdated(el, binding, vnode, oldVnode) {
+					console.log("componentUpdated", el, binding);
+					// console.log(vnode, oldVnode);
+					el.textContent = binding.value
+				}
+			})
+			const app = new Vue({
+				el: "#app",
+				data: {
+					msg: "这是Vue实例的msg",
+					obj: {
+						a: 10,
+						c: 3,
+					},
+					list: [1, 2, 4],
+				},
+				methods: {
+					t1() {
+						console.log("t1");
+						this.msg += "1111";
+					},
+				},
+				components: {
+				},
+			});
+		</script>
+	</body>
+</html>

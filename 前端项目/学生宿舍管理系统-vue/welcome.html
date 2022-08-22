@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<!--    视口，调整页面适应移动端
+                width=device-width：页面宽度与设备宽度一致
+                initial-scale=1：初始缩放为1，即不会缩放
+                minimum-scale=1：最小缩放比
+                maximum-scale=1：最大缩放比
+                user-scalable=no：用户自定缩放
+        -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>宿舍管理系统</title>
+		<link href="public/bootstrap/css/bootstrap.css" rel="stylesheet">
+		<!--    如下第三方库的JS一般写在head标签中-->
+		<script src="js/util/jquery-3.5.1.js"></script>
+		<script src="public/bootstrap/js/bootstrap.js"></script>
+		<script src="js/util/vue.js"></script>
+		<script src="js/vue.js"></script>
+		<script src="js/common/comp_header.js"></script>
+		<script src="js/common/comp_menus.js"></script>
+		<script src="js/common/sessionCheck.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/welcome.css"/>
+	</head>
+	<body>
+		<div id="app" class="container">
+			<myheader></myheader>
+			<!--    中间内容-->
+			<div class="row flex-content">
+				<mymenus></mymenus>
+				<div class="col-md-9 col-sm-9 col-xs-9" style="flex: 1;margin: 0; padding: 0;">
+					<div id="content_div" class="jumbotron">
+						<h2>{{welcome}}</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/welcome/welcome.js">
+			
+		</script>
+	</body>
+</html>

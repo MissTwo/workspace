@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="root">
+    <demo>
+        <template #left >
+            <span style="color: red">我是最左边的插槽</span>
+        </template>
+        <template v-slot:center >
+            <span style="color: blue">我是最中间的插槽</span>
+        </template>
+        <template>
+            <span style="color: darkviolet">我是匿名的插槽</span>
+        </template>
+        <span style="color:turquoise">我是不用template标签包裹的插槽</span>
+    </demo>
+</div>
+<script src="js/vue.js"></script>
+<script>
+    Vue.component('demo', {
+        template: `
+        <div>
+            <slot name="left"></slot>
+            before
+            <slot name="center"></slot>
+            after
+            <slot></slot>
+        </div>
+        `,
+    });
+    const vm = new Vue({
+        el: '#root',
+    });
+</script>
+</body>
+</html>

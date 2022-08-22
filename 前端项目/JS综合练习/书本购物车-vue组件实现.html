@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Title</title>
+		<link rel="stylesheet" href="../bootstrap/css/bootstrap.css" />
+	</head>
+	<body>
+		<div id="app" class="container">
+			<div>头部</div>
+			<div>
+				<div>
+					<form action="#" method="get" style="display: inline-block">
+						<input
+							type="text"
+							name="book_name"
+                            v-model.trim="searchArgs.name"
+							placeholder="书名"
+						/>
+						<input
+							type="number"
+							name="min_price"
+                            v-model.number="searchArgs.minPrice"
+							placeholder="最低价"
+						/>
+						<input
+							type="number"
+							name="max_price"
+                            v-model.number="searchArgs.maxPrice"
+							placeholder="最高价"
+						/>
+						<button type="button" @click="handler_search">搜索</button>
+					</form>
+					<button type="button" @click="handler_add">
+						添加
+					</button>
+					<button type="button" @click="handler_del_batch">
+						批量删除
+					</button>
+				</div>
+				<div>
+					<my-table :list="pager_list" :titles="titles">
+						<template v-slot:default="{item}">
+							<!-- 只有v-bind修饰的属性才可以使用vue中的属性或变量 -->
+							<td>
+								<input
+									type="checkbox"
+									v-bind:value="item.id"
+									v-model="delete_ids"
+								/>
+							</td>
+							<td>{{item.id}}</td>
+							<td><span v-if="editItemId != item.id" v-text="item.name"></span>
+								<input v-else type="text" v-model.trim.lazy="editItem.name">
+							</td>
+							<td><span v-if="editItemId != item.id" v-text="item.create_date"></span>
+								<input v-else type="text" v-model.trim.lazy="editItem.create_date"></td>
+							<td><span v-if="editItemId != item.id" v-text="item.price"></span>
+								<input v-else type="text" v-model.number.lazy="editItem.price"></td>
+							<td>
+								<span v-if="editItemId != item.id">
+									<button @click="handler_count(-1, item)">-</button>
+									<span style="display: inline-block; width: 30px;text-align: center;" v-text="item.count"></span>
+									<button @click="handler_count(1, item)">+</button>
+								</span>
+								<input v-else type="text" v-model.number.lazy="editItem.count">
+							</td>
+							<td>
+								<span v-if="editItemId != item.id">
+									<button class="btn btn-primary" @click="handler_edit(item)">编辑</button>
+									<button class="btn btn-danger" @click="handler_del(item)">删除</button>
+								</span>
+								<span v-else>
+									<button class="btn btn-primary" @click="handler_save(item)">保存</button>
+									<button class="btn btn-danger" @click="editItemId = -1">取消</button>
+								</span>
+							</td>
+						</template>
+					</my-table>
+					<pagination :count="pager.count" @num_change="handler_num_change"></pagination>
+					<!-- <div>{{total_price | money_format}}</div> -->
+				</div>
+			</div>
+		</div>
+		<script src="../js/lodash.js"></script>
+		<script src="../js/vue.js"></script>
+		<script src="../js/mock.js"></script>
+		<script src="./components/my_table.js"></script>
+		<script src="./components/pager.js"></script>
+		<script src="book_shop_vue_components.js">
+		</script>
+	</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- a组件向b组件传值 -->
+			<!-- 不去替换插槽内容 -->
+			<child></child>
+			<hr>
+			<!-- 替换插槽中的内容 -->
+			<child>
+				<!-- 有多个插槽时，只会替换匿名插槽 -->
+				<span style="color: red;">替换插槽中的内容1111111111---{{age}}</span>
+				<!-- 替换具名插槽，简写方式 -->
+				<template #header="slotProps">
+					{{slotProps}}
+					<span style="color: green;">替换具名插槽header中的内容</span>
+				</template>
+				<template v-slot:center="slotProps">
+					{{slotProps}}
+					<span style="color: green;">替换具名插槽header中的内容</span>
+				</template>
+				<template v-slot:default="slotProps">
+					<span style="color: red;">{{slotProps}}替换插槽中的内容22222</span>
+				</template>
+			</child>
+			<hr>
+			<duzhan v-slot:default="slotProps">
+				<span style="color: blue;">{{slotProps}}独占插槽演示</span>
+			</duzhan>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+
+			Vue.component("duzhan", {
+				template: "<div>插槽前面的内容 <slot msg='111111111111111'></slot> 插槽后面的内容</div>"
+			})
+			Vue.component("child", {
+				data() {
+					return {
+						age: 30
+					}
+				},
+				template: `
+					<div>
+						<slot name='header' v-bind:msg="'这是插槽传的值'" aaa='这是三个a的值'></slot>
+						插槽前面的内容 
+						<slot name='center' :age="age"></slot> 
+						插槽后面的内容
+						<slot msg="这是匿名插槽的传值"></slot>
+					</div>
+				`
+			})
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+					age: 20
+				},
+				methods: {
+				},
+				components: {
+				},
+			});
+		</script>
+	</body>
+</html>

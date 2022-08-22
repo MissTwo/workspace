@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<async-example></async-example>
+			<get-menu aaa="111"></get-menu>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+			// Vue.component("child", {
+			// 	props: ["value"],
+			// 	template: `<div><input type="text" :value="value" @input="$emit('input', $event.target.value)"></div>`
+			// });
+			Vue.component("async-example", function (resolve, reject) {
+				setTimeout(function () {
+					// 向 `resolve` 回调传递组件定义
+					resolve({
+						template: "<div>I am async!</div>",
+					});
+				}, 3000);
+			});
+
+			Vue.component("get-menu", function (resolve, reject) {
+				fetch("http://localhost:3000/dorm_admins/get_by_page.do?page_num=1&page_size=10")
+					.then(res => res.json())
+					.then(json => {
+						resolve({
+							props: ["aaa"],
+							data() {
+								return {
+									list: json
+								}
+							},
+							template: "<div>{{aaa}}----------{{list}}</div>"
+						})
+					})
+			});
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+					
+				},
+				methods: {},
+				components: {},
+			});
+		</script>
+	</body>
+</html>

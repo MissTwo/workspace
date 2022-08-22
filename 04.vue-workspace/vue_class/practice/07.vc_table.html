@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vc-table</title>
+    <style>
+        th{
+            width: 100px;
+        }
+        td{
+            width: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <vc-table :pmanagers="managers" :editItem="peditItem" :editItemId="peditItemId">
+        <template #thead>
+            <th><input id="select-all" type="checkbox"></th>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>电话</th>
+            <th>宿舍楼</th>
+            <th>用户名</th>
+            <th>操作</th>
+        </template>
+    </vc-table>
+</div>
+
+<script src="js/vue.js"></script>
+<script src="js/mock.js"></script>
+<script>
+    // 模拟宿舍管理员的信息
+    let dormAdminManagement = Mock.mock({
+        "dormAdminManagement|5": [
+            {
+                "id|+1": 1,
+                "name": "@cname",
+                "gender|1": ["男", "女"],
+                "phoneNumber": /^1\d{10}/,
+                "dormitory|1": ["第一宿舍楼", "第二宿舍楼", "第三宿舍楼", "第四宿舍楼", "第五宿舍楼"],
+                "username": "@word(4,7)",
+            },
+        ],
+    });
+    // 宿舍管理员的数组对象
+    let dormManagerData = dormAdminManagement.dormAdminManagement;
+    // 定义组件
+    const vcTable = {
+        data(){
+            return{
+                list:'dormManagerData'
+            }
+        },
+        props: ["pmanagers", "pedit", 'p_edit_id'],
+        template: `
+          <table>
+          <thead>
+          <tr>
+           <slot name="thead"></slot>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="(p,index) in pmanagers" :key="p.id">
+            <td><input type="checkbox"></td>
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.gender }}</td>
+            <td>{{ p.phoneNumber }}</td>
+            <td>{{ p.dormitory }}</td>
+            <td>{{ p.username }}</td>
+            <td>
+              <span v-if="p_edit_id != p.id">
+                <button class="btn btn-primary" @click="handler_edit(p)">编辑</button>
+                <button class="btn btn-danger" @click="handler_del(p)">删除</button>
+              </span>
+              <span v-else>
+                <button class="btn btn-primary" @click="handler_save(p)">保存</button>
+                <button class="btn btn-danger" @click="p_edit_id = -1">取消</button>
+              </span>
+            </td>
+          </tr>
+          </tbody>
+          </table>
+        `,
+        methods: {
+            handler_edit(item) {
+                this.pedit = _.cloneDeep(item);
+                this.p_edit_id = item.id;
+            },
+            handler_save(item) {
+                if (this.p_edit_id && this.pedit) {
+                    Object.assign(item, this.pedit);
+                    (this.pedit = {}), (this.p_edit_id = -1);
+                }
+            },
+            handler_del(item) {
+                const {id} = item;
+                this.$delete(
+                    this.list,
+                    this.list.findIndex((value) => value.id == id),
+                );
+                this.$delete(
+                    books,
+                    books.findIndex((value) => value.id == id),
+                );
+            },
+
+        },
+
+    };
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            managers: dormManagerData,
+            peditItemId: -1, //当前编辑的数据对象的id
+            peditItem: {},
+        },
+        // 注册组件
+        components: {
+            'vc-table': vcTable,
+        },
+    });
+</script>
+</body>
+</html>

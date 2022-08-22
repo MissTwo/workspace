@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- a组件向b组件传值 -->
+			<!-- 不去替换插槽内容 -->
+			<child></child>
+			<hr>
+			<!-- 替换插槽中的内容 -->
+			<child>
+				<!-- 有多个插槽时，只会替换匿名插槽 -->
+				<span style="color: red;">替换插槽中的内容1111111111</span>
+				<!-- 替换具名插槽，简写方式 -->
+				<template #header>
+					<span style="color: green;">替换具名插槽header中的内容</span>
+				</template>
+				<template v-slot:center>
+					<span style="color: pink;">替换具名插槽center中的内容</span>
+				</template>
+				<span style="color: red;">替换插槽中的内容222222222222</span>
+				<!-- 替换匿名插槽 -->
+				<template>
+					<span style="color: red;">替换插槽中的内容3333333333</span>
+				</template>
+				<!-- 替换匿名插槽 -->
+				<template v-slot:default>
+					<span style="color: red;">替换插槽中的内容444444444</span>
+				</template>
+			</child>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+
+			// Vue.component("child", {
+			// 	template: "<div><slot></slot>插槽前面的内容 <slot></slot> 插槽后面的内容<slot></slot></div>"
+			// })
+			Vue.component("child", {
+				template: `
+					<div>
+						<slot name='header'></slot>
+						插槽前面的内容 
+						<slot name='center'></slot> 
+						插槽后面的内容
+						<slot></slot>
+					</div>
+				`
+			})
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+					list: [
+						{
+							id: 1,
+							name: "java",
+							price: 100,
+							create_date: "2020-08-19",
+							count: "1"
+						},
+						{
+							id: 2,
+							name: "vue",
+							price: 80,
+							create_date: "2020-08-21",
+							count: "10"
+						}
+					]
+				},
+				methods: {
+				},
+				components: {
+				},
+			});
+		</script>
+	</body>
+</html>

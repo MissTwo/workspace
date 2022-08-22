@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			{{msg}}
+			<hr />
+			这是Vue实例中的内容
+			<span>这是Vue实例中的span</span>
+			<button @click="t1">点击修改msg</button>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+			// console.log(Vue.config.optionMergeStrategies);
+			Vue.config.optionMergeStrategies.myoptions = function(toVal, fromVal) {
+				console.log(toVal ? toVal() : "", fromVal());
+				if(typeof toVal !== 'undefined') {
+					const to = toVal();
+					const from = fromVal();
+					console.log(Object.assign(to, from));
+					return Object.assign(to, from);
+				}
+				return fromVal;
+			}
+			Vue.mixin({
+				myoptions() {
+					return {
+						a: "2222",
+						b: "3333"
+					}
+				},
+			})
+			const app = new Vue({
+				el: "#app",
+				data: {
+					msg: "这是Vue实例的msg",
+					obj: {
+						a: 10,
+						c: 3,
+					},
+					list: [1, 2, 4],
+				},
+				myoptions() {
+					return {
+						a: "1111"
+					}
+				},
+				methods: {
+					t1() {
+						console.log("t1");
+						this.msg += "1111";
+					},
+				},
+				components: {
+				},
+			});
+		</script>
+	</body>
+</html>

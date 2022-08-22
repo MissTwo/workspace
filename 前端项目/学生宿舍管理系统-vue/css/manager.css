@@ -1,0 +1,35 @@
+.collapse .navbar-nav {
+	position: absolute;
+	right: 0;
+	top: -5px;
+}
+
+.breadcrumb {
+	margin: 7px;
+	display: inline-block;
+}
+
+.text-red {
+	color: #FF0000;
+}
+
+.list-group-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.flex-content {
+	display: flex;
+	justify-content: space-between;
+}
+
+.jumbotron {
+	background-color: white;
+	border: solid 1px #ededed;
+}
+
+#content_div {
+	padding: 0 15px 0 15px;
+	margin-top: 0;
+}

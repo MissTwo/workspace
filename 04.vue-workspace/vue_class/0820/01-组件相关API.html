@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			{{msg}}
+			<hr>
+			这是Vue实例中的内容
+			<span>这是Vue实例中的span</span>
+			<button @click="t1">点击修改msg</button>
+			<child @click="1+1" :msg="msg"></child>
+			<hr>
+			<child></child>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+					msg: "这是Vue实例的msg"
+				},
+				methods: {
+					t1() {
+						console.log("t1");
+						this.msg += "1111";
+					}
+				},
+				components: {
+					child: {
+						props: ["msg"],
+						mounted() {
+							console.log("$root----child", this.$root);
+							console.log("$parent----child", this.$parent);
+						},
+						template: `<div>这是child--- <sunzi></sunzi>---{{msg}}</div>`,
+						components: {
+							sunzi: {
+								mounted() {
+									console.log("$root----sunzi", this.$root);
+									console.log("$parent----sunzi", this.$parent);
+									this.$root.msg = "在孙子组件中通过$root修改了msg"
+								},
+								template: `<div>这是孙子</div>`,
+							},
+						},
+					},
+				},
+			});
+		</script>
+	</body>
+</html>

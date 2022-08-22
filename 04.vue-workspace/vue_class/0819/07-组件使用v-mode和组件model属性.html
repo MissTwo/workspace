@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../../bootstrap/css/bootstrap.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<!-- <child v-model="count"></child> -->
+			<child v-model="isChecked"></child>
+		</div>
+		<script src="../js/vue.js"></script>
+		<!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+		<script>
+			// Vue.config.silent = true; // 关闭警告与报错信息
+			// Vue.config.productionTip = false;
+			// Vue.component("child", {
+			// 	props: ["value"],
+			// 	template: `<div><input type="text" :value="value" @input="$emit('input', $event.target.value)"></div>`
+			// });
+			// Vue.component("child", {
+			// 	props: ["count"],
+			// 	model: {
+			// 		prop: "count",
+			// 		event: "input"
+			// 	},
+			// 	template: `<div><input type="text" :value="count" @input="$emit('input', $event.target.value)"></div>`
+			// });
+			Vue.component("child", {
+				props: ["checked"],
+				// 指定v-model指令绑定的属性及事件
+				model: {
+					prop: "checked",
+					event: "change"
+				},
+				template: `<div><input type="checkbox" :checked="checked" @change="$emit('change', $event.target.checked)"></div>`
+			});
+
+			const app = new Vue({
+				el: "#app",
+				data: {
+					count: 20,
+					isChecked: true
+				},
+				methods: {
+				},
+				components: {
+				},
+			});
+		</script>
+	</body>
+</html>
