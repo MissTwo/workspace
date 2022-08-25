@@ -28,25 +28,25 @@
         <h2>当前n的值为:{{n}}</h2>
         <button @click="n++">点我n+1</button>
         <!-- 使用v-show做条件渲染 -->
-        <!--         
+
         <h2 v-show="1===1">你好{{name}}</h2>
-        <h2 v-show="fale">你好{{name}}</h2>
-         -->
+        <h2 v-show="false">你好{{name}}</h2>
+
 
         <!-- 使用v-if做条件渲染 -->
-        <!--         
+
         <h2 v-if="1===1">你if好{{name}}</h2>
-        <h2 v-if="fale">你好{{name}}</h2>
-         -->
-        
+        <h2 v-if="false">你好{{name}}</h2>
+
+
         <!-- 使用v-else-if、v-else做条件渲染 -->
-        <!--                 
-        <h2 v-if="n===1">Angula</h2>
+
+        <h2 v-if="n===1">Angular</h2>
         <h2 v-else-if="n===2">React</h2>
         <h2 v-else-if="n===3">Vue</h2>
         <h2 v-else="n===4">n不满足</h2>
-         -->
-        
+
+
         <!-- v-if与tempalte的配合使用，tempalate只能与v-if一起使用，且不会影响结构 -->
         <template v-if="1===1">
             <h2>你好</h2>
