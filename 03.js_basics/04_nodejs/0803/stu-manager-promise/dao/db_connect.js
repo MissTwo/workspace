@@ -9,7 +9,7 @@
      port: 3306,
      user: 'root',
      password: 'root',
-     database: "cdw100"
+     database: "studormmanager"
  });
  
  module.exports = pool;
