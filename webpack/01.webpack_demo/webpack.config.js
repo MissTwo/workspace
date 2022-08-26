@@ -51,8 +51,11 @@ module.exports = {
         }
         ]
     },
+    optimization:{
+      usedExports:true,
+    },
     // 错误映射对应
-    devtool:'inline-source-map',
+    // devtool:'inline-source-map',
     // 模式
-    mode: "development"
+    mode: "production"
 };
