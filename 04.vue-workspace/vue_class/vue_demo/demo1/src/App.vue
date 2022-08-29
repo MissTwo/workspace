@@ -1,5 +1,6 @@
 <template>
   <div>
+    <MySchool></MySchool>
     <button>
       <router-link to="/"> HelloWord</router-link>
     </button>
@@ -12,14 +13,14 @@
 
 <script>
 // 引入组件
-// import MySchool from "./components/MySchool";
+import MySchool from "./components/MySchool";
 // import MyStudent from "./components/MyStudent";
 
 export default {
   name: "App",
-  // components: {
-  //   MyStudent,
-  // },
+  components: {
+    MySchool,
+  },
 };
 </script>
 
