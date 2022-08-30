@@ -1,4 +1,4 @@
-# vue进阶部分
+# 使用vue脚手架
 
 ## 一、生命周期
 
@@ -593,4 +593,57 @@ mixins:['mixin1','mixin2']
 
 ## 八、插件
 
+### 1.功能：用于增强Vue
+
+### 2.本质：包含install方法的一个对象，install的第一个参数就是vue，第二个以后的参数是插件使用者传递的数据
+
+### 3.定义插件
+
+```js
+//简写
+export defualt {
+    install(Vue){
+    ...
+    }	
+}
+//完整写法
+对象.install=function（Vue，options）{
+    //1.添加全局过滤器
+    Vue.filter(....)
+
+    //2.添加全局自定义指令
+    Vue.directive(....)
+
+    //3.配置全局混入
+    Vue.mixin(...)
+
+    //4.添加实例方法
+    Vue.prototype.$myMethods=function(){...}
+}
+在main.js中使用插件：
+Vue.use(对象)
+```
+
+
+
 ## 九、scoped样式
+
+### 1.用法：让样式在局部生效，防止冲突
+
+### 2.写法：
+
+```vue
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="less" scoped>
+.hello{
+  color: #4cae4c;
+  h2{
+    color: red;
+  }
+}
+</style>
+
+```
+
+**注意：lang属性如果写了要明确语言类型，默认是css**
+

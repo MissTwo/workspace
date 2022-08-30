@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24774d43-1a28-44d6-80c3-684790d17723" name="Default Changelist" comment="简易购物车" />
+    <list default="true" id="24774d43-1a28-44d6-80c3-684790d17723" name="Default Changelist" comment="vue">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -31,11 +39,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propDebugger" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="D:\Mermer\Software\WebStorm 2020.3.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Mermer\workspace\webpack\02.webpack_demo\public" />
+      <recent name="D:\Mermer\workspace\03.js_basics\06_webpack" />
       <recent name="D:\Mermer\workspace\03.js_basics\03_js进阶\前端综合作业\img" />
       <recent name="D:\Mermer\workspace\03.js_basics\03_js进阶" />
       <recent name="D:\Mermer\workspace\03.js_basics\03_js进阶\01.复习基础\上课代码" />
@@ -51,6 +63,23 @@
       <updated>1655874027003</updated>
       <workItem from="1655874032859" duration="514000" />
       <workItem from="1655874596105" duration="15966000" />
+      <workItem from="1658910276341" duration="11512000" />
+      <workItem from="1658968939639" duration="16212000" />
+      <workItem from="1659057092096" duration="5253000" />
+      <workItem from="1659094443558" duration="736000" />
+      <workItem from="1659314783629" duration="20273000" />
+      <workItem from="1659401430210" duration="15656000" />
+      <workItem from="1659778862912" duration="148000" />
+      <workItem from="1660043694377" duration="10000" />
+      <workItem from="1660046149486" duration="304000" />
+      <workItem from="1660103762455" duration="10275000" />
+      <workItem from="1660181094759" duration="5637000" />
+      <workItem from="1660218873736" duration="344000" />
+      <workItem from="1660737246915" duration="170000" />
+      <workItem from="1661162530591" duration="377000" />
+      <workItem from="1661389208700" duration="1075000" />
+      <workItem from="1661393064926" duration="2444000" />
+      <workItem from="1661498682263" duration="1274000" />
     </task>
     <task id="LOCAL-00001" summary="简易购物车">
       <created>1655899250863</created>
@@ -66,7 +95,112 @@
       <option name="project" value="LOCAL" />
       <updated>1655899281598</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="宿舍管理员">
+      <created>1658923060066</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658923060066</updated>
+    </task>
+    <task id="LOCAL-00004" summary="封装接口">
+      <created>1659094545715</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1659094545715</updated>
+    </task>
+    <task id="LOCAL-00005" summary="封装接口">
+      <created>1659317283986</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659317283986</updated>
+    </task>
+    <task id="LOCAL-00006" summary="封装接口">
+      <created>1659355003715</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1659355003715</updated>
+    </task>
+    <task id="LOCAL-00007" summary="封装">
+      <created>1659778975547</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1659778975547</updated>
+    </task>
+    <task id="LOCAL-00008" summary="封装">
+      <created>1660046426972</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660046426972</updated>
+    </task>
+    <task id="LOCAL-00009" summary="11">
+      <created>1660103881631</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1660103881631</updated>
+    </task>
+    <task id="LOCAL-00010" summary="111">
+      <created>1660132562794</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1660132562794</updated>
+    </task>
+    <task id="LOCAL-00011" summary="vue">
+      <created>1660219075815</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1660219075815</updated>
+    </task>
+    <task id="LOCAL-00012" summary="vue">
+      <created>1660737350664</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1660737350664</updated>
+    </task>
+    <task id="LOCAL-00013" summary="vue">
+      <created>1661162842897</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1661162842897</updated>
+    </task>
+    <task id="LOCAL-00014" summary="vue">
+      <created>1661162878647</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1661162878647</updated>
+    </task>
+    <task id="LOCAL-00015" summary="vue">
+      <created>1661498862335</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1661498862335</updated>
+    </task>
+    <task id="LOCAL-00016" summary="vue">
+      <created>1661499822925</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1661499822925</updated>
+    </task>
+    <task id="LOCAL-00017" summary="vue">
+      <created>1661499994932</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1661499994932</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -85,8 +219,17 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="简易购物车" />
-    <option name="LAST_COMMIT_MESSAGE" value="简易购物车" />
+    <MESSAGE value="宿舍管理员" />
+    <MESSAGE value="封装接口" />
+    <MESSAGE value="封装" />
+    <MESSAGE value="11" />
+    <MESSAGE value="111" />
+    <MESSAGE value="vue" />
+    <option name="LAST_COMMIT_MESSAGE" value="vue" />
   </component>
 </project>
