@@ -1,19 +1,28 @@
 <template>
   <div>
-    <el-row v-for="(i,index) in list" :key="index" type="flex" justify="space-between" >
-      <el-checkbox >{{i}}</el-checkbox>
-      <el-button  type="danger" size="small">删除</el-button>
-    </el-row>
+    <ListItem
+        v-for="(i,index) in list"
+        :key="i.id"
+        :item="i"
+        :delete_item="receive_d"
+        :check_item="check_item"/>
   </div>
 </template>
 
 <script>
+import ListItem from "@/components/ListItem";
+
 export default {
   name: "ListBody",
-  data(){
-    return{
-      list:["打代码","吃饭","睡觉","看剧"]
-    }
+  props:['list','receive_delete','check_item'],
+  components: {
+    ListItem,
+  },
+  methods:{
+    receive_d(id){
+      this.receive_delete(id)
+    },
+
   }
 };
 </script>
